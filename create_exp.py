@@ -10,7 +10,7 @@ bCreate_stimuli = 0
 
 positions = ['Agent', 'Verb', 'Patient']
 num_positions = len(positions)
-my_seed = 1
+my_seed = [1, 1, 1, 1]
 
 for iExp in range(len(exps_names)):
     exp_name = exps_names[iExp]

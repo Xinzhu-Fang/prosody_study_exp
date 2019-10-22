@@ -12,7 +12,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     import os
     import shutil
 
-    np.random.seed(my_seed)
+    np.random.seed(my_seed[0])
     vanilla_dir = 'vanilla_images0'
     output_dir = os.path.join(exp_name, 'stimuli', 'images')
     if os.path.isdir(exp_name):
@@ -91,6 +91,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     vFiller_position_condition = np.concatenate(
         (filler_position_condition_for_no, np.tile(['Control'], filler_num_trial_yes)))
 
+    np.random.seed(my_seed[1])
     filler_correct_verb = [verbs[np.random.randint(0, num_verbs)] for i in range(filler_num_trial_total)]
     # filler_wrong_verb = [verbs[num_verbs - 1 - verbs.index(i)] for i in filler_correct_verb]
     filler_wrong_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in filler_correct_verb]
@@ -101,6 +102,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     filler_correct_patient_sex = [patient_sex_mapped_to_verb[verbs.index(i)] for i in filler_correct_verb]
 
     ## start of filler agent
+    np.random.seed(my_seed[2])
     filler_correct_agent = [names[i][np.random.randint(len(names[i]))] for i in filler_correct_agent_sex]
 
     filler_wrong_agent = []
@@ -126,6 +128,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # end of filler agent
 
     ## start of filler patient
+    np.random.seed(my_seed[3])        
     filler_correct_patient = [names[i][np.random.randint(len(names[i]))] for i in filler_correct_patient_sex]
 
     filler_wrong_patient = []
@@ -202,7 +205,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         item_wrong_patient[item_id.index(iItem)]
     ## end of item patient
 
-    ## start of verb
+    ## start of item verb
     vItem_verb_in_picture = np.repeat(item_correct_verb, item_num_trial_for_each_item)
 
     vItem_verb_in_question = np.copy(vItem_verb_in_picture)
@@ -215,7 +218,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         tItem_verb.loc[np.logical_and(tItem_verb.vItem_position_condition == 'Verb',
                                       tItem_verb.vItem_id == iItem), 'vItem_verb_in_question'] = item_wrong_verb[
             item_id.index(iItem)]
-    ## end of verb
+    ## end of item verb
 
     tItem = pd.concat([tItem_agent, tItem_verb, tItem_patient], axis=1)
     tItem = tItem.loc[:, ~tItem.columns.duplicated()]

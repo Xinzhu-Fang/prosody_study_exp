@@ -1,5 +1,8 @@
 # dput(sort(unique()))
 # Three navtive speaekers were asked to classifiy sex for these namees. For each name, if at least two people both chose F, M, or A and the last chose A, the name is put in the majority category, otherwise the name is put in that ambiguous.
+
+# In order to have the filler questions being the same indepdent of the correction condition, the "wrong" list which is the question list is the same acroos exps' on control trials, the correct version is the same as the "wrong" version -- the "wrong" is actaully correct.
+
 import numpy as np
 import pandas as pd
 import create_stimuli
@@ -10,7 +13,7 @@ bCreate_stimuli = 0
 
 positions = ['Agent', 'Verb', 'Patient']
 num_positions = len(positions)
-my_seed = [1, 1, 1, 1]
+my_seed = [1, 1, 1, 1] # the four seeds are each for item, wrong verb, wrong agent, and wrong patient. again, "wrong"
 
 for iExp in range(len(exps_names)):
     exp_name = exps_names[iExp]

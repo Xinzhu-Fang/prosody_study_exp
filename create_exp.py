@@ -13,7 +13,7 @@ bCreate_stimuli = 0
 
 positions = ['Agent', 'Verb', 'Patient']
 num_positions = len(positions)
-my_seed = [1, 1, 1, 1] # the four seeds are each for item, wrong verb, wrong agent, and wrong patient. again, "wrong"
+my_seed = [1, 1, 1, 2] # the four seeds are each for item, wrong verb, wrong agent, and wrong patient. again, "wrong"
 
 for iExp in range(len(exps_names)):
     exp_name = exps_names[iExp]

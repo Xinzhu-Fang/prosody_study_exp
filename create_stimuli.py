@@ -92,79 +92,79 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         (filler_position_condition_for_no, np.tile(['Control'], filler_num_trial_yes)))
 
     np.random.seed(my_seed[1])
-    filler_correct_verb = [verbs[np.random.randint(0, num_verbs)] for i in range(filler_num_trial_total)]
-    # filler_wrong_verb = [verbs[num_verbs - 1 - verbs.index(i)] for i in filler_correct_verb]
-    filler_wrong_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in filler_correct_verb]
+    filler_wrong_verb = [verbs[np.random.randint(0, num_verbs)] for i in range(filler_num_trial_total)]
+    # filler_correct_verb = [verbs[num_verbs - 1 - verbs.index(i)] for i in filler_wrong_verb]
+    filler_correct_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in filler_wrong_verb]
     # to check should be all false
-    # [filler_correct_verb[i] == filler_wrong_verb[i] for i in range(len(filler_correct_verb))]
+    # [filler_wrong_verb[i] == filler_correct_verb[i] for i in range(len(filler_wrong_verb))]
 
-    filler_correct_agent_sex = [agent_sex_mapped_to_verb[verbs.index(i)] for i in filler_correct_verb]
-    filler_correct_patient_sex = [patient_sex_mapped_to_verb[verbs.index(i)] for i in filler_correct_verb]
+    filler_wrong_agent_sex = [agent_sex_mapped_to_verb[verbs.index(i)] for i in filler_wrong_verb]
+    filler_wrong_patient_sex = [patient_sex_mapped_to_verb[verbs.index(i)] for i in filler_wrong_verb]
 
     ## start of filler agent
     np.random.seed(my_seed[2])
-    filler_correct_agent = [names[i][np.random.randint(len(names[i]))] for i in filler_correct_agent_sex]
+    filler_wrong_agent = [names[i][np.random.randint(len(names[i]))] for i in filler_wrong_agent_sex]
 
-    filler_wrong_agent = []
-    for i in range(len(filler_correct_agent)):
-        cur_sex = filler_correct_agent_sex[i]
+    filler_correct_agent = []
+    for i in range(len(filler_wrong_agent)):
+        cur_sex = filler_wrong_agent_sex[i]
         cur_name_pool = names[cur_sex]
-        cur_correct_name_index = cur_name_pool.index(filler_correct_agent[i])
-        cur_wrong_name_index = (cur_correct_name_index + np.random.randint(1, len(cur_name_pool))) % len(cur_name_pool)
-        cur_wrong_name = cur_name_pool[cur_wrong_name_index]
-        filler_wrong_agent.append(cur_wrong_name)
+        cur_wrong_name_index = cur_name_pool.index(filler_wrong_agent[i])
+        cur_correct_name_index = (cur_wrong_name_index + np.random.randint(1, len(cur_name_pool))) % len(cur_name_pool)
+        cur_correct_name = cur_name_pool[cur_correct_name_index]
+        filler_correct_agent.append(cur_correct_name)
 
-    filler_agent_in_picture = filler_correct_agent[:]
+    filler_agent_in_question = filler_wrong_agent[:]
 
-    filler_agent_in_question = filler_agent_in_picture[:]
+    filler_agent_in_picture = filler_agent_in_question[:]
 
     tFiller_agent = pd.DataFrame(
-        zip(filler_id, vFiller_position_condition, filler_agent_in_picture, filler_agent_in_question),
-        columns=['filler_id', 'vFiller_position_condition', 'filler_agent_in_picture', 'filler_agent_in_question'])
+        zip(filler_id, vFiller_position_condition, filler_agent_in_question, filler_agent_in_picture),
+        columns=['filler_id', 'vFiller_position_condition', 'filler_agent_in_question', 'filler_agent_in_picture'])
     for iFiller in filler_id:
         tFiller_agent.loc[np.logical_and(tFiller_agent.vFiller_position_condition == 'Agent',
-                                         tFiller_agent.filler_id == iFiller), 'filler_agent_in_question'] = \
-        filler_wrong_agent[filler_id.index(iFiller)]
+                                         tFiller_agent.filler_id == iFiller), 'filler_agent_in_picture'] = \
+        filler_correct_agent[filler_id.index(iFiller)]
     # end of filler agent
 
     ## start of filler patient
-    np.random.seed(my_seed[3])        
-    filler_correct_patient = [names[i][np.random.randint(len(names[i]))] for i in filler_correct_patient_sex]
+    np.random.seed(my_seed[3])
+    filler_wrong_patient = [names[i][np.random.randint(len(names[i]))] for i in filler_wrong_patient_sex]
 
-    filler_wrong_patient = []
-    for i in range(len(filler_correct_patient)):
-        cur_sex = filler_correct_patient_sex[i]
+    filler_correct_patient = []
+    for i in range(len(filler_wrong_patient)):
+        cur_sex = filler_wrong_patient_sex[i]
         cur_name_pool = names[cur_sex]
-        cur_correct_name_index = cur_name_pool.index(filler_correct_patient[i])
-        cur_wrong_name_index = (cur_correct_name_index + np.random.randint(1, len(cur_name_pool))) % len(cur_name_pool)
-        cur_wrong_name = cur_name_pool[cur_wrong_name_index]
-        filler_wrong_patient.append(cur_wrong_name)
+        cur_wrong_name_index = cur_name_pool.index(filler_wrong_patient[i])
+        cur_correct_name_index = (cur_wrong_name_index + np.random.randint(1, len(cur_name_pool))) % len(cur_name_pool)
+        cur_correct_name = cur_name_pool[cur_correct_name_index]
+        filler_correct_patient.append(cur_correct_name)
 
-    filler_patient_in_picture = filler_correct_patient[:]
+    filler_patient_in_question = filler_wrong_patient[:]
 
-    filler_patient_in_question = filler_patient_in_picture[:]
+    filler_patient_in_picture = filler_patient_in_question[:]
 
     tFiller_patient = pd.DataFrame(
-        list(zip(filler_id, vFiller_position_condition, filler_patient_in_picture, filler_patient_in_question)),
-        columns=['filler_id', 'vFiller_position_condition', 'filler_patient_in_picture', 'filler_patient_in_question'])
+        list(zip(filler_id, vFiller_position_condition, filler_patient_in_question, filler_patient_in_picture)),
+        columns=['filler_id', 'vFiller_position_condition', 'filler_patient_in_question', 'filler_patient_in_picture'])
     for iFiller in filler_id:
         tFiller_patient.loc[np.logical_and(tFiller_patient.vFiller_position_condition == 'Patient',
-                                           tFiller_patient.filler_id == iFiller), 'filler_patient_in_question'] = \
-        filler_wrong_patient[filler_id.index(iFiller)]
+                                           tFiller_patient.filler_id == iFiller), 'filler_patient_in_picture'] = \
+        filler_correct_patient[filler_id.index(iFiller)]
     # end of filler patient
 
     ## start of filler verb
-    filler_verb_in_picture = filler_correct_verb[:]
+    filler_verb_in_question = filler_wrong_verb[:]
 
-    filler_verb_in_question = filler_verb_in_picture[:]
+    filler_verb_in_picture = filler_verb_in_question[:]
 
     tFiller_verb = pd.DataFrame(
-        list(zip(filler_id, vFiller_position_condition, filler_verb_in_picture, filler_verb_in_question)),
-        columns=['filler_id', 'vFiller_position_condition', 'filler_verb_in_picture', 'filler_verb_in_question'])
+        list(zip(filler_id, vFiller_position_condition, filler_verb_in_question, filler_verb_in_picture)),
+        columns=['filler_id', 'vFiller_position_condition', 'filler_verb_in_question', 'filler_verb_in_picture'])
     for iFiller in filler_id:
         tFiller_verb.loc[np.logical_and(tFiller_verb.vFiller_position_condition == 'Verb',
-                                        tFiller_verb.filler_id == iFiller), 'filler_verb_in_question'] = \
-        filler_wrong_verb[filler_id.index(iFiller)]
+                                        tFiller_verb.filler_id == iFiller), 'filler_verb_in_picture'] = \
+        filler_correct_verb[filler_id.index(iFiller)]
     # end of filler verb
 
     item_id0 = ["{:02d}".format(i) for i in range(1, exp_num_of_items + 1)]
@@ -176,68 +176,68 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
                         np.tile(['Control'], exp_num_of_control_for_each_item))), exp_num_of_items)
 
     ## start of item agent
-    vItem_agent_in_picture = np.repeat(item_correct_agent, item_num_trial_for_each_item)
+    vItem_agent_in_question = np.repeat(item_wrong_agent, item_num_trial_for_each_item)
 
-    vItem_agent_in_question = np.copy(vItem_agent_in_picture)
+    vItem_agent_in_picture = np.copy(vItem_agent_in_question)
 
     tItem_agent = pd.DataFrame(
-        list(zip(vItem_id, vItem_position_condition, vItem_agent_in_picture, vItem_agent_in_question)),
-        columns=['vItem_id', 'vItem_position_condition', 'vItem_agent_in_picture', 'vItem_agent_in_question'])
+        list(zip(vItem_id, vItem_position_condition, vItem_agent_in_question, vItem_agent_in_picture)),
+        columns=['vItem_id', 'vItem_position_condition', 'vItem_agent_in_question', 'vItem_agent_in_picture'])
 
     for iItem in item_id:
         tItem_agent.loc[np.logical_and(tItem_agent.vItem_position_condition == 'Agent',
-                                       tItem_agent.vItem_id == iItem), 'vItem_agent_in_question'] = item_wrong_agent[
+                                       tItem_agent.vItem_id == iItem), 'vItem_agent_in_picture'] = item_correct_agent[
             item_id.index(iItem)]
     ## end of item agent
 
     ## start of item patient
-    vItem_patient_in_picture = np.repeat(item_correct_patient, item_num_trial_for_each_item)
+    vItem_patient_in_question = np.repeat(item_wrong_patient, item_num_trial_for_each_item)
 
-    vItem_patient_in_question = np.copy(vItem_patient_in_picture)
+    vItem_patient_in_picture = np.copy(vItem_patient_in_question)
 
     tItem_patient = pd.DataFrame(
-        list(zip(vItem_id, vItem_position_condition, vItem_patient_in_picture, vItem_patient_in_question)),
-        columns=['vItem_id', 'vItem_position_condition', 'vItem_patient_in_picture', 'vItem_patient_in_question'])
+        list(zip(vItem_id, vItem_position_condition, vItem_patient_in_question, vItem_patient_in_picture)),
+        columns=['vItem_id', 'vItem_position_condition', 'vItem_patient_in_question', 'vItem_patient_in_picture'])
 
     for iItem in item_id:
         tItem_patient.loc[np.logical_and(tItem_patient.vItem_position_condition == 'Patient',
-                                         tItem_patient.vItem_id == iItem), 'vItem_patient_in_question'] = \
-        item_wrong_patient[item_id.index(iItem)]
+                                         tItem_patient.vItem_id == iItem), 'vItem_patient_in_picture'] = \
+        item_correct_patient[item_id.index(iItem)]
     ## end of item patient
 
     ## start of item verb
-    vItem_verb_in_picture = np.repeat(item_correct_verb, item_num_trial_for_each_item)
+    vItem_verb_in_question = np.repeat(item_wrong_verb, item_num_trial_for_each_item)
 
-    vItem_verb_in_question = np.copy(vItem_verb_in_picture)
+    vItem_verb_in_picture = np.copy(vItem_verb_in_question)
 
     tItem_verb = pd.DataFrame(
-        list(zip(vItem_id, vItem_position_condition, vItem_verb_in_picture, vItem_verb_in_question)),
-        columns=['vItem_id', 'vItem_position_condition', 'vItem_verb_in_picture', 'vItem_verb_in_question'])
+        list(zip(vItem_id, vItem_position_condition, vItem_verb_in_question, vItem_verb_in_picture)),
+        columns=['vItem_id', 'vItem_position_condition', 'vItem_verb_in_question', 'vItem_verb_in_picture'])
 
     for iItem in item_id:
         tItem_verb.loc[np.logical_and(tItem_verb.vItem_position_condition == 'Verb',
-                                      tItem_verb.vItem_id == iItem), 'vItem_verb_in_question'] = item_wrong_verb[
+                                      tItem_verb.vItem_id == iItem), 'vItem_verb_in_picture'] = item_correct_verb[
             item_id.index(iItem)]
     ## end of item verb
 
     tItem = pd.concat([tItem_agent, tItem_verb, tItem_patient], axis=1)
     tItem = tItem.loc[:, ~tItem.columns.duplicated()]
-    tItem.columns = ["filler_or_item_id", "position_condition", "agent_in_picture", "agent_in_question",
-                     "verb_in_picture", "verb_in_question", "patient_in_picture", "patient_in_question"]
+    tItem.columns = ["filler_or_item_id", "position_condition", "agent_in_question", "agent_in_picture",
+                     "verb_in_question", "verb_in_picture", "patient_in_question", "patient_in_picture"]
 
     tFiller = pd.concat([tFiller_agent, tFiller_verb, tFiller_patient], axis=1)
     tFiller = tFiller.loc[:, ~tFiller.columns.duplicated()]
-    tFiller.columns = ["filler_or_item_id", "position_condition", "agent_in_picture", "agent_in_question",
-                       "verb_in_picture", "verb_in_question", "patient_in_picture", "patient_in_question"]
+    tFiller.columns = ["filler_or_item_id", "position_condition", "agent_in_question", "agent_in_picture",
+                       "verb_in_question", "verb_in_picture", "patient_in_question", "patient_in_picture"]
 
     tAll_trials = pd.concat([tItem, tFiller])
 
     tAll_trials['question_file'] = ["Is_" + a + '_' + v + "ing" + '_' + p + '.wav' for a, v, p in
-                                    zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                        tAll_trials.patient_in_question)]
+                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+                                        tAll_trials.patient_in_picture)]
     tAll_trials['picture_file'] = [a + '_is_' + v + "ing" + '_' + p + '.png' for a, v, p in
-                                   zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
-                                       tAll_trials.patient_in_picture)]
+                                   zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                       tAll_trials.patient_in_question)]
 
     tAll_trials.to_csv(os.path.join(exp_name, 'tAll_trials.csv'), encoding='utf-8', index=False)
     exp_trial_id = ["{:02d}".format(i) for i in range(1, exp_num_trials + 1)]
@@ -258,11 +258,11 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         # img.save('sample-out.png')
 
         for iTrial, iRow in tAll_trials.iterrows():
-            cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + iRow.verb_in_picture + '*.png'))[0]
+            cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + iRow.verb_in_question + '*.png'))[0]
             print(iTrial)
             print(cur_vanilla)
         cur_img = Image.open(cur_vanilla)
         draw = ImageDraw.Draw(cur_img)
-        draw.text((width1, height), iRow.agent_in_picture, color0, font=font0)
-        draw.text((width2, height), iRow.patient_in_picture, color0, font=font0)
+        draw.text((width1, height), iRow.agent_in_question, color0, font=font0)
+        draw.text((width2, height), iRow.patient_in_question, color0, font=font0)
         cur_img.save(os.path.join(output_dir, iRow.picture_file))

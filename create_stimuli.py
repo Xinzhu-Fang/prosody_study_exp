@@ -265,7 +265,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         # font = ImageFont.truetype(<font-file>, <font-size>)
         # font = ImageFont.truetype("sans-serif.ttf", 16)
         font0 = ImageFont.truetype("/Library/Fonts/Arial.ttf", 80)
-        width1 = 50
+        width1 = 80
         width2 = 900
         height = 1900
         color0 = (0, 0, 0, 0)
@@ -275,7 +275,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         for iTrial, iRow in tAll_trials.iterrows():
             cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + iRow.verb_in_question + '*.png'))[0]
             print(iTrial)
-            print(cur_vanilla)
+            # print(cur_vanilla)
             cur_img = Image.open(cur_vanilla)
             draw = ImageDraw.Draw(cur_img)
             draw.text((width1, height), iRow.agent_in_picture, color0, font=font0)

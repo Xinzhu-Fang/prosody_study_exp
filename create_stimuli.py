@@ -248,6 +248,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     trial_order = range(tAll_trials.shape[0])
     np.random.shuffle(trial_order)
     tAll_trials.index = trial_order
+    tAll_trials =  tAll_trials.sort_index()
     
     tAll_trials.to_csv(os.path.join(exp_name, 'tAll_trials.csv'), encoding='utf-8', index=False)
     exp_trial_id = ["{:02d}".format(i) for i in range(1, exp_num_trials + 1)]

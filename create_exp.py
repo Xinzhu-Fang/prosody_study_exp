@@ -1,5 +1,5 @@
 # dput(sort(unique()))
-# Three navtive speaekers were asked to classifiy sex for these namees. For each name, if at least two people both chose F, M, or A and the last chose A, the name is put in the majority category, otherwise the name is put in that ambiguous.
+# Three navtive speaekers were asked to classifiy sex for these namees into Female, Male, and Ambiguous. For each name, if at least two people both chose F of M and the third one chose A, the name is put in the majority sex category, otherwise the name is discarded. 
 
 # In order to have the filler questions being the same indepdent of the correction condition, the "wrong" list which is the question list is the same acroos exps' on control trials, the correct version is the same as the "wrong" version -- the "wrong" is actaully correct.
 

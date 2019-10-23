@@ -1,4 +1,4 @@
-filler_or_item_id,position_condition,agent_in_question,agent_in_picture,verb_in_question,verb_in_picture,patient_in_question,patient_in_picture,question_file,picture_file
+filler_or_item_id,position_condition,agent_in_question,agent_in_picture,verb_in_question,verb_in_picture,patient_in_question,patient_in_picture,picture_file,question_file
 item_01,Agent,JUDY,TORI,Pull,Pull,RONNIE,RONNIE,Is_TORI_Pulling_RONNIE.wav,JUDY_is_Pulling_RONNIE.png
 item_01,Verb,JUDY,JUDY,Pull,Kick,RONNIE,RONNIE,Is_JUDY_Kicking_RONNIE.wav,JUDY_is_Pulling_RONNIE.png
 item_01,Patient,JUDY,JUDY,Pull,Pull,RONNIE,WALLY,Is_JUDY_Pulling_WALLY.wav,JUDY_is_Pulling_RONNIE.png

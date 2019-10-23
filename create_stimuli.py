@@ -230,12 +230,16 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     tFiller.columns = ["filler_or_item_id", "position_condition", "agent_in_question", "agent_in_picture",
                        "verb_in_question", "verb_in_picture", "patient_in_question", "patient_in_picture"]
 
+# make sure there is no such case that the agent and the patient is the same
+    print(sum(np.logical_or(np.logical_or(tFiller.agent_in_picture == tFiller.patient_in_picture, tFiller.agent_in_picture == tFiller.patient_in_question), np.logical_or(tFiller.agent_in_question == tFiller.patient_in_picture, tFiller.agent_in_question == tFiller.patient_in_question))
+))
+
     tAll_trials = pd.concat([tItem, tFiller])
 
-    tAll_trials['question_file'] = ["Is_" + a + '_' + v + "ing" + '_' + p + '.wav' for a, v, p in
+    tAll_trials['picture_file'] = ["Is_" + a + '_' + v + "ing" + '_' + p + '.wav' for a, v, p in
                                     zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
                                         tAll_trials.patient_in_picture)]
-    tAll_trials['picture_file'] = [a + '_is_' + v + "ing" + '_' + p + '.png' for a, v, p in
+    tAll_trials['question_file'] = [a + '_is_' + v + "ing" + '_' + p + '.png' for a, v, p in
                                    zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
                                        tAll_trials.patient_in_question)]
 

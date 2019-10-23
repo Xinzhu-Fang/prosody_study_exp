@@ -37,8 +37,8 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # "OLLIE", "PERCY", "RONNIE", "TAMMY", "TEDDY", "TIMMY", "WALLY",
     # "WILLY"]
     #
-    # other names, cindy, nancy,
-    # names i threw out myself, fanny
+    # other names, cindy, nancy, zoey, morrie, joey, willy, randy, tracey, casey, terry, kerry, kylie, darcy, neddy, mory, benny, manny, jilly, nelly, carrie, hailey,  
+    # names i threw out myself, fanny,
 
     sex_levels = ['F', 'M']
     num_sexes = len(sex_levels)

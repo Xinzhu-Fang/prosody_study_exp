@@ -9,13 +9,13 @@ import create_stimuli
 
 
 exps_names = ['exp0', 'exp1', 'exp2']
-bCreate_stimuli = 0
+bCreate_stimuli = 1
 
 positions = ['Agent', 'Verb', 'Patient']
 num_positions = len(positions)
 my_seed = [1, 1, 1, 2] # the four seeds are each for item, wrong verb, wrong agent, and wrong patient. again, "wrong"
-
-for iExp in range(len(exps_names)):
+for iExp in [1]:
+# for iExp in range(len(exps_names)):
     exp_name = exps_names[iExp]
     exp_num_of_items = np.repeat(4, 3)[iExp]
     exp_yes_to_no_ratio = [1, 2, 0.5][iExp]

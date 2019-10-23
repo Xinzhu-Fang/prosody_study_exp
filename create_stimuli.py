@@ -1,4 +1,5 @@
-def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, exp_num_of_items, exp_yes_to_no_ratio, exp_num_trials,
+def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, exp_num_of_items, exp_yes_to_no_ratio,
+                   exp_num_trials,
                    exp_num_trial_yes, exp_num_trial_no, exp_num_of_control_for_each_item,
                    exp_num_of_correction_for_each_position_for_each_item, item_num_trial_total, item_num_trial_yes,
                    item_num_trial_no, item_num_trial_for_each_item, filler_num_trial_total, filler_num_trial_yes,
@@ -14,12 +15,16 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
 
     np.random.seed(my_seed[0])
     vanilla_dir = 'vanilla_images0'
-    output_dir = os.path.join(exp_name, 'stimuli', 'images')
-    if os.path.isdir(exp_name):
-        if os.path.isdir(output_dir):
-            shutil.rmtree(output_dir)
-    else:
+    output_dir = os.path.join(exp_name, 'images')
+    if not os.path.isdir(exp_name):
+        # print("I")
         os.mkdir(exp_name)
+    if os.path.isdir(output_dir):
+        shutil.rmtree(output_dir)
+        # print("cannot")
+    # else:
+    os.mkdir(output_dir)
+        # print("believe")
 
 
     # female_names = ["ANNIE", "BETTY", "BONNIE", "BRANDY", "CARLIE", "CHLOE", "DOLLY",
@@ -34,7 +39,6 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     #
     # other names, cindy, nancy,
     # names i threw out myself, fanny
-
 
     sex_levels = ['F', 'M']
     num_sexes = len(sex_levels)
@@ -80,10 +84,6 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # item_wrong_patient = [names[i].pop() for i in item_correct_patient_sex]
     item_wrong_patient = [names[i][np.random.randint(len(names[i]))] for i in item_correct_patient_sex]
 
-
-
-
-
     filler_id0 = ["{:02d}".format(i) for i in range(1, filler_num_trial_total + 1)]
     filler_id = ["filler_" + i for i in filler_id0]
     filler_position_condition_for_no = [positions[i] for i in
@@ -94,7 +94,8 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     np.random.seed(my_seed[1])
     filler_wrong_verb = [verbs[np.random.randint(0, num_verbs)] for i in range(filler_num_trial_total)]
     # filler_correct_verb = [verbs[num_verbs - 1 - verbs.index(i)] for i in filler_wrong_verb]
-    filler_correct_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in filler_wrong_verb]
+    filler_correct_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in
+                           filler_wrong_verb]
     # to check should be all false
     # [filler_wrong_verb[i] == filler_correct_verb[i] for i in range(len(filler_wrong_verb))]
 
@@ -124,7 +125,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     for iFiller in filler_id:
         tFiller_agent.loc[np.logical_and(tFiller_agent.vFiller_position_condition == 'Agent',
                                          tFiller_agent.filler_id == iFiller), 'filler_agent_in_picture'] = \
-        filler_correct_agent[filler_id.index(iFiller)]
+            filler_correct_agent[filler_id.index(iFiller)]
     # end of filler agent
 
     ## start of filler patient
@@ -150,7 +151,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     for iFiller in filler_id:
         tFiller_patient.loc[np.logical_and(tFiller_patient.vFiller_position_condition == 'Patient',
                                            tFiller_patient.filler_id == iFiller), 'filler_patient_in_picture'] = \
-        filler_correct_patient[filler_id.index(iFiller)]
+            filler_correct_patient[filler_id.index(iFiller)]
     # end of filler patient
 
     ## start of filler verb
@@ -164,7 +165,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     for iFiller in filler_id:
         tFiller_verb.loc[np.logical_and(tFiller_verb.vFiller_position_condition == 'Verb',
                                         tFiller_verb.filler_id == iFiller), 'filler_verb_in_picture'] = \
-        filler_correct_verb[filler_id.index(iFiller)]
+            filler_correct_verb[filler_id.index(iFiller)]
     # end of filler verb
 
     item_id0 = ["{:02d}".format(i) for i in range(1, exp_num_of_items + 1)]
@@ -202,7 +203,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     for iItem in item_id:
         tItem_patient.loc[np.logical_and(tItem_patient.vItem_position_condition == 'Patient',
                                          tItem_patient.vItem_id == iItem), 'vItem_patient_in_picture'] = \
-        item_correct_patient[item_id.index(iItem)]
+            item_correct_patient[item_id.index(iItem)]
     ## end of item patient
 
     ## start of item verb
@@ -230,31 +231,34 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     tFiller.columns = ["filler_or_item_id", "position_condition", "agent_in_question", "agent_in_picture",
                        "verb_in_question", "verb_in_picture", "patient_in_question", "patient_in_picture"]
 
-# make sure there is no such case that the agent and the patient is the same
-    print(sum(np.logical_or(np.logical_or(tFiller.agent_in_picture == tFiller.patient_in_picture, tFiller.agent_in_picture == tFiller.patient_in_question), np.logical_or(tFiller.agent_in_question == tFiller.patient_in_picture, tFiller.agent_in_question == tFiller.patient_in_question))
-))
+    # make sure there is no such case that the agent and the patient is the same
+    print("any trial with characters of the same name?")
+    print(sum(np.logical_or(np.logical_or(tFiller.agent_in_picture == tFiller.patient_in_picture,
+                                          tFiller.agent_in_picture == tFiller.patient_in_question),
+                            np.logical_or(tFiller.agent_in_question == tFiller.patient_in_picture,
+                                          tFiller.agent_in_question == tFiller.patient_in_question))
+              ))
 
     tAll_trials = pd.concat([tItem, tFiller])
 
-    tAll_trials['picture_file'] = ["Is_" + a + '_' + v + "ing" + '_' + p + '.png' for a, v, p in
-                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
-                                        tAll_trials.patient_in_picture)]
-    tAll_trials['question_file'] = [a + '_is_' + v + "ing" + '_' + p + '.wav' for a, v, p in
-                                   zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                       tAll_trials.patient_in_question)]
+    tAll_trials['picture_file'] = [a + '_is_' + v + "ing" + '_' + p + '.png' for a, v, p in
+                                   zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+                                       tAll_trials.patient_in_picture)]
+    tAll_trials['question_file'] = ["Is_" + a + '_' + v + "ing" + '_' + p + '.wav' for a, v, p in
+                                    zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                        tAll_trials.patient_in_question)]
 
     #
-    
+
     trial_order = range(tAll_trials.shape[0])
     np.random.shuffle(trial_order)
     tAll_trials.index = trial_order
-    tAll_trials =  tAll_trials.sort_index()
-    
+    tAll_trials = tAll_trials.sort_index()
+
     tAll_trials.to_csv(os.path.join(exp_name, 'tAll_trials.csv'), encoding='utf-8', index=False)
     exp_trial_id = ["{:02d}".format(i) for i in range(1, exp_num_trials + 1)]
- 
+
     if bCreate_stimuli == 1:
-        os.mkdir(output_dir)
         # image = "sample-out.png"
         # img = Image.open(image)
         # draw = ImageDraw.Draw(img)
@@ -272,8 +276,8 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
             cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + iRow.verb_in_question + '*.png'))[0]
             print(iTrial)
             print(cur_vanilla)
-        cur_img = Image.open(cur_vanilla)
-        draw = ImageDraw.Draw(cur_img)
-        draw.text((width1, height), iRow.agent_in_question, color0, font=font0)
-        draw.text((width2, height), iRow.patient_in_question, color0, font=font0)
-        cur_img.save(os.path.join(output_dir, iRow.picture_file))
+            cur_img = Image.open(cur_vanilla)
+            draw = ImageDraw.Draw(cur_img)
+            draw.text((width1, height), iRow.agent_in_picture, color0, font=font0)
+            draw.text((width2, height), iRow.patient_in_picture, color0, font=font0)
+            cur_img.save(os.path.join(output_dir, iRow.picture_file))

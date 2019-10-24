@@ -1,73 +1,73 @@
-filler_or_item_id,position_condition,agent_in_question,agent_in_picture,verb_in_question,verb_in_picture,patient_in_question,patient_in_picture,picture_file,question_file
-filler_19,Control,TEDDY,TEDDY,Push,Push,BRANDY,BRANDY,TEDDY_is_Pushing_BRANDY.png,Is_TEDDY_Pushing_BRANDY.wav
-filler_11,Agent,BILLY,EDDIE,Push,Push,LINDY,LINDY,EDDIE_is_Pushing_LINDY.png,Is_BILLY_Pushing_LINDY.wav
-item_04,Patient,ANNIE,ANNIE,Kick,Kick,DORRY,PENNY,ANNIE_is_Kicking_PENNY.png,Is_ANNIE_Kicking_DORRY.wav
-item_01,Verb,JUDY,JUDY,Pull,Kick,RONNIE,RONNIE,JUDY_is_Kicking_RONNIE.png,Is_JUDY_Pulling_RONNIE.wav
-item_01,Verb,JUDY,JUDY,Pull,Kick,RONNIE,RONNIE,JUDY_is_Kicking_RONNIE.png,Is_JUDY_Pulling_RONNIE.wav
-item_03,Agent,PERCY,WILLY,Pull,Pull,KELLY,KELLY,WILLY_is_Pulling_KELLY.png,Is_PERCY_Pulling_KELLY.wav
-item_01,Agent,JUDY,TORI,Pull,Pull,RONNIE,RONNIE,TORI_is_Pulling_RONNIE.png,Is_JUDY_Pulling_RONNIE.wav
-filler_13,Control,FREEDY,FREEDY,Push,Push,MINDY,MINDY,FREEDY_is_Pushing_MINDY.png,Is_FREEDY_Pushing_MINDY.wav
-item_03,Control,PERCY,PERCY,Pull,Pull,KELLY,KELLY,PERCY_is_Pulling_KELLY.png,Is_PERCY_Pulling_KELLY.wav
-filler_14,Control,KIMMY,KIMMY,Kick,Kick,PERCY,PERCY,KIMMY_is_Kicking_PERCY.png,Is_KIMMY_Kicking_PERCY.wav
-item_04,Agent,ANNIE,SANDY,Kick,Kick,DORRY,DORRY,SANDY_is_Kicking_DORRY.png,Is_ANNIE_Kicking_DORRY.wav
-filler_15,Control,DOLLY,DOLLY,Poke,Poke,MERRY,MERRY,DOLLY_is_Pokeing_MERRY.png,Is_DOLLY_Pokeing_MERRY.wav
-item_01,Agent,JUDY,TORI,Pull,Pull,RONNIE,RONNIE,TORI_is_Pulling_RONNIE.png,Is_JUDY_Pulling_RONNIE.wav
-filler_30,Control,MOLLY,MOLLY,Pull,Pull,CHLOE,CHLOE,MOLLY_is_Pulling_CHLOE.png,Is_MOLLY_Pulling_CHLOE.wav
-filler_06,Agent,JOHNNY,PERCY,Lift,Lift,TEDDY,TEDDY,PERCY_is_Lifting_TEDDY.png,Is_JOHNNY_Lifting_TEDDY.wav
-filler_32,Control,FRANNY,FRANNY,Kick,Kick,OLLIE,OLLIE,FRANNY_is_Kicking_OLLIE.png,Is_FRANNY_Kicking_OLLIE.wav
-filler_40,Control,KIMMY,KIMMY,Kiss,Kiss,PERCY,PERCY,KIMMY_is_Kissing_PERCY.png,Is_KIMMY_Kissing_PERCY.wav
-filler_33,Control,FRANNY,FRANNY,Pull,Pull,DOLLY,DOLLY,FRANNY_is_Pulling_DOLLY.png,Is_FRANNY_Pulling_DOLLY.wav
-filler_12,Patient,KELLY,KELLY,Pull,Pull,JUDY,FRANNY,KELLY_is_Pulling_FRANNY.png,Is_KELLY_Pulling_JUDY.wav
-item_04,Verb,ANNIE,ANNIE,Kick,Pull,DORRY,DORRY,ANNIE_is_Pulling_DORRY.png,Is_ANNIE_Kicking_DORRY.wav
-filler_25,Control,PAMMY,PAMMY,Poke,Poke,DORRY,DORRY,PAMMY_is_Pokeing_DORRY.png,Is_PAMMY_Pokeing_DORRY.wav
-filler_38,Control,LINDY,LINDY,Kick,Kick,TEDDY,TEDDY,LINDY_is_Kicking_TEDDY.png,Is_LINDY_Kicking_TEDDY.wav
-filler_23,Control,TEDDY,TEDDY,Push,Push,JUDY,JUDY,TEDDY_is_Pushing_JUDY.png,Is_TEDDY_Pushing_JUDY.wav
-item_03,Patient,PERCY,PERCY,Pull,Pull,KELLY,RUDY,PERCY_is_Pulling_RUDY.png,Is_PERCY_Pulling_KELLY.wav
-item_03,Verb,PERCY,PERCY,Pull,Push,KELLY,KELLY,PERCY_is_Pushing_KELLY.png,Is_PERCY_Pulling_KELLY.wav
-item_04,Agent,ANNIE,SANDY,Kick,Kick,DORRY,DORRY,SANDY_is_Kicking_DORRY.png,Is_ANNIE_Kicking_DORRY.wav
-filler_29,Control,ANNIE,ANNIE,Kiss,Kiss,COREY,COREY,ANNIE_is_Kissing_COREY.png,Is_ANNIE_Kissing_COREY.wav
-filler_20,Control,JOHNNY,JOHNNY,Lift,Lift,EDDIE,EDDIE,JOHNNY_is_Lifting_EDDIE.png,Is_JOHNNY_Lifting_EDDIE.wav
-filler_17,Control,MERRY,MERRY,Pull,Pull,CHLOE,CHLOE,MERRY_is_Pulling_CHLOE.png,Is_MERRY_Pulling_CHLOE.wav
-item_02,Agent,CHLOE,SANNDY,Pull,Pull,BILLY,BILLY,SANNDY_is_Pulling_BILLY.png,Is_CHLOE_Pulling_BILLY.wav
-filler_31,Control,KIMMY,KIMMY,Kick,Kick,DANNY,DANNY,KIMMY_is_Kicking_DANNY.png,Is_KIMMY_Kicking_DANNY.wav
-filler_04,Verb,DORY,DORY,Kiss,Kick,GARRY,GARRY,DORY_is_Kicking_GARRY.png,Is_DORY_Kissing_GARRY.wav
-filler_08,Verb,LARRY,LARRY,Kiss,Push,GARRY,GARRY,LARRY_is_Pushing_GARRY.png,Is_LARRY_Kissing_GARRY.wav
-item_02,Verb,CHLOE,CHLOE,Pull,Kiss,BILLY,BILLY,CHLOE_is_Kissing_BILLY.png,Is_CHLOE_Pulling_BILLY.wav
-item_04,Verb,ANNIE,ANNIE,Kick,Pull,DORRY,DORRY,ANNIE_is_Pulling_DORRY.png,Is_ANNIE_Kicking_DORRY.wav
-item_03,Patient,PERCY,PERCY,Pull,Pull,KELLY,RUDY,PERCY_is_Pulling_RUDY.png,Is_PERCY_Pulling_KELLY.wav
-filler_21,Control,JERRY,JERRY,Push,Push,CARLIE,CARLIE,JERRY_is_Pushing_CARLIE.png,Is_JERRY_Pushing_CARLIE.wav
-filler_35,Control,MOLLY,MOLLY,Kick,Kick,RONNIE,RONNIE,MOLLY_is_Kicking_RONNIE.png,Is_MOLLY_Kicking_RONNIE.wav
-item_02,Verb,CHLOE,CHLOE,Pull,Kiss,BILLY,BILLY,CHLOE_is_Kissing_BILLY.png,Is_CHLOE_Pulling_BILLY.wav
-filler_28,Control,PAMMY,PAMMY,Kick,Kick,BILLY,BILLY,PAMMY_is_Kicking_BILLY.png,Is_PAMMY_Kicking_BILLY.wav
-filler_36,Control,BETTY,BETTY,Kiss,Kiss,OLLIE,OLLIE,BETTY_is_Kissing_OLLIE.png,Is_BETTY_Kissing_OLLIE.wav
-item_03,Verb,PERCY,PERCY,Pull,Push,KELLY,KELLY,PERCY_is_Pushing_KELLY.png,Is_PERCY_Pulling_KELLY.wav
-item_03,Control,PERCY,PERCY,Pull,Pull,KELLY,KELLY,PERCY_is_Pulling_KELLY.png,Is_PERCY_Pulling_KELLY.wav
-filler_37,Control,ANDY,ANDY,Push,Push,KELLY,KELLY,ANDY_is_Pushing_KELLY.png,Is_ANDY_Pushing_KELLY.wav
-item_02,Control,CHLOE,CHLOE,Pull,Pull,BILLY,BILLY,CHLOE_is_Pulling_BILLY.png,Is_CHLOE_Pulling_BILLY.wav
-filler_07,Patient,CHLOE,CHLOE,Pull,Pull,JUDY,MINDY,CHLOE_is_Pulling_MINDY.png,Is_CHLOE_Pulling_JUDY.wav
-item_04,Control,ANNIE,ANNIE,Kick,Kick,DORRY,DORRY,ANNIE_is_Kicking_DORRY.png,Is_ANNIE_Kicking_DORRY.wav
-filler_26,Control,HARVEY,HARVEY,Push,Push,DOLLY,DOLLY,HARVEY_is_Pushing_DOLLY.png,Is_HARVEY_Pushing_DOLLY.wav
-item_03,Agent,PERCY,WILLY,Pull,Pull,KELLY,KELLY,WILLY_is_Pulling_KELLY.png,Is_PERCY_Pulling_KELLY.wav
-filler_22,Control,LACEY,LACEY,Poke,Poke,JENNY,JENNY,LACEY_is_Pokeing_JENNY.png,Is_LACEY_Pokeing_JENNY.wav
-item_02,Patient,CHLOE,CHLOE,Pull,Pull,BILLY,TIMMY,CHLOE_is_Pulling_TIMMY.png,Is_CHLOE_Pulling_BILLY.wav
-filler_24,Control,CARLIE,CARLIE,Pull,Pull,MARY,MARY,CARLIE_is_Pulling_MARY.png,Is_CARLIE_Pulling_MARY.wav
-filler_16,Control,TEDDY,TEDDY,Push,Push,MERRY,MERRY,TEDDY_is_Pushing_MERRY.png,Is_TEDDY_Pushing_MERRY.wav
-item_02,Agent,CHLOE,SANNDY,Pull,Pull,BILLY,BILLY,SANNDY_is_Pulling_BILLY.png,Is_CHLOE_Pulling_BILLY.wav
-item_01,Control,JUDY,JUDY,Pull,Pull,RONNIE,RONNIE,JUDY_is_Pulling_RONNIE.png,Is_JUDY_Pulling_RONNIE.wav
-filler_39,Control,DORY,DORY,Kiss,Kiss,DANNY,DANNY,DORY_is_Kissing_DANNY.png,Is_DORY_Kissing_DANNY.wav
-item_01,Patient,JUDY,JUDY,Pull,Pull,RONNIE,WALLY,JUDY_is_Pulling_WALLY.png,Is_JUDY_Pulling_RONNIE.wav
-item_02,Control,CHLOE,CHLOE,Pull,Pull,BILLY,BILLY,CHLOE_is_Pulling_BILLY.png,Is_CHLOE_Pulling_BILLY.wav
-item_02,Patient,CHLOE,CHLOE,Pull,Pull,BILLY,TIMMY,CHLOE_is_Pulling_TIMMY.png,Is_CHLOE_Pulling_BILLY.wav
-filler_34,Control,DORRY,DORRY,Kick,Kick,CODY,CODY,DORRY_is_Kicking_CODY.png,Is_DORRY_Kicking_CODY.wav
-item_04,Control,ANNIE,ANNIE,Kick,Kick,DORRY,DORRY,ANNIE_is_Kicking_DORRY.png,Is_ANNIE_Kicking_DORRY.wav
-item_01,Control,JUDY,JUDY,Pull,Pull,RONNIE,RONNIE,JUDY_is_Pulling_RONNIE.png,Is_JUDY_Pulling_RONNIE.wav
-filler_05,Patient,FRANNY,FRANNY,Kick,Kick,JOHNNY,EDDIE,FRANNY_is_Kicking_EDDIE.png,Is_FRANNY_Kicking_JOHNNY.wav
-filler_10,Agent,LAURIE,MERRY,Kick,Kick,CODY,CODY,MERRY_is_Kicking_CODY.png,Is_LAURIE_Kicking_CODY.wav
-item_04,Patient,ANNIE,ANNIE,Kick,Kick,DORRY,PENNY,ANNIE_is_Kicking_PENNY.png,Is_ANNIE_Kicking_DORRY.wav
-filler_03,Patient,KENNY,KENNY,Push,Push,KIMMY,CARLIE,KENNY_is_Pushing_CARLIE.png,Is_KENNY_Pushing_KIMMY.wav
-item_01,Patient,JUDY,JUDY,Pull,Pull,RONNIE,WALLY,JUDY_is_Pulling_WALLY.png,Is_JUDY_Pulling_RONNIE.wav
-filler_18,Control,CHLOE,CHLOE,Poke,Poke,DORRY,DORRY,CHLOE_is_Pokeing_DORRY.png,Is_CHLOE_Pokeing_DORRY.wav
-filler_27,Control,LINDY,LINDY,Kick,Kick,JERRY,JERRY,LINDY_is_Kicking_JERRY.png,Is_LINDY_Kicking_JERRY.wav
-filler_01,Verb,CHLOE,CHLOE,Pull,Lift,DORY,DORY,CHLOE_is_Lifting_DORY.png,Is_CHLOE_Pulling_DORY.wav
-filler_09,Patient,ANNIE,ANNIE,Kiss,Kiss,FREEDY,RONNIE,ANNIE_is_Kissing_RONNIE.png,Is_ANNIE_Kissing_FREEDY.wav
-filler_02,Agent,JOHNNY,GARRY,Lift,Lift,PERCY,PERCY,GARRY_is_Lifting_PERCY.png,Is_JOHNNY_Lifting_PERCY.wav
+trial_id,filler_or_item_id,position_condition,agent_in_question,agent_in_picture,verb_in_question,verb_in_picture,patient_in_question,patient_in_picture,picture_file,question_file,answer_script
+51,filler_19,Control,Teddy,Teddy,Push,Push,Brandy,Brandy,Teddy_is_Pushing_Brandy.png,Is_Teddy_Pushing_Brandy.wav,Yes Teddy is Pushing Brandy.
+43,filler_11,Agent,Billy,Eddie,Push,Push,Mandy,Mandy,Eddie_is_Pushing_Mandy.png,Is_Billy_Pushing_Mandy.wav,No Eddie is Pushing Mandy.
+30,item_04,Patient,Annie,Annie,Kick,Kick,Dory,Penny,Annie_is_Kicking_Penny.png,Is_Annie_Kicking_Dory.wav,No Annie is Kicking Penny.
+02,item_01,Verb,Kelly,Kelly,Pull,Kick,Ronnie,Ronnie,Kelly_is_Kicking_Ronnie.png,Is_Kelly_Pulling_Ronnie.wav,No Kelly is Kicking Ronnie.
+05,item_01,Verb,Kelly,Kelly,Pull,Kick,Ronnie,Ronnie,Kelly_is_Kicking_Ronnie.png,Is_Kelly_Pulling_Ronnie.wav,No Kelly is Kicking Ronnie.
+17,item_03,Agent,Percy,Willy,Pull,Pull,Kimmy,Kimmy,Willy_is_Pulling_Kimmy.png,Is_Percy_Pulling_Kimmy.wav,No Willy is Pulling Kimmy.
+04,item_01,Agent,Kelly,Tori,Pull,Pull,Ronnie,Ronnie,Tori_is_Pulling_Ronnie.png,Is_Kelly_Pulling_Ronnie.wav,No Tori is Pulling Ronnie.
+45,filler_13,Control,Freedy,Freedy,Push,Push,Mindy,Mindy,Freedy_is_Pushing_Mindy.png,Is_Freedy_Pushing_Mindy.wav,Yes Freedy is Pushing Mindy.
+23,item_03,Control,Percy,Percy,Pull,Pull,Kimmy,Kimmy,Percy_is_Pulling_Kimmy.png,Is_Percy_Pulling_Kimmy.wav,Yes Percy is Pulling Kimmy.
+46,filler_14,Control,Lacey,Lacey,Kick,Kick,Percy,Percy,Lacey_is_Kicking_Percy.png,Is_Lacey_Kicking_Percy.wav,Yes Lacey is Kicking Percy.
+28,item_04,Agent,Annie,Sandy,Kick,Kick,Dory,Dory,Sandy_is_Kicking_Dory.png,Is_Annie_Kicking_Dory.wav,No Sandy is Kicking Dory.
+47,filler_15,Control,Dolly,Dolly,Poke,Poke,Merry,Merry,Dolly_is_Pokeing_Merry.png,Is_Dolly_Pokeing_Merry.wav,Yes Dolly is Pokeing Merry.
+01,item_01,Agent,Kelly,Tori,Pull,Pull,Ronnie,Ronnie,Tori_is_Pulling_Ronnie.png,Is_Kelly_Pulling_Ronnie.wav,No Tori is Pulling Ronnie.
+62,filler_30,Control,Molly,Molly,Pull,Pull,Chloe,Chloe,Molly_is_Pulling_Chloe.png,Is_Molly_Pulling_Chloe.wav,Yes Molly is Pulling Chloe.
+38,filler_06,Agent,Johnny,Percy,Lift,Lift,Teddy,Teddy,Percy_is_Lifting_Teddy.png,Is_Johnny_Lifting_Teddy.wav,No Percy is Lifting Teddy.
+64,filler_32,Control,Jenny,Jenny,Kick,Kick,Ollie,Ollie,Jenny_is_Kicking_Ollie.png,Is_Jenny_Kicking_Ollie.wav,Yes Jenny is Kicking Ollie.
+72,filler_40,Control,Lacey,Lacey,Kiss,Kiss,Percy,Percy,Lacey_is_Kissing_Percy.png,Is_Lacey_Kissing_Percy.wav,Yes Lacey is Kissing Percy.
+65,filler_33,Control,Jenny,Jenny,Pull,Pull,Dolly,Dolly,Jenny_is_Pulling_Dolly.png,Is_Jenny_Pulling_Dolly.wav,Yes Jenny is Pulling Dolly.
+44,filler_12,Patient,Kimmy,Kimmy,Pull,Pull,Kelly,Jenny,Kimmy_is_Pulling_Jenny.png,Is_Kimmy_Pulling_Kelly.wav,No Kimmy is Pulling Jenny.
+26,item_04,Verb,Annie,Annie,Kick,Pull,Dory,Dory,Annie_is_Pulling_Dory.png,Is_Annie_Kicking_Dory.wav,No Annie is Pulling Dory.
+57,filler_25,Control,Pammy,Pammy,Poke,Poke,Dory,Dory,Pammy_is_Pokeing_Dory.png,Is_Pammy_Pokeing_Dory.wav,Yes Pammy is Pokeing Dory.
+70,filler_38,Control,Mandy,Mandy,Kick,Kick,Teddy,Teddy,Mandy_is_Kicking_Teddy.png,Is_Mandy_Kicking_Teddy.wav,Yes Mandy is Kicking Teddy.
+55,filler_23,Control,Teddy,Teddy,Push,Push,Kelly,Kelly,Teddy_is_Pushing_Kelly.png,Is_Teddy_Pushing_Kelly.wav,Yes Teddy is Pushing Kelly.
+19,item_03,Patient,Percy,Percy,Pull,Pull,Kimmy,Rudy,Percy_is_Pulling_Rudy.png,Is_Percy_Pulling_Kimmy.wav,No Percy is Pulling Rudy.
+18,item_03,Verb,Percy,Percy,Pull,Push,Kimmy,Kimmy,Percy_is_Pushing_Kimmy.png,Is_Percy_Pulling_Kimmy.wav,No Percy is Pushing Kimmy.
+25,item_04,Agent,Annie,Sandy,Kick,Kick,Dory,Dory,Sandy_is_Kicking_Dory.png,Is_Annie_Kicking_Dory.wav,No Sandy is Kicking Dory.
+61,filler_29,Control,Annie,Annie,Kiss,Kiss,Corey,Corey,Annie_is_Kissing_Corey.png,Is_Annie_Kissing_Corey.wav,Yes Annie is Kissing Corey.
+52,filler_20,Control,Johnny,Johnny,Lift,Lift,Eddie,Eddie,Johnny_is_Lifting_Eddie.png,Is_Johnny_Lifting_Eddie.wav,Yes Johnny is Lifting Eddie.
+49,filler_17,Control,Merry,Merry,Pull,Pull,Chloe,Chloe,Merry_is_Pulling_Chloe.png,Is_Merry_Pulling_Chloe.wav,Yes Merry is Pulling Chloe.
+09,item_02,Agent,Chloe,Sanndy,Pull,Pull,Billy,Billy,Sanndy_is_Pulling_Billy.png,Is_Chloe_Pulling_Billy.wav,No Sanndy is Pulling Billy.
+63,filler_31,Control,Lacey,Lacey,Kick,Kick,Danny,Danny,Lacey_is_Kicking_Danny.png,Is_Lacey_Kicking_Danny.wav,Yes Lacey is Kicking Danny.
+36,filler_04,Verb,Franny,Franny,Kiss,Kick,Garry,Garry,Franny_is_Kicking_Garry.png,Is_Franny_Kissing_Garry.wav,No Franny is Kicking Garry.
+40,filler_08,Verb,Laurie,Laurie,Kiss,Push,Garry,Garry,Laurie_is_Pushing_Garry.png,Is_Laurie_Kissing_Garry.wav,No Laurie is Pushing Garry.
+10,item_02,Verb,Chloe,Chloe,Pull,Kiss,Billy,Billy,Chloe_is_Kissing_Billy.png,Is_Chloe_Pulling_Billy.wav,No Chloe is Kissing Billy.
+29,item_04,Verb,Annie,Annie,Kick,Pull,Dory,Dory,Annie_is_Pulling_Dory.png,Is_Annie_Kicking_Dory.wav,No Annie is Pulling Dory.
+22,item_03,Patient,Percy,Percy,Pull,Pull,Kimmy,Rudy,Percy_is_Pulling_Rudy.png,Is_Percy_Pulling_Kimmy.wav,No Percy is Pulling Rudy.
+53,filler_21,Control,Jerry,Jerry,Push,Push,Carlie,Carlie,Jerry_is_Pushing_Carlie.png,Is_Jerry_Pushing_Carlie.wav,Yes Jerry is Pushing Carlie.
+67,filler_35,Control,Molly,Molly,Kick,Kick,Ronnie,Ronnie,Molly_is_Kicking_Ronnie.png,Is_Molly_Kicking_Ronnie.wav,Yes Molly is Kicking Ronnie.
+13,item_02,Verb,Chloe,Chloe,Pull,Kiss,Billy,Billy,Chloe_is_Kissing_Billy.png,Is_Chloe_Pulling_Billy.wav,No Chloe is Kissing Billy.
+60,filler_28,Control,Pammy,Pammy,Kick,Kick,Billy,Billy,Pammy_is_Kicking_Billy.png,Is_Pammy_Kicking_Billy.wav,Yes Pammy is Kicking Billy.
+68,filler_36,Control,Betty,Betty,Kiss,Kiss,Ollie,Ollie,Betty_is_Kissing_Ollie.png,Is_Betty_Kissing_Ollie.wav,Yes Betty is Kissing Ollie.
+21,item_03,Verb,Percy,Percy,Pull,Push,Kimmy,Kimmy,Percy_is_Pushing_Kimmy.png,Is_Percy_Pulling_Kimmy.wav,No Percy is Pushing Kimmy.
+24,item_03,Control,Percy,Percy,Pull,Pull,Kimmy,Kimmy,Percy_is_Pulling_Kimmy.png,Is_Percy_Pulling_Kimmy.wav,Yes Percy is Pulling Kimmy.
+69,filler_37,Control,Andy,Andy,Push,Push,Kimmy,Kimmy,Andy_is_Pushing_Kimmy.png,Is_Andy_Pushing_Kimmy.wav,Yes Andy is Pushing Kimmy.
+15,item_02,Control,Chloe,Chloe,Pull,Pull,Billy,Billy,Chloe_is_Pulling_Billy.png,Is_Chloe_Pulling_Billy.wav,Yes Chloe is Pulling Billy.
+39,filler_07,Patient,Chloe,Chloe,Pull,Pull,Kelly,Mindy,Chloe_is_Pulling_Mindy.png,Is_Chloe_Pulling_Kelly.wav,No Chloe is Pulling Mindy.
+32,item_04,Control,Annie,Annie,Kick,Kick,Dory,Dory,Annie_is_Kicking_Dory.png,Is_Annie_Kicking_Dory.wav,Yes Annie is Kicking Dory.
+58,filler_26,Control,Harvey,Harvey,Push,Push,Dolly,Dolly,Harvey_is_Pushing_Dolly.png,Is_Harvey_Pushing_Dolly.wav,Yes Harvey is Pushing Dolly.
+20,item_03,Agent,Percy,Willy,Pull,Pull,Kimmy,Kimmy,Willy_is_Pulling_Kimmy.png,Is_Percy_Pulling_Kimmy.wav,No Willy is Pulling Kimmy.
+54,filler_22,Control,Larry,Larry,Poke,Poke,Judy,Judy,Larry_is_Pokeing_Judy.png,Is_Larry_Pokeing_Judy.wav,Yes Larry is Pokeing Judy.
+14,item_02,Patient,Chloe,Chloe,Pull,Pull,Billy,Timmy,Chloe_is_Pulling_Timmy.png,Is_Chloe_Pulling_Billy.wav,No Chloe is Pulling Timmy.
+56,filler_24,Control,Carlie,Carlie,Pull,Pull,Mary,Mary,Carlie_is_Pulling_Mary.png,Is_Carlie_Pulling_Mary.wav,Yes Carlie is Pulling Mary.
+48,filler_16,Control,Teddy,Teddy,Push,Push,Merry,Merry,Teddy_is_Pushing_Merry.png,Is_Teddy_Pushing_Merry.wav,Yes Teddy is Pushing Merry.
+12,item_02,Agent,Chloe,Sanndy,Pull,Pull,Billy,Billy,Sanndy_is_Pulling_Billy.png,Is_Chloe_Pulling_Billy.wav,No Sanndy is Pulling Billy.
+07,item_01,Control,Kelly,Kelly,Pull,Pull,Ronnie,Ronnie,Kelly_is_Pulling_Ronnie.png,Is_Kelly_Pulling_Ronnie.wav,Yes Kelly is Pulling Ronnie.
+71,filler_39,Control,Franny,Franny,Kiss,Kiss,Danny,Danny,Franny_is_Kissing_Danny.png,Is_Franny_Kissing_Danny.wav,Yes Franny is Kissing Danny.
+03,item_01,Patient,Kelly,Kelly,Pull,Pull,Ronnie,Wally,Kelly_is_Pulling_Wally.png,Is_Kelly_Pulling_Ronnie.wav,No Kelly is Pulling Wally.
+16,item_02,Control,Chloe,Chloe,Pull,Pull,Billy,Billy,Chloe_is_Pulling_Billy.png,Is_Chloe_Pulling_Billy.wav,Yes Chloe is Pulling Billy.
+11,item_02,Patient,Chloe,Chloe,Pull,Pull,Billy,Timmy,Chloe_is_Pulling_Timmy.png,Is_Chloe_Pulling_Billy.wav,No Chloe is Pulling Timmy.
+66,filler_34,Control,Dory,Dory,Kick,Kick,Cody,Cody,Dory_is_Kicking_Cody.png,Is_Dory_Kicking_Cody.wav,Yes Dory is Kicking Cody.
+31,item_04,Control,Annie,Annie,Kick,Kick,Dory,Dory,Annie_is_Kicking_Dory.png,Is_Annie_Kicking_Dory.wav,Yes Annie is Kicking Dory.
+08,item_01,Control,Kelly,Kelly,Pull,Pull,Ronnie,Ronnie,Kelly_is_Pulling_Ronnie.png,Is_Kelly_Pulling_Ronnie.wav,Yes Kelly is Pulling Ronnie.
+37,filler_05,Patient,Jenny,Jenny,Kick,Kick,Johnny,Eddie,Jenny_is_Kicking_Eddie.png,Is_Jenny_Kicking_Johnny.wav,No Jenny is Kicking Eddie.
+42,filler_10,Agent,Lindy,Merry,Kick,Kick,Cody,Cody,Merry_is_Kicking_Cody.png,Is_Lindy_Kicking_Cody.wav,No Merry is Kicking Cody.
+27,item_04,Patient,Annie,Annie,Kick,Kick,Dory,Penny,Annie_is_Kicking_Penny.png,Is_Annie_Kicking_Dory.wav,No Annie is Kicking Penny.
+35,filler_03,Patient,Kenny,Kenny,Push,Push,Lacey,Carlie,Kenny_is_Pushing_Carlie.png,Is_Kenny_Pushing_Lacey.wav,No Kenny is Pushing Carlie.
+06,item_01,Patient,Kelly,Kelly,Pull,Pull,Ronnie,Wally,Kelly_is_Pulling_Wally.png,Is_Kelly_Pulling_Ronnie.wav,No Kelly is Pulling Wally.
+50,filler_18,Control,Chloe,Chloe,Poke,Poke,Dory,Dory,Chloe_is_Pokeing_Dory.png,Is_Chloe_Pokeing_Dory.wav,Yes Chloe is Pokeing Dory.
+59,filler_27,Control,Mandy,Mandy,Kick,Kick,Jerry,Jerry,Mandy_is_Kicking_Jerry.png,Is_Mandy_Kicking_Jerry.wav,Yes Mandy is Kicking Jerry.
+33,filler_01,Verb,Chloe,Chloe,Pull,Lift,Franny,Franny,Chloe_is_Lifting_Franny.png,Is_Chloe_Pulling_Franny.wav,No Chloe is Lifting Franny.
+41,filler_09,Patient,Annie,Annie,Kiss,Kiss,Freedy,Ronnie,Annie_is_Kissing_Ronnie.png,Is_Annie_Kissing_Freedy.wav,No Annie is Kissing Ronnie.
+34,filler_02,Agent,Johnny,Garry,Lift,Lift,Percy,Percy,Garry_is_Lifting_Percy.png,Is_Johnny_Lifting_Percy.wav,No Garry is Lifting Percy.

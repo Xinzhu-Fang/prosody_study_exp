@@ -24,8 +24,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         # print("cannot")
     # else:
     os.mkdir(output_dir)
-        # print("believe")
-
+    # print("believe")
 
     # female_names = ["ANNIE", "BETTY", "BONNIE", "BRANDY", "CARLIE", "CHLOE", "DOLLY",
     # "DORRY", "DORY", FRANNY", "JENNY", "JUDY", "KELLY",
@@ -38,19 +37,19 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # "WILLY"]
     #
     # other names, cindy, nancy, zoey, morrie, joey, willy, randy, tracey, casey, terry, kerry, kylie, darcy, neddy, mory, benny, manny, jilly, nelly, carrie, hailey, sammy
-    # names i threw out myself, fanny,
+    # names i threw out myself, fanny, sanndy, dorry
 
     sex_levels = ['F', 'M']
     num_sexes = len(sex_levels)
-    names = {'F': ["ANNIE", "BETTY", "BONNIE", "BRANDY", "CARLIE", "CHLOE", "DOLLY",
-                   "DORRY", "DORY", "FRANNY", "JENNY", "JUDY", "KELLY",
-                   "KIMMY", "LACEY", "LARRY", "LAURIE", "LINDY", "MANDY", "MARY",
-                   "MERRY", "MINDY", "MOLLY", "PAMMY", "PENNY", "RUDY", "SANDY",
-                   "SANNDY", "TORI"],
-             'M': ["ANDY", "BILLY", "CODY", "COREY", "DANNY", "DONNY", "EDDIE",
-                   "FREEDY", "GARRY", "HARVEY", "JERRY", "JOHNNY", "KENNY", "LONNIE",
-                   "OLLIE", "PERCY", "RONNIE", "TAMMY", "TEDDY", "TIMMY", "WALLY",
-                   "WILLY"]}
+    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Chloe", "Dolly", "Dory", "Franny", "Jenny", "Judy",
+                   "Kelly",
+                   "Kimmy", "Lacey", "Larry", "Laurie", "Lindy", "Mandy", "Mary",
+                   "Mary", "Merry", "Mindy", "Molly", "Pammy", "Penny", "Rudy",
+                   "Sandy", "Sanndy", "Tori"],
+             'M': ["Andy", "Billy", "Cody", "Corey", "Danny", "Donny", "Eddie",
+                   "Freedy", "Garry", "Harvey", "Jerry", "Johnny", "Kenny", "Lonnie",
+                   "Ollie", "Percy", "Ronnie", "Tammy", "Teddy", "Timmy", "Wally",
+                   "Willy"]}
 
     f_f_verbs = ["Lift", "Poke", "Pull", "Push"]
     f_m_verbs = ["Kick", "Kiss", "Lift", "Poke", "Push"]
@@ -248,15 +247,35 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
                                     zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
                                         tAll_trials.patient_in_question)]
 
-    #
+    tAll_trials['answer_script'] = [a + " is " + v + "ing " + p + "." for a, v, p in
+                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+                                        tAll_trials.patient_in_picture)]
+
+
+    exp_trial_id = ["{:02d}".format(i) for i in range(1, exp_num_trials + 1)]
 
     trial_order = range(tAll_trials.shape[0])
-    np.random.shuffle(trial_order)
     tAll_trials.index = trial_order
     tAll_trials = tAll_trials.sort_index()
 
+    for iTrial, iRow in tAll_trials.iterrows():
+        print(tAll_trials.loc[iTrial, 'position_condition'])
+        if tAll_trials.loc[iTrial, 'position_condition'] == 'Control':
+            tAll_trials.loc[iTrial, 'answer_script'] = 'Yes ' + tAll_trials.loc[iTrial, 'answer_script']
+        else:
+            tAll_trials.loc[iTrial, 'answer_script'] = 'No ' + tAll_trials.loc[iTrial, 'answer_script']
+
+    tAll_trials.insert(loc=0, column='trial_id', value=exp_trial_id)
+#    tAll_trials['trial_id'] = exp_trial_id
+    tAll_trials.to_csv(os.path.join(exp_name, 'tAll_trials_ordered.csv'), encoding='utf-8', index=False)
+
+
+    np.random.shuffle(trial_order)
+    tAll_trials.index = trial_order
+    tAll_trials = tAll_trials.sort_index()
+    
+    #tAll_trials['trial_id'] = exp_trial_id
     tAll_trials.to_csv(os.path.join(exp_name, 'tAll_trials.csv'), encoding='utf-8', index=False)
-    exp_trial_id = ["{:02d}".format(i) for i in range(1, exp_num_trials + 1)]
 
     if bCreate_stimuli == 1:
         # image = "sample-out.png"

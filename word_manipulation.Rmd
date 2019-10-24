@@ -1,3 +1,14 @@
+---
+title: "word_manipulation.Rmd"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
 # a = c("ANNIE", "BENNY", "BETTY", "BONNIE", "BRANDY", "CARLIE", "CHLOE",
 #       "COREY", "DANNY", "DOLLY", "DORRY", "DORY", "FANNY", "HARLEY",
 #       "JENNY", "JUDY", "KERRY", "KIMMY", "LACEY", "LAURIE", "LINDY",
@@ -36,3 +47,20 @@ female= c("PAMMY", "JUDY", "MANDY", "SANNDY", "FRANNY", "KIMMY", "DOLLY", "SANDY
 male = c("TIMMY", "WALLY", "LONNIE", "BILLY", "HARVEY", "FREEDY", "OLLIE", "PERCY", "EDDIE", "COREY", "JERRY", "DANNY", "RONNIE", "DONNY", "WILLY", "JOHNNY", "KENNY", "ANDY", "CODY", "TEDDY", "TAMMY", "GARRY")
 
 # KERRY, ROONIE, CASEY, ROONIE, CASEY, MORRIE, HARLEY, TERRY, NELLY, BENNY
+
+simpleCap <- function(x) {
+  s <- strsplit(x, " ")[[1]]
+  paste(toupper(substring(s, 1,1)), substring(s, 2),
+        sep="", collapse=" ")
+}
+
+simpleLow <- function(x) {
+  s <- strsplit(x, " ")[[1]]
+  paste(substring(s, 1,1), tolower(substring(s, 2)),
+        sep="", collapse=" ")
+}
+
+a = sapply(male, simpleLow)
+
+
+```

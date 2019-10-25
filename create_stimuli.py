@@ -62,27 +62,39 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
 
     item_correct_verb = np.tile(np.array(["Kick", "Kiss", "Push", "Pull"]), (3, 1))[iExp]
 
-    # item_correct_verb = np.repeat(np.tile(np.array(["Kick", "Kiss", "Push", "Pull"]), (3, 1))[iExp], item_num_trial_for_each_item)
+
     # item
     item_correct_agent_sex = [agent_sex_mapped_to_verb[verbs.index(i)] for i in item_correct_verb]
     item_correct_patient_sex = [patient_sex_mapped_to_verb[verbs.index(i)] for i in item_correct_verb]
 
-    # item_wrong_verb = [verbs[num_verbs - 1 - verbs.index(i)] for i in item_correct_verb]
-    item_wrong_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in item_correct_verb]
-    ##
+
 
     item_correct_agent = [names[i].pop() for i in item_correct_agent_sex]
     item_correct_patient = [names[i].pop() for i in item_correct_patient_sex]
+
+    vItem_correct_verb = np.repeat(item_correct_verb, item_num_trial_for_each_item)
+
+    vItem_correct_agent = np.repeat(item_correct_agent, item_num_trial_for_each_item)
+
+    vItem_correct_patient = np.repeat(item_correct_patient, item_num_trial_for_each_item)
+
+    vItem_correct_agent_sex = np.repeat(item_correct_agent_sex, item_num_trial_for_each_item)
+
+    vItem_correct_patient_sex = np.repeat(item_correct_patient_sex, item_num_trial_for_each_item)
+
+    # item_wrong_verb = [verbs[num_verbs - 1 - verbs.index(i)] for i in item_correct_verb]
+    item_wrong_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in vItem_correct_verb]
+    ##
 
     # item_wrong_agent_oppo_sex =  [names[ sex_levels[num_sexes - 1 - sex_levels.index(i)]].pop() for i in item_correct_agent_sex]
     # item_wrong_agent_same_sex =  [names[i].pop() for i in item_correct_agent_sex]
     # item_wrong_agent = [names[i].pop() for i in item_correct_agent_sex]
     # ^ too wasteful, these can be repeated
-    item_wrong_agent = [names[i][np.random.randint(len(names[i]))] for i in item_correct_agent_sex]
+    item_wrong_agent = [names[i][np.random.randint(len(names[i]))] for i in vItem_correct_agent_sex]
     # item_wrong_patient_oppo_sex =  [names[ sex_levels[num_sexes - 1 - sex_levels.index(i)]].pop() for i in item_correct_patient_sex]
     # item_wrong_patient_same_sex =  [names[i].pop() for i in item_correct_patient_sex]
     # item_wrong_patient = [names[i].pop() for i in item_correct_patient_sex]
-    item_wrong_patient = [names[i][np.random.randint(len(names[i]))] for i in item_correct_patient_sex]
+    item_wrong_patient = [names[i][np.random.randint(len(names[i]))] for i in vItem_correct_patient_sex]
 
     filler_id0 = ["{:02d}".format(i) for i in range(1, filler_num_trial_total + 1)]
     filler_id = ["filler_" + i for i in filler_id0]
@@ -173,16 +185,16 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     vItem_id = np.repeat(item_id, item_num_trial_for_each_item)
 
     vItem_position_condition = np.tile(
-        np.concatenate((np.tile(positions, exp_num_of_correction_for_each_position_for_each_item),
-                        np.tile(['Control'], exp_num_of_control_for_each_item))), exp_num_of_items)
+        np.concatenate((np.repeat(positions, exp_num_of_correction_for_each_position_for_each_item),
+                        np.repeat(['Control'], exp_num_of_control_for_each_item))), exp_num_of_items)
 
     ## start of item agent
-    vItem_agent_in_picture = np.repeat(item_correct_agent, item_num_trial_for_each_item)
+    # vItem_agent_in_picture = np.repeat(item_correct_agent, item_num_trial_for_each_item)
 
-    vItem_agent_in_question = np.copy(vItem_agent_in_picture)
+    # vItem_agent_in_question = np.copy(vItem_agent_in_picture)
 
     tItem_agent = pd.DataFrame(
-        list(zip(vItem_id, vItem_position_condition, vItem_agent_in_picture, vItem_agent_in_question)),
+        list(zip(vItem_id, vItem_position_condition, vItem_correct_agent, vItem_correct_agent)),
         columns=['vItem_id', 'vItem_position_condition', 'vItem_agent_in_picture', 'vItem_agent_in_question'])
 
     for iItem in item_id:
@@ -192,38 +204,34 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     ## end of item agent
 
     ## start of item patient
-    vItem_patient_in_picture = np.repeat(item_correct_patient, item_num_trial_for_each_item)
+    # vItem_patient_in_picture = np.repeat(item_correct_patient, item_num_trial_for_each_item)
 
-    vItem_patient_in_question = np.copy(vItem_patient_in_picture)
-
-    vItem_patient_in_picture = np.repeat(item_correct_patient, item_num_trial_for_each_item)
-
-    vItem_patient_in_question = np.copy(vItem_patient_in_picture)
+    # vItem_patient_in_question = np.copy(vItem_patient_in_picture)
 
     tItem_patient = pd.DataFrame(
-        list(zip(vItem_id, vItem_position_condition, vItem_patient_in_picture, vItem_patient_in_question)),
+        list(zip(vItem_id, vItem_position_condition, vItem_correct_patient, vItem_correct_patient)),
         columns=['vItem_id', 'vItem_position_condition', 'vItem_patient_in_picture', 'vItem_patient_in_question'])
 
     for iItem in item_id:
         tItem_patient.loc[np.logical_and(tItem_patient.vItem_position_condition == 'Patient',
-                                         tItem_patient.vItem_id == iItem), 'vItem_patient_in_question'] = \
-        item_wrong_patient[item_id.index(iItem)]
+                                       tItem_patient.vItem_id == iItem), 'vItem_patient_in_question'] = item_wrong_patient[
+            item_id.index(iItem)]
     ## end of item patient
 
-    ## start of verb
-    vItem_verb_in_picture = np.repeat(item_correct_verb, item_num_trial_for_each_item)
+    ## start of item verb
+    # vItem_verb_in_picture = np.repeat(item_correct_verb, item_num_trial_for_each_item)
 
-    vItem_verb_in_question = np.copy(vItem_verb_in_picture)
+    # vItem_verb_in_question = np.copy(vItem_verb_in_picture)
 
     tItem_verb = pd.DataFrame(
-        list(zip(vItem_id, vItem_position_condition, vItem_verb_in_picture, vItem_verb_in_question)),
+        list(zip(vItem_id, vItem_position_condition, vItem_correct_verb, vItem_correct_verb)),
         columns=['vItem_id', 'vItem_position_condition', 'vItem_verb_in_picture', 'vItem_verb_in_question'])
 
     for iItem in item_id:
         tItem_verb.loc[np.logical_and(tItem_verb.vItem_position_condition == 'Verb',
-                                      tItem_verb.vItem_id == iItem), 'vItem_verb_in_question'] = item_wrong_verb[
+                                       tItem_verb.vItem_id == iItem), 'vItem_verb_in_question'] = item_wrong_verb[
             item_id.index(iItem)]
-    ## end of verb
+    ## end of item verb
 
     tItem = pd.concat([tItem_agent, tItem_verb, tItem_patient], axis=1)
     tItem = tItem.loc[:, ~tItem.columns.duplicated()]
@@ -264,7 +272,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     tAll_trials = tAll_trials.sort_index()
 
     for iTrial, iRow in tAll_trials.iterrows():
-        print(tAll_trials.loc[iTrial, 'position_condition'])
+        # print(tAll_trials.loc[iTrial, 'position_condition'])
         if tAll_trials.loc[iTrial, 'position_condition'] == 'Control':
             tAll_trials.loc[iTrial, 'answer_script'] = 'Yes ' + tAll_trials.loc[iTrial, 'answer_script']
         else:

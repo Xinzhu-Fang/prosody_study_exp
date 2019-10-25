@@ -115,12 +115,12 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         cur_correct_name = cur_name_pool[cur_correct_name_index]
         filler_correct_agent.append(cur_correct_name)
 
-    filler_agent_in_question = filler_wrong_agent[:]
+    # filler_agent_in_question = filler_wrong_agent[:]
 
-    filler_agent_in_picture = filler_agent_in_question[:]
+    # filler_agent_in_picture = filler_agent_in_question[:]
 
     tFiller_agent = pd.DataFrame(
-        zip(filler_id, vFiller_position_condition, filler_agent_in_question, filler_agent_in_picture),
+        zip(filler_id, vFiller_position_condition, filler_wrong_agent, filler_wrong_agent),
         columns=['filler_id', 'vFiller_position_condition', 'filler_agent_in_question', 'filler_agent_in_picture'])
     for iFiller in filler_id:
         tFiller_agent.loc[np.logical_and(tFiller_agent.vFiller_position_condition == 'Agent',
@@ -141,12 +141,12 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         cur_correct_name = cur_name_pool[cur_correct_name_index]
         filler_correct_patient.append(cur_correct_name)
 
-    filler_patient_in_question = filler_wrong_patient[:]
+    # filler_patient_in_question = filler_wrong_patient[:]
 
-    filler_patient_in_picture = filler_patient_in_question[:]
+    # filler_patient_in_picture = filler_patient_in_question[:]
 
     tFiller_patient = pd.DataFrame(
-        list(zip(filler_id, vFiller_position_condition, filler_patient_in_question, filler_patient_in_picture)),
+        list(zip(filler_id, vFiller_position_condition, filler_wrong_patient, filler_wrong_patient)),
         columns=['filler_id', 'vFiller_position_condition', 'filler_patient_in_question', 'filler_patient_in_picture'])
     for iFiller in filler_id:
         tFiller_patient.loc[np.logical_and(tFiller_patient.vFiller_position_condition == 'Patient',
@@ -155,12 +155,12 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # end of filler patient
 
     ## start of filler verb
-    filler_verb_in_question = filler_wrong_verb[:]
+    # filler_verb_in_question = filler_wrong_verb[:]
 
-    filler_verb_in_picture = filler_verb_in_question[:]
+    # filler_verb_in_picture = filler_verb_in_question[:]
 
     tFiller_verb = pd.DataFrame(
-        list(zip(filler_id, vFiller_position_condition, filler_verb_in_question, filler_verb_in_picture)),
+        list(zip(filler_id, vFiller_position_condition, filler_wrong_verb, filler_wrong_verb)),
         columns=['filler_id', 'vFiller_position_condition', 'filler_verb_in_question', 'filler_verb_in_picture'])
     for iFiller in filler_id:
         tFiller_verb.loc[np.logical_and(tFiller_verb.vFiller_position_condition == 'Verb',
@@ -192,6 +192,10 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     ## end of item agent
 
     ## start of item patient
+    vItem_patient_in_picture = np.repeat(item_correct_patient, item_num_trial_for_each_item)
+
+    vItem_patient_in_question = np.copy(vItem_patient_in_picture)
+
     vItem_patient_in_picture = np.repeat(item_correct_patient, item_num_trial_for_each_item)
 
     vItem_patient_in_question = np.copy(vItem_patient_in_picture)

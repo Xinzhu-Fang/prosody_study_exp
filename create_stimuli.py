@@ -274,9 +274,9 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
                 cur_name_pool.remove(iRow.agent_in_question)
                 cur_name_pool.remove(iRow.patient_in_question)
                 if iRow.position_condition == 'Agent':
-                    tFiller.iloc[iTrial, :].agent_in_picture == cur_name_pool[np.random.randint(1, len(cur_name_pool))]
+                    tFiller.iloc[iTrial, :].agent_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
                 if iRow.position_condition == 'Patient':
-                    tFiller.iloc[iTrial, :].patient_in_picture == cur_name_pool[np.random.randint(1, len(cur_name_pool))]
+                    tFiller.iloc[iTrial, :].patient_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
 
 
                 

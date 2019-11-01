@@ -262,25 +262,6 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
                        "verb_in_question", "verb_in_picture", "patient_in_question", "patient_in_picture"]
 
 
-# this happens when agent and patient are of the same sex, and when the answer is no, and the name of the 
-# position condition (e.g., agent) in picture is the same as -- in this case -- the patient's
-    if exp_name == 'exp2':
-        for iTrial, iRow in tFiller.iterrows():
-            if iRow.agent_in_picture == iRow.patient_in_picture:
-                print("bad row")
-                print(iTrial)
-#                print(iRow)
-#                if iRow.position_condition == 'Agent':
-                cur_sex = filler_wrong_agent_sex[iTrial]
-                cur_name_pool = names[cur_sex]
-                cur_name_pool.remove(iRow.agent_in_question)
-                cur_name_pool.remove(iRow.patient_in_question)
-                if iRow.position_condition == 'Agent':
-                    tFiller.iloc[iTrial, :].agent_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
-                if iRow.position_condition == 'Patient':
-                    tFiller.iloc[iTrial, :].patient_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
-
-
                 
     
     # make sure there is no such case that the agent and the patient is the same
@@ -291,7 +272,26 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
                                           tFiller.agent_in_question == tFiller.patient_in_question))
               ))
         
-    
+
+# this happens when agent and patient are of the same sex, and when the answer is no, and the name of the 
+# position condition (e.g., agent) in picture is the same as -- in this case -- the patient's
+#    if exp_name == 'exp2':
+    for iTrial, iRow in tFiller.iterrows():
+        if iRow.agent_in_picture == iRow.patient_in_picture:
+            print("bad row to be fixed")
+            print(iTrial)
+#                print(iRow)
+#                if iRow.position_condition == 'Agent':
+            cur_sex = filler_wrong_agent_sex[iTrial]
+            cur_name_pool = names[cur_sex]
+            cur_name_pool.remove(iRow.agent_in_question)
+            cur_name_pool.remove(iRow.patient_in_question)
+            if iRow.position_condition == 'Agent':
+                tFiller.iloc[iTrial, :].agent_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
+            if iRow.position_condition == 'Patient':
+                tFiller.iloc[iTrial, :].patient_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
+
+
 
     tAll_trials = pd.concat([tItem, tFiller], sort=False)
 
@@ -332,6 +332,8 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     #    tAll_trials['trial_id'] = exp_trial_id
     tAll_trials.to_csv(os.path.join(exp_name, 'tAll_trials_ordered.csv'), encoding='utf-8', index=False)
 
+
+    np.random.seed(my_seed[4])
     np.random.shuffle(trial_order)
     tAll_trials.index = trial_order
     tAll_trials = tAll_trials.sort_index()

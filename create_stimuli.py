@@ -267,7 +267,9 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     if exp_name == 'exp2':
         for iTrial, iRow in tFiller.iterrows():
             if iRow.agent_in_picture == iRow.patient_in_picture:
+                print("bad row")
                 print(iTrial)
+#                print(iRow)
 #                if iRow.position_condition == 'Agent':
                 cur_sex = filler_wrong_agent_sex[iTrial]
                 cur_name_pool = names[cur_sex]

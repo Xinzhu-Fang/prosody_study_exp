@@ -293,12 +293,19 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
 
     tAll_trials = pd.concat([tItem, tFiller], sort=False)
 
-    tAll_trials['picture_file'] = [a + '_is_' + v + "ing" + '_' + p + '.png' for a, v, p in
+#    tAll_trials['picture_file'] = [a + '_is_' + v + "ing" + '_' + p + '.png' for a, v, p in
+#                                   zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+#                                       tAll_trials.patient_in_picture)]
+#    tAll_trials['question_file'] = ["Is_" + a + '_' + v + "ing" + '_' + p + '.wav' for a, v, p in
+#                                    zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+#                                        tAll_trials.patient_in_question)]
+                                    
+    tAll_trials['picture_file'] = [a + 'Is' + v + "ing"  + p + '.png' for a, v, p in
                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
                                        tAll_trials.patient_in_picture)]
-    tAll_trials['question_file'] = ["Is_" + a + '_' + v + "ing" + '_' + p + '.wav' for a, v, p in
+    tAll_trials['question_file'] = ["Is" + a + v + "ing" + p + '.wav' for a, v, p in
                                     zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                        tAll_trials.patient_in_question)]
+                                        tAll_trials.patient_in_question)]                        
 
     tAll_trials['answer_script'] = [a + " is " + v.lower() + "ing " + p + "." for a, v, p in
                                     zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,

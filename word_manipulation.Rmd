@@ -41,7 +41,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # 
 # g [!(g %in% f)] 
 
-female= c("PAMMY", "JUDY", "MANDY", "SANNDY", "FRANNY", "KIMMY", "DOLLY", "SANDY", "TORI", "BRANDY", "MERRY", "FANNY", "RUDY", "BETTY", "LACEY", "LARRY", "LAURIE", "PENNY", "MOLLY", "MARY", "MARY", "JENNY", "BONNIE", "KELLY", "CARLIE", "CHLOE", "DORRY", "MINDY", "ANNIE", "LINDY", "DORY")
+female= sort(c("PAMMY", "JUDY", "MANDY", "SANNDY", "FRANNY", "KIMMY", "DOLLY", "SANDY", "TORI", "BRANDY", "MERRY", "FANNY", "RUDY", "BETTY", "LACEY", "LARRY", "LAURIE", "PENNY", "MOLLY", "MARY", "MARY", "JENNY", "BONNIE", "KELLY", "CARLIE", "CHLOE", "DORRY", "MINDY", "ANNIE", "LINDY", "DORY"))
 
 
 male = sort(c("TIMMY", "WALLY", "LONNIE", "BILLY", "HARVEY", "FREEDY", "OLLIE", "PERCY", "EDDIE", "COREY", "JERRY", "DANNY", "RONNIE", "DONNY", "WILLY", "JOHNNY", "KENNY", "ANDY", "CODY", "TEDDY", "TAMMY", "GARRY"))
@@ -60,7 +60,7 @@ simpleLow <- function(x) {
         sep="", collapse=" ")
 }
 
-a = sapply(male, simpleLow)
+a = sapply(female, simpleLow)
 
 dput(unname(a))
 

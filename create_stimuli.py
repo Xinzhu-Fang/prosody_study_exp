@@ -32,29 +32,32 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # "MERRY", "MINDY", "MOLLY", "PAMMY", "PENNY", "RUDY", "SANDY",
     # "TORI"]
     # male_names = ["ANDY", "BILLY", "CODY", "COREY", "DANNY", "DONNY", "EDDIE",
-    # "FREEDY", "GARRY", "HARVEY", "JERRY", "JOHNNY", "KENNY", "LONNIE",
+    # "Freddy", "GARY", "HARVEY", "JERRY", "JOHNNY", "KENNY", "LONNIE",
     # "OLLIE", "PERCY", "RONNIE", "TAMMY", "TEDDY", "TIMMY", "WALLY",
     # "WILLY"]
     #
     # other names, cindy, nancy, zoey, morrie, joey, willy, randy, tracey, casey, terry, kerry, kylie, darcy, neddy, mory, benny, manny, jilly, nelly, carrie, hailey, sammy
-    # names i threw out myself, fanny, sanndy, dorry
+    # names i threw out myself, fanny, SANDY, dorry
+
+    # lily,
 
     sex_levels = ['F', 'M']
     num_sexes = len(sex_levels)
-    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Chloe", "Dolly", "Dory", "Franny", "Jenny", "Judy",
-                   "Kelly",
-                   "Kimmy", "Lacey", "Larry", "Laurie", "Lindy", "Mandy", "Mary",
-                   "Mary", "Merry", "Mindy", "Molly", "Pammy", "Penny", "Rudy",
-                   "Sandy", "Sanndy", "Tori"],
-             'M': ["Andy", "Billy", "Cody", "Corey", "Danny", "Donny", "Eddie",
-                   "Freedy", "Garry", "Harvey", "Jerry", "Johnny", "Kenny", "Lonnie",
-                   "Ollie", "Percy", "Ronnie", "Tammy", "Teddy", "Timmy", "Wally",
-                   "Willy"]}
-#    a small pool to test the latter any trial with characters of the same name? test
-#    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Chloe", "Dolly", "Dory", "Franny", "Jenny", "Judy",
-#                   "Kelly"],
-#             'M': ["Andy", "Billy", "Cody", "Corey", "Danny", "Donny", "Eddie",
-#                   "Freedy", "Garry", "Harvey"]}
+    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Carrie", "Chloe",
+                   "Cindy", "Franny", "Hailey", "Jenny", "Jilly", "Judy", "Kelly",
+                   "Kerry", "Kimmy", "Kylie", "Lacey", "Laurie", "Lilly", "Mandy",
+                   "Mindy", "Molly", "Nancy", "Penny", "Sally", "Tori", "Tracy",
+                   "Vicky"],
+             'M': ["Benny", "Danny", "Davey", "Freddy", "Gary", "Harvey", "Henry",
+                   "Jerry", "Jimmy", "Joey", "Johnny", "Kenny", "Ollie", "Percy",
+                   "Ronnie", "Sammy", "Teddy", "Timmy", "Tommy", "Wally"
+                   ]}
+    #    a small pool to test the latter any trial with characters of the same name? test
+    #    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Chloe", "Dolly", "Dory", "Franny", "Jenny", "Judy",
+    #                   "Kelly"],
+    #             'M': ["Andy", "Billy", "Cody", "Corey", "Danny", "Donny", "Eddie",
+    #                   "Freddy", "GARY", "Harvey"]}
+    #    ted thinks ambiguous or bad sandy, andy, dory, larry, rudy, tammy, willy, dolly, lindy, pammy, lonnie, morrie, randy, casey, terry, mary, merry
 
     f_f_verbs = ["Lift", "Poke", "Pull", "Push"]
     f_m_verbs = ["Kick", "Kiss", "Lift", "Poke", "Push"]
@@ -67,12 +70,9 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
 
     item_correct_verb = np.tile(np.array(["Kick", "Kiss", "Push", "Pull"]), (3, 1))[iExp]
 
-
     # item
     item_correct_agent_sex = [agent_sex_mapped_to_verb[verbs.index(i)] for i in item_correct_verb]
     item_correct_patient_sex = [patient_sex_mapped_to_verb[verbs.index(i)] for i in item_correct_verb]
-
-
 
     item_correct_agent = [names[i].pop() for i in item_correct_agent_sex]
     item_correct_patient = [names[i].pop() for i in item_correct_patient_sex]
@@ -88,7 +88,8 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     vItem_correct_patient_sex = np.repeat(item_correct_patient_sex, item_num_trial_for_each_item)
 
     # item_wrong_verb = [verbs[num_verbs - 1 - verbs.index(i)] for i in item_correct_verb]
-    item_wrong_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in vItem_correct_verb]
+    item_wrong_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in
+                       vItem_correct_verb]
     ##
 
     # item_wrong_agent_oppo_sex =  [names[ sex_levels[num_sexes - 1 - sex_levels.index(i)]].pop() for i in item_correct_agent_sex]
@@ -100,7 +101,6 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # item_wrong_patient_same_sex =  [names[i].pop() for i in item_correct_patient_sex]
     # item_wrong_patient = [names[i].pop() for i in item_correct_patient_sex]
     item_wrong_patient = [names[i][np.random.randint(len(names[i]))] for i in vItem_correct_patient_sex]
-
 
     item_id0 = ["{:02d}".format(i) for i in range(1, exp_num_of_items + 1)]
     item_id = ["item_" + i for i in item_id0]
@@ -171,7 +171,6 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     tItem = tItem.loc[:, ~tItem.columns.duplicated()]
     tItem.columns = ["filler_or_item_id", "position_condition", "agent_in_picture", "agent_in_question",
                      "verb_in_picture", "verb_in_question", "patient_in_picture", "patient_in_question"]
-
 
     filler_id0 = ["{:02d}".format(i) for i in range(1, filler_num_trial_total + 1)]
     filler_id = ["filler_" + i for i in filler_id0]
@@ -257,7 +256,6 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
             filler_correct_verb[filler_id.index(iFiller)]
     # end of filler verb
 
-
     tFiller = pd.concat([tFiller_agent, tFiller_verb, tFiller_patient], axis=1)
     tFiller = tFiller.loc[:, ~tFiller.columns.duplicated()]
     tFiller.columns = ["filler_or_item_id", "position_condition", "agent_in_question", "agent_in_picture",
@@ -270,6 +268,8 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
                             np.logical_or(tFiller.agent_in_question == tFiller.patient_in_picture,
                                           tFiller.agent_in_question == tFiller.patient_in_question))
               ))
+        
+    
 
     tAll_trials = pd.concat([tItem, tFiller], sort=False)
 
@@ -285,7 +285,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
                                         tAll_trials.patient_in_picture)]
 
     tAll_trials = tAll_trials.replace({'Pokeing': 'Poking'}, regex=True)
-                                       
+
     exp_trial_id = ["{:02d}".format(i) for i in range(1, exp_num_trials + 1)]
 
     trial_order = range(tAll_trials.shape[0])
@@ -300,15 +300,14 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
             tAll_trials.loc[iTrial, 'answer_script'] = 'No ' + tAll_trials.loc[iTrial, 'answer_script']
 
     tAll_trials.insert(loc=0, column='trial_id', value=exp_trial_id)
-#    tAll_trials['trial_id'] = exp_trial_id
+    #    tAll_trials['trial_id'] = exp_trial_id
     tAll_trials.to_csv(os.path.join(exp_name, 'tAll_trials_ordered.csv'), encoding='utf-8', index=False)
-
 
     np.random.shuffle(trial_order)
     tAll_trials.index = trial_order
     tAll_trials = tAll_trials.sort_index()
 
-    #tAll_trials['trial_id'] = exp_trial_id
+    # tAll_trials['trial_id'] = exp_trial_id
     tAll_trials.to_csv(os.path.join(exp_name, 'tAll_trials.csv'), encoding='utf-8', index=False)
 
     if bCreate_stimuli == 1:

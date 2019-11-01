@@ -261,6 +261,26 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     tFiller.columns = ["filler_or_item_id", "position_condition", "agent_in_question", "agent_in_picture",
                        "verb_in_question", "verb_in_picture", "patient_in_question", "patient_in_picture"]
 
+
+# this happens when agent and patient are of the same sex, and when the answer is no, and the name of the 
+# position condition (e.g., agent) in picture is the same as -- in this case -- the patient's
+    if exp_name == 'exp2':
+        for iTrial, iRow in tFiller.iterrows():
+            if iRow.agent_in_picture == iRow.patient_in_picture:
+                print(iTrial)
+#                if iRow.position_condition == 'Agent':
+                cur_sex = filler_wrong_agent_sex[iTrial]
+                cur_name_pool = names[cur_sex]
+                cur_name_pool.remove(iRow.agent_in_question)
+                cur_name_pool.remove(iRow.patient_in_question)
+                if iRow.position_condition == 'Agent':
+                    tFiller.iloc[iTrial, :].agent_in_picture == cur_name_pool[np.random.randint(1, len(cur_name_pool))]
+                if iRow.position_condition == 'Patient':
+                    tFiller.iloc[iTrial, :].patient_in_picture == cur_name_pool[np.random.randint(1, len(cur_name_pool))]
+
+
+                
+    
     # make sure there is no such case that the agent and the patient is the same
     print("any trial with characters of the same name?")
     print(sum(np.logical_or(np.logical_or(tFiller.agent_in_picture == tFiller.patient_in_picture,

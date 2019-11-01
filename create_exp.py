@@ -9,11 +9,11 @@ import create_stimuli
 
 
 exps_names = ['exp0', 'exp1', 'exp2']
-bCreate_stimuli = 1
+bCreate_stimuli = 0
 
 positions = ['Agent', 'Verb', 'Patient']
 num_positions = len(positions)
-my_seed = [1, 1, 1, 5] # the four seeds are each for item, wrong filler verb, wrong filler agent, and wrong filler patient. again, "wrong". I lazily increment to the last until there is no repetition
+my_seed = [1, 1, 1, 5] # the four seeds are each for item, wrong filler verb, wrong filler agent, and wrong filler patient. again, "wrong". I lazily increment to the last until there is no repetition in the more yes, verison, and modifiy the more no version if there is still repetition. 
 #for iExp in [1]:
 for iExp in range(len(exps_names)):
     exp_name = exps_names[iExp]

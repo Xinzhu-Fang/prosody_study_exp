@@ -1,4 +1,4 @@
 exp_name,exp_num_of_items,exp_yes_to_no_ratio,exp_num_trials,exp_num_trial_yes,exp_num_trial_no,exp_num_of_control_for_each_item,exp_num_of_correction_for_each_position_for_each_item,item_num_trial_total,item_num_trial_yes,item_num_trial_no,item_num_trial_for_each_item,filler_num_trial_total,filler_num_trial_yes,filler_num_trial_no,my_seed
-exp0,4,1.0,72,36,36,2,2,32,8,24,8,40,28,12,"[1, 1, 1, 5, 3]"
-exp1,4,2.0,72,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 3]"
-exp2,4,0.5,72,24,48,2,2,32,8,24,8,40,16,24,"[1, 1, 1, 5, 3]"
+exp0,4,1.0,72,36,36,2,2,32,8,24,8,40,28,12,"[1, 1, 1, 5, 4]"
+exp1,4,2.0,72,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]"
+exp2,4,0.5,72,24,48,2,2,32,8,24,8,40,16,24,"[1, 1, 1, 5, 4]"

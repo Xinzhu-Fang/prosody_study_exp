@@ -43,14 +43,14 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
 
     sex_levels = ['F', 'M']
     num_sexes = len(sex_levels)
-    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Carrie", "Chloe",
-                   "Cindy", "Franny", "Hailey", "Jenny", "Jilly", "Judy", "Kelly",
-                   "Kerry", "Kimmy", "Kylie", "Lacey", "Laurie", "Lilly", "Mandy",
-                   "Mindy", "Molly", "Nancy", "Penny", "Sally", "Tori", "Tracy",
-                   "Vicky"],
-             'M': ["Benny", "Danny", "Davey", "Freddy", "Gary", "Harvey", "Henry",
-                   "Jerry", "Jimmy", "Joey", "Johnny", "Kenny", "Ollie", "Percy",
-                   "Ronnie", "Sammy", "Teddy", "Timmy", "Tommy", "Wally"
+    names = {'F': ["Nancy", "Vicky", "Tori", "Penny", "Jilly", "Cindy", "Laurie", 
+"Franny", "Brandy", "Betty", "Kylie", "Carrie", "Tracy", "Chloe", 
+"Annie", "Mindy", "Molly", "Sally", "Lacey", "Carlie", "Mandy", 
+"Hailey", "Lilly", "Jenny", "Judy", "Kerry", "Kelly", "Bonnie", 
+"Kimmy"],
+             'M': ["Freddy", "Ronnie", "Davey", "Jimmy", "Kenny", "Percy", "Sammy", 
+"Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally", 
+"Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
                    ]}
     #    a small pool to test the latter any trial with characters of the same name? test
     #    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Chloe", "Dolly", "Dory", "Franny", "Jenny", "Judy",

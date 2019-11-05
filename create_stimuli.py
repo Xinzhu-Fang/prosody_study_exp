@@ -43,13 +43,13 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
 
     sex_levels = ['F', 'M']
     num_sexes = len(sex_levels)
-    names = {'F': ["Nancy", "Vicky", "Tori", "Penny", "Jilly", "Cindy", "Laurie", 
-"Franny", "Brandy", "Betty", "Kylie", "Carrie", "Tracy", "Chloe", 
-"Annie", "Mindy", "Molly", "Sally", "Lacey", "Carlie", "Mandy", 
-"Hailey", "Lilly", "Jenny", "Judy", "Kerry", "Kelly", "Bonnie", 
+    names = {'F': ["Nancy", "Vicky", "Tori", "Penny", "Jilly", "Cindy", "Laurie",
+"Franny", "Brandy", "Betty", "Kylie", "Carrie", "Tracy", "Chloe",
+"Annie", "Mindy", "Molly", "Sally", "Lacey", "Carlie", "Mandy",
+"Hailey", "Lilly", "Jenny", "Judy", "Kerry", "Kelly", "Bonnie",
 "Kimmy"],
-             'M': ["Freddy", "Ronnie", "Davey", "Jimmy", "Kenny", "Percy", "Sammy", 
-"Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally", 
+             'M': ["Freddy", "Ronnie", "Davey", "Jimmy", "Kenny", "Percy", "Sammy",
+"Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
 "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
                    ]}
     #    a small pool to test the latter any trial with characters of the same name? test
@@ -262,8 +262,8 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
                        "verb_in_question", "verb_in_picture", "patient_in_question", "patient_in_picture"]
 
 
-                
-    
+
+
     # make sure there is no such case that the agent and the patient is the same
     print("any trial with characters of the same name?")
     print(sum(np.logical_or(np.logical_or(tFiller.agent_in_picture == tFiller.patient_in_picture,
@@ -271,9 +271,9 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
                             np.logical_or(tFiller.agent_in_question == tFiller.patient_in_picture,
                                           tFiller.agent_in_question == tFiller.patient_in_question))
               ))
-        
 
-# this happens when agent and patient are of the same sex, and when the answer is no, and the name of the 
+
+# this happens when agent and patient are of the same sex, and when the answer is no, and the name of the
 # position condition (e.g., agent) in picture is the same as -- in this case -- the patient's
 #    if exp_name == 'exp2':
     for iTrial, iRow in tFiller.iterrows():
@@ -301,25 +301,25 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
 #    tAll_trials['question_file'] = ["Is_" + a + '_' + v + "ing" + '_' + p + '.wav' for a, v, p in
 #                                    zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
 #                                        tAll_trials.patient_in_question)]
-                                    
+
     tAll_trials['picture_file'] = [a + 'Is' + v + "ing"  + p + '.png' for a, v, p in
                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
                                        tAll_trials.patient_in_picture)]
     tAll_trials['question_file'] = ["Is" + a + v + "ing" + p + '.wav' for a, v, p in
                                     zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                        tAll_trials.patient_in_question)]                        
+                                        tAll_trials.patient_in_question)]
 
     tAll_trials['answer_script'] = [a + " is " + v.lower() + "ing " + p + "." for a, v, p in
                                     zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
                                         tAll_trials.patient_in_picture)]
-#                                    
+#
 #    tAll_trials['question_script'] = ['Is ' + a + ' ' + v.lower() + 'ing ' + p + '?' for a, v, p in
-#                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
-#                                        tAll_trials.patient_in_picture)]  
-#    for google speech recognition comes with the speech recognition package                                
+                                 # zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                 #     tAll_trials.patient_in_question)]  
+#    for google speech recognition comes with the speech recognition package
     tAll_trials['question_script'] = ['is ' + a + ' ' + v.lower() + 'ing ' + p for a, v, p in
-                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
-                                        tAll_trials.patient_in_picture)]                                
+                                    zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                        tAll_trials.patient_in_question)]
 
     tAll_trials = tAll_trials.replace({'Pokeing': 'Poking'}, regex=True)
     tAll_trials = tAll_trials.replace({'pokeing': 'poking'}, regex=True)

@@ -9,7 +9,7 @@ import create_stimuli
 
 
 exps_names = ['exp0', 'exp1', 'exp2']
-bCreate_stimuli = 1
+bCreate_stimuli = 0
 
 positions = ['Agent', 'Verb', 'Patient']
 num_positions = len(positions)

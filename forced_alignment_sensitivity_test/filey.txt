@@ -1,0 +1,3 @@
+IsCindyPullingChloe.wav,Is Cindy pushing Chloe,IsCindyPullingChloe.TextGrid
+CindyIsPushingChloe.wav,Is Cindy pushing Chloe,CindyIsPushingChloe.TextGrid
+IsCindyPushingChloe.wav,Is Cindy pushing Chloe,IsCindyPushingChloe.TextGrid

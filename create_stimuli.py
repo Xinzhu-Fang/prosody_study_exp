@@ -305,15 +305,25 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     tAll_trials['picture_file'] = [a + 'Is' + v + "ing"  + p + '.png' for a, v, p in
                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
                                        tAll_trials.patient_in_picture)]
-    tAll_trials['question_file'] = ["Is" + a + v + "ing" + p + '.m4a' for a, v, p in
+    tAll_trials['question_file'] = ["Is" + a + v + "ing" + p + '.wav' for a, v, p in
                                     zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
                                         tAll_trials.patient_in_question)]                        
 
     tAll_trials['answer_script'] = [a + " is " + v.lower() + "ing " + p + "." for a, v, p in
                                     zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
                                         tAll_trials.patient_in_picture)]
+#                                    
+#    tAll_trials['question_script'] = ['Is ' + a + ' ' + v.lower() + 'ing ' + p + '?' for a, v, p in
+#                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+#                                        tAll_trials.patient_in_picture)]  
+#    for google speech recognition comes with the speech recognition package                                
+    tAll_trials['question_script'] = ['is ' + a + ' ' + v.lower() + 'ing ' + p for a, v, p in
+                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+                                        tAll_trials.patient_in_picture)]                                
 
     tAll_trials = tAll_trials.replace({'Pokeing': 'Poking'}, regex=True)
+    tAll_trials = tAll_trials.replace({'pokeing': 'poking'}, regex=True)
+
 
     exp_trial_id = ["{:02d}".format(i) for i in range(1, exp_num_trials + 1)]
 

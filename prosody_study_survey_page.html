@@ -1,0 +1,235 @@
+<!-- recording answers to a few simple questions -->
+
+
+<!-- For help on using this template, see the blog post: https://blog.mturk.com/editing-the-study-link-project-template-in-the-ui-7c75285105fb#.py7towsdx -->
+<!-- HIT template: StudyLink-v3.0 -->
+<!-- The following snippet enables the 'responsive' behavior on smaller screens -->
+<meta content="width=device-width,initial-scale=1" name="viewport" />
+<section class="container" id="StudyLink">
+  <!-- Instructions -->
+  <!-- <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <div class="panel panel-primary">
+        <a class="panel-heading" href="javascript:void(0);" id="collapseTrigger"><strong>Study Link Instructions</strong> <span class="collapse-text">(Click to expand)</span> </a>
+        <div class="panel-body" id="instructionBody">
+          <p>We are conducting an academic study about social networks. We need to understand your opinion about social networks. Select the link below to complete the study. At the end of the study, you will receive a code to paste into the box
+            below to receive credit for taking our study.</p>
+
+          <p><strong>Make sure to leave this window open as you complete the study. </strong> When you are finished, you will return to this page to paste the code into the box.</p>
+
+          <p class="well well-sm"><strong><mark>Template note for Requesters</mark></strong> - To verify that Workers actually complete your study, require each Worker to enter a <strong>unique</strong> study completion code to your HIT. Consult
+            with your study service provider on how to generate this code at the end of your study.</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- End Instructions -->
+  <h1>Call for participants</h1>
+  <p>
+    <strong> Chrome Only. Requires a microphone (an internal microphone of your laptop is fine) </strong>
+    <br>
+    The Gibson Lab at Massachusetts Institute of Technology is looking for online participants
+    for a brief study. It will take about 10 minutes and will pay $3. You will be asked to provide some demographic and clinical information about yourself, to rate your ability to do everyday tasks, and to produce some speech.<strong> We will ask you to talk about your life; your speech data is for language research purpose only and will be kept confidentially. If you do not feel comfortable talking about your life, please do not participate. </strong>
+  </p>
+  <div class="alert alert-danger">
+    <strong>This task can only be completed once.</strong>
+    If you have already completed this task before the system will not
+    allow you to run again. If this looks familiar please return the
+    HIT so someone else can participate.
+  </div>
+  <p>
+    Otherwise, please click the "Accept HIT" button on the Amazon site
+    above to begin the task.
+  </p>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <p> Generate your study link to complete the study.
+     <!-- At the end of the study, you will receive a code to paste into the box
+    below to receive credit for taking our study. -->
+     Make sure to leave this window open as you complete the study.
+
+    </p>
+  <!-- Study Link Layout -->
+    <!-- <table class="table table-condensed table-bordered">
+      <colgroup>
+        <col class="col-xs-4 col-md-4" />
+        <col class="col-xs-8 col-md-8" />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td><label>Study link (wiill show once you provide your worker id):</label></td>
+          <td><b id="studylink"></b></td>
+        </tr>
+      </tbody>
+    </table> -->
+
+  <!-- <div class="form-group"><label>Provide yor workder id here:</label> <input class="form-control" id="workerid" name="workerid" placeholder="e.g. 123456" required="" type="text" /></div> -->
+
+  <script type="text/javascript">
+    // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+    function makeid() {
+      var length = 29;
+      var result = '';
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
+    }
+    // "http://18.20.150.235:22362/consent?hitId=3PN6H8C9R4QFW55TTXP20VKMHUXDAK&assignmentId=3JAOYWH7FI4MBIH99A6RBXNQPZL9K&workerId=A28WAZPH1GKLS1&mode=sandbox"
+    var url0 = "http://18.20.150.235:22362/consent?hitId=3HYV4299H0W65NQESUG8AMWCRIH8EN&assignmentId=";
+    var url0 = "https://obscure-cove-31334.herokuapp.com/consent?hitId=";
+    // var url0 = "http://18.20.150.235:22362/consent?hitId=";
+    // var worker_id = document.getElementById('workerid').value;
+    // alert('aef')
+    // document.getElementById('studylink').innerHTML = "will show once you enter your worker id below"
+  </script>
+
+
+
+  <script type="text/javascript">
+    var generate_url = function() {
+      cur_url = window.location.href;
+      // cur_url = "https://workersandbox.mturkcontent.com/dynamic/hit?assignmentId=3S4AW7T80BILECBXNFI0UP274XUL4X&hitId=3APP19WN71EHLN3H5A9YQBLXY3UG6E&workerId=A3CV1MVF006J21&turkSubmitTo=https%3A%2F%2Fworkersandbox.mturk.com"
+
+      start_asg = cur_url.indexOf("assignmentId");
+      start_hit = cur_url.indexOf("hitId");
+      start_worker = cur_url.indexOf("workerId");
+      start_end = cur_url.indexOf("turkSubmit")
+asg_id = cur_url.substring(start_asg+13, start_hit-1);
+hit_id = cur_url.substring(start_hit+6, start_worker-1);
+worker_id = cur_url.substring(start_worker+9, start_end-1);
+
+      // alert(asg_id)
+
+      // alert(window.location.href.indexOf("9"))
+      // var worker_id = document.getElementById('workerid').value;
+// asg_id = makeid()
+      var url1 = url0 + asg_id + '&workerId=' + worker_id + '&mode=sandbox';
+      // var url1 = url0 + asg_id + '&workerId=' + worker_id + '&mode=sandbox' + cur_url;
+      var url1 = url0 + hit_id + '&assignmentId=' + asg_id + '&workerId=' + worker_id + '&mode=sandbox';
+      // alert(url1);
+      document.getElementById('studylink').innerHTML = url1;
+document.getElementById('prompt').innerHTML = "Paste the following URL into another browser tab: "
+      // document.getElementById('studyink').innerHTML = url1;
+
+      // alert('aea' + typeof(worker_id));
+      // console.log(typeof(worker_id));
+    }
+  </script>
+
+
+  <div class="row">
+
+    <div class="col-xs-4" id="submit_button">
+      <button type="button" id="submit" value="submit" class="btn btn-primary btn-lg" style="float:right;" onclick="generate_url();">
+        <!-- onclick="javascript:update_age();javascript:update_gender();javascript:update_native();javascript:update_lang();javascript:update_whenlearn()"> -->
+        Generate the study link<span class="glyphicon glyphicon"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- <br> -->
+  <!-- <br> -->
+  <!-- <div class="row"> -->
+
+<strong><div id="prompt"></div></strong>  <div id="studylink"> </div>
+<!-- </div> -->
+
+  <!-- <script type="text/javascript">
+    function show_url() {
+
+    }
+  </script> -->
+  <br>
+  <br>
+  <br>
+
+  <div class="row" id="workContent">
+    <div class="col-xs-12 col-md-6 ">
+      <!-- Content for Worker -->
+
+      <!-- End Content for Worker -->
+      <!-- Input from Worker -->
+      <!-- <div class="form-group"><label for="studycode">Provide the study code here:</label> <input class="form-control" id="studycode" name="studycode" placeholder="e.g. 123456" required="" type="text" /></div> -->
+
+
+Please leave any feedback on this study, such as suggestions, concerns, and techinical difficulties you experienced while completing it. Note that the last one is a crucial factor in approving your HIT if you didn't complete it successfully (e.g., failed to record, in this case, include whether you passed the recording test, which operating system and which browser you are using)
+            <p><textarea name="answer" cols="80" rows="3"></textarea></p>
+      <!-- End input from Worker -->
+    </div>
+  </div>
+  <!-- End Study Link Layout -->
+</section>
+<!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries -->
+<!-- External CSS references -->
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" integrity="sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+" rel="stylesheet" />
+<style class="darkreader darkreader--sync" media="screen" type="text/css">
+</style>
+<!-- Open internal style sheet -->
+<style type="text/css">
+  /* https://stackoverflow.com/questions/1057574/html-td-wrap-text */
+  table {
+    table-layout: fixed;
+  }
+
+  td {
+    word-wrap: break-word
+  }
+
+  #collapseTrigger {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+  }
+
+  #submitButton {
+    white-space: normal;
+  }
+
+  .image {
+    margin-bottom: 15px;
+  }
+
+  /* CSS for breaking long words/urls */
+  .dont-break-out {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+</style>
+<style class="darkreader darkreader--sync" media="screen" type="text/css">
+</style>
+<!-- Close internal style sheet -->
+<!-- External JS references -->
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"></script><!-- Open internal javascript -->
+<script>
+  $(document).ready(function() {
+    // Instructions expand/collapse
+    var content = $('#instructionBody');
+    var trigger = $('#collapseTrigger');
+    content.hide();
+    $('.collapse-text').text('(Click to expand)');
+    trigger.click(function() {
+      content.toggle();
+      var isVisible = content.is(':visible');
+      if (isVisible) {
+        $('.collapse-text').text('(Click to collapse)');
+      } else {
+        $('.collapse-text').text('(Click to expand)');
+      }
+    });
+    // end expand/collapse
+  });
+</script><!-- Close internal javascript -->

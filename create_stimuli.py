@@ -362,6 +362,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         width2 = 900
         height = 1900
         color0 = (0, 0, 0, 0)
+        
 
         # img.save('sample-out.png')
 
@@ -371,6 +372,8 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
             # print(cur_vanilla)
             cur_img = Image.open(cur_vanilla)
             draw = ImageDraw.Draw(cur_img)
-            draw.text((width1, height), iRow.agent_in_picture, color0, font=font0)
-            draw.text((width2, height), iRow.patient_in_picture, color0, font=font0)
+#            draw.text((width1, height), iRow.agent_in_picture, color0, font=font0)
+#            draw.text((width2, height), iRow.patient_in_picture, color0, font=font0)
+            draw.text((width1, height), iRow.agent_in_picture, fill=(0,0,0), font=font0)
+            draw.text((width2, height), iRow.patient_in_picture, fill=(0,0,0), font=font0)
             cur_img.save(os.path.join(output_dir, iRow.picture_file))

@@ -1,0 +1,7 @@
+participant,presentationnum,verb,condition,item,targword,question,yesno,list,version,index,word,wordlabel,phonelength,duration,silence,durasil,begin,meanpit,maxpitch,maxPitTime,minpitch,minPitTime,firstpitch,secondpitch,thirdpitch,fourthpitch,meanIntensity,maxIntensity
+IsCindyPushingChloe,sp,sp,1,0.339,0,0.339,0.0124716553288,--undefined--,--undefined--,--undefined--,--undefined--,--undefined--,--undefined--,--undefined--,--undefined--,--undefined--,40.600,45.261
+IsCindyPushingChloe,IS,IS,2,0.259,0,0.259,0.351700680272,--undefined--,--undefined--,--undefined--,--undefined--,--undefined--,--undefined--,--undefined--,--undefined--,--undefined--,39.994,43.577
+IsCindyPushingChloe,CINDY,CINDY,5,0.269,0,0.269,0.611111111111,249.646,294.71,0.052,229.33,0.103,283.388,242.315,234.854,--undefined--,52.584,65.183
+IsCindyPushingChloe,PUSHING,PUSHING,5,0.289,0,0.289,0.880498866213,304.846,333.21,0.247,274.04,0.071,276.825,290.063,318.235,315.732,60.946,67.319
+IsCindyPushingChloe,CHLOE,CHLOE,4,0.220,0,0.220,1.16984126984,331.454,336.50,0.061,322.30,0.083,330.766,332.319,--undefined--,--undefined--,54.320,66.969
+IsCindyPushingChloe,sp,sp,0,0.239,0,0.239,1.38934240363,327.960,350.07,0.140,302.45,0.084,--undefined--,320.157,336.713,306.035,56.543,65.731

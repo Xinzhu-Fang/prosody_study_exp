@@ -1,0 +1,190 @@
+---
+title: "acoustic_analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+verb column is actaully item
+
+```{r}
+features = c("duration", "meanIntensity", "meanpit")
+info = c('participant','verb','condition', 'word', 'word_num')
+bRemove_outliers = 0
+library(dplyr)
+library(lme4)
+library(zeallot)
+  library(Rmisc)
+  library(ggplot2)
+  library(plyr)
+
+```
+
+```{r}
+gdata = read.csv("measure_nonrhyming_84total_60No_24Yes_20181210.csv", header  = T)
+# gdata = transform(gdata,PresentationNum=as.numeric(PresentationNum))
+# sort(gdata$PresentationNum, decreasing = FALSE)
+colnames(gdata)
+
+# code for word_num
+new.df <- gdata %>% 
+  dplyr::group_by(participant, question, presentationnum) %>%
+  dplyr::mutate(word_num=1:dplyr::n()) %>%
+  dplyr::select(c(info, features))
+
+write.csv(new.df,'newdf.csv')
+# code for getting Nth instance of question
+# nthdf <- new.df %>%
+#   group_by(participant,Verb, question, condition, word_num) %>%
+#   mutate(Appearance=1:n())
+#write.csv(nthdf,'nthdf.csv')
+
+# subsetting it to relevant Nth appearance
+# workingdf <- nthdf %>%
+#   filter (Appearance == 2)
+# 
+# write.csv(workingdf,'workingdf2.csv')
+
+normalize_data = function(df, remove_outliers){
+  for(col_name in features){
+    df[[col_name]] = scale(df[[col_name]])
+    # there is surge of na after the first colling of the above line. tested by print(sum(is.na(df_Agent))). I guess it's because the df is nibble
+        # print(sum(is.na(df_Agent)))
+
+  }
+  for(col_name in features){
+    
+    if(remove_outliers){
+      df = df[df[[col_name]]>-2 & df[[col_name]]<2,]
+          # print(sum(is.na(df_Agent)))
+
+    }
+  }
+  return(df)
+}
+
+process_data = function(file_name){
+  df <- read.csv(file_name,header = TRUE, fileEncoding="UTF-8",na.strings=c("", "NA","--undefined--"))
+  df <- na.omit(df)
+  
+  #df = df[df$wordlabel != 'sp']
+  # df$verb = as.factor(df$verb)
+  
+  
+  # df_Agent = df[(df$condition=='Agent' | df$condition=='Verb') & df$word_num=='3',]
+  # 
+  # df_Verb = df[(df$condition=='Verb'| df$condition=='Patient') & df$word_num=='5',]
+  # 
+  # df_Patient = df[(df$condition=='Patient'| df$condition=='Agent') & df$word_num=='6',]
+  
+  df_Agent = df[(df$condition=='Agent' | df$condition=='YesControl') & df$word_num=='3',]
+  # df_Agent inheri row hum from df
+  
+  df_Verb = df[(df$condition=='Verb'| df$condition=='YesControl') & df$word_num=='5',]
+  
+  df_Patient = df[(df$condition=='Patient'| df$condition=='YesControl') & df$word_num=='6',]
+  
+  # print(sum(is.na(df_Agent)))
+  
+  # relevant_columns = c('participant','verb','condition','duration','meanIntensity','meanpit')
+  # df_Agent = df_Agent[relevant_columns]
+  # df_Verb = df_Verb[relevant_columns]
+  # df_Patient = df_Patient[relevant_columns]
+  sum(is.na(df[new.df$word != 'sp',]))
+  # new.df[(new.df$meanpit == '--undefined--') && (new.df$word != 'sp'),]
+  # it seems that the only undefined is meanpitch for sp
+  
+
+  
+  df_Verb = normalize_data(df_Verb, bRemove_outliers)
+  df_Agent = normalize_data(df_Agent, bRemove_outliers)
+  df_Patient = normalize_data(df_Patient, bRemove_outliers)
+    # print(sum(is.na(df_Agent)))
+
+  
+  
+  # return(list(df_Agent_duration, df_Agent_meanIntensity, df_Agent_meanpit, df_Patient_duration, df_Patient_meanIntensity, df_Patient_meanpit,df_Verb_duration, df_Verb_meanIntensity, df_Verb_meanpit))
+  return(list(df_Verb, df_Agent, df_Patient))
+}
+
+
+```
+
+```{r}
+
+file_name = 'newdf.csv'
+
+# c(df_Agent_duration, df_Agent_meanIntensity, df_Agent_meanpit, df_Patient_duration, df_Patient_meanIntensity, df_Patient_meanpit,df_Verb_duration, df_Verb_meanIntensity, df_Verb_meanpit) %<-%process_data(file_name)
+c(df_Verb, df_Agent, df_Patient) %<-% process_data(file_name)
+
+
+combine_datasets = function(Agent,Verb,Patient){
+  Agent$condition = mapvalues(Agent$condition,c('Agent'),c('contrast'))
+  Verb$condition = mapvalues(Verb$condition,c('Verb'),c('contrast'))
+  Patient$condition = mapvalues(Patient$condition,c('Patient'),c('contrast'))
+  
+  Agent$Location = 'Agent'
+  Verb$Location = 'Verb'
+  Patient$Location = "Patient"
+  
+  return(rbind(Agent,Verb,Patient))
+}
+
+summarize_data = function(d, feature){
+  # http://www.cookbook-r.com/Graphs/Plotting_means_and_error_bars_(ggplot2)/
+  return(summarySE(d,measurevar=feature ,groupvars=c('Location','condition')))
+}
+plot_data = function(d,feature, title){
+  print(ggplot(d, aes(x=Location, y=get(feature), fill=condition)) + 
+    geom_bar(position=position_dodge(), stat="identity") +
+    geom_errorbar(aes(ymin=get(feature)-ci, ymax=get(feature)+ci),
+                  width=.2,                   
+                  position=position_dodge(.9))+
+    xlab("Location") +
+    ylab(paste0("normalized ", feature)) +
+    scale_fill_hue(name="Condition", 
+                   breaks=c("YesControl", "contrast"),
+                   labels=c("NonContrastive", "Contrastive")) +
+    ggtitle(title))
+}
+for (iF in features){
+  print(iF)
+  
+  combined_dataset = combine_datasets(df_Agent, df_Verb, df_Patient)
+  summarized_dataset= summarize_data(combined_dataset, iF)
+  
+  
+  plot_data(summarized_dataset,iF, title= paste0('Effect of contrast on ', iF))
+}
+
+```
+
+
+# ```{r, results="asis"}
+```{r}
+run_regression = function(location,observation){
+cat("  \n###", observation, "of", location, "  \n")
+    r = lmer(get(observation) ~ condition + (1 + condition|participant) + (1 + condition | verb), data=get(paste0("df_", location)))
+  print(summary(r))
+  summary(r)
+  cat("  \n")
+}
+
+
+
+for (iF in features){
+  run_regression("Agent",iF)
+
+  
+  run_regression("Patient", iF)
+
+  run_regression("Verb", iF)
+
+  
+  
+}
+    r = lmer(get(observation) ~ condition + (1 | participant) + (1 | verb), data=df)
+
+```
+

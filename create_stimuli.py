@@ -309,7 +309,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
                                     zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
                                         tAll_trials.patient_in_question)]
 
-    tAll_trials['answer_script'] = [a + " is " + v.lower() + "ing " + p + "." for a, v, p in
+    tAll_trials['answer_script'] = [a + " is " + v.lower() + "ing " + p for a, v, p in
                                     zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
                                         tAll_trials.patient_in_picture)]
 #

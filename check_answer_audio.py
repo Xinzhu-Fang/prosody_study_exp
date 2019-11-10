@@ -1,3 +1,6 @@
+run this file at two stages:
+    1: get the auto fail
+
 import pandas as pd
 import os
 import speech_recognition as sr
@@ -49,6 +52,6 @@ for iFile in os.listdir(os.path.join('/Users/xzfang/Desktop/prosody_study_data',
 
 tTranscript = pd.DataFrame(zip(trial_id, supposed_answer_transcript, auto_transcript, status, answer_files), columns=['trial_id', 'supposed_answer_transcript', 'auto_transcript', 'status', 'answer_files'])
 
-tTranscript_auto_fail = 
+tTranscript_auto_fail = tTranscript.loc[tTranscript.status == 'auto_fail']
 
 tTranscript.to_csv('tTranscript_' + cur_exp + '.csv',  encoding='utf-8', index=False)

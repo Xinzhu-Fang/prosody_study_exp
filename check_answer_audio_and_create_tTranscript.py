@@ -4,7 +4,7 @@
 
 bStage = 1
 bStage = 2 #manual
-reject_row_index = [3,4] #manual
+reject_row_index = [1] #manual
 import pandas as pd
 import os
 import speech_recognition as sr
@@ -62,7 +62,10 @@ if bStage == 1:
     tTranscript_auto_fail.to_csv('tTranscript_auto_fail_' + cur_exp + '.csv',  encoding='utf-8')
 
 else:
-    
-    tTranscript = tTranscript.drop(reject_row_index)
 
-    tTranscript.to_csv('tTranscript_' + cur_exp + '.csv',  encoding='utf-8')
+    tTranscript0 = tTranscript.drop(reject_row_index)
+
+    tTranscript1 = tTranscript0[['trial_id', 'supposed_answer_transcript', 'answer_files']]
+    tTranscript1['answer_textgrid'] = [a.replace('wav', 'TextGrid') for a in tTranscript1.answer_files]
+
+    tTranscript1.to_csv('tTranscript_' + cur_exp + '.csv',  encoding='utf-8')

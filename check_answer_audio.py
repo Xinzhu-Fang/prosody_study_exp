@@ -47,6 +47,8 @@ for iFile in os.listdir(os.path.join('/Users/xzfang/Desktop/prosody_study_data',
     except sr.RequestError as e:
         print("Could not request result from Google Speech Recognition service; {0}".format(e))
 
-tTranscript = pd.DataFrame(zip(trial_id, answer_files, supposed_answer_transcript, auto_transcript, status), columns=['trial_id', ' answer_files', ' supposed_answer_transcript', ' auto_transcript', ' status'])
+tTranscript = pd.DataFrame(zip(trial_id, supposed_answer_transcript, auto_transcript, status, answer_files), columns=['trial_id', 'supposed_answer_transcript', 'auto_transcript', 'status', 'answer_files'])
+
+tTranscript_auto_fail = 
 
 tTranscript.to_csv('tTranscript_' + cur_exp + '.csv',  encoding='utf-8', index=False)

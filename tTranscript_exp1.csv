@@ -1,11 +1,11 @@
-trial_id, answer_files, supposed_answer_transcript, auto_transcript, status
-2,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_02.wav,no Kimmy is kicking Tommy,yes Carly is kicking Tommy,auto_fail
-3,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_03.wav,no Kimmy is kicking Tommy,yes Kimmy is kicking Tommy,auto_fail
-1,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_01.wav,no Kimmy is kicking Tommy,yes Chloe is kicking Tommy,auto_fail
-10,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_10.wav,no Bonnie is kissing Benny,yes Sally is kissing Benny,auto_fail
-4,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_04.wav,no Kimmy is kicking Tommy,no Kimi is not listening Tommy,auto_fail
-5,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_05.wav,no Kimmy is kicking Tommy,yes Kimmy is kicking Freddy,auto_fail
-7,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_07.wav,yes Kimmy is kicking Tommy,yes Kimmy is kicking Tommy,auto_pass
-6,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_06.wav,no Kimmy is kicking Tommy,no Kimi is not kicking baby,auto_fail
-8,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_08.wav,yes Kimmy is kicking Tommy,yes Kimmy is kicking Tommy,auto_pass
-9,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_09.wav,no Bonnie is kissing Benny,yes Haley is kissing Benny,auto_fail
+trial_id,supposed_answer_transcript,auto_transcript,status,answer_files
+2,no Kimmy is kicking Tommy,yes Carly is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_02.wav
+3,no Kimmy is kicking Tommy,yes Kimmy is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_03.wav
+1,no Kimmy is kicking Tommy,yes Chloe is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_01.wav
+10,no Bonnie is kissing Benny,yes Sally is kissing Benny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_10.wav
+4,no Kimmy is kicking Tommy,no Kimi is not listening Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_04.wav
+5,no Kimmy is kicking Tommy,yes Kimmy is kicking Freddy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_05.wav
+7,yes Kimmy is kicking Tommy,yes Kimmy is kicking Tommy,auto_pass,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_07.wav
+6,no Kimmy is kicking Tommy,no Kimi is not kicking baby,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_06.wav
+8,yes Kimmy is kicking Tommy,yes Kimmy is kicking Tommy,auto_pass,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_08.wav
+9,no Bonnie is kissing Benny,yes Haley is kissing Benny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A1P2RQ166VS5BT_prosody_study_exp1_11_7_2019_trial_09.wav

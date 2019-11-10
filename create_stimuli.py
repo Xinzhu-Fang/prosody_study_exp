@@ -334,9 +334,9 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     for iTrial, iRow in tAll_trials.iterrows():
         # print(tAll_trials.loc[iTrial, 'position_condition'])
         if tAll_trials.loc[iTrial, 'position_condition'] == 'Control':
-            tAll_trials.loc[iTrial, 'answer_script'] = 'Yes ' + tAll_trials.loc[iTrial, 'answer_script']
+            tAll_trials.loc[iTrial, 'answer_script'] = 'yes ' + tAll_trials.loc[iTrial, 'answer_script']
         else:
-            tAll_trials.loc[iTrial, 'answer_script'] = 'No ' + tAll_trials.loc[iTrial, 'answer_script']
+            tAll_trials.loc[iTrial, 'answer_script'] = 'no ' + tAll_trials.loc[iTrial, 'answer_script']
 
     tAll_trials.insert(loc=0, column='trial_id', value=exp_trial_id)
     #    tAll_trials['trial_id'] = exp_trial_id

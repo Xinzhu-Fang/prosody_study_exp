@@ -15,6 +15,7 @@ import sys
 import getopt
 import wave
 import re
+import pandas as pd
 
 def prep_wav(orig_wav, out_wav, sr_override, wave_start, wave_end):
     global sr_models
@@ -324,17 +325,32 @@ def MishasCoolWrapper(wavfile, trsfile, outfile):
 wav_dir = sys.argv[1]
 filey = sys.argv[2]
 textgrid_dir = sys.argv[3]
+print(wav)
 num_file_processed = 0
-with open(filey, 'r') as f:
-    for l in f.readlines():
-        cur_wav, cur_transcript, cur_textgrid = l.strip('\n').split(',')
-        cur_wav_full = os.path.join(wav_dir, cur_wav)
-        cur_textgrid_full = os.path.join(textgrid_dir, cur_textgrid)
-        print(cur_wav_full)
-        print(cur_transcript)
-        print(cur_textgrid_full)
-        if not os.path.exists(cur_wav_full):
-            continue
-        MishasCoolWrapper(cur_wav_full, cur_transcript, cur_textgrid_full)
-        num_file_processed += 1
-        print("processed " + str(num_file_processed) + " files")
+#with open(filey, 'r') as f:
+#    for l in f.readlines():
+#        cur_wav, cur_transcript, cur_textgrid = l.strip('\n').split(',')
+#        cur_wav_full = os.path.join(wav_dir, cur_wav)
+#        cur_textgrid_full = os.path.join(textgrid_dir, cur_textgrid)
+#        print(cur_wav_full)
+#        print(cur_transcript)
+#        print(cur_textgrid_full)
+#        if not os.path.exists(cur_wav_full):
+#            continue
+#        MishasCoolWrapper(cur_wav_full, cur_transcript, cur_textgrid_full)
+#        num_file_processed += 1
+#        print("processed " + str(num_file_processed) + " files")
+
+filey = pd.read_csv(filey)
+for iFile, iRow in filey.iterrows():
+    cur_wav_full = iRow.answer_files
+    cur_textgrid_full = iRow.answer_textgrid
+    cur_transcript = iRow.supposed_answer_transcript
+    print(cur_wav_full)
+    print(cur_transcript)
+    print(cur_textgrid_full)
+    if not os.path.exists(cur_wav_full):
+        continue
+    MishasCoolWrapper(cur_wav_full, cur_transcript, cur_textgrid_full)
+    num_file_processed += 1
+    print("processed " + str(num_file_processed) + " files")

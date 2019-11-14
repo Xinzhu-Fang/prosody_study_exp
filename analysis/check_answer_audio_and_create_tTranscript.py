@@ -4,7 +4,7 @@
 
 bStage = 1
 bStage = 2 #manual
-reject_row_index = [1] #manual
+reject_row_index = [] #manual
 import pandas as pd
 import os
 import speech_recognition as sr
@@ -59,7 +59,7 @@ if bStage == 1:
 
     tTranscript_auto_fail = tTranscript.loc[tTranscript.status == 'auto_fail']
 
-    tTranscript_auto_fail.to_csv('tTranscript_auto_fail_' + cur_exp + '.csv',  encoding='utf-8')
+    tTranscript_auto_fail.to_csv('tTranscript_auto_fail_only_' + cur_exp + '.csv',  encoding='utf-8')
 
 else:
 

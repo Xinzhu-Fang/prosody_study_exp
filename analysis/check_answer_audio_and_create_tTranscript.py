@@ -67,5 +67,6 @@ else:
 
     tTranscript1 = tTranscript0[['trial_id', 'supposed_answer_transcript', 'answer_files']]
     tTranscript1['answer_textgrid'] = [a.replace('wav', 'TextGrid') for a in tTranscript1.answer_files]
+    tTranscript1['answer_files'] = [a.replace('responses_to_analyze', 'responses_to_analyze_downsampled') for a in tTranscript1.answer_files]
 
     tTranscript1.to_csv('tTranscript_' + cur_exp + '.csv',  encoding='utf-8')

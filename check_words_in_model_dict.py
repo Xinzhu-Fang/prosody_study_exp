@@ -14,7 +14,9 @@ verbs = ["Kissing", "Kicking", "Poking", "Lifting", "Pushing", "Pulling"]
 status = []
 words = names + verbs
 WORDS = [x.upper() for x in words]
-with open(os.path.join('analysis', 'tmp', 'dict')) as f:
+#with open(os.path.join('analysis', 'tmp', 'dict')) as f:
+with open(os.path.join('analysis', 'model', 'dict')) as f:
+
     a = f.readlines()
     for iWord in WORDS:
         bFound = 0

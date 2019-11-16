@@ -3,7 +3,7 @@
 #    2: remove the rejected trial to output the final tTranscript
 
 bStage = 1
-bStage = 2 #manual
+#bStage = 2 #manual
 reject_row_index = [] #manual
 import pandas as pd
 import os
@@ -11,7 +11,7 @@ import speech_recognition as sr
 
 if bStage == 1:
     cur_exp = 'exp1'
-    tAll_trials = pd.read_csv(os.path.join(cur_exp, 'tAll_trials.csv'))
+    tAll_trials = pd.read_csv(os.path.join('..', cur_exp, 'tAll_trials.csv'))
 
     supposed_answer_transcript = []
     auto_transcript = []
@@ -68,5 +68,6 @@ else:
     tTranscript1 = tTranscript0[['trial_id', 'supposed_answer_transcript', 'answer_files']]
     tTranscript1['answer_textgrid'] = [a.replace('wav', 'TextGrid') for a in tTranscript1.answer_files]
     tTranscript1['answer_files'] = [a.replace('responses_to_analyze', 'responses_to_analyze_downsampled') for a in tTranscript1.answer_files]
-
+    tTranscript1['answer_textgrid'] = [a.replace('responses_to_analyze', 'responses_to_analyze_textgrid') for a in tTranscript1.answer_textgrid]
+    tTranscript1['supposed_answer_transcript'] = [a.replace('Kimmy', 'Kimmey') for a in tTranscript1.supposed_answer_transcript]
     tTranscript1.to_csv('tTranscript_' + cur_exp + '.csv',  encoding='utf-8')

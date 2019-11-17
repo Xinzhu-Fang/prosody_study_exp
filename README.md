@@ -10,3 +10,7 @@ There are three English versions of this as of Nov, 2019: `exp0`, `exp1`, and `e
 ## Task creation
 + use `word_manipulate.Rmd`to sort names and change their cases.
 + check the words you will use exist in the alignment model's dictionary with `check_words_in_model_dict.py`
+
+
+## Caution
+presentationnum decides the order of presentation, the index in the recording name is no presentationnum but trial_id. The trials were shuffled. 

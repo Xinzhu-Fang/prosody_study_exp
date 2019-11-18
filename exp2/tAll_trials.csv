@@ -1,4 +1,4 @@
-trial_id,filler_or_item_id,position_condition,agent_in_picture,agent_in_question,verb_in_picture,verb_in_question,patient_in_picture,patient_in_question,picture_file,question_file,answer_script,question_script
+trial_id,filler_or_item_id,location_condition,agent_in_picture,agent_in_question,verb_in_picture,verb_in_question,patient_in_picture,patient_in_question,picture_file,question_file,answer_script,question_script
 54,filler_22,Verb,Lacey,Lacey,Push,Poke,Vicky,Vicky,LaceyIsPushingVicky.png,IsLaceyPokingVicky.wav,no Lacey is pushing Vicky,is Lacey poking Vicky
 69,filler_37,Control,Freddy,Freddy,Push,Push,Molly,Molly,FreddyIsPushingMolly.png,IsFreddyPushingMolly.wav,yes Freddy is pushing Molly,is Freddy pushing Molly
 48,filler_16,Agent,Sammy,Percy,Push,Push,Hailey,Hailey,SammyIsPushingHailey.png,IsPercyPushingHailey.wav,no Sammy is pushing Hailey,is Percy pushing Hailey

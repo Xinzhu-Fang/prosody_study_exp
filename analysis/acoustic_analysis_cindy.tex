@@ -132,7 +132,7 @@ verb column is actaully item
 \NormalTok{cur_exp =}\StringTok{ "exp1"}
 \NormalTok{features =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"duration"}\NormalTok{, }\StringTok{"meanIntensity"}\NormalTok{, }\StringTok{"meanpit"}\NormalTok{)}
 \CommentTok{# info = c('participant','verb','condition', 'word', 'word_num')}
-\NormalTok{info =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'participant'}\NormalTok{,}\StringTok{'item_id'}\NormalTok{,}\StringTok{'position_condition'}\NormalTok{, }\StringTok{'word'}\NormalTok{, }\StringTok{'word_num'}\NormalTok{)}
+\NormalTok{info =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'participant'}\NormalTok{,}\StringTok{'item_id'}\NormalTok{,}\StringTok{'location_condition'}\NormalTok{, }\StringTok{'word'}\NormalTok{, }\StringTok{'word_num'}\NormalTok{)}
 \NormalTok{bRemove_outliers =}\StringTok{ }\DecValTok{0}
 \KeywordTok{library}\NormalTok{(dplyr)}
 \end{Highlighting}
@@ -222,11 +222,11 @@ verb column is actaully item
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{df0 =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{'measure_'}\NormalTok{, cur_exp, }\StringTok{'.csv'}\NormalTok{), }\DataTypeTok{header =}\NormalTok{ T)}
-\NormalTok{df0}\OperatorTok{$}\NormalTok{position_condition =}\StringTok{ }\OtherTok{NA}
+\NormalTok{df0}\OperatorTok{$}\NormalTok{location_condition =}\StringTok{ }\OtherTok{NA}
 \NormalTok{df0}\OperatorTok{$}\NormalTok{item_id =}\StringTok{ }\OtherTok{NA}
 
 \ControlFlowTok{for}\NormalTok{ (iR }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(df0))\{}
-\NormalTok{  df0}\OperatorTok{$}\NormalTok{position_condition[iR] =}\StringTok{  }\KeywordTok{as.character}\NormalTok{(tAll_trials[tAll_trials}\OperatorTok{$}\NormalTok{trial_id }\OperatorTok{==}\StringTok{ }\NormalTok{df0}\OperatorTok{$}\NormalTok{trialId[iR],}\StringTok{'position_condition'}\NormalTok{])}
+\NormalTok{  df0}\OperatorTok{$}\NormalTok{location_condition[iR] =}\StringTok{  }\KeywordTok{as.character}\NormalTok{(tAll_trials[tAll_trials}\OperatorTok{$}\NormalTok{trial_id }\OperatorTok{==}\StringTok{ }\NormalTok{df0}\OperatorTok{$}\NormalTok{trialId[iR],}\StringTok{'location_condition'}\NormalTok{])}
 \NormalTok{    df0}\OperatorTok{$}\NormalTok{item_id[iR] =}\StringTok{  }\KeywordTok{as.character}\NormalTok{(tAll_trials[tAll_trials}\OperatorTok{$}\NormalTok{trial_id }\OperatorTok{==}\StringTok{ }\NormalTok{df0}\OperatorTok{$}\NormalTok{trialId[iR],}\StringTok{'filler_or_item_id'}\NormalTok{])}
 \NormalTok{\}}
 
@@ -253,7 +253,7 @@ verb column is actaully item
 ## [19] "maxPitTime"         "minpitch"           "minPitTime"        
 ## [22] "firstpitch"         "secondpitch"        "thirdpitch"        
 ## [25] "fourthpitch"        "meanIntensity"      "maxIntensity"      
-## [28] "position_condition" "item_id"
+## [28] "location_condition" "item_id"
 \end{verbatim}
 
 \begin{Shaded}
@@ -316,18 +316,18 @@ verb column is actaully item
   \CommentTok{# df$verb = as.factor(df$verb)}
   
   
-  \CommentTok{# df_Agent = df[(df$position_condition=='Agent' | df$position_condition=='Verb') & df$word_num=='3',]}
+  \CommentTok{# df_Agent = df[(df$location_condition=='Agent' | df$location_condition=='Verb') & df$word_num=='3',]}
   \CommentTok{# }
-  \CommentTok{# df_Verb = df[(df$position_condition=='Verb'| df$position_condition=='Patient') & df$word_num=='5',]}
+  \CommentTok{# df_Verb = df[(df$location_condition=='Verb'| df$location_condition=='Patient') & df$word_num=='5',]}
   \CommentTok{# }
-  \CommentTok{# df_Patient = df[(df$position_condition=='Patient'| df$position_condition=='Agent') & df$word_num=='6',]}
+  \CommentTok{# df_Patient = df[(df$location_condition=='Patient'| df$location_condition=='Agent') & df$word_num=='6',]}
   
-\NormalTok{  df_Agent =}\StringTok{ }\NormalTok{df[(df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Agent'} \OperatorTok{|}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Control'}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{word_num}\OperatorTok{==}\StringTok{'3'}\NormalTok{,]}
+\NormalTok{  df_Agent =}\StringTok{ }\NormalTok{df[(df}\OperatorTok{$}\NormalTok{location_condition}\OperatorTok{==}\StringTok{'Agent'} \OperatorTok{|}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{location_condition}\OperatorTok{==}\StringTok{'Control'}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{word_num}\OperatorTok{==}\StringTok{'3'}\NormalTok{,]}
   \CommentTok{# df_Agent inheri row hum from df}
   
-\NormalTok{  df_Verb =}\StringTok{ }\NormalTok{df[(df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Verb'}\OperatorTok{|}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Control'}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{word_num}\OperatorTok{==}\StringTok{'5'}\NormalTok{,]}
+\NormalTok{  df_Verb =}\StringTok{ }\NormalTok{df[(df}\OperatorTok{$}\NormalTok{location_condition}\OperatorTok{==}\StringTok{'Verb'}\OperatorTok{|}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{location_condition}\OperatorTok{==}\StringTok{'Control'}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{word_num}\OperatorTok{==}\StringTok{'5'}\NormalTok{,]}
   
-\NormalTok{  df_Patient =}\StringTok{ }\NormalTok{df[(df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Patient'}\OperatorTok{|}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Control'}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{word_num}\OperatorTok{==}\StringTok{'6'}\NormalTok{,]}
+\NormalTok{  df_Patient =}\StringTok{ }\NormalTok{df[(df}\OperatorTok{$}\NormalTok{location_condition}\OperatorTok{==}\StringTok{'Patient'}\OperatorTok{|}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{location_condition}\OperatorTok{==}\StringTok{'Control'}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{word_num}\OperatorTok{==}\StringTok{'6'}\NormalTok{,]}
   
   \CommentTok{# print(sum(is.na(df_Agent)))}
   
@@ -370,9 +370,9 @@ verb column is actaully item
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{combine_datasets =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(Agent,Verb,Patient)\{}
-\NormalTok{  Agent}\OperatorTok{$}\NormalTok{condition =}\StringTok{ }\KeywordTok{mapvalues}\NormalTok{(Agent}\OperatorTok{$}\NormalTok{position_condition,}\KeywordTok{c}\NormalTok{(}\StringTok{'Agent'}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\StringTok{'contrast'}\NormalTok{))}
-\NormalTok{  Verb}\OperatorTok{$}\NormalTok{condition =}\StringTok{ }\KeywordTok{mapvalues}\NormalTok{(Verb}\OperatorTok{$}\NormalTok{position_condition,}\KeywordTok{c}\NormalTok{(}\StringTok{'Verb'}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\StringTok{'contrast'}\NormalTok{))}
-\NormalTok{  Patient}\OperatorTok{$}\NormalTok{condition =}\StringTok{ }\KeywordTok{mapvalues}\NormalTok{(Patient}\OperatorTok{$}\NormalTok{position_condition,}\KeywordTok{c}\NormalTok{(}\StringTok{'Patient'}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\StringTok{'contrast'}\NormalTok{))}
+\NormalTok{  Agent}\OperatorTok{$}\NormalTok{condition =}\StringTok{ }\KeywordTok{mapvalues}\NormalTok{(Agent}\OperatorTok{$}\NormalTok{location_condition,}\KeywordTok{c}\NormalTok{(}\StringTok{'Agent'}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\StringTok{'contrast'}\NormalTok{))}
+\NormalTok{  Verb}\OperatorTok{$}\NormalTok{condition =}\StringTok{ }\KeywordTok{mapvalues}\NormalTok{(Verb}\OperatorTok{$}\NormalTok{location_condition,}\KeywordTok{c}\NormalTok{(}\StringTok{'Verb'}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\StringTok{'contrast'}\NormalTok{))}
+\NormalTok{  Patient}\OperatorTok{$}\NormalTok{condition =}\StringTok{ }\KeywordTok{mapvalues}\NormalTok{(Patient}\OperatorTok{$}\NormalTok{location_condition,}\KeywordTok{c}\NormalTok{(}\StringTok{'Patient'}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\StringTok{'contrast'}\NormalTok{))}
   
 \NormalTok{  Agent}\OperatorTok{$}\NormalTok{Location =}\StringTok{ 'Agent'}
 \NormalTok{  Verb}\OperatorTok{$}\NormalTok{Location =}\StringTok{ 'Verb'}
@@ -393,7 +393,7 @@ verb column is actaully item
                   \DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{(.}\DecValTok{9}\NormalTok{))}\OperatorTok{+}
 \StringTok{    }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Location"}\NormalTok{) }\OperatorTok{+}
 \StringTok{    }\KeywordTok{ylab}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"normalized "}\NormalTok{, feature)) }\OperatorTok{+}
-\StringTok{    }\KeywordTok{scale_fill_hue}\NormalTok{(}\DataTypeTok{name=}\StringTok{"position_condition"}\NormalTok{, }
+\StringTok{    }\KeywordTok{scale_fill_hue}\NormalTok{(}\DataTypeTok{name=}\StringTok{"location_condition"}\NormalTok{, }
                    \DataTypeTok{breaks=}\KeywordTok{c}\NormalTok{(}\StringTok{"Control"}\NormalTok{, }\StringTok{"contrast"}\NormalTok{),}
                    \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"NonContrastive"}\NormalTok{, }\StringTok{"Contrastive"}\NormalTok{)) }\OperatorTok{+}
 \StringTok{    }\KeywordTok{ggtitle}\NormalTok{(title))}
@@ -456,8 +456,8 @@ verb column is actaully item
 \begin{Highlighting}[]
 \NormalTok{run_regression =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(location,observation)\{}
 \KeywordTok{cat}\NormalTok{(}\StringTok{"  }\CharTok{\textbackslash{}n}\StringTok{###"}\NormalTok{, observation, }\StringTok{"of"}\NormalTok{, location, }\StringTok{"  }\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-    \CommentTok{# r = lmer(get(observation) ~ position_condition + (1 + position_condition|participant) + (1 + position_condition | item_id), data=get(paste0("df_", location)))}
-\NormalTok{        r =}\StringTok{ }\KeywordTok{lmer}\NormalTok{(}\KeywordTok{get}\NormalTok{(observation) }\OperatorTok{~}\StringTok{ }\NormalTok{position_condition  }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{position_condition }\OperatorTok{|}\StringTok{ }\NormalTok{item_id), }\DataTypeTok{data=}\KeywordTok{get}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"df_"}\NormalTok{, location)))}
+    \CommentTok{# r = lmer(get(observation) ~ location_condition + (1 + location_condition|participant) + (1 + location_condition | item_id), data=get(paste0("df_", location)))}
+\NormalTok{        r =}\StringTok{ }\KeywordTok{lmer}\NormalTok{(}\KeywordTok{get}\NormalTok{(observation) }\OperatorTok{~}\StringTok{ }\NormalTok{location_condition  }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{location_condition }\OperatorTok{|}\StringTok{ }\NormalTok{item_id), }\DataTypeTok{data=}\KeywordTok{get}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"df_"}\NormalTok{, location)))}
   \KeywordTok{print}\NormalTok{(}\KeywordTok{summary}\NormalTok{(r))}
   \KeywordTok{summary}\NormalTok{(r)}
   \KeywordTok{cat}\NormalTok{(}\StringTok{"  }\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
@@ -493,7 +493,7 @@ verb column is actaully item
 \begin{verbatim}
 ## Linear mixed model fit by REML ['lmerMod']
 ## Formula: 
-## get(observation) ~ position_condition + (1 + position_condition |  
+## get(observation) ~ location_condition + (1 + location_condition |  
 ##     item_id)
 ##    Data: get(paste0("df_", location))
 ## 
@@ -506,18 +506,18 @@ verb column is actaully item
 ## Random effects:
 ##  Groups   Name                      Variance Std.Dev. Corr 
 ##  item_id  (Intercept)               0.7901   0.8889        
-##           position_conditionControl 0.3757   0.6129   -0.20
+##           location_conditionControl 0.3757   0.6129   -0.20
 ##  Residual                           0.2717   0.5213        
 ## Number of obs: 7, groups:  item_id, 3
 ## 
 ## Fixed effects:
 ##                           Estimate Std. Error t value
 ## (Intercept)                 0.6856     0.8809   0.778
-## position_conditionControl  -0.8269     0.8265  -1.000
+## location_conditionControl  -0.8269     0.8265  -1.000
 ## 
 ## Correlation of Fixed Effects:
 ##             (Intr)
-## pstn_cndtnC -0.753
+## lctn_cndtnC -0.753
 ## convergence code: 0
 ##  Hessian is numerically singular: parameters are not uniquely determined
 ## 
@@ -538,7 +538,7 @@ verb column is actaully item
 \begin{verbatim}
 ## Linear mixed model fit by REML ['lmerMod']
 ## Formula: 
-## get(observation) ~ position_condition + (1 + position_condition |  
+## get(observation) ~ location_condition + (1 + location_condition |  
 ##     item_id)
 ##    Data: get(paste0("df_", location))
 ## 
@@ -551,18 +551,18 @@ verb column is actaully item
 ## Random effects:
 ##  Groups   Name                      Variance Std.Dev. Corr 
 ##  item_id  (Intercept)               0.2459   0.4959        
-##           position_conditionPatient 0.5899   0.7681   -0.23
+##           location_conditionPatient 0.5899   0.7681   -0.23
 ##  Residual                           0.7636   0.8738        
 ## Number of obs: 7, groups:  item_id, 3
 ## 
 ## Fixed effects:
 ##                           Estimate Std. Error t value
 ## (Intercept)                 0.1689     0.4574   0.369
-## position_conditionPatient  -0.9985     1.2256  -0.815
+## location_conditionPatient  -0.9985     1.2256  -0.815
 ## 
 ## Correlation of Fixed Effects:
 ##             (Intr)
-## pstn_cndtnP -0.279
+## lctn_cndtnP -0.279
 ## convergence code: 0
 ## unable to evaluate scaled gradient
 ##  Hessian is numerically singular: parameters are not uniquely determined
@@ -579,7 +579,7 @@ verb column is actaully item
 \begin{verbatim}
 ## Linear mixed model fit by REML ['lmerMod']
 ## Formula: 
-## get(observation) ~ position_condition + (1 + position_condition |  
+## get(observation) ~ location_condition + (1 + location_condition |  
 ##     item_id)
 ##    Data: get(paste0("df_", location))
 ## 
@@ -592,18 +592,18 @@ verb column is actaully item
 ## Random effects:
 ##  Groups   Name                   Variance Std.Dev. Corr 
 ##  item_id  (Intercept)             1.18652 1.0893        
-##           position_conditionVerb 66.52584 8.1563   -1.00
+##           location_conditionVerb 66.52584 8.1563   -1.00
 ##  Residual                         0.02247 0.1499        
 ## Number of obs: 8, groups:  item_id, 3
 ## 
 ## Fixed effects:
 ##                        Estimate Std. Error t value
 ## (Intercept)            -0.07673    0.63186  -0.121
-## position_conditionVerb -3.72295    4.71894  -0.789
+## location_conditionVerb -3.72295    4.71894  -0.789
 ## 
 ## Correlation of Fixed Effects:
 ##             (Intr)
-## pstn_cndtnV -0.994
+## lctn_cndtnV -0.994
 ## convergence code: 0
 ## boundary (singular) fit: see ?isSingular
 ## 
@@ -626,7 +626,7 @@ verb column is actaully item
 \begin{verbatim}
 ## Linear mixed model fit by REML ['lmerMod']
 ## Formula: 
-## get(observation) ~ position_condition + (1 + position_condition |  
+## get(observation) ~ location_condition + (1 + location_condition |  
 ##     item_id)
 ##    Data: get(paste0("df_", location))
 ## 
@@ -639,18 +639,18 @@ verb column is actaully item
 ## Random effects:
 ##  Groups   Name                      Variance Std.Dev. Corr 
 ##  item_id  (Intercept)               0.3468   0.5889        
-##           position_conditionControl 0.7962   0.8923   -0.78
+##           location_conditionControl 0.7962   0.8923   -0.78
 ##  Residual                           0.9419   0.9705        
 ## Number of obs: 7, groups:  item_id, 3
 ## 
 ## Fixed effects:
 ##                           Estimate Std. Error t value
 ## (Intercept)                -0.1186     1.1337  -0.105
-## position_conditionControl   0.1249     1.2618   0.099
+## location_conditionControl   0.1249     1.2618   0.099
 ## 
 ## Correlation of Fixed Effects:
 ##             (Intr)
-## pstn_cndtnC -0.913
+## lctn_cndtnC -0.913
 ## convergence code: 0
 ## unable to evaluate scaled gradient
 ## Model failed to converge: degenerate  Hessian with 1 negative eigenvalues
@@ -669,7 +669,7 @@ verb column is actaully item
 \begin{verbatim}
 ## Linear mixed model fit by REML ['lmerMod']
 ## Formula: 
-## get(observation) ~ position_condition + (1 + position_condition |  
+## get(observation) ~ location_condition + (1 + location_condition |  
 ##     item_id)
 ##    Data: get(paste0("df_", location))
 ## 
@@ -682,18 +682,18 @@ verb column is actaully item
 ## Random effects:
 ##  Groups   Name                      Variance Std.Dev. Corr
 ##  item_id  (Intercept)               1.33280  1.1545       
-##           position_conditionPatient 0.05121  0.2263   0.15
+##           location_conditionPatient 0.05121  0.2263   0.15
 ##  Residual                           0.05086  0.2255       
 ## Number of obs: 7, groups:  item_id, 3
 ## 
 ## Fixed effects:
 ##                           Estimate Std. Error t value
 ## (Intercept)               -0.09962    0.67286  -0.148
-## position_conditionPatient  0.09677    0.35695   0.271
+## location_conditionPatient  0.09677    0.35695   0.271
 ## 
 ## Correlation of Fixed Effects:
 ##             (Intr)
-## pstn_cndtnP 0.018 
+## lctn_cndtnP 0.018 
 ## convergence code: 0
 ##  Hessian is numerically singular: parameters are not uniquely determined
 ## 
@@ -709,7 +709,7 @@ verb column is actaully item
 \begin{verbatim}
 ## Linear mixed model fit by REML ['lmerMod']
 ## Formula: 
-## get(observation) ~ position_condition + (1 + position_condition |  
+## get(observation) ~ location_condition + (1 + location_condition |  
 ##     item_id)
 ##    Data: get(paste0("df_", location))
 ## 
@@ -722,18 +722,18 @@ verb column is actaully item
 ## Random effects:
 ##  Groups   Name                   Variance  Std.Dev.  Corr
 ##  item_id  (Intercept)            0.000e+00 0.0000000     
-##           position_conditionVerb 8.699e-07 0.0009327  NaN
+##           location_conditionVerb 8.699e-07 0.0009327  NaN
 ##  Residual                        9.259e-01 0.9622235     
 ## Number of obs: 8, groups:  item_id, 3
 ## 
 ## Fixed effects:
 ##                        Estimate Std. Error t value
 ## (Intercept)             -0.2454     0.3928  -0.625
-## position_conditionVerb   0.9814     0.7857   1.249
+## location_conditionVerb   0.9814     0.7857   1.249
 ## 
 ## Correlation of Fixed Effects:
 ##             (Intr)
-## pstn_cndtnV -0.500
+## lctn_cndtnV -0.500
 ## convergence code: 0
 ## boundary (singular) fit: see ?isSingular
 ## 
@@ -742,7 +742,7 @@ verb column is actaully item
 ## ### meanpit of Agent   
 ## Linear mixed model fit by REML ['lmerMod']
 ## Formula: 
-## get(observation) ~ position_condition + (1 + position_condition |  
+## get(observation) ~ location_condition + (1 + location_condition |  
 ##     item_id)
 ##    Data: get(paste0("df_", location))
 ## 
@@ -755,18 +755,18 @@ verb column is actaully item
 ## Random effects:
 ##  Groups   Name                      Variance Std.Dev. Corr
 ##  item_id  (Intercept)               0.2153   0.4640       
-##           position_conditionControl 0.5272   0.7261   0.77
+##           location_conditionControl 0.5272   0.7261   0.77
 ##  Residual                           0.1109   0.3331       
 ## Number of obs: 7, groups:  item_id, 3
 ## 
 ## Fixed effects:
 ##                           Estimate Std. Error t value
 ## (Intercept)                 0.3813     0.4607   0.828
-## position_conditionControl  -0.4791     0.5785  -0.828
+## location_conditionControl  -0.4791     0.5785  -0.828
 ## 
 ## Correlation of Fixed Effects:
 ##             (Intr)
-## pstn_cndtnC -0.203
+## lctn_cndtnC -0.203
 ##   
 ##   
 ## ### meanpit of Patient
@@ -786,7 +786,7 @@ verb column is actaully item
 \begin{verbatim}
 ## Linear mixed model fit by REML ['lmerMod']
 ## Formula: 
-## get(observation) ~ position_condition + (1 + position_condition |  
+## get(observation) ~ location_condition + (1 + location_condition |  
 ##     item_id)
 ##    Data: get(paste0("df_", location))
 ## 
@@ -799,18 +799,18 @@ verb column is actaully item
 ## Random effects:
 ##  Groups   Name                      Variance Std.Dev. Corr 
 ##  item_id  (Intercept)               1.2206   1.1048        
-##           position_conditionPatient 0.1826   0.4274   -0.09
+##           location_conditionPatient 0.1826   0.4274   -0.09
 ##  Residual                           0.1823   0.4270        
 ## Number of obs: 7, groups:  item_id, 3
 ## 
 ## Fixed effects:
 ##                           Estimate Std. Error t value
 ## (Intercept)                0.07128    0.66127   0.108
-## position_conditionPatient -0.42813    0.66880  -0.640
+## location_conditionPatient -0.42813    0.66880  -0.640
 ## 
 ## Correlation of Fixed Effects:
 ##             (Intr)
-## pstn_cndtnP -0.100
+## lctn_cndtnP -0.100
 ## convergence code: 0
 ## unable to evaluate scaled gradient
 ##  Hessian is numerically singular: parameters are not uniquely determined
@@ -827,7 +827,7 @@ verb column is actaully item
 \begin{verbatim}
 ## Linear mixed model fit by REML ['lmerMod']
 ## Formula: 
-## get(observation) ~ position_condition + (1 + position_condition |  
+## get(observation) ~ location_condition + (1 + location_condition |  
 ##     item_id)
 ##    Data: get(paste0("df_", location))
 ## 
@@ -840,18 +840,18 @@ verb column is actaully item
 ## Random effects:
 ##  Groups   Name                   Variance Std.Dev. Corr
 ##  item_id  (Intercept)            0.0000   0.0000       
-##           position_conditionVerb 5.4997   2.3451    NaN
+##           location_conditionVerb 5.4997   2.3451    NaN
 ##  Residual                        0.2389   0.4888       
 ## Number of obs: 8, groups:  item_id, 3
 ## 
 ## Fixed effects:
 ##                        Estimate Std. Error t value
 ## (Intercept)            -0.05332    0.19955  -0.267
-## position_conditionVerb  0.21328    1.70561   0.125
+## location_conditionVerb  0.21328    1.70561   0.125
 ## 
 ## Correlation of Fixed Effects:
 ##             (Intr)
-## pstn_cndtnV -0.117
+## lctn_cndtnV -0.117
 ## convergence code: 0
 ## boundary (singular) fit: see ?isSingular
 ## 

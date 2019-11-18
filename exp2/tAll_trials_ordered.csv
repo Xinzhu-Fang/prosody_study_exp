@@ -1,4 +1,4 @@
-trial_id,filler_or_item_id,position_condition,agent_in_picture,agent_in_question,verb_in_picture,verb_in_question,patient_in_picture,patient_in_question,picture_file,question_file,answer_script,question_script
+trial_id,filler_or_item_id,location_condition,agent_in_picture,agent_in_question,verb_in_picture,verb_in_question,patient_in_picture,patient_in_question,picture_file,question_file,answer_script,question_script
 01,item_01,Agent,Kimmy,Chloe,Kick,Kick,Tommy,Tommy,KimmyIsKickingTommy.png,IsChloeKickingTommy.wav,no Kimmy is kicking Tommy,is Chloe kicking Tommy
 02,item_01,Agent,Kimmy,Carlie,Kick,Kick,Tommy,Tommy,KimmyIsKickingTommy.png,IsCarlieKickingTommy.wav,no Kimmy is kicking Tommy,is Carlie kicking Tommy
 03,item_01,Verb,Kimmy,Kimmy,Kick,Poke,Tommy,Tommy,KimmyIsKickingTommy.png,IsKimmyPokingTommy.wav,no Kimmy is kicking Tommy,is Kimmy poking Tommy

@@ -1,7 +1,7 @@
-def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, exp_num_of_items, exp_yes_to_no_ratio,
+def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, exp_num_of_items, exp_yes_to_no_ratio,
                    exp_num_trials,
                    exp_num_trial_yes, exp_num_trial_no, exp_num_of_control_for_each_item,
-                   exp_num_of_correction_for_each_position_for_each_item, item_num_trial_total, item_num_trial_yes,
+                   exp_num_of_correction_for_each_location_for_each_item, item_num_trial_total, item_num_trial_yes,
                    item_num_trial_no, item_num_trial_for_each_item, filler_num_trial_total, filler_num_trial_yes,
                    filler_num_trial_no, my_seed):
     import numpy as np
@@ -106,8 +106,8 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     item_id = ["item_" + i for i in item_id0]
     vItem_id = np.repeat(item_id, item_num_trial_for_each_item)
 
-    vItem_position_condition = np.tile(
-        np.concatenate((np.repeat(positions, exp_num_of_correction_for_each_position_for_each_item),
+    vItem_location_condition = np.tile(
+        np.concatenate((np.repeat(locations, exp_num_of_correction_for_each_location_for_each_item),
                         np.repeat(['Control'], exp_num_of_control_for_each_item))), exp_num_of_items)
 
     ## start of item agent
@@ -116,14 +116,14 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # vItem_agent_in_question = np.copy(vItem_agent_in_picture)
 
     tItem_agent = pd.DataFrame(
-        list(zip(vItem_id, vItem_position_condition, vItem_correct_agent, vItem_correct_agent)),
-        columns=['vItem_id', 'vItem_position_condition', 'vItem_agent_in_picture', 'vItem_agent_in_question'])
+        list(zip(vItem_id, vItem_location_condition, vItem_correct_agent, vItem_correct_agent)),
+        columns=['vItem_id', 'vItem_location_condition', 'vItem_agent_in_picture', 'vItem_agent_in_question'])
 
     for iTrial, iRow in tItem_agent.iterrows():
-        if iRow.vItem_position_condition == 'Agent':
+        if iRow.vItem_location_condition == 'Agent':
             tItem_agent.loc[iTrial, 'vItem_agent_in_question'] = item_wrong_agent[iTrial]
     # for iItem in item_id:
-    #     tItem_agent.loc[np.logical_and(tItem_agent.vItem_position_condition == 'Agent',
+    #     tItem_agent.loc[np.logical_and(tItem_agent.vItem_location_condition == 'Agent',
     #                                    tItem_agent.vItem_id == iItem), 'vItem_agent_in_question'] = item_wrong_agent[
     #         item_id.index(iItem)]
     # print(tItem_agent)
@@ -135,14 +135,14 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # vItem_patient_in_question = np.copy(vItem_patient_in_picture)
 
     tItem_patient = pd.DataFrame(
-        list(zip(vItem_id, vItem_position_condition, vItem_correct_patient, vItem_correct_patient)),
-        columns=['vItem_id', 'vItem_position_condition', 'vItem_patient_in_picture', 'vItem_patient_in_question'])
+        list(zip(vItem_id, vItem_location_condition, vItem_correct_patient, vItem_correct_patient)),
+        columns=['vItem_id', 'vItem_location_condition', 'vItem_patient_in_picture', 'vItem_patient_in_question'])
 
     for iTrial, iRow in tItem_patient.iterrows():
-        if iRow.vItem_position_condition == 'Patient':
+        if iRow.vItem_location_condition == 'Patient':
             tItem_patient.loc[iTrial, 'vItem_patient_in_question'] = item_wrong_patient[iTrial]
     # for iItem in item_id:
-    #     tItem_patient.loc[np.logical_and(tItem_patient.vItem_position_condition == 'Patient',
+    #     tItem_patient.loc[np.logical_and(tItem_patient.vItem_location_condition == 'Patient',
     #                                    tItem_patient.vItem_id == iItem), 'vItem_patient_in_question'] = item_wrong_patient[
     #         item_id.index(iItem)]
     # print(tItem_patient)
@@ -154,14 +154,14 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # vItem_verb_in_question = np.copy(vItem_verb_in_picture)
 
     tItem_verb = pd.DataFrame(
-        list(zip(vItem_id, vItem_position_condition, vItem_correct_verb, vItem_correct_verb)),
-        columns=['vItem_id', 'vItem_position_condition', 'vItem_verb_in_picture', 'vItem_verb_in_question'])
+        list(zip(vItem_id, vItem_location_condition, vItem_correct_verb, vItem_correct_verb)),
+        columns=['vItem_id', 'vItem_location_condition', 'vItem_verb_in_picture', 'vItem_verb_in_question'])
 
     for iTrial, iRow in tItem_verb.iterrows():
-        if iRow.vItem_position_condition == 'Verb':
+        if iRow.vItem_location_condition == 'Verb':
             tItem_verb.loc[iTrial, 'vItem_verb_in_question'] = item_wrong_verb[iTrial]
     # for iItem in item_id:
-    #     tItem_verb.loc[np.logical_and(tItem_verb.vItem_position_condition == 'Verb',
+    #     tItem_verb.loc[np.logical_and(tItem_verb.vItem_location_condition == 'Verb',
     #                                    tItem_verb.vItem_id == iItem), 'vItem_verb_in_question'] = item_wrong_verb[
     #         item_id.index(iItem)]
     # print(tItem_verb)
@@ -169,15 +169,15 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
 
     tItem = pd.concat([tItem_agent, tItem_verb, tItem_patient], axis=1)
     tItem = tItem.loc[:, ~tItem.columns.duplicated()]
-    tItem.columns = ["filler_or_item_id", "position_condition", "agent_in_picture", "agent_in_question",
+    tItem.columns = ["filler_or_item_id", "location_condition", "agent_in_picture", "agent_in_question",
                      "verb_in_picture", "verb_in_question", "patient_in_picture", "patient_in_question"]
 
     filler_id0 = ["{:02d}".format(i) for i in range(1, filler_num_trial_total + 1)]
     filler_id = ["filler_" + i for i in filler_id0]
-    filler_position_condition_for_no = [positions[i] for i in
-                                        np.random.randint(num_positions, size=filler_num_trial_no)]
-    vFiller_position_condition = np.concatenate(
-        (filler_position_condition_for_no, np.tile(['Control'], filler_num_trial_yes)))
+    filler_location_condition_for_no = [locations[i] for i in
+                                        np.random.randint(num_locations, size=filler_num_trial_no)]
+    vFiller_location_condition = np.concatenate(
+        (filler_location_condition_for_no, np.tile(['Control'], filler_num_trial_yes)))
 
     np.random.seed(my_seed[1])
     filler_wrong_verb = [verbs[np.random.randint(0, num_verbs)] for i in range(filler_num_trial_total)]
@@ -208,10 +208,10 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # filler_agent_in_picture = filler_agent_in_question[:]
 
     tFiller_agent = pd.DataFrame(
-        zip(filler_id, vFiller_position_condition, filler_wrong_agent, filler_wrong_agent),
-        columns=['filler_id', 'vFiller_position_condition', 'filler_agent_in_question', 'filler_agent_in_picture'])
+        zip(filler_id, vFiller_location_condition, filler_wrong_agent, filler_wrong_agent),
+        columns=['filler_id', 'vFiller_location_condition', 'filler_agent_in_question', 'filler_agent_in_picture'])
     for iFiller in filler_id:
-        tFiller_agent.loc[np.logical_and(tFiller_agent.vFiller_position_condition == 'Agent',
+        tFiller_agent.loc[np.logical_and(tFiller_agent.vFiller_location_condition == 'Agent',
                                          tFiller_agent.filler_id == iFiller), 'filler_agent_in_picture'] = \
             filler_correct_agent[filler_id.index(iFiller)]
     # end of filler agent
@@ -234,10 +234,10 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # filler_patient_in_picture = filler_patient_in_question[:]
 
     tFiller_patient = pd.DataFrame(
-        list(zip(filler_id, vFiller_position_condition, filler_wrong_patient, filler_wrong_patient)),
-        columns=['filler_id', 'vFiller_position_condition', 'filler_patient_in_question', 'filler_patient_in_picture'])
+        list(zip(filler_id, vFiller_location_condition, filler_wrong_patient, filler_wrong_patient)),
+        columns=['filler_id', 'vFiller_location_condition', 'filler_patient_in_question', 'filler_patient_in_picture'])
     for iFiller in filler_id:
-        tFiller_patient.loc[np.logical_and(tFiller_patient.vFiller_position_condition == 'Patient',
+        tFiller_patient.loc[np.logical_and(tFiller_patient.vFiller_location_condition == 'Patient',
                                            tFiller_patient.filler_id == iFiller), 'filler_patient_in_picture'] = \
             filler_correct_patient[filler_id.index(iFiller)]
     # end of filler patient
@@ -248,17 +248,17 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     # filler_verb_in_picture = filler_verb_in_question[:]
 
     tFiller_verb = pd.DataFrame(
-        list(zip(filler_id, vFiller_position_condition, filler_wrong_verb, filler_wrong_verb)),
-        columns=['filler_id', 'vFiller_position_condition', 'filler_verb_in_question', 'filler_verb_in_picture'])
+        list(zip(filler_id, vFiller_location_condition, filler_wrong_verb, filler_wrong_verb)),
+        columns=['filler_id', 'vFiller_location_condition', 'filler_verb_in_question', 'filler_verb_in_picture'])
     for iFiller in filler_id:
-        tFiller_verb.loc[np.logical_and(tFiller_verb.vFiller_position_condition == 'Verb',
+        tFiller_verb.loc[np.logical_and(tFiller_verb.vFiller_location_condition == 'Verb',
                                         tFiller_verb.filler_id == iFiller), 'filler_verb_in_picture'] = \
             filler_correct_verb[filler_id.index(iFiller)]
     # end of filler verb
 
     tFiller = pd.concat([tFiller_agent, tFiller_verb, tFiller_patient], axis=1)
     tFiller = tFiller.loc[:, ~tFiller.columns.duplicated()]
-    tFiller.columns = ["filler_or_item_id", "position_condition", "agent_in_question", "agent_in_picture",
+    tFiller.columns = ["filler_or_item_id", "location_condition", "agent_in_question", "agent_in_picture",
                        "verb_in_question", "verb_in_picture", "patient_in_question", "patient_in_picture"]
 
 
@@ -274,21 +274,21 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
 
 
 # this happens when agent and patient are of the same sex, and when the answer is no, and the name of the
-# position condition (e.g., agent) in picture is the same as -- in this case -- the patient's
+# location condition (e.g., agent) in picture is the same as -- in this case -- the patient's
 #    if exp_name == 'exp2':
     for iTrial, iRow in tFiller.iterrows():
         if iRow.agent_in_picture == iRow.patient_in_picture:
             print("bad row to be fixed")
             print(iTrial)
 #                print(iRow)
-#                if iRow.position_condition == 'Agent':
+#                if iRow.location_condition == 'Agent':
             cur_sex = filler_wrong_agent_sex[iTrial]
             cur_name_pool = names[cur_sex]
             cur_name_pool.remove(iRow.agent_in_question)
             cur_name_pool.remove(iRow.patient_in_question)
-            if iRow.position_condition == 'Agent':
+            if iRow.location_condition == 'Agent':
                 tFiller.iloc[iTrial, :].agent_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
-            if iRow.position_condition == 'Patient':
+            if iRow.location_condition == 'Patient':
                 tFiller.iloc[iTrial, :].patient_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
 
 
@@ -315,7 +315,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
 #
 #    tAll_trials['question_script'] = ['Is ' + a + ' ' + v.lower() + 'ing ' + p + '?' for a, v, p in
                                  # zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                 #     tAll_trials.patient_in_question)]  
+                                 #     tAll_trials.patient_in_question)]
 #    for google speech recognition comes with the speech recognition package
     tAll_trials['question_script'] = ['is ' + a + ' ' + v.lower() + 'ing ' + p for a, v, p in
                                     zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
@@ -332,8 +332,8 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
     tAll_trials = tAll_trials.sort_index()
 
     for iTrial, iRow in tAll_trials.iterrows():
-        # print(tAll_trials.loc[iTrial, 'position_condition'])
-        if tAll_trials.loc[iTrial, 'position_condition'] == 'Control':
+        # print(tAll_trials.loc[iTrial, 'location_condition'])
+        if tAll_trials.loc[iTrial, 'location_condition'] == 'Control':
             tAll_trials.loc[iTrial, 'answer_script'] = 'yes ' + tAll_trials.loc[iTrial, 'answer_script']
         else:
             tAll_trials.loc[iTrial, 'answer_script'] = 'no ' + tAll_trials.loc[iTrial, 'answer_script']
@@ -362,7 +362,7 @@ def create_stimuli(bCreate_stimuli, iExp, positions, num_positions, exp_name, ex
         width2 = 900
         height = 1900
         color0 = (0, 0, 0, 0)
-        
+
 
         # img.save('sample-out.png')
 

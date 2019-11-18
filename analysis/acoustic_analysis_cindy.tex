@@ -1,0 +1,868 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={acoustic\_analysis},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{acoustic\_analysis}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+
+\begin{document}
+\maketitle
+
+verb column is actaully item
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cur_exp =}\StringTok{ "exp1"}
+\NormalTok{features =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"duration"}\NormalTok{, }\StringTok{"meanIntensity"}\NormalTok{, }\StringTok{"meanpit"}\NormalTok{)}
+\CommentTok{# info = c('participant','verb','condition', 'word', 'word_num')}
+\NormalTok{info =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'participant'}\NormalTok{,}\StringTok{'item_id'}\NormalTok{,}\StringTok{'position_condition'}\NormalTok{, }\StringTok{'word'}\NormalTok{, }\StringTok{'word_num'}\NormalTok{)}
+\NormalTok{bRemove_outliers =}\StringTok{ }\DecValTok{0}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(lme4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: Matrix
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(zeallot)}
+  \KeywordTok{library}\NormalTok{(Rmisc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: plyr
+\end{verbatim}
+
+\begin{verbatim}
+## -------------------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+## You have loaded plyr after dplyr - this is likely to cause problems.
+## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+## library(plyr); library(dplyr)
+\end{verbatim}
+
+\begin{verbatim}
+## -------------------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'plyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:dplyr':
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{library}\NormalTok{(ggplot2)}
+  \KeywordTok{library}\NormalTok{(plyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tAll_trials =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\StringTok{'..'}\NormalTok{, cur_exp, }\StringTok{'tAll_trials.csv'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df0 =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{'measure_'}\NormalTok{, cur_exp, }\StringTok{'.csv'}\NormalTok{), }\DataTypeTok{header =}\NormalTok{ T)}
+\NormalTok{df0}\OperatorTok{$}\NormalTok{position_condition =}\StringTok{ }\OtherTok{NA}
+\NormalTok{df0}\OperatorTok{$}\NormalTok{item_id =}\StringTok{ }\OtherTok{NA}
+
+\ControlFlowTok{for}\NormalTok{ (iR }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(df0))\{}
+\NormalTok{  df0}\OperatorTok{$}\NormalTok{position_condition[iR] =}\StringTok{  }\KeywordTok{as.character}\NormalTok{(tAll_trials[tAll_trials}\OperatorTok{$}\NormalTok{trial_id }\OperatorTok{==}\StringTok{ }\NormalTok{df0}\OperatorTok{$}\NormalTok{trialId[iR],}\StringTok{'position_condition'}\NormalTok{])}
+\NormalTok{    df0}\OperatorTok{$}\NormalTok{item_id[iR] =}\StringTok{  }\KeywordTok{as.character}\NormalTok{(tAll_trials[tAll_trials}\OperatorTok{$}\NormalTok{trial_id }\OperatorTok{==}\StringTok{ }\NormalTok{df0}\OperatorTok{$}\NormalTok{trialId[iR],}\StringTok{'filler_or_item_id'}\NormalTok{])}
+\NormalTok{\}}
+
+\NormalTok{df1 =}\StringTok{ }\NormalTok{df0[}\KeywordTok{startsWith}\NormalTok{(df0}\OperatorTok{$}\NormalTok{item_id, }\StringTok{"item"}\NormalTok{),]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# df0 = read.csv("measure_nonrhyming_84total_60No_24Yes_20181210.csv", header  = T)}
+\CommentTok{# df0 = transform(df0,trialId=as.numeric(trialId))}
+\CommentTok{# sort(df0$trialId, decreasing = FALSE)}
+\KeywordTok{colnames}\NormalTok{(df1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "participant"        "studyName"          "studyNameNah"      
+##  [4] "expId"              "month"              "date"              
+##  [7] "year"               "trialNah"           "trialId"           
+## [10] "word"               "wordlabel"          "phonelength"       
+## [13] "duration"           "silence"            "durasil"           
+## [16] "begin"              "meanpit"            "maxpitch"          
+## [19] "maxPitTime"         "minpitch"           "minPitTime"        
+## [22] "firstpitch"         "secondpitch"        "thirdpitch"        
+## [25] "fourthpitch"        "meanIntensity"      "maxIntensity"      
+## [28] "position_condition" "item_id"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# code for word_num}
+\NormalTok{df2 <-}\StringTok{ }\NormalTok{df1 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{group_by}\NormalTok{(participant, trialId) }\OperatorTok{%>%}
+\StringTok{  }\CommentTok{# dplyr::group_by(participant, question, trialId) %>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{word_num=}\DecValTok{1}\OperatorTok{:}\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(}\KeywordTok{c}\NormalTok{(info, features))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Adding missing grouping variables: `trialId`
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# write.csv(df2,'newdf.csv')}
+\CommentTok{# code for getting Nth instance of question}
+\CommentTok{# nthdf <- df1 %>%}
+\CommentTok{#   group_by(participant,Verb, question, condition, word_num) %>%}
+\CommentTok{#   mutate(Appearance=1:n())}
+\CommentTok{#write.csv(nthdf,'nthdf.csv')}
+
+\CommentTok{# subsetting it to relevant Nth appearance}
+\CommentTok{# workingdf <- nthdf %>%}
+\CommentTok{#   filter (Appearance == 2)}
+\CommentTok{# }
+\CommentTok{# write.csv(workingdf,'workingdf2.csv')}
+
+\NormalTok{normalize_data =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(df, remove_outliers)\{}
+  \ControlFlowTok{for}\NormalTok{(col_name }\ControlFlowTok{in}\NormalTok{ features)\{}
+    \ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.numeric}\NormalTok{(df[[col_name]]))\{}
+\NormalTok{      df[[col_name]] =}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(df[[col_name]])}
+\NormalTok{    \}}
+\NormalTok{    df[[col_name]] =}\StringTok{ }\KeywordTok{scale}\NormalTok{(df[[col_name]])}
+    \CommentTok{# there is surge of na after the first colling of the above line. tested by print(sum(is.na(df_Agent))). I guess it's because the df is nibble}
+        \CommentTok{# print(sum(is.na(df_Agent)))}
+
+\NormalTok{  \}}
+  \ControlFlowTok{for}\NormalTok{(col_name }\ControlFlowTok{in}\NormalTok{ features)\{}
+    
+    \ControlFlowTok{if}\NormalTok{(remove_outliers)\{}
+\NormalTok{      df =}\StringTok{ }\NormalTok{df[df[[col_name]]}\OperatorTok{>-}\DecValTok{2} \OperatorTok{&}\StringTok{ }\NormalTok{df[[col_name]]}\OperatorTok{<}\DecValTok{2}\NormalTok{,]}
+          \CommentTok{# print(sum(is.na(df_Agent)))}
+
+\NormalTok{    \}}
+\NormalTok{  \}}
+  \KeywordTok{return}\NormalTok{(df)}
+\NormalTok{\}}
+
+\CommentTok{# process_data = function(file_name)\{}
+\NormalTok{process_data =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(df)\{}
+  \CommentTok{# df <- read.csv(file_name,header = TRUE, fileEncoding="UTF-8",na.strings=c("", "NA","--undefined--"))}
+  \CommentTok{# df <- na.omit(df)}
+  
+  \CommentTok{#df = df[df$wordlabel != 'sp']}
+  \CommentTok{# df$verb = as.factor(df$verb)}
+  
+  
+  \CommentTok{# df_Agent = df[(df$position_condition=='Agent' | df$position_condition=='Verb') & df$word_num=='3',]}
+  \CommentTok{# }
+  \CommentTok{# df_Verb = df[(df$position_condition=='Verb'| df$position_condition=='Patient') & df$word_num=='5',]}
+  \CommentTok{# }
+  \CommentTok{# df_Patient = df[(df$position_condition=='Patient'| df$position_condition=='Agent') & df$word_num=='6',]}
+  
+\NormalTok{  df_Agent =}\StringTok{ }\NormalTok{df[(df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Agent'} \OperatorTok{|}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Control'}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{word_num}\OperatorTok{==}\StringTok{'3'}\NormalTok{,]}
+  \CommentTok{# df_Agent inheri row hum from df}
+  
+\NormalTok{  df_Verb =}\StringTok{ }\NormalTok{df[(df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Verb'}\OperatorTok{|}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Control'}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{word_num}\OperatorTok{==}\StringTok{'5'}\NormalTok{,]}
+  
+\NormalTok{  df_Patient =}\StringTok{ }\NormalTok{df[(df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Patient'}\OperatorTok{|}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{position_condition}\OperatorTok{==}\StringTok{'Control'}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{word_num}\OperatorTok{==}\StringTok{'6'}\NormalTok{,]}
+  
+  \CommentTok{# print(sum(is.na(df_Agent)))}
+  
+  \CommentTok{# relevant_columns = c('participant','verb','condition','duration','meanIntensity','meanpit')}
+  \CommentTok{# df_Agent = df_Agent[relevant_columns]}
+  \CommentTok{# df_Verb = df_Verb[relevant_columns]}
+  \CommentTok{# df_Patient = df_Patient[relevant_columns]}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{sum}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{word }\OperatorTok{!=}\StringTok{ 'sp'}\NormalTok{,])))}
+  \CommentTok{# df1[(df1$meanpit == '--undefined--') && (df1$word != 'sp'),]}
+  \CommentTok{# it seems that the only undefined is meanpitch for sp}
+  
+  \CommentTok{# print(df_Verb)}
+  
+\NormalTok{  df_Verb =}\StringTok{ }\KeywordTok{normalize_data}\NormalTok{(df_Verb, bRemove_outliers)}
+\NormalTok{  df_Agent =}\StringTok{ }\KeywordTok{normalize_data}\NormalTok{(df_Agent, bRemove_outliers)}
+\NormalTok{  df_Patient =}\StringTok{ }\KeywordTok{normalize_data}\NormalTok{(df_Patient, bRemove_outliers)}
+    \CommentTok{# print(sum(is.na(df_Agent)))}
+
+  
+  
+  \CommentTok{# return(list(df_Agent_duration, df_Agent_meanIntensity, df_Agent_meanpit, df_Patient_duration, df_Patient_meanIntensity, df_Patient_meanpit,df_Verb_duration, df_Verb_meanIntensity, df_Verb_meanpit))}
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{list}\NormalTok{(df_Verb, df_Agent, df_Patient))}
+\NormalTok{\}}
+
+
+
+\CommentTok{# }
+\CommentTok{# file_name = 'newdf.csv'}
+
+\CommentTok{# c(df_Agent_duration, df_Agent_meanIntensity, df_Agent_meanpit, df_Patient_duration, df_Patient_meanIntensity, df_Patient_meanpit,df_Verb_duration, df_Verb_meanIntensity, df_Verb_meanpit) %<-%process_data(file_name)}
+\CommentTok{# c(df_Verb, df_Agent, df_Patient) %<-% process_data(file_name)}
+\KeywordTok{c}\NormalTok{(df_Verb, df_Agent, df_Patient) }\OperatorTok{%<-%}\StringTok{ }\KeywordTok{process_data}\NormalTok{(df2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{combine_datasets =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(Agent,Verb,Patient)\{}
+\NormalTok{  Agent}\OperatorTok{$}\NormalTok{condition =}\StringTok{ }\KeywordTok{mapvalues}\NormalTok{(Agent}\OperatorTok{$}\NormalTok{position_condition,}\KeywordTok{c}\NormalTok{(}\StringTok{'Agent'}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\StringTok{'contrast'}\NormalTok{))}
+\NormalTok{  Verb}\OperatorTok{$}\NormalTok{condition =}\StringTok{ }\KeywordTok{mapvalues}\NormalTok{(Verb}\OperatorTok{$}\NormalTok{position_condition,}\KeywordTok{c}\NormalTok{(}\StringTok{'Verb'}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\StringTok{'contrast'}\NormalTok{))}
+\NormalTok{  Patient}\OperatorTok{$}\NormalTok{condition =}\StringTok{ }\KeywordTok{mapvalues}\NormalTok{(Patient}\OperatorTok{$}\NormalTok{position_condition,}\KeywordTok{c}\NormalTok{(}\StringTok{'Patient'}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\StringTok{'contrast'}\NormalTok{))}
+  
+\NormalTok{  Agent}\OperatorTok{$}\NormalTok{Location =}\StringTok{ 'Agent'}
+\NormalTok{  Verb}\OperatorTok{$}\NormalTok{Location =}\StringTok{ 'Verb'}
+\NormalTok{  Patient}\OperatorTok{$}\NormalTok{Location =}\StringTok{ "Patient"}
+  
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{rbind}\NormalTok{(Agent,Verb,Patient))}
+\NormalTok{\}}
+
+\NormalTok{summarize_data =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(d, feature)\{}
+  \CommentTok{# http://www.cookbook-r.com/Graphs/Plotting_means_and_error_bars_(ggplot2)/}
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{summarySE}\NormalTok{(d,}\DataTypeTok{measurevar=}\NormalTok{feature ,}\DataTypeTok{groupvars=}\KeywordTok{c}\NormalTok{(}\StringTok{'Location'}\NormalTok{,}\StringTok{'condition'}\NormalTok{)))}
+\NormalTok{\}}
+\NormalTok{plot_data =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(d,feature, title)\{}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{ggplot}\NormalTok{(d, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Location, }\DataTypeTok{y=}\KeywordTok{get}\NormalTok{(feature), }\DataTypeTok{fill=}\NormalTok{condition)) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{(), }\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin=}\KeywordTok{get}\NormalTok{(feature)}\OperatorTok{-}\NormalTok{ci, }\DataTypeTok{ymax=}\KeywordTok{get}\NormalTok{(feature)}\OperatorTok{+}\NormalTok{ci),}
+                  \DataTypeTok{width=}\NormalTok{.}\DecValTok{2}\NormalTok{,                   }
+                  \DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{(.}\DecValTok{9}\NormalTok{))}\OperatorTok{+}
+\StringTok{    }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Location"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"normalized "}\NormalTok{, feature)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_fill_hue}\NormalTok{(}\DataTypeTok{name=}\StringTok{"position_condition"}\NormalTok{, }
+                   \DataTypeTok{breaks=}\KeywordTok{c}\NormalTok{(}\StringTok{"Control"}\NormalTok{, }\StringTok{"contrast"}\NormalTok{),}
+                   \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"NonContrastive"}\NormalTok{, }\StringTok{"Contrastive"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ggtitle}\NormalTok{(title))}
+\NormalTok{\}}
+\ControlFlowTok{for}\NormalTok{ (iF }\ControlFlowTok{in}\NormalTok{ features)\{}
+  \KeywordTok{print}\NormalTok{(iF)}
+  
+\NormalTok{  combined_dataset =}\StringTok{ }\KeywordTok{combine_datasets}\NormalTok{(df_Agent, df_Verb, df_Patient)}
+\NormalTok{  summarized_dataset=}\StringTok{ }\KeywordTok{summarize_data}\NormalTok{(combined_dataset, iF)}
+  
+  
+  \KeywordTok{plot_data}\NormalTok{(summarized_dataset,iF, }\DataTypeTok{title=} \KeywordTok{paste0}\NormalTok{(}\StringTok{'Effect of contrast on '}\NormalTok{, iF))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "duration"
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in qt(conf.interval/2 + 0.5, datac$N - 1): NaNs produced
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing missing values (geom_errorbar).
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "meanIntensity"
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in qt(conf.interval/2 + 0.5, datac$N - 1): NaNs produced
+\end{verbatim}
+
+\includegraphics{acoustic_analysis_cindy_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing missing values (geom_errorbar).
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "meanpit"
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in qt(conf.interval/2 + 0.5, datac$N - 1): NaNs produced
+\end{verbatim}
+
+\includegraphics{acoustic_analysis_cindy_files/figure-latex/unnamed-chunk-4-2.pdf}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing missing values (geom_errorbar).
+\end{verbatim}
+
+\includegraphics{acoustic_analysis_cindy_files/figure-latex/unnamed-chunk-4-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{run_regression =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(location,observation)\{}
+\KeywordTok{cat}\NormalTok{(}\StringTok{"  }\CharTok{\textbackslash{}n}\StringTok{###"}\NormalTok{, observation, }\StringTok{"of"}\NormalTok{, location, }\StringTok{"  }\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+    \CommentTok{# r = lmer(get(observation) ~ position_condition + (1 + position_condition|participant) + (1 + position_condition | item_id), data=get(paste0("df_", location)))}
+\NormalTok{        r =}\StringTok{ }\KeywordTok{lmer}\NormalTok{(}\KeywordTok{get}\NormalTok{(observation) }\OperatorTok{~}\StringTok{ }\NormalTok{position_condition  }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{position_condition }\OperatorTok{|}\StringTok{ }\NormalTok{item_id), }\DataTypeTok{data=}\KeywordTok{get}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"df_"}\NormalTok{, location)))}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{summary}\NormalTok{(r))}
+  \KeywordTok{summary}\NormalTok{(r)}
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"  }\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+
+
+
+\ControlFlowTok{for}\NormalTok{ (iF }\ControlFlowTok{in}\NormalTok{ features)\{}
+  \KeywordTok{run_regression}\NormalTok{(}\StringTok{"Agent"}\NormalTok{,iF)}
+
+  
+  \KeywordTok{run_regression}\NormalTok{(}\StringTok{"Patient"}\NormalTok{, iF)}
+
+  \KeywordTok{run_regression}\NormalTok{(}\StringTok{"Verb"}\NormalTok{, iF)}
+
+  
+  
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   
+## ### duration of Agent
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =
+## control$checkConv, : Hessian is numerically singular: parameters are not
+## uniquely determined
+\end{verbatim}
+
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## get(observation) ~ position_condition + (1 + position_condition |  
+##     item_id)
+##    Data: get(paste0("df_", location))
+## 
+## REML criterion at convergence: 13.6
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -0.85638 -0.53858 -0.03351  0.49024  0.98657 
+## 
+## Random effects:
+##  Groups   Name                      Variance Std.Dev. Corr 
+##  item_id  (Intercept)               0.7901   0.8889        
+##           position_conditionControl 0.3757   0.6129   -0.20
+##  Residual                           0.2717   0.5213        
+## Number of obs: 7, groups:  item_id, 3
+## 
+## Fixed effects:
+##                           Estimate Std. Error t value
+## (Intercept)                 0.6856     0.8809   0.778
+## position_conditionControl  -0.8269     0.8265  -1.000
+## 
+## Correlation of Fixed Effects:
+##             (Intr)
+## pstn_cndtnC -0.753
+## convergence code: 0
+##  Hessian is numerically singular: parameters are not uniquely determined
+## 
+##   
+##   
+## ### duration of Patient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =
+## control$checkConv, : unable to evaluate scaled gradient
+
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =
+## control$checkConv, : Hessian is numerically singular: parameters are not
+## uniquely determined
+\end{verbatim}
+
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## get(observation) ~ position_condition + (1 + position_condition |  
+##     item_id)
+##    Data: get(paste0("df_", location))
+## 
+## REML criterion at convergence: 15.6
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -1.3002 -0.5057  0.0000  0.5880  1.1356 
+## 
+## Random effects:
+##  Groups   Name                      Variance Std.Dev. Corr 
+##  item_id  (Intercept)               0.2459   0.4959        
+##           position_conditionPatient 0.5899   0.7681   -0.23
+##  Residual                           0.7636   0.8738        
+## Number of obs: 7, groups:  item_id, 3
+## 
+## Fixed effects:
+##                           Estimate Std. Error t value
+## (Intercept)                 0.1689     0.4574   0.369
+## position_conditionPatient  -0.9985     1.2256  -0.815
+## 
+## Correlation of Fixed Effects:
+##             (Intr)
+## pstn_cndtnP -0.279
+## convergence code: 0
+## unable to evaluate scaled gradient
+##  Hessian is numerically singular: parameters are not uniquely determined
+## 
+##   
+##   
+## ### duration of Verb
+\end{verbatim}
+
+\begin{verbatim}
+## boundary (singular) fit: see ?isSingular
+\end{verbatim}
+
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## get(observation) ~ position_condition + (1 + position_condition |  
+##     item_id)
+##    Data: get(paste0("df_", location))
+## 
+## REML criterion at convergence: 9.2
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -0.8702 -0.6671  0.0000  0.3934  1.2416 
+## 
+## Random effects:
+##  Groups   Name                   Variance Std.Dev. Corr 
+##  item_id  (Intercept)             1.18652 1.0893        
+##           position_conditionVerb 66.52584 8.1563   -1.00
+##  Residual                         0.02247 0.1499        
+## Number of obs: 8, groups:  item_id, 3
+## 
+## Fixed effects:
+##                        Estimate Std. Error t value
+## (Intercept)            -0.07673    0.63186  -0.121
+## position_conditionVerb -3.72295    4.71894  -0.789
+## 
+## Correlation of Fixed Effects:
+##             (Intr)
+## pstn_cndtnV -0.994
+## convergence code: 0
+## boundary (singular) fit: see ?isSingular
+## 
+##   
+##   
+## ### meanIntensity of Agent
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =
+## control$checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =
+## control$checkConv, : Model failed to converge: degenerate Hessian with 1
+## negative eigenvalues
+\end{verbatim}
+
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## get(observation) ~ position_condition + (1 + position_condition |  
+##     item_id)
+##    Data: get(paste0("df_", location))
+## 
+## REML criterion at convergence: 16.7
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -1.83245  0.08751  0.22220  0.41805  0.59914 
+## 
+## Random effects:
+##  Groups   Name                      Variance Std.Dev. Corr 
+##  item_id  (Intercept)               0.3468   0.5889        
+##           position_conditionControl 0.7962   0.8923   -0.78
+##  Residual                           0.9419   0.9705        
+## Number of obs: 7, groups:  item_id, 3
+## 
+## Fixed effects:
+##                           Estimate Std. Error t value
+## (Intercept)                -0.1186     1.1337  -0.105
+## position_conditionControl   0.1249     1.2618   0.099
+## 
+## Correlation of Fixed Effects:
+##             (Intr)
+## pstn_cndtnC -0.913
+## convergence code: 0
+## unable to evaluate scaled gradient
+## Model failed to converge: degenerate  Hessian with 1 negative eigenvalues
+## 
+##   
+##   
+## ### meanIntensity of Patient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =
+## control$checkConv, : Hessian is numerically singular: parameters are not
+## uniquely determined
+\end{verbatim}
+
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## get(observation) ~ position_condition + (1 + position_condition |  
+##     item_id)
+##    Data: get(paste0("df_", location))
+## 
+## REML criterion at convergence: 9
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -1.31862 -0.07278  0.04055  0.16397  1.09571 
+## 
+## Random effects:
+##  Groups   Name                      Variance Std.Dev. Corr
+##  item_id  (Intercept)               1.33280  1.1545       
+##           position_conditionPatient 0.05121  0.2263   0.15
+##  Residual                           0.05086  0.2255       
+## Number of obs: 7, groups:  item_id, 3
+## 
+## Fixed effects:
+##                           Estimate Std. Error t value
+## (Intercept)               -0.09962    0.67286  -0.148
+## position_conditionPatient  0.09677    0.35695   0.271
+## 
+## Correlation of Fixed Effects:
+##             (Intr)
+## pstn_cndtnP 0.018 
+## convergence code: 0
+##  Hessian is numerically singular: parameters are not uniquely determined
+## 
+##   
+##   
+## ### meanIntensity of Verb
+\end{verbatim}
+
+\begin{verbatim}
+## boundary (singular) fit: see ?isSingular
+\end{verbatim}
+
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## get(observation) ~ position_condition + (1 + position_condition |  
+##     item_id)
+##    Data: get(paste0("df_", location))
+## 
+## REML criterion at convergence: 19.1
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -1.32316 -0.51317 -0.03856  0.27755  1.79613 
+## 
+## Random effects:
+##  Groups   Name                   Variance  Std.Dev.  Corr
+##  item_id  (Intercept)            0.000e+00 0.0000000     
+##           position_conditionVerb 8.699e-07 0.0009327  NaN
+##  Residual                        9.259e-01 0.9622235     
+## Number of obs: 8, groups:  item_id, 3
+## 
+## Fixed effects:
+##                        Estimate Std. Error t value
+## (Intercept)             -0.2454     0.3928  -0.625
+## position_conditionVerb   0.9814     0.7857   1.249
+## 
+## Correlation of Fixed Effects:
+##             (Intr)
+## pstn_cndtnV -0.500
+## convergence code: 0
+## boundary (singular) fit: see ?isSingular
+## 
+##   
+##   
+## ### meanpit of Agent   
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## get(observation) ~ position_condition + (1 + position_condition |  
+##     item_id)
+##    Data: get(paste0("df_", location))
+## 
+## REML criterion at convergence: 11.3
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -0.90137 -0.44207  0.02325  0.34417  1.07393 
+## 
+## Random effects:
+##  Groups   Name                      Variance Std.Dev. Corr
+##  item_id  (Intercept)               0.2153   0.4640       
+##           position_conditionControl 0.5272   0.7261   0.77
+##  Residual                           0.1109   0.3331       
+## Number of obs: 7, groups:  item_id, 3
+## 
+## Fixed effects:
+##                           Estimate Std. Error t value
+## (Intercept)                 0.3813     0.4607   0.828
+## position_conditionControl  -0.4791     0.5785  -0.828
+## 
+## Correlation of Fixed Effects:
+##             (Intr)
+## pstn_cndtnC -0.203
+##   
+##   
+## ### meanpit of Patient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =
+## control$checkConv, : unable to evaluate scaled gradient
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =
+## control$checkConv, : Hessian is numerically singular: parameters are not
+## uniquely determined
+\end{verbatim}
+
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## get(observation) ~ position_condition + (1 + position_condition |  
+##     item_id)
+##    Data: get(paste0("df_", location))
+## 
+## REML criterion at convergence: 12.8
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -0.9147 -0.4344  0.0000  0.2421  1.2994 
+## 
+## Random effects:
+##  Groups   Name                      Variance Std.Dev. Corr 
+##  item_id  (Intercept)               1.2206   1.1048        
+##           position_conditionPatient 0.1826   0.4274   -0.09
+##  Residual                           0.1823   0.4270        
+## Number of obs: 7, groups:  item_id, 3
+## 
+## Fixed effects:
+##                           Estimate Std. Error t value
+## (Intercept)                0.07128    0.66127   0.108
+## position_conditionPatient -0.42813    0.66880  -0.640
+## 
+## Correlation of Fixed Effects:
+##             (Intr)
+## pstn_cndtnP -0.100
+## convergence code: 0
+## unable to evaluate scaled gradient
+##  Hessian is numerically singular: parameters are not uniquely determined
+## 
+##   
+##   
+## ### meanpit of Verb
+\end{verbatim}
+
+\begin{verbatim}
+## boundary (singular) fit: see ?isSingular
+\end{verbatim}
+
+\begin{verbatim}
+## Linear mixed model fit by REML ['lmerMod']
+## Formula: 
+## get(observation) ~ position_condition + (1 + position_condition |  
+##     item_id)
+##    Data: get(paste0("df_", location))
+## 
+## REML criterion at convergence: 14.1
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -1.1037 -0.4492  0.0000  0.3401  1.4373 
+## 
+## Random effects:
+##  Groups   Name                   Variance Std.Dev. Corr
+##  item_id  (Intercept)            0.0000   0.0000       
+##           position_conditionVerb 5.4997   2.3451    NaN
+##  Residual                        0.2389   0.4888       
+## Number of obs: 8, groups:  item_id, 3
+## 
+## Fixed effects:
+##                        Estimate Std. Error t value
+## (Intercept)            -0.05332    0.19955  -0.267
+## position_conditionVerb  0.21328    1.70561   0.125
+## 
+## Correlation of Fixed Effects:
+##             (Intr)
+## pstn_cndtnV -0.117
+## convergence code: 0
+## boundary (singular) fit: see ?isSingular
+## 
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \CommentTok{# r = lmer(get(observation) ~ condition + (1 | participant) + (1 | verb), data=df)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

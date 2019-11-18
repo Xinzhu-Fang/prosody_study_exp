@@ -195,7 +195,8 @@ for (iF in features){
 ```{r}
 run_regression = function(location,observation){
 cat("  \n###", observation, "of", location, "  \n")
-    r = lmer(get(observation) ~ position_condition + (1 + position_condition|participant) + (1 + position_condition | item_id), data=get(paste0("df_", location)))
+    # r = lmer(get(observation) ~ position_condition + (1 + position_condition|participant) + (1 + position_condition | item_id), data=get(paste0("df_", location)))
+        r = lmer(get(observation) ~ position_condition  + (1 + position_condition | item_id), data=get(paste0("df_", location)))
   print(summary(r))
   summary(r)
   cat("  \n")
@@ -214,7 +215,7 @@ for (iF in features){
   
   
 }
-    r = lmer(get(observation) ~ condition + (1 | participant) + (1 | verb), data=df)
+    # r = lmer(get(observation) ~ condition + (1 | participant) + (1 | verb), data=df)
 
 ```
 

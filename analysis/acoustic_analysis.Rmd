@@ -28,7 +28,8 @@ gdata = read.csv("measure_nonrhyming_84total_60No_24Yes_20181210.csv", header  =
 colnames(gdata)
 # code for word_num
 new.df <- gdata %>% 
-  dplyr::group_by(participant, question, presentationnum) %>%
+  dplyr::group_by(participant, presentationnum) %>%
+  # dplyr::group_by(participant, question, presentationnum) %>%
   dplyr::mutate(word_num=1:dplyr::n()) %>%
   dplyr::select(c(info, features))
 write.csv(new.df,'newdf.csv')
@@ -59,6 +60,7 @@ normalize_data = function(df, remove_outliers){
 }
 process_data = function(file_name){
   df <- read.csv(file_name,header = TRUE, fileEncoding="UTF-8",na.strings=c("", "NA","--undefined--"))
+  print(df$meanpit[1])
   df <- na.omit(df)
   
   #df = df[df$wordlabel != 'sp']

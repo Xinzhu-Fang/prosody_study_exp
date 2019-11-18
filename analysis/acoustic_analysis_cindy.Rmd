@@ -13,7 +13,8 @@ verb column is actaully item
 ```{r}
 cur_exp = "exp1"
 features = c("duration", "meanIntensity", "meanpit")
-info = c('participant','verb','condition', 'word', 'word_num')
+# info = c('participant','verb','condition', 'word', 'word_num')
+info = c('participant','item_id','position_condition', 'word', 'word_num')
 bRemove_outliers = 0
 library(dplyr)
 library(lme4)
@@ -32,20 +33,33 @@ tAll_trials = read.csv(file.path('..', cur_exp, 'tAll_trials.csv'))
 
 
 ```{r}
-# df0 = read.csv(paste0('measure_', cur_exp, '.csv'), header = T)
-# df0$
-df0 = read.csv("measure_nonrhyming_84total_60No_24Yes_20181210.csv", header  = T)
+df0 = read.csv(paste0('measure_', cur_exp, '.csv'), header = T)
+df0$position_condition = NA
+df0$item_id = NA
+
+for (iR in 1:nrow(df0)){
+  df0$position_condition[iR] =  as.character(tAll_trials[tAll_trials$trial_id == df0$trialId[iR],'position_condition'])
+    df0$item_id[iR] =  as.character(tAll_trials[tAll_trials$trial_id == df0$trialId[iR],'filler_or_item_id'])
+}
+
+df1 = df0[startsWith(df0$item_id, "item"),]
+
+```
+
+```{r}
+# df0 = read.csv("measure_nonrhyming_84total_60No_24Yes_20181210.csv", header  = T)
 # df0 = transform(df0,trialId=as.numeric(trialId))
 # sort(df0$trialId, decreasing = FALSE)
-colnames(df0)
+colnames(df1)
 
 # code for word_num
-df1 <- df0 %>% 
-  dplyr::group_by(participant, question, trialId) %>%
+df2 <- df1 %>% 
+  dplyr::group_by(participant, trialId) %>%
+  # dplyr::group_by(participant, question, trialId) %>%
   dplyr::mutate(word_num=1:dplyr::n()) %>%
   dplyr::select(c(info, features))
 
-write.csv(df1,'newdf.csv')
+# write.csv(df2,'newdf.csv')
 # code for getting Nth instance of question
 # nthdf <- df1 %>%
 #   group_by(participant,Verb, question, condition, word_num) %>%
@@ -76,26 +90,27 @@ normalize_data = function(df, remove_outliers){
   return(df)
 }
 
-process_data = function(file_name){
-  df <- read.csv(file_name,header = TRUE, fileEncoding="UTF-8",na.strings=c("", "NA","--undefined--"))
-  df <- na.omit(df)
+# process_data = function(file_name){
+process_data = function(df){
+  # df <- read.csv(file_name,header = TRUE, fileEncoding="UTF-8",na.strings=c("", "NA","--undefined--"))
+  # df <- na.omit(df)
   
   #df = df[df$wordlabel != 'sp']
   # df$verb = as.factor(df$verb)
   
   
-  # df_Agent = df[(df$condition=='Agent' | df$condition=='Verb') & df$word_num=='3',]
+  # df_Agent = df[(df$position_condition=='Agent' | df$position_condition=='Verb') & df$word_num=='3',]
   # 
-  # df_Verb = df[(df$condition=='Verb'| df$condition=='Patient') & df$word_num=='5',]
+  # df_Verb = df[(df$position_condition=='Verb'| df$position_condition=='Patient') & df$word_num=='5',]
   # 
-  # df_Patient = df[(df$condition=='Patient'| df$condition=='Agent') & df$word_num=='6',]
+  # df_Patient = df[(df$position_condition=='Patient'| df$position_condition=='Agent') & df$word_num=='6',]
   
-  df_Agent = df[(df$condition=='Agent' | df$condition=='YesControl') & df$word_num=='3',]
+  df_Agent = df[(df$position_condition=='Agent' | df$position_condition=='Control') & df$word_num=='3',]
   # df_Agent inheri row hum from df
   
-  df_Verb = df[(df$condition=='Verb'| df$condition=='YesControl') & df$word_num=='5',]
+  df_Verb = df[(df$position_condition=='Verb'| df$position_condition=='Control') & df$word_num=='5',]
   
-  df_Patient = df[(df$condition=='Patient'| df$condition=='YesControl') & df$word_num=='6',]
+  df_Patient = df[(df$position_condition=='Patient'| df$position_condition=='Control') & df$word_num=='6',]
   
   # print(sum(is.na(df_Agent)))
   
@@ -103,11 +118,11 @@ process_data = function(file_name){
   # df_Agent = df_Agent[relevant_columns]
   # df_Verb = df_Verb[relevant_columns]
   # df_Patient = df_Patient[relevant_columns]
-  sum(is.na(df[df1$word != 'sp',]))
+  sum(is.na(df[df$word != 'sp',]))
   # df1[(df1$meanpit == '--undefined--') && (df1$word != 'sp'),]
   # it seems that the only undefined is meanpitch for sp
   
-
+  print(df_Verb)
   
   df_Verb = normalize_data(df_Verb, bRemove_outliers)
   df_Agent = normalize_data(df_Agent, bRemove_outliers)
@@ -121,14 +136,14 @@ process_data = function(file_name){
 }
 
 
-```
 
-```{r}
-
-file_name = 'newdf.csv'
+# 
+# file_name = 'newdf.csv'
 
 # c(df_Agent_duration, df_Agent_meanIntensity, df_Agent_meanpit, df_Patient_duration, df_Patient_meanIntensity, df_Patient_meanpit,df_Verb_duration, df_Verb_meanIntensity, df_Verb_meanpit) %<-%process_data(file_name)
-c(df_Verb, df_Agent, df_Patient) %<-% process_data(file_name)
+# c(df_Verb, df_Agent, df_Patient) %<-% process_data(file_name)
+c(df_Verb, df_Agent, df_Patient) %<-% process_data(df2)
+
 
 
 combine_datasets = function(Agent,Verb,Patient){

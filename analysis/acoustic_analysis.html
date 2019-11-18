@@ -415,10 +415,11 @@ colnames(gdata)</code></pre>
 ## [28] &quot;meanIntensity&quot;   &quot;maxIntensity&quot;</code></pre>
 <pre class="r"><code># code for word_num
 new.df &lt;- gdata %&gt;% 
-  dplyr::group_by(participant, question, presentationnum) %&gt;%
+  dplyr::group_by(participant, presentationnum) %&gt;%
+  # dplyr::group_by(participant, question, presentationnum) %&gt;%
   dplyr::mutate(word_num=1:dplyr::n()) %&gt;%
   dplyr::select(c(info, features))</code></pre>
-<pre><code>## Adding missing grouping variables: `question`, `presentationnum`</code></pre>
+<pre><code>## Adding missing grouping variables: `presentationnum`</code></pre>
 <pre class="r"><code>write.csv(new.df,'newdf.csv')
 # code for getting Nth instance of question
 # nthdf &lt;- new.df %&gt;%
@@ -447,6 +448,7 @@ normalize_data = function(df, remove_outliers){
 }
 process_data = function(file_name){
   df &lt;- read.csv(file_name,header = TRUE, fileEncoding=&quot;UTF-8&quot;,na.strings=c(&quot;&quot;, &quot;NA&quot;,&quot;--undefined--&quot;))
+  print(df$meanpit[1])
   df &lt;- na.omit(df)
   
   #df = df[df$wordlabel != 'sp']
@@ -488,8 +490,9 @@ process_data = function(file_name){
 }</code></pre>
 <pre class="r"><code>file_name = 'newdf.csv'
 # c(df_Agent_duration, df_Agent_meanIntensity, df_Agent_meanpit, df_Patient_duration, df_Patient_meanIntensity, df_Patient_meanpit,df_Verb_duration, df_Verb_meanIntensity, df_Verb_meanpit) %&lt;-%process_data(file_name)
-c(df_Verb, df_Agent, df_Patient) %&lt;-% process_data(file_name)
-combine_datasets = function(Agent,Verb,Patient){
+c(df_Verb, df_Agent, df_Patient) %&lt;-% process_data(file_name)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>combine_datasets = function(Agent,Verb,Patient){
   Agent$condition = mapvalues(Agent$condition,c('Agent'),c('contrast'))
   Verb$condition = mapvalues(Verb$condition,c('Verb'),c('contrast'))
   Patient$condition = mapvalues(Patient$condition,c('Patient'),c('contrast'))

@@ -1,7 +1,7 @@
 bTutorial_mode=1
 bTutorial_mode=0 #manual
 bStage=1
-# bStage=2 #manual
+bStage=2 #manual
 
 function make_dir(){
   if [ -d $@ ];
@@ -79,7 +79,8 @@ else
 
   echo Downsampling
   make_dir $current_data_dir/responses_to_analyze_downsampled
-  python downsampler.py $current_data_dir/responses_to_analyze $current_data_dir/responses_to_analyze_downsampled
+  # python downsampler.py $current_data_dir/responses_to_analyze $current_data_dir/responses_to_analyze_downsampled
+  python downsampler.py tTranscript_$current_exp.csv
 
   echo Forced alignment
   make_dir $current_data_dir/responses_to_analyze_textgrid

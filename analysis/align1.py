@@ -325,9 +325,9 @@ def MishasCoolWrapper(wavfile, trsfile, outfile):
 num_file_processed = 0
 
 #wav_dir = sys.argv[1]
-#filey = sys.argv[2]
+#tTranscript = sys.argv[2]
 #textgrid_dir = sys.argv[3]
-#with open(filey, 'r') as f:
+#with open(tTranscript, 'r') as f:
 #    for l in f.readlines():
 #        cur_wav, cur_transcript, cur_textgrid = l.strip('\n').split(',')
 #        cur_wav_full = os.path.join(wav_dir, cur_wav)
@@ -342,9 +342,9 @@ num_file_processed = 0
 #        print("processed " + str(num_file_processed) + " files")
 
 
-filey = pd.read_csv(sys.argv[1])
-for iFile, iRow in filey.iterrows():
-    cur_wav_full = iRow.answer_files
+tTranscript = pd.read_csv(sys.argv[1])
+for iFile, iRow in tTranscript.iterrows():
+    cur_wav_full = iRow.answer_downsampled
     cur_textgrid_full = iRow.answer_textgrid
     cur_transcript = iRow.supposed_answer_transcript
     print(cur_wav_full)

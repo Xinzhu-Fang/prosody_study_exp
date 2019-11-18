@@ -1,120 +1,49 @@
 ,trial_id,supposed_answer_transcript,auto_transcript,status,answer_files
-0,7,yes Kimmy is kicking Tommy,yes Bloomington Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_07.wav
-1,13,no Bonnie is kissing Benny,Barney kissing belly,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_13.wav
-2,3,no Kimmy is kicking Tommy,no Kimi is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_03.wav
-3,17,no Joey is pushing Kerry,no Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_17.wav
-5,2,no Kimmy is kicking Tommy,no Kimi is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_02.wav
-6,12,no Bonnie is kissing Benny,Bonnie kissing Bonnie,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_12.wav
-7,6,no Kimmy is kicking Tommy,yes I'm picking,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_06.wav
-8,10,no Bonnie is kissing Benny,Bonnie kissing belly,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_10.wav
-9,4,no Kimmy is kicking Tommy,King Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_04.wav
-10,38,yes Henry is lifting Ollie,Ali,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_38.wav
-12,28,no Kelly is pulling Judy,no Kelly is pulling Tootsie,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_28.wav
-13,29,no Kelly is pulling Judy,no Kelly is going Judy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_29.wav
-14,1,no Kimmy is kicking Tommy,no Timmy escaping Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_01.wav
-16,39,yes Cindy is pulling Brandy,yes indeed clean Brandy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_39.wav
-17,5,no Kimmy is kicking Tommy,Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_05.wav
-18,11,no Bonnie is kissing Benny,Bonnie kissing Penny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_11.wav
-19,29,no Kelly is pulling Judy,can you play Judy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_29.wav
-20,15,yes Bonnie is kissing Benny,yes Bonnie kissing men,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_15.wav
-21,1,no Kimmy is kicking Tommy,can meat eating Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_01.wav
-22,39,yes Cindy is pulling Brandy,yes Cindy is pulling Grandy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_39.wav
-23,11,no Bonnie is kissing Benny,no Aunty is kissing Benny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_11.wav
-24,5,no Kimmy is kicking Tommy,no Timmy is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_05.wav
-25,4,no Kimmy is kicking Tommy,no Timmy is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_04.wav
-26,10,no Bonnie is kissing Benny,no mommy is kissing Penny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_10.wav
-27,38,yes Henry is lifting Ollie,yes energy is lifting Ali,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_38.wav
-28,14,no Bonnie is kissing Benny,Bonnie kissing Benning,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_14.wav
-29,28,no Kelly is pulling Judy,LG Premier Jewelry,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_28.wav
-30,2,no Kimmy is kicking Tommy,Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_02.wav
-31,16,yes Bonnie is kissing Benny,yes Bonnie kissing Bonnie,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_16.wav
-32,6,no Kimmy is kicking Tommy,no Kimi is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_06.wav
-34,13,no Bonnie is kissing Benny,no mommy is kissing Benny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_13.wav
-36,17,no Joey is pushing Kerry,Guy Fieri,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_17.wav
-37,3,no Kimmy is kicking Tommy,give me kicking bombing,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_03.wav
-38,64,yes Betty is kicking Harvey,Alex Tanney,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_64.wav
-39,70,yes Sally is kicking Kenny,all-inclusive Lacey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_70.wav
-41,60,yes Jenny is kicking Danny,yes Percy is pushing Haley,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_60.wav
-42,48,yes Percy is pushing Hailey,yes lazy is pulling Franny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_48.wav
-43,49,yes Lacey is pulling Franny,yes Nancy is kissing Ali,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_49.wav
-44,61,yes Nancy is kissing Ollie,guess Sally King volume,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_61.wav
-45,59,yes Sally is kicking Ollie,Sandy kissing Johnny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_59.wav
-46,71,yes Brandy is kissing Johnny,yes indeed full body,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_71.wav
-47,65,yes Betty is pulling Molly,lady picking Tennessee,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_65.wav
-49,63,yes Chloe is kicking Ronnie,yes Lily is pulling Betty,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_63.wav
-50,62,yes Lilly is pulling Betty,Johnny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_62.wav
-51,66,yes Franny is kicking Johnny,yes party kissing,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_66.wav
-52,72,yes Chloe is kissing Kenny,yes wedding,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_72.wav
-53,62,yes Lilly is pulling Betty,yeah it's Chloe's kissing Kenny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_62.wav
-54,72,yes Chloe is kissing Kenny,yes Rani is kicking Johnny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_72.wav
-55,66,yes Franny is kicking Johnny,yes Lily is kicking Percy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_66.wav
-56,67,yes Lilly is kicking Percy,drawing,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_67.wav
-57,63,yes Chloe is kicking Ronnie,yes basic brain training,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_63.wav
-58,49,yes Lacey is pulling Franny,Nancy sing Hallelujah,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_49.wav
-59,61,yes Nancy is kissing Ollie,yes Sally is kicking Ali,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_61.wav
-60,59,yes Sally is kicking Ollie,yes Betty is pulling mowing,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_59.wav
-61,65,yes Betty is pulling Molly,yes Brandi is kissing Johnny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_65.wav
-64,64,yes Betty is kicking Harvey,yes only is pushing Lacy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_64.wav
-65,58,yes Ollie is pushing Lacey,yes Dental,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_58.wav
-66,60,yes Jenny is kicking Danny,despacito singing Ellie,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_60.wav
-67,48,yes Percy is pushing Hailey,yes AZ,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_48.wav
-68,45,yes Harvey is pushing Tracy,yes Henry Percy crazy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_45.wav
-71,55,yes Kenny is pushing Mindy,yes ready is pushing Molly,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_55.wav
-73,68,yes Vicky is kissing Freddy,yes way to use poking Vicky,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_68.wav
-75,40,yes Mindy is kissing Kenny,Mandy Moore,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_40.wav
-76,50,yes Mandy is poking Molly,Tracy McMillan running,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_50.wav
-77,44,yes Tracy is pulling Franny,yes daddy jumping volume,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_44.wav
-78,52,yes Danny is lifting Wally,eliminating Dairy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_52.wav
-82,43,yes Ronnie is pushing Molly,yes Jenny is smoking Lily,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_43.wav
-83,57,yes Jenny is poking Lilly,yes Lauren broeking sunny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_57.wav
-84,47,yes Laurie is poking Sally,best Downing person Harry,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_47.wav
-85,53,yes Johnny is pushing Carrie,yes Demi Lovato Lily,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_53.wav
-86,57,yes Jenny is poking Lilly,Molly,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_57.wav
-87,43,yes Ronnie is pushing Molly,yes Johnny is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_43.wav
-88,53,yes Johnny is pushing Carrie,yes Lori is poking salad,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_53.wav
-90,46,yes Chloe is kicking Jerry,yes Danny is lifting Raleigh,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_46.wav
-91,52,yes Danny is lifting Wally,money picking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_52.wav
-92,42,yes Molly is kicking Timmy,yes Mandi,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_42.wav
-93,56,yes Jenny is pulling Mandy,yes daddy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_56.wav
-94,68,yes Vicky is kissing Freddy,yes,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_68.wav
-95,40,yes Mindy is kissing Kenny,yes Lizzy pool Wiki,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_40.wav
-96,54,yes Lacey is poking Vicky,yes Tracy is bullying granny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_54.wav
-97,44,yes Tracy is pulling Franny,yes Mandi is poking Molly,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_44.wav
-98,50,yes Mandy is poking Molly,yes Andre is pushing Tracy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_50.wav
-99,51,yes Henry is pushing Tracy,yes RV is pushing Tracy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_51.wav
-100,45,yes Harvey is pushing Tracy,Singh Mehndi,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_45.wav
-101,55,yes Kenny is pushing Mindy,yes Nancy kissing,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_55.wav
-102,41,yes Nancy is kissing Harvey,yes building sing molding,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_41.wav
-103,69,yes Freddy is pushing Molly,LED ring jewelry,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_69.wav
-104,26,no Kelly is pulling Judy,Hindi full movie,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_26.wav
-105,32,yes Kelly is pulling Judy,no Joe is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_32.wav
-106,22,no Joey is pushing Kerry,yes Brandi is kissing Sammy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_22.wav
-108,37,yes Betty is kicking Timmy,yes Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_37.wav
-109,23,yes Joey is pushing Kerry,Cindy pretty penny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_23.wav
-110,33,yes Cindy is pulling Penny,can you bring Duty,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_33.wav
-111,27,no Kelly is pulling Judy,bella bling jewelry,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_27.wav
-112,31,yes Kelly is pulling Judy,can you play Journey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_31.wav
-113,25,no Kelly is pulling Judy,diagnosing Harry,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_25.wav
-114,19,no Joey is pushing Kerry,yes Teddy is pushing Monday,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_19.wav
-115,35,yes Teddy is pushing Mindy,no Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_35.wav
-116,21,no Joey is pushing Kerry,no funniest kissing Benny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_21.wav
-118,8,yes Kimmy is kicking Tommy,no Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_08.wav
-120,34,yes Henry is lifting Johnny,dying to see Harry,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_34.wav
-121,18,no Joey is pushing Kerry,guess who sings,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_18.wav
-122,24,yes Joey is pushing Kerry,can you relate,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_24.wav
-123,30,no Kelly is pulling Judy,yes indeed meaning Tamil,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_30.wav
-124,8,yes Kimmy is kicking Tommy,Johnny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_08.wav
-125,34,yes Henry is lifting Johnny,heading,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_34.wav
-126,20,no Joey is pushing Kerry,no Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_20.wav
-127,18,no Joey is pushing Kerry,note Elliott pulling Judy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_18.wav
-128,30,no Kelly is pulling Judy,yes Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_30.wav
-129,24,yes Joey is pushing Kerry,no Kelly is pulling Tootsie,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_24.wav
-131,31,yes Kelly is pulling Judy,no Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_31.wav
-132,19,no Joey is pushing Kerry,yes,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_19.wav
-133,21,no Joey is pushing Kerry,yes if you sing Hindi,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_21.wav
-134,35,yes Teddy is pushing Mindy,Bonnie kissing,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_35.wav
-135,9,no Bonnie is kissing Benny,yes no you sing Patty,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_09.wav
-136,23,yes Joey is pushing Kerry,yes,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_23.wav
-138,27,no Kelly is pulling Judy,yes Cindy is pulling penny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_27.wav
-141,26,no Kelly is pulling Judy,yes Vandy kissing salmon,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_26.wav
-142,36,yes Brandy is kissing Sammy,going to sync pairing,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/ACWBK5ISFR2B2_prosody_study_exp1_11_10_2019_trial_36.wav
+0,3,no Kimmy is kicking Tommy,no Kimi is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_03.wav
+1,17,no Joey is pushing Kerry,no Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_17.wav
+3,2,no Kimmy is kicking Tommy,no Kimi is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_02.wav
+5,28,no Kelly is pulling Judy,no Kelly is pulling Tootsie,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_28.wav
+6,29,no Kelly is pulling Judy,no Kelly is going Judy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_29.wav
+7,1,no Kimmy is kicking Tommy,no Timmy escaping Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_01.wav
+9,39,yes Cindy is pulling Brandy,yes Cindy is pulling Grandy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_39.wav
+10,11,no Bonnie is kissing Benny,no Aunty is kissing Benny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_11.wav
+11,5,no Kimmy is kicking Tommy,no Timmy is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_05.wav
+12,4,no Kimmy is kicking Tommy,no Timmy is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_04.wav
+13,10,no Bonnie is kissing Benny,no mommy is kissing Penny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_10.wav
+14,38,yes Henry is lifting Ollie,yes energy is lifting Ali,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_38.wav
+15,6,no Kimmy is kicking Tommy,no Kimi is kicking Tommy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_06.wav
+17,13,no Bonnie is kissing Benny,no mommy is kissing Benny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_13.wav
+20,48,yes Percy is pushing Hailey,yes Percy is pushing Haley,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_48.wav
+21,49,yes Lacey is pulling Franny,yes lazy is pulling Franny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_49.wav
+22,61,yes Nancy is kissing Ollie,yes Nancy is kissing Ali,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_61.wav
+24,62,yes Lilly is pulling Betty,yes Lily is pulling Betty,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_62.wav
+25,72,yes Chloe is kissing Kenny,yeah it's Chloe's kissing Kenny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_72.wav
+26,66,yes Franny is kicking Johnny,yes Rani is kicking Johnny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_66.wav
+27,67,yes Lilly is kicking Percy,yes Lily is kicking Percy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_67.wav
+28,59,yes Sally is kicking Ollie,yes Sally is kicking Ali,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_59.wav
+29,65,yes Betty is pulling Molly,yes Betty is pulling mowing,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_65.wav
+30,71,yes Brandy is kissing Johnny,yes Brandi is kissing Johnny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_71.wav
+33,58,yes Ollie is pushing Lacey,yes only is pushing Lacy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_58.wav
+36,69,yes Freddy is pushing Molly,yes ready is pushing Molly,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_69.wav
+38,54,yes Lacey is poking Vicky,yes way to use poking Vicky,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_54.wav
+43,57,yes Jenny is poking Lilly,yes Jenny is smoking Lily,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_57.wav
+44,53,yes Johnny is pushing Carrie,yes Johnny is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_53.wav
+45,47,yes Laurie is poking Sally,yes Lori is poking salad,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_47.wav
+47,52,yes Danny is lifting Wally,yes Danny is lifting Raleigh,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_52.wav
+48,44,yes Tracy is pulling Franny,yes Tracy is bullying granny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_44.wav
+49,50,yes Mandy is poking Molly,yes Mandi is poking Molly,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_50.wav
+50,51,yes Henry is pushing Tracy,yes Andre is pushing Tracy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_51.wav
+51,45,yes Harvey is pushing Tracy,yes RV is pushing Tracy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_45.wav
+52,22,no Joey is pushing Kerry,no Joe is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_22.wav
+53,36,yes Brandy is kissing Sammy,yes Brandi is kissing Sammy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_36.wav
+55,23,yes Joey is pushing Kerry,yes Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_23.wav
+56,35,yes Teddy is pushing Mindy,yes Teddy is pushing Monday,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_35.wav
+57,21,no Joey is pushing Kerry,no Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_21.wav
+58,9,no Bonnie is kissing Benny,no funniest kissing Benny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_09.wav
+60,20,no Joey is pushing Kerry,no Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_20.wav
+62,18,no Joey is pushing Kerry,no Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_18.wav
+63,30,no Kelly is pulling Judy,note Elliott pulling Judy,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_30.wav
+64,24,yes Joey is pushing Kerry,yes Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_24.wav
+65,25,no Kelly is pulling Judy,no Kelly is pulling Tootsie,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_25.wav
+67,19,no Joey is pushing Kerry,no Joey is pushing Carey,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_19.wav
+69,33,yes Cindy is pulling Penny,yes Cindy is pulling penny,auto_fail,/Users/xzfang/Desktop/prosody_study_data/exp1/responses_to_analyze/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_33.wav

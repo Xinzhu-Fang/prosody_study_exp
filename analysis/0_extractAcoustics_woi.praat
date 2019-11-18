@@ -48,7 +48,7 @@ until remain$ = ""
 
 endproc
 
-name_Format$ = "participant_presentationnum_verb_condition_item_targword_question_yesno_list_version_index"
+name_Format$ = "participant_studyName_studyNameNah_expId_month_date_year_trialNah_trialId"
 extension$ = ".wav"
 form Calculate Results for Production Experiments
 #	sentence Name_Format participant_presentationnum_verb_condition_item_targword_question_yesno_list_version_index

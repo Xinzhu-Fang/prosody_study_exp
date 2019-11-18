@@ -2,6 +2,7 @@ import os
 import audioop
 import wave
 import sys
+import pandas as pd
 
 def downsampleWav(src, dst, inrate=44100, outrate=11025, inchannels=2, outchannels=1):
     if not os.path.exists(src):
@@ -42,14 +43,18 @@ def downsampleWav(src, dst, inrate=44100, outrate=11025, inchannels=2, outchanne
 
     return True
 
-source_dir = sys.argv[1]
-dest_dir = sys.argv[2]
-# Listing all files in current directory.
-listofFiles = os.listdir(os.path.join(source_dir))
-# print(listofFiles[3])
+# source_dir = sys.argv[1]
+# dest_dir = sys.argv[2]
+# # Listing all files in current directory.
+# listofFiles = os.listdir(os.path.join(source_dir))
+# # print(listofFiles[3])
+#
+# for thisFile in listofFiles:
+#     if thisFile[-4:] == '.wav':
+#         downsampleWav(os.path.join(source_dir, thisFile), os.path.join(dest_dir, thisFile))
+#     else:
+#         print("not processed: " + thisFile)
 
-for thisFile in listofFiles:
-    if thisFile[-4:] == '.wav':
-        downsampleWav(os.path.join(source_dir, thisFile), os.path.join(dest_dir, thisFile))
-    else:
-        print("not processed: " + thisFile)
+tTranscript = pd.read_csv(sys.argv[1])
+for iFile, iRow in tTranscript.iterrows():
+    downsampleWav(iRow.answer_files, iRow.answer_downsampled)

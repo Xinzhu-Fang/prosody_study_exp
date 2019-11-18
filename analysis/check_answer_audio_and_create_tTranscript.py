@@ -3,8 +3,9 @@
 #    2: remove the rejected trial to output the final tTranscript
 
 bStage = 1
-#bStage = 2 #manual
+bStage = 2 #manual
 reject_row_index = [] #manual
+bStrigent = 1 #manual
 import pandas as pd
 import os
 import speech_recognition as sr
@@ -39,7 +40,7 @@ if bStage == 1:
             script = r.recognize_google(audio)
             auto_transcript = auto_transcript + [script]
 
-            if not script == tAll_trials.loc[tAll_trials.trial_id == cur_trial, 'answer_script'].any():
+            if script != tAll_trials.loc[tAll_trials.trial_id == cur_trial, 'answer_script'].any():
         #                print(iRow.question_file + ' is fine')
         #            else:
         #                print('check file ' + )
@@ -58,16 +59,28 @@ if bStage == 1:
     tTranscript = pd.DataFrame(zip(trial_id, supposed_answer_transcript, auto_transcript, status, answer_files), columns=['trial_id', 'supposed_answer_transcript', 'auto_transcript', 'status', 'answer_files'])
 
     tTranscript_auto_fail = tTranscript.loc[tTranscript.status == 'auto_fail']
-
+    
+    tTranscript_auto_pass= tTranscript.loc[tTranscript.status == 'auto_pass']
+    
     tTranscript_auto_fail.to_csv('tTranscript_auto_fail_only_' + cur_exp + '.csv',  encoding='utf-8')
+    
+    
 
 else:
 
-    tTranscript0 = tTranscript.drop(reject_row_index)
-
+    if bStrigent == 0:
+        if reject_row_index != []:
+            tTranscript0 = tTranscript.drop(reject_row_index)
+    else:
+        tTranscript0 = tTranscript_auto_pass
+    
     tTranscript1 = tTranscript0[['trial_id', 'supposed_answer_transcript', 'answer_files']]
     tTranscript1['answer_textgrid'] = [a.replace('wav', 'TextGrid') for a in tTranscript1.answer_files]
-    tTranscript1['answer_files'] = [a.replace('responses_to_analyze', 'responses_to_analyze_downsampled') for a in tTranscript1.answer_files]
+    tTranscript1['answer_downsampled'] = tTranscript1['answer_files']
+    tTranscript1['answer_downsampled'] = [a.replace('responses_to_analyze', 'responses_to_analyze_downsampled') for a in tTranscript1.answer_downsampled]
     tTranscript1['answer_textgrid'] = [a.replace('responses_to_analyze', 'responses_to_analyze_textgrid') for a in tTranscript1.answer_textgrid]
     tTranscript1['supposed_answer_transcript'] = [a.replace('Kimmy', 'Kimmey') for a in tTranscript1.supposed_answer_transcript]
+    
+        
+
     tTranscript1.to_csv('tTranscript_' + cur_exp + '.csv',  encoding='utf-8')

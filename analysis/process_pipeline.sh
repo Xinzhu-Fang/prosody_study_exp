@@ -1,3 +1,8 @@
+# This file contains two stages:
+#   stage 1: tranfer data from server to local
+#   stage 2: process
+#   inbetween them, you should run the check_answer.py file
+
 bTutorial_mode=1
 bTutorial_mode=0 #manual
 bStage=1
@@ -89,7 +94,7 @@ else
 
   echo Computing dependent variables
   # http://www.fon.hum.uva.nl/praat/manual/Scripting_6_9__Calling_from_the_command_line.html
-  $my_praat_location --run 0_extractAcoustics_woi.praat measure_$current_exp $current_data_dir/responses_to_analyze/ $current_data_dir/responses_to_analyze_textgrid/ 1 2 2 ","
+  $my_praat_location --run 0_extractAcoustics_woi.praat measure_$current_exp $current_data_dir/responses_to_analyze_downsampled/ $current_data_dir/responses_to_analyze_textgrid/ 1 2 2 ","
 
   echo see output file measure_$current_exp in the same dir as this file
 fi

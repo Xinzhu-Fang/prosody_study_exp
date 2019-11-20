@@ -1,14 +1,19 @@
 ---
 title: "acoustic_analysis"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(lme4)
+library(zeallot)
+library(Rmisc)
+library(ggplot2)
+library(plyr)
 ```
-verb column is actaully item
 
 ```{r}
 cur_exp = "exp1"
@@ -16,12 +21,7 @@ features = c("duration", "meanIntensity", "meanpit")
 # info = c('participant','verb','condition', 'word', 'word_num')
 info = c('participant','item_id','location_condition', 'word', 'word_num')
 bRemove_outliers = 0
-library(dplyr)
-library(lme4)
-library(zeallot)
-  library(Rmisc)
-  library(ggplot2)
-  library(plyr)
+
 
 ```
 
@@ -39,7 +39,7 @@ df0$item_id = NA
 
 for (iR in 1:nrow(df0)){
   df0$location_condition[iR] =  as.character(tAll_trials[tAll_trials$trial_id == df0$trialId[iR],'location_condition'])
-    df0$item_id[iR] =  as.character(tAll_trials[tAll_trials$trial_id == df0$trialId[iR],'filler_or_item_id'])
+  df0$item_id[iR] =  as.character(tAll_trials[tAll_trials$trial_id == df0$trialId[iR],'filler_or_item_id'])
 }
 
 df1 = df0[startsWith(df0$item_id, "item"),]
@@ -79,15 +79,15 @@ normalize_data = function(df, remove_outliers){
     }
     df[[col_name]] = scale(df[[col_name]])
     # there is surge of na after the first colling of the above line. tested by print(sum(is.na(df_Agent))). I guess it's because the df is nibble
-        # print(sum(is.na(df_Agent)))
-
+    # print(sum(is.na(df_Agent)))
+    
   }
   for(col_name in features){
     
     if(remove_outliers){
       df = df[df[[col_name]]>-2 & df[[col_name]]<2,]
-          # print(sum(is.na(df_Agent)))
-
+      # print(sum(is.na(df_Agent)))
+      
     }
   }
   return(df)
@@ -130,8 +130,8 @@ process_data = function(df){
   df_Verb = normalize_data(df_Verb, bRemove_outliers)
   df_Agent = normalize_data(df_Agent, bRemove_outliers)
   df_Patient = normalize_data(df_Patient, bRemove_outliers)
-    # print(sum(is.na(df_Agent)))
-
+  # print(sum(is.na(df_Agent)))
+  
   
   
   # return(list(df_Agent_duration, df_Agent_meanIntensity, df_Agent_meanpit, df_Patient_duration, df_Patient_meanIntensity, df_Patient_meanpit,df_Verb_duration, df_Verb_meanIntensity, df_Verb_meanpit))
@@ -167,16 +167,16 @@ summarize_data = function(d, feature){
 }
 plot_data = function(d,feature, title){
   print(ggplot(d, aes(x=Location, y=get(feature), fill=condition)) + 
-    geom_bar(position=position_dodge(), stat="identity") +
-    geom_errorbar(aes(ymin=get(feature)-ci, ymax=get(feature)+ci),
-                  width=.2,                   
-                  position=position_dodge(.9))+
-    xlab("Location") +
-    ylab(paste0("normalized ", feature)) +
-    scale_fill_hue(name="location_condition", 
-                   breaks=c("Control", "contrast"),
-                   labels=c("NonContrastive", "Contrastive")) +
-    ggtitle(title))
+          geom_bar(position=position_dodge(), stat="identity") +
+          geom_errorbar(aes(ymin=get(feature)-ci, ymax=get(feature)+ci),
+                        width=.2,                   
+                        position=position_dodge(.9))+
+          xlab("Location") +
+          ylab(paste0("normalized ", feature)) +
+          scale_fill_hue(name="location_condition", 
+                         breaks=c("Control", "contrast"),
+                         labels=c("NonContrastive", "Contrastive")) +
+          ggtitle(title))
 }
 for (iF in features){
   print(iF)
@@ -194,9 +194,9 @@ for (iF in features){
 <!-- # ```{r, results="asis"} -->
 ```{r}
 run_regression = function(location,observation){
-cat("  \n###", observation, "of", location, "  \n")
-    # r = lmer(get(observation) ~ location_condition + (1 + location_condition|participant) + (1 + location_condition | item_id), data=get(paste0("df_", location)))
-        r = lmer(get(observation) ~ location_condition  + (1 + location_condition | item_id), data=get(paste0("df_", location)))
+  cat("  \n###", observation, "of", location, "  \n")
+  # r = lmer(get(observation) ~ location_condition + (1 + location_condition|participant) + (1 + location_condition | item_id), data=get(paste0("df_", location)))
+  r = lmer(get(observation) ~ location_condition  + (1 + location_condition | item_id), data=get(paste0("df_", location)))
   print(summary(r))
   summary(r)
   cat("  \n")
@@ -206,16 +206,16 @@ cat("  \n###", observation, "of", location, "  \n")
 
 for (iF in features){
   run_regression("Agent",iF)
-
+  
   
   run_regression("Patient", iF)
-
+  
   run_regression("Verb", iF)
-
+  
   
   
 }
-    # r = lmer(get(observation) ~ condition + (1 | participant) + (1 | verb), data=df)
+# r = lmer(get(observation) ~ condition + (1 | participant) + (1 | verb), data=df)
 
 ```
 

@@ -1,5 +1,5 @@
 # process data
-+ on tedlab, copy data from  `~/ali26/Experiment` to whereever they belong
++ on tedlab, copy data from  `../ali26m/Experiment` to whereever they belong
 + run `process_pipeline.sh` at stage 1 to copy data from tedlab to the local corresponding folder.
 + run `check_answer_audio_and_create_tTranscript.py`, which has two stages. 
 

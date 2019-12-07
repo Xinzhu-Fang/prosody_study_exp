@@ -1,6 +1,6 @@
 # process data
-+ on tedlab, copy data from  ~/ali26/Experiment to whereever they belong
-+ run process_pipeline.sh at stage 1 to copy data from tedlab to the local corresponding folder.
++ on tedlab, copy data from  `../ali26m/Experiment` to whereever they belong
++ run `process_pipeline.sh` at stage 1 to copy data from tedlab to the local corresponding folder.
 + run `check_answer_audio_and_create_tTranscript.py`, which has two stages. 
 
 + open process_pipeline.sh, search for manual and make changes in those sections for yourself. Run the script `bash process_pipeline.sh`, you will be prompted to enter your tedlab server acct password to get some recordings from there, if you have data locally, search for alternative and follow the instruction in that section.

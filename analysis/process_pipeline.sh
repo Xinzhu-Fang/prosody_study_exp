@@ -1,12 +1,19 @@
-# This file contains two stages:
-#   stage 1: tranfer data from server to local
-#   stage 2: process
-#   inbetween them, you should run the check_answer.py file
+This file contains two stages and a tuorial mode
+Piloting:
+  stage 1 tutorial: tranfer data from server to local, prepare a few data to process
+  stage 2: process
+  stage 1 non-tutorial: prepare all data to process
+  stage 2: process
+Running:
+  stage 1 tutorial: tranfer data from server to local
+  stage 1 non-tutorial: prepare all data to process
+  stage 2: process
+Before stage 2 you need to run the check_answer.py file for further preparation
 
 bTutorial_mode=1
 bTutorial_mode=0 #manual
 bStage=1
-bStage=2 #manual
+# bStage=2 #manual
 
 function make_dir(){
   if [ -d $@ ];

@@ -5,14 +5,15 @@ output:
   html_document: default
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r message=FALSE, warning=FALSE, tidy=TRUE, echo = FALSE}
 library(dplyr)
 library(lme4)
 library(zeallot)
 library(Rmisc)
 library(ggplot2)
 library(plyr)
+
+knitr::opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy = TRUE) 
 ```
 
 ```{r}
@@ -25,12 +26,16 @@ bRemove_outliers = 0
 
 ```
 
+## This the analysis for `r cur_exp`. The parameters of all exps can be seen at https://github.com/Xinzhu-Fang/prosody_study_exp/blob/master/tAll_exps.csv.
+
+## The trial-by-trial design of this exp can be seen at https://github.com/Xinzhu-Fang/prosody_study_exp/blob/master/`r cur_exp`/tAll_trials.csv
+
+
 ```{r}
 
 tAll_trials = read.csv(file.path('..', cur_exp, 'tAll_trials.csv'))
 
 ```
-
 
 ```{r}
 df0 = read.csv(paste0('measure_', cur_exp, '.csv'), header = T)
@@ -44,20 +49,25 @@ for (iR in 1:nrow(df0)){
 
 df1 = df0[startsWith(df0$item_id, "item"),]
 
-```
-
-```{r}
 # df0 = read.csv("measure_nonrhyming_84total_60No_24Yes_20181210.csv", header  = T)
 # df0 = transform(df0,trialId=as.numeric(trialId))
 # sort(df0$trialId, decreasing = FALSE)
-colnames(df1)
+# colnamesC(df1)
 
+df2 = df1[df1$word != 'sp',]
 # code for word_num
-df2 <- df1 %>% 
+df2 <- df2 %>% 
   dplyr::group_by(participant, trialId) %>%
   # dplyr::group_by(participant, question, trialId) %>%
   dplyr::mutate(word_num=1:dplyr::n()) %>%
   dplyr::select(c(info, features))
+```
+
+## `r nlevels(df1$participant)` workers and `r nrow(df2)/5` trials are included in this analysis. 
+
+
+```{r}
+
 
 # write.csv(df2,'newdf.csv')
 # code for getting Nth instance of question
@@ -108,12 +118,12 @@ process_data = function(df){
   # 
   # df_Patient = df[(df$location_condition=='Patient'| df$location_condition=='Agent') & df$word_num=='6',]
   
-  df_Agent = df[(df$location_condition=='Agent' | df$location_condition=='Control') & df$word_num=='3',]
+  df_Agent = df[(df$location_condition=='Agent' | df$location_condition=='Control') & df$word_num=='2',]
   # df_Agent inheri row hum from df
   
-  df_Verb = df[(df$location_condition=='Verb'| df$location_condition=='Control') & df$word_num=='5',]
+  df_Verb = df[(df$location_condition=='Verb'| df$location_condition=='Control') & df$word_num=='4',]
   
-  df_Patient = df[(df$location_condition=='Patient'| df$location_condition=='Control') & df$word_num=='6',]
+  df_Patient = df[(df$location_condition=='Patient'| df$location_condition=='Control') & df$word_num=='5',]
   
   # print(sum(is.na(df_Agent)))
   
@@ -195,8 +205,8 @@ for (iF in features){
 ```{r}
 run_regression = function(location,observation){
   cat("  \n###", observation, "of", location, "  \n")
-  # r = lmer(get(observation) ~ location_condition + (1 + location_condition|participant) + (1 + location_condition | item_id), data=get(paste0("df_", location)))
-  r = lmer(get(observation) ~ location_condition  + (1 + location_condition | item_id), data=get(paste0("df_", location)))
+  r = lmer(get(observation) ~ location_condition + (1 + location_condition|participant) + (1 + location_condition | item_id), data=get(paste0("df_", location)))
+  # r = lmer(get(observation) ~ location_condition  + (1 + location_condition | item_id), data=get(paste0("df_", location)))
   print(summary(r))
   summary(r)
   cat("  \n")

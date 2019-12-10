@@ -367,7 +367,7 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
         # img.save('sample-out.png')
 
         for iTrial, iRow in tAll_trials.iterrows():
-            cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + iRow.verb_in_question + '*.png'))[0]
+            cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + iRow.verb_in_picture + '*.png'))[0]
             print(iTrial)
             # print(cur_vanilla)
             cur_img = Image.open(cur_vanilla)

@@ -1,14 +1,14 @@
-This file contains two stages and a tuorial mode
-Piloting:
-  stage 1 tutorial: tranfer data from server to local, prepare a few data to process
-  stage 2: process
-  stage 1 non-tutorial: prepare all data to process
-  stage 2: process
-Running:
-  stage 1 tutorial: tranfer data from server to local
-  stage 1 non-tutorial: prepare all data to process
-  stage 2: process
-Before stage 2 you need to run the check_answer.py file for further preparation
+# This file contains two stages and a tuorial mode
+# Piloting:
+#   stage 1 tutorial: tranfer data from server to local, prepare a few data to process
+#   stage 2: process
+#   stage 1 non-tutorial: prepare all data to process
+#   stage 2: process
+# Running:
+#   stage 1 tutorial: tranfer data from server to local
+#   stage 1 non-tutorial: prepare all data to process
+#   stage 2: process
+# Before stage 2 you need to run the check_answer.py file for further preparation
 
 bTutorial_mode=1
 bTutorial_mode=0 #manual
@@ -37,7 +37,7 @@ data_dir=/Users/xzfang/Desktop/prosody_study_data/
 # current_exp=nonrhyming_84total_60No_24Yes_20181210
 
 stimuli_dir=/Users/xzfang/Github/prosody_study_exp/
-current_exp=exp1
+current_exp=exp2
 
 # current_exp=Ted
 # current_exp=Cindy

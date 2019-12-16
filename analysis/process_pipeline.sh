@@ -13,7 +13,7 @@
 bTutorial_mode=1
 bTutorial_mode=0 #manual
 bStage=1
-bStage=2 #manual
+# bStage=2 #manual
 
 function make_dir(){
   if [ -d $@ ];

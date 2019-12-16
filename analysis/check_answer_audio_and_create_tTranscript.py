@@ -6,7 +6,7 @@
 bTest = 0
 #bTest = 1 # manual
 bStage = 1
-bStage = 2 #manual
+#bStage = 2 #manual
 reject_row_index = [
         26,
 21,
@@ -77,7 +77,8 @@ if bStage == 1:
                 status = status + ['auto_fail']
             except sr.RequestError as e:
                 print("Could not request result from Google Speech Recognition service; {0}".format(e))
-
+                auto_transcript = auto_transcript + ['NA']
+                status = status + ['auto_fail']
     tTranscript = pd.DataFrame(zip(trial_id, worker_id ,supposed_answer_transcript, auto_transcript, status, answer_files), columns=['trial_id', 'worker_id', 'supposed_answer_transcript', 'auto_transcript', 'status', 'answer_files'])
 
     tTranscript = tTranscript.sort_values(['trial_id'], ascending=True)

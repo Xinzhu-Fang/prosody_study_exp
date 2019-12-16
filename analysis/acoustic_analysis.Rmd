@@ -35,9 +35,7 @@ bRemove_outliers = 0
 
 tAll_trials = read.csv(file.path('..', cur_exp, 'tAll_trials.csv'))
 
-```
 
-```{r}
 df0 = read.csv(paste0('measure_', cur_exp, '.csv'), header = T)
 df0$location_condition = NA
 df0$item_id = NA

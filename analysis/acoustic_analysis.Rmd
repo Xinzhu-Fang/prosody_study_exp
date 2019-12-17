@@ -17,7 +17,7 @@ knitr::opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy = TRUE)
 ```
 
 ```{r}
-cur_exp = "exp1"
+cur_exp = "exp2"
 features = c("duration", "meanIntensity", "meanpit")
 # info = c('participant','verb','condition', 'word', 'word_num')
 info = c('participant','item_id','location_condition', 'word', 'word_num')

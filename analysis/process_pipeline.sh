@@ -14,6 +14,7 @@ bTutorial_mode=1
 bTutorial_mode=0 #manual
 bStage=1
 bStage=2 #manual
+current_exp=exp1
 
 function make_dir(){
   if [ -d $@ ];
@@ -37,7 +38,6 @@ data_dir=/Users/xzfang/Desktop/prosody_study_data/
 # current_exp=nonrhyming_84total_60No_24Yes_20181210
 
 stimuli_dir=/Users/xzfang/Github/prosody_study_exp/
-current_exp=exp2
 
 # current_exp=Ted
 # current_exp=Cindy

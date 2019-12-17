@@ -17,7 +17,7 @@ knitr::opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy = TRUE)
 ```
 
 ```{r}
-cur_exp = "exp2"
+cur_exp = "exp1"
 features = c("duration", "meanIntensity", "meanpit")
 # info = c('participant','verb','condition', 'word', 'word_num')
 info = c('participant','item_id','location_condition', 'word', 'word_num')
@@ -43,6 +43,7 @@ df0$item_id = NA
 for (iR in 1:nrow(df0)){
   df0$location_condition[iR] =  as.character(tAll_trials[tAll_trials$trial_id == df0$trialId[iR],'location_condition'])
   df0$item_id[iR] =  as.character(tAll_trials[tAll_trials$trial_id == df0$trialId[iR],'filler_or_item_id'])
+  # df0$present_num[iR] = as.numeric(rownames(tAll_trials[tAll_trials$trial_id == df0$trialId[iR],]))
 }
 
 df1 = df0[startsWith(df0$item_id, "item"),]

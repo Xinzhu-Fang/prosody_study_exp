@@ -68,7 +68,7 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
     patient_sex_mapped_to_verb = ['M', 'M', 'F', 'M', 'F', 'F']
     num_verbs = len(verbs)
 
-    item_correct_verb = np.tile(np.array(["Kick", "Kiss", "Push", "Pull"]), (3, 1))[iExp]
+    item_correct_verb = np.tile(np.array(["Kick", "Kiss", "Push", "Pull"]), (4, 1))[iExp]
 
     # item
     item_correct_agent_sex = [agent_sex_mapped_to_verb[verbs.index(i)] for i in item_correct_verb]
@@ -284,11 +284,15 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
 #                if iRow.location_condition == 'Agent':
             cur_sex = filler_wrong_agent_sex[iTrial]
             cur_name_pool = names[cur_sex]
-            cur_name_pool.remove(iRow.agent_in_question)
-            cur_name_pool.remove(iRow.patient_in_question)
-            if iRow.location_condition == 'Agent':
+            # add this conditioning because in rare cases that when there are multiple bad trials, the
+            # bad name in a later trial is already removed in the previus trials
+            if iRow.agent_in_question in cur_name_pool:
+                cur_name_pool.remove(iRow.agent_in_question)
+            if iRow.agent_in_question in cur_name_pool:
+                cur_name_pool.remove(iRow.patient_in_question)
+            if iRow.location_condition == 'Agent':               
                 tFiller.iloc[iTrial, :].agent_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
-            if iRow.location_condition == 'Patient':
+            if iRow.location_condition == 'Patient':                
                 tFiller.iloc[iTrial, :].patient_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
 
 

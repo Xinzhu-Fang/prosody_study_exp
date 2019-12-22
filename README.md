@@ -15,8 +15,10 @@ There are three English versions of this as of Nov, 2019: `exp0`, `exp1`, and `e
 
 
 
+
+
 ## Caution
-presentationnum decides the order of presentation, the index in the recording name is no presentationnum but trial_id. The trials were shuffled. 
+presentationnum decides the order of presentation, the index in the recording name is not the presentationnum but the trial_id. The trials were shuffled. 
 
 ## Languages we can cover human-wise
 + Saima speaks Spanish, Catalan, Koshur, Hindi/Urdu, and French

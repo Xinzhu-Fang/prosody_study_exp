@@ -6,8 +6,13 @@
 + run `process_survey_from_questiondata.Rmd` from the `[psiturk dir]/non-psiturk` R project. 
   + first, in psiturk do `download_datafiles` and `worker list --submitted --hit [hit id] >> worker.txt`
   + you will then get `surveydata.csv` and `worker.csv`
-+ run `reject_hit.py`, which gives you `hit_summary.csv` and `surveydata_corresponding_to_recording.csv`. You should go through the first csv to see how many couldn't get their data saved and the second csv to see their feedback -- should give people who spotted errors bonus. 
++ run `reject_hit.py`
+  + you will get `hit_summary.csv` and `surveydata_corresponding_to_recording.csv`. 
+  + go through the first csv to get a sense of how many couldn't get their data saved -- if this issue becomes too serious we need to enhance the pisutrk paradigm
+  + go through the second csv to see their feedback -- should give people who spotted errors bonus. 
 + in psiturk, do `worker approve --hit [hit id]`
++ run `check_answer_audio_and_create_tTranscript.py` at multiple stages
++ run `process_pipeline.sh` at stage 2 for forced alignment and acoustic measurement. 
 
 + open process_pipeline.sh, search for manual and make changes in those sections for yourself. Run the script `bash process_pipeline.sh`, you will be prompted to enter your tedlab server acct password to get some recordings from there, if you have data locally, search for alternative and follow the instruction in that section.
 + when in doubt, search for [note]

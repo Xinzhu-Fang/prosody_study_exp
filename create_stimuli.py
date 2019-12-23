@@ -52,6 +52,17 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
 "Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
 "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
                    ]}
+             
+#             F: "Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Carrie", "Chloe", 
+#"Cindy", "Franny", "Hailey", "Jenny", "Jilly", "Judy", "Kelly", 
+#"Kerry", "Kimmy", "Kylie", "Lacey", "Laurie", "Lilly", "Mandy", 
+#"Mindy", "Molly", "Nancy", "Penny", "Sally", "Tori", "Tracy", 
+#"Vicky"
+#             M: "Benny", "Danny", "Davey", "Freddy", "Gary", "Harvey", "Henry", 
+#"Jerry", "Jimmy", "Joey", "Johnny", "Kenny", "Ollie", "Percy", 
+#"Ronnie", "Sammy", "Teddy", "Timmy", "Tommy", "Wally"
+             
+             
     #    a small pool to test the latter any trial with characters of the same name? test
     #    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Chloe", "Dolly", "Dory", "Franny", "Jenny", "Judy",
     #                   "Kelly"],

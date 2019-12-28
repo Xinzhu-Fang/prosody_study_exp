@@ -12,9 +12,10 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
     import glob
     import os
     import shutil
+    import copy
 
     np.random.seed(my_seed[0])
-    vanilla_dir = 'vanilla_images0'
+    vanilla_dir = 'vanilla_images1'
     output_dir = os.path.join(exp_name, 'images')
     if not os.path.isdir(exp_name):
         # print("I")
@@ -43,7 +44,7 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
 
     sex_levels = ['F', 'M']
     num_sexes = len(sex_levels)
-    names = {'F': ["Nancy", "Vicky", "Tori", "Penny", "Jilly", "Cindy", "Laurie",
+    vanilla_names = {'F': ["Nancy", "Vicky", "Tori", "Penny", "Jilly", "Cindy", "Laurie",
 "Franny", "Brandy", "Betty", "Kylie", "Carrie", "Tracy", "Chloe",
 "Annie", "Mindy", "Molly", "Sally", "Lacey", "Carlie", "Mandy",
 "Hailey", "Lilly", "Jenny", "Judy", "Kerry", "Kelly", "Bonnie",
@@ -52,28 +53,32 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
 "Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
 "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
                    ]}
-             
-#             F: "Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Carrie", "Chloe", 
-#"Cindy", "Franny", "Hailey", "Jenny", "Jilly", "Judy", "Kelly", 
-#"Kerry", "Kimmy", "Kylie", "Lacey", "Laurie", "Lilly", "Mandy", 
-#"Mindy", "Molly", "Nancy", "Penny", "Sally", "Tori", "Tracy", 
+     
+# names used in items will be removed to avoid repition in items        
+    names = copy.deepcopy(vanilla_names)
+     
+
+#             F: "Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Carrie", "Chloe",
+#"Cindy", "Franny", "Hailey", "Jenny", "Jilly", "Judy", "Kelly",
+#"Kerry", "Kimmy", "Kylie", "Lacey", "Laurie", "Lilly", "Mandy",
+#"Mindy", "Molly", "Nancy", "Penny", "Sally", "Tori", "Tracy",
 #"Vicky"
-#             M: "Benny", "Danny", "Davey", "Freddy", "Gary", "Harvey", "Henry", 
-#"Jerry", "Jimmy", "Joey", "Johnny", "Kenny", "Ollie", "Percy", 
+#             M: "Benny", "Danny", "Davey", "Freddy", "Gary", "Harvey", "Henry",
+#"Jerry", "Jimmy", "Joey", "Johnny", "Kenny", "Ollie", "Percy",
 #"Ronnie", "Sammy", "Teddy", "Timmy", "Tommy", "Wally"
-             
-             
+
+
     #    a small pool to test the latter any trial with characters of the same name? test
     #    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Chloe", "Dolly", "Dory", "Franny", "Jenny", "Judy",
     #                   "Kelly"],
     #             'M': ["Andy", "Billy", "Cody", "Corey", "Danny", "Donny", "Eddie",
     #                   "Freddy", "GARY", "Harvey"]}
     #    ted thinks ambiguous or bad sandy, andy, dory, larry, rudy, tammy, willy, dolly, lindy, pammy, lonnie, morrie, randy, casey, terry, mary, merry
+    verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
+    'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
+    'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
+    'M_M_verbs' : ["Lift", "Poke", "Pull"]}
 
-    f_f_verbs = ["Lift", "Poke", "Pull", "Push"]
-    f_m_verbs = ["Kick", "Kiss", "Lift", "Poke", "Push"]
-    m_f_verbs = ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"]
-    m_m_verbs = ["Lift", "Poke", "Pull"]
     verbs = ["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]
     agent_sex_mapped_to_verb = ['F', 'F', 'F', 'M', 'M', 'F']
     patient_sex_mapped_to_verb = ['M', 'M', 'F', 'M', 'F', 'F']
@@ -193,8 +198,34 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
     np.random.seed(my_seed[1])
     filler_wrong_verb = [verbs[np.random.randint(0, num_verbs)] for i in range(filler_num_trial_total)]
     # filler_correct_verb = [verbs[num_verbs - 1 - verbs.index(i)] for i in filler_wrong_verb]
-    filler_correct_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in
-                           filler_wrong_verb]
+
+
+    filler_correct_verb = []
+#    for iV in filler_wrong_verb:
+#        for iC in verb_cat.values():
+#            if iV in iC:
+#                break
+#        print(iV)
+#        print(iC)
+#        iNum_verbs = len(iC)
+#        correct_verb = iC[(iC.index(iV) + np.random.randint(1, iNum_verbs)) % iNum_verbs]
+#        print(correct_verb)
+##        filler_correct_verb.append(correct_verb)
+    for iV in filler_wrong_verb:
+        cur_cat = agent_sex_mapped_to_verb[verbs.index(iV)] + '_' + patient_sex_mapped_to_verb[verbs.index(iV)] + '_verbs'
+        iC = verb_cat[cur_cat]
+        print("new round")
+        print(iV)
+        print(cur_cat)
+        print(iC)
+        iNum_verbs = len(iC)
+        correct_verb = iC[(iC.index(iV) + np.random.randint(1, iNum_verbs)) % iNum_verbs]
+        print(correct_verb)
+        filler_correct_verb.append(correct_verb)
+    
+    
+#    filler_correct_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in
+#                           filler_wrong_verb]
     # to check should be all false
     # [filler_wrong_verb[i] == filler_correct_verb[i] for i in range(len(filler_wrong_verb))]
 
@@ -301,9 +332,9 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
                 cur_name_pool.remove(iRow.agent_in_question)
             if iRow.agent_in_question in cur_name_pool:
                 cur_name_pool.remove(iRow.patient_in_question)
-            if iRow.location_condition == 'Agent':               
+            if iRow.location_condition == 'Agent':
                 tFiller.iloc[iTrial, :].agent_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
-            if iRow.location_condition == 'Patient':                
+            if iRow.location_condition == 'Patient':
                 tFiller.iloc[iTrial, :].patient_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
 
 
@@ -376,13 +407,22 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
         width1 = 80
         width2 = 900
         height = 1900
-        color0 = (0, 0, 0, 0)
+#        color0 = (0, 0, 0, 0)
 
 
         # img.save('sample-out.png')
 
         for iTrial, iRow in tAll_trials.iterrows():
-            cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + iRow.verb_in_picture + '*.png'))[0]
+            for iS, iNames in vanilla_names.items():
+                if iRow.agent_in_picture in iNames:
+                    agent_sex = iS
+                    break
+            for iS, iNames in vanilla_names.items():
+                if iRow.patient_in_picture in iNames:
+                    patient_sex = iS
+                    break          
+            print(agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png')
+            cur_vanilla = glob.glob(os.path.join(vanilla_dir, agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png'))[0]
             print(iTrial)
             # print(cur_vanilla)
             cur_img = Image.open(cur_vanilla)

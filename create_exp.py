@@ -1,7 +1,9 @@
 # dput(sort(unique()))
 # Three navtive speaekers were asked to classifiy sex for these namees into Female (F), Male (M), and Ambiguous (A). For each name, if at least two people both chose F of M and the third one chose A, the name is put in the majority sex category, otherwise the name is discarded.
 
-# In order to have the filler questions being the same indepdent of the correction condition, the "wrong" list which is the question list is the same acroos exps' on control trials, the correct version is the same as the "wrong" version -- the "wrong" is actaully correct.
+# In order to have the filler questions being the same indepdent of the correction condition, the "wrong" list, or the question list, is the same acroos exps; the "correct" list was initilized to be different from the "wrong" on each trial and then adjusted to the same as "wrong" on control trials, in which the "wrong" is actaully correct.
+# This way of creating wrong instead of correct first -- how items were created -- can bd problematic because I don't have full sex combinations for each action and the sexes for question verbs may not match those of picture verbs. The solution is to choose verbs from the same sex category. 
+
 
 import numpy as np
 import pandas as pd
@@ -17,6 +19,7 @@ num_locations = len(locations)
 my_seed = [1, 1, 1, 5, 4] # the first four seeds are each for item, wrong filler verb, wrong filler agent, and wrong filler patient. again, "wrong". I lazily increment to the last until there is no repetition in the more yes, verison, and modifiy the more no version if there is still repetition.
 # the last one is for trial shuffling, I tried up to 4, 4 and 2 create one neighbouring repetition.
 
+#nth_exp = 0
 #for iExp in [3]:
 for iExp in range(len(exps_names)):
     exp_name = exps_names[iExp]

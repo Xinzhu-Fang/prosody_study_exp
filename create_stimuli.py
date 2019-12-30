@@ -1,4 +1,6 @@
-def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, exp_num_of_items, exp_yes_to_no_ratio,
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp_name, exp_num_of_items, exp_yes_to_no_ratio,
                    exp_num_trials,
                    exp_num_trial_yes, exp_num_trial_no, exp_num_of_control_for_each_item,
                    exp_num_of_correction_for_each_location_for_each_item, item_num_trial_total, item_num_trial_yes,
@@ -27,24 +29,11 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
     os.mkdir(output_dir)
     # print("believe")
 
-    # female_names = ["ANNIE", "BETTY", "BONNIE", "BRANDY", "CARLIE", "CHLOE", "DOLLY",
-    # "DORRY", "DORY", FRANNY", "JENNY", "JUDY", "KELLY",
-    # "KIMMY", "LACEY", "LARRY", "LAURIE", "LINDY", "MANDY", "MARY",
-    # "MERRY", "MINDY", "MOLLY", "PAMMY", "PENNY", "RUDY", "SANDY",
-    # "TORI"]
-    # male_names = ["ANDY", "BILLY", "CODY", "COREY", "DANNY", "DONNY", "EDDIE",
-    # "Freddy", "GARY", "HARVEY", "JERRY", "JOHNNY", "KENNY", "LONNIE",
-    # "OLLIE", "PERCY", "RONNIE", "TAMMY", "TEDDY", "TIMMY", "WALLY",
-    # "WILLY"]
-    #
-    # other names, cindy, nancy, zoey, morrie, joey, willy, randy, tracey, casey, terry, kerry, kylie, darcy, neddy, mory, benny, manny, jilly, nelly, carrie, hailey, sammy
-    # names i threw out myself, fanny, SANDY, dorry
 
-    # lily,
 
     sex_levels = ['F', 'M']
     num_sexes = len(sex_levels)
-    vanilla_names = {'F': ["Nancy", "Vicky", "Tori", "Penny", "Jilly", "Cindy", "Laurie",
+    vanilla_names_en = {'F': ["Nancy", "Vicky", "Tori", "Penny", "Jilly", "Cindy", "Laurie",
 "Franny", "Brandy", "Betty", "Kylie", "Carrie", "Tracy", "Chloe",
 "Annie", "Mindy", "Molly", "Sally", "Lacey", "Carlie", "Mandy",
 "Hailey", "Lilly", "Jenny", "Judy", "Kerry", "Kelly", "Bonnie",
@@ -53,11 +42,7 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
 "Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
 "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
                    ]}
-     
-# names used in items will be removed to avoid repition in items        
-    names = copy.deepcopy(vanilla_names)
-     
-
+             
 #             F: "Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Carrie", "Chloe",
 #"Cindy", "Franny", "Hailey", "Jenny", "Jilly", "Judy", "Kelly",
 #"Kerry", "Kimmy", "Kylie", "Lacey", "Laurie", "Lilly", "Mandy",
@@ -66,14 +51,30 @@ def create_stimuli(bCreate_stimuli, iExp, locations, num_locations, exp_name, ex
 #             M: "Benny", "Danny", "Davey", "Freddy", "Gary", "Harvey", "Henry",
 #"Jerry", "Jimmy", "Joey", "Johnny", "Kenny", "Ollie", "Percy",
 #"Ronnie", "Sammy", "Teddy", "Timmy", "Tommy", "Wally"
+    vanilla_names_ch = {'F':["小李", "小宋", "小郑", "小秦", "小任", "小孔", 
+"小江", "小潘", "小赵", "小熊", "小廖", "小贾", "小谢", 
+"小朱", "小卢", "小汪", "小萧", "小崔", "小胡", "小王", 
+"小薛", "小沈", "小姚", "小邹", "小彭", "小陈", "小程", 
+"小杨", "小曾", "小康", "小吕", "小余", "小魏", "小黄", 
+"小刘", "小郭", "小夏", "小蔡", "小唐", "小吴", "小田", 
+"小梁", "小白", "小张", "小姜"],
+                                 'M':["小方", "小叶", "小曹", 
+"小蒋", "小谭", "小范", "小陆", "小徐", "小石", "小冯", 
+"小邱", "小傅", "小丁", "小高", "小罗", "小钟", "小邓", 
+"小杜", "小许", "小戴", "小马", "小郝", "小苏", "小毛", 
+"小史", "小阎", "小孙", "小何", "小袁", "小金", "小韩", 
+"小董", "小林", "小周", "小于"]}
+    if exp_lan == 'en':
+        vanilla_names = vanilla_names_en
+    elif exp_lan == 'ch':
+        vanilla_names = vanilla_names_ch
 
+        
+     
+# names used in items will be removed to avoid repition in items        
+    names = copy.deepcopy(vanilla_names)
+     
 
-    #    a small pool to test the latter any trial with characters of the same name? test
-    #    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Chloe", "Dolly", "Dory", "Franny", "Jenny", "Judy",
-    #                   "Kelly"],
-    #             'M': ["Andy", "Billy", "Cody", "Corey", "Danny", "Donny", "Eddie",
-    #                   "Freddy", "GARY", "Harvey"]}
-    #    ted thinks ambiguous or bad sandy, andy, dory, larry, rudy, tammy, willy, dolly, lindy, pammy, lonnie, morrie, randy, casey, terry, mary, merry
     verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
     'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
     'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],

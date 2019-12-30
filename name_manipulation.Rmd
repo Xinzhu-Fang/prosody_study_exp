@@ -6,6 +6,17 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+so I copied the first rows to atom https://baike.baidu.com/item/%E6%96%B0%E7%99%BE%E5%AE%B6%E5%A7%93
+manualy removed the white space,
+replaced \n with nothing,
+replaced (.{1}) with '小$1', 
+```{r}
+a = c('小李', '小王', '小张', '小刘', '小陈', '小杨', '小赵', '小黄', '小周', '小吴', '小徐', '小孙', '小胡', '小朱', '小高', '小林', '小何', '小郭', '小马', '小罗', '小梁', '小宋', '小郑', '小谢', '小韩', '小唐', '小冯', '小于', '小董', '小萧', '小程', '小曹', '小袁', '小邓', '小许', '小傅', '小沈', '小曾', '小彭', '小吕', '小苏', '小卢', '小蒋', '小蔡', '小贾', '小丁', '小魏', '小薛', '小叶', '小阎', '小余', '小潘', '小杜', '小戴', '小夏', '小钟', '小汪', '小田', '小任', '小姜', '小范', '小方', '小石', '小姚', '小谭', '小廖', '小邹', '小熊', '小金', '小陆', '小郝', '小孔', '小白', '小崔', '小康', '小毛', '小邱', '小秦', '小江', '小史')
+
+# sort doesn't sort it correclty
+
+
+```
 
 
 ```{r}
@@ -65,3 +76,4 @@ a = sapply(female, simpleLow)
 dput(unname(a))
 
 ```
+

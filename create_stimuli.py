@@ -15,6 +15,7 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
     import os
     import shutil
     import copy
+    import sys
 
     np.random.seed(my_seed[0])
     vanilla_dir = 'vanilla_images1'
@@ -65,9 +66,17 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
 "小史", "小阎", "小孙", "小何", "小袁", "小金", "小韩", 
 "小董", "小林", "小周", "小于"]}
     if exp_lan == 'en':
-        vanilla_names = vanilla_names_en
+        vanilla_names = copy.deepcopy(vanilla_names_en)
+#        verb_cat = copy.deepcopy(verb_cat_en)
+#        verbs = copy.deepcopy(verb_en)
+        verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"])
+        verbs = ["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]
+
     elif exp_lan == 'ch':
-        vanilla_names = vanilla_names_ch
+        vanilla_names = copy.deepcopy(vanilla_names_ch)
+        verbs = np.array(["Kiss", "Kick", "Poke", "Push", "Pull"])
+        verbs = ["Kiss", "Kick", "Poke", "Push", "Pull"]
+
 
         
      
@@ -79,17 +88,40 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
     'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
     'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
     'M_M_verbs' : ["Lift", "Poke", "Pull"]}
-
-    verbs = ["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]
-    agent_sex_mapped_to_verb = ['F', 'F', 'F', 'M', 'M', 'F']
-    patient_sex_mapped_to_verb = ['M', 'M', 'F', 'M', 'F', 'F']
+    
+    
+#    verbs = np.tile(np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]), (4, 1))[iExp]
+    
+    
+    verbs_ch = {'Kick':'踢了',
+               'Kiss':'亲了',
+               'Poke':'戳了',
+               'Push':'推了',
+               'Pull':'拉了'}
+    agent_sex_mapped_to_verb = {'Kiss':'F',
+                                'Kick':'F',
+                                'Poke':'F',
+                                'Lift':'M',
+                                'Push':'M',
+                                'Pull':'F'}
+    
+    patient_sex_mapped_to_verb = {'Kiss':'M',
+                                  'Kick':'M',
+                                  'Poke':'F',
+                                  'Lift':'M',
+                                  'Push':'F',
+                                  'Pull':'F'}
+    
+#    agent_sex_mapped_to_verb = ['F', 'F', 'F', 'M', 'M', 'F']
+#    patient_sex_mapped_to_verb = ['M', 'M', 'F', 'M', 'F', 'F']
     num_verbs = len(verbs)
 
-    item_correct_verb = np.tile(np.array(["Kick", "Kiss", "Push", "Pull"]), (4, 1))[iExp]
+    item_correct_verb = np.array(["Kick", "Kiss", "Push", "Pull"])
+    item_correct_verb = ["Kick", "Kiss", "Push", "Pull"]
 
     # item
-    item_correct_agent_sex = [agent_sex_mapped_to_verb[verbs.index(i)] for i in item_correct_verb]
-    item_correct_patient_sex = [patient_sex_mapped_to_verb[verbs.index(i)] for i in item_correct_verb]
+    item_correct_agent_sex = [agent_sex_mapped_to_verb[i] for i in item_correct_verb]
+    item_correct_patient_sex = [patient_sex_mapped_to_verb[i] for i in item_correct_verb]
 
     item_correct_agent = [names[i].pop() for i in item_correct_agent_sex]
     item_correct_patient = [names[i].pop() for i in item_correct_patient_sex]
@@ -213,7 +245,7 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
 #        print(correct_verb)
 ##        filler_correct_verb.append(correct_verb)
     for iV in filler_wrong_verb:
-        cur_cat = agent_sex_mapped_to_verb[verbs.index(iV)] + '_' + patient_sex_mapped_to_verb[verbs.index(iV)] + '_verbs'
+        cur_cat = agent_sex_mapped_to_verb[iV] + '_' + patient_sex_mapped_to_verb[iV] + '_verbs'
         iC = verb_cat[cur_cat]
         print("new round")
         print(iV)
@@ -230,8 +262,8 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
     # to check should be all false
     # [filler_wrong_verb[i] == filler_correct_verb[i] for i in range(len(filler_wrong_verb))]
 
-    filler_wrong_agent_sex = [agent_sex_mapped_to_verb[verbs.index(i)] for i in filler_wrong_verb]
-    filler_wrong_patient_sex = [patient_sex_mapped_to_verb[verbs.index(i)] for i in filler_wrong_verb]
+    filler_wrong_agent_sex = [agent_sex_mapped_to_verb[i] for i in filler_wrong_verb]
+    filler_wrong_patient_sex = [patient_sex_mapped_to_verb[i] for i in filler_wrong_verb]
 
     ## start of filler agent
     np.random.seed(my_seed[2])
@@ -349,27 +381,47 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
 #                                    zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
 #                                        tAll_trials.patient_in_question)]
 
-    tAll_trials['picture_file'] = [a + 'Is' + v + "ing"  + p + '.png' for a, v, p in
-                                   zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
-                                       tAll_trials.patient_in_picture)]
-    tAll_trials['question_file'] = ["Is" + a + v + "ing" + p + '.wav' for a, v, p in
-                                    zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                        tAll_trials.patient_in_question)]
+    if exp_lan == 'en':
+        tAll_trials['picture_file'] = [a + 'Is' + v + "ing"  + p + '.png' for a, v, p in
+                                       zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+                                           tAll_trials.patient_in_picture)]
+        tAll_trials['question_file'] = ["Is" + a + v + "ing" + p + '.wav' for a, v, p in
+                                        zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                            tAll_trials.patient_in_question)]
+    
+        tAll_trials['answer_script'] = [a + " is " + v.lower() + "ing " + p for a, v, p in
+                                        zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+                                            tAll_trials.patient_in_picture)]
+     
+    #
+    #    tAll_trials['question_script'] = ['Is ' + a + ' ' + v.lower() + 'ing ' + p + '?' for a, v, p in
+                                     # zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                     #     tAll_trials.patient_in_question)]
+    #    for google speech recognition comes with the speech recognition package
+        tAll_trials['question_script'] = ['is ' + a + ' ' + v.lower() + 'ing ' + p for a, v, p in
+                                        zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                            tAll_trials.patient_in_question)]
+    
+        tAll_trials = tAll_trials.replace({'Pokeing': 'Poking'}, regex=True)
+        tAll_trials = tAll_trials.replace({'pokeing': 'poking'}, regex=True)                                       
+                                        
+    elif exp_lan == 'ch':
+        tAll_trials['picture_file'] = [a + verbs_ch[v] + p + '.png' for a, v, p in
+                                       zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+                                           tAll_trials.patient_in_picture)]
+        tAll_trials['question_file'] = [a + verbs_ch[v] + p + '吗.wav' for a, v, p in
+                                        zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                            tAll_trials.patient_in_question)]
+    
+        tAll_trials['answer_script'] = [a + verbs_ch[v] + p for a, v, p in
+                                        zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+                                            tAll_trials.patient_in_picture)]        
 
-    tAll_trials['answer_script'] = [a + " is " + v.lower() + "ing " + p for a, v, p in
-                                    zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
-                                        tAll_trials.patient_in_picture)]
-#
-#    tAll_trials['question_script'] = ['Is ' + a + ' ' + v.lower() + 'ing ' + p + '?' for a, v, p in
-                                 # zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                 #     tAll_trials.patient_in_question)]
-#    for google speech recognition comes with the speech recognition package
-    tAll_trials['question_script'] = ['is ' + a + ' ' + v.lower() + 'ing ' + p for a, v, p in
-                                    zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                        tAll_trials.patient_in_question)]
+        tAll_trials['question_script'] = [a + verbs_ch[v] + p + '吗' for a, v, p in
+                                        zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                            tAll_trials.patient_in_question)]                                        
 
-    tAll_trials = tAll_trials.replace({'Pokeing': 'Poking'}, regex=True)
-    tAll_trials = tAll_trials.replace({'pokeing': 'poking'}, regex=True)
+
 
 
     exp_trial_id = ["{:02d}".format(i) for i in range(1, exp_num_trials + 1)]
@@ -380,10 +432,16 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
 
     for iTrial, iRow in tAll_trials.iterrows():
         # print(tAll_trials.loc[iTrial, 'location_condition'])
-        if tAll_trials.loc[iTrial, 'location_condition'] == 'Control':
-            tAll_trials.loc[iTrial, 'answer_script'] = 'yes ' + tAll_trials.loc[iTrial, 'answer_script']
-        else:
-            tAll_trials.loc[iTrial, 'answer_script'] = 'no ' + tAll_trials.loc[iTrial, 'answer_script']
+        if exp_lan == 'en':
+            if tAll_trials.loc[iTrial, 'location_condition'] == 'Control':
+                tAll_trials.loc[iTrial, 'answer_script'] = 'yes ' + tAll_trials.loc[iTrial, 'answer_script']
+            else:
+                tAll_trials.loc[iTrial, 'answer_script'] = 'no ' + tAll_trials.loc[iTrial, 'answer_script']
+        elif exp_lan == 'ch':
+            if tAll_trials.loc[iTrial, 'location_condition'] == 'Control':
+                tAll_trials.loc[iTrial, 'answer_script'] = '是' + tAll_trials.loc[iTrial, 'answer_script']
+            else:
+                tAll_trials.loc[iTrial, 'answer_script'] = '不' + tAll_trials.loc[iTrial, 'answer_script']
 
     tAll_trials.insert(loc=0, column='trial_id', value=exp_trial_id)
     #    tAll_trials['trial_id'] = exp_trial_id
@@ -391,7 +449,10 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
 
 
     np.random.seed(my_seed[4])
-    np.random.shuffle(trial_order)
+    if (sys.version_info < (3, 0)):
+        np.random.shuffle(trial_order)
+    else:
+        np.random.shuffle(list(trial_order))
     tAll_trials.index = trial_order
     tAll_trials = tAll_trials.sort_index()
 
@@ -404,7 +465,8 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
         # draw = ImageDraw.Draw(img)
         # font = ImageFont.truetype(<font-file>, <font-size>)
         # font = ImageFont.truetype("sans-serif.ttf", 16)
-        font0 = ImageFont.truetype("/Library/Fonts/Arial.ttf", 80)
+        font0 = ImageFont.truetype("/Library/Fonts/Arial Unicode.ttf", 80)
+#        font0 = ImageFont.truetype("/Library/Fonts/simsum.ttc", 80)
         width1 = 80
         width2 = 900
         height = 1900
@@ -422,8 +484,12 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
                 if iRow.patient_in_picture in iNames:
                     patient_sex = iS
                     break          
-            print(agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png')
-            cur_vanilla = glob.glob(os.path.join(vanilla_dir, agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png'))[0]
+#            print(agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png')
+            if exp_lan == 'en':        
+                cur_vanilla = glob.glob(os.path.join(vanilla_dir, agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png'))[0]
+            elif exp_lan == 'ch':
+                cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + verbs_ch[iRow.verb_in_picture] + '*.png'))[0]
+
             print(iTrial)
             # print(cur_vanilla)
             cur_img = Image.open(cur_vanilla)
@@ -431,5 +497,7 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
 #            draw.text((width1, height), iRow.agent_in_picture, color0, font=font0)
 #            draw.text((width2, height), iRow.patient_in_picture, color0, font=font0)
             draw.text((width1, height), iRow.agent_in_picture, fill=(0,0,0), font=font0)
+#            draw.text((width1, height), '喜欢啊', fill=(0,0,0), font=font0)
+
             draw.text((width2, height), iRow.patient_in_picture, fill=(0,0,0), font=font0)
             cur_img.save(os.path.join(output_dir, iRow.picture_file))

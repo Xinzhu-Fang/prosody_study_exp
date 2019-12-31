@@ -15,7 +15,7 @@ import create_stimuli
 
 exps_names = ['exp0', 'exp1', 'exp2', 'exp3', 'exp4']
 num_exp = len(exps_names)
-bCreate_stimuli = 0
+bCreate_stimuli = 1
 
 locations = ['Agent', 'Verb', 'Patient']
 num_locations = len(locations)

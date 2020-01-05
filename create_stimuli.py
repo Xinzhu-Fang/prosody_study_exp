@@ -449,6 +449,8 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
 
 
     np.random.seed(my_seed[4])
+#    https://stackoverflow.com/questions/20484195/typeerror-range-object-does-not-support-item-assignment
+#    http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script/
     if (sys.version_info < (3, 0)):
         np.random.shuffle(trial_order)
     else:

@@ -15,6 +15,12 @@ a = c('小李', '小王', '小张', '小刘', '小陈', '小杨', '小赵', '小
 
 # sort doesn't sort it correclty
 
+# http://x.shahaizi.com/infos/w2qiming/11/9897-1.html
+小力 小强 小洪  小宏 小东 小刚 小华 小亮 小柯 小烨 小草 小科 小东 小庄 小林 小风 小峰 小坤 小豪 小木 小龙 小武 小富 小鹏 小雷 小渊 小雨 小豪 小浩 小皓 小河 小禾
+
+小花 小红 小虹 小如 小茹 小妍 小娜 小芬 小芳 小云 小芸 小丽 小莉 小俐 小丹 小凤 小樱 小莹 小英 小茵 小英 小芙 小琳 小玲 小蕾 小娟 小蓓 小婵
+b = sample(a)
+dput(b)
 
 ```
 
@@ -77,3 +83,33 @@ dput(unname(a))
 
 ```
 
+some old junk from my python file
+```{r}
+    # female_names = ["ANNIE", "BETTY", "BONNIE", "BRANDY", "CARLIE", "CHLOE", "DOLLY",
+    # "DORRY", "DORY", FRANNY", "JENNY", "JUDY", "KELLY",
+    # "KIMMY", "LACEY", "LARRY", "LAURIE", "LINDY", "MANDY", "MARY",
+    # "MERRY", "MINDY", "MOLLY", "PAMMY", "PENNY", "RUDY", "SANDY",
+    # "TORI"]
+    # male_names = ["ANDY", "BILLY", "CODY", "COREY", "DANNY", "DONNY", "EDDIE",
+    # "Freddy", "GARY", "HARVEY", "JERRY", "JOHNNY", "KENNY", "LONNIE",
+    # "OLLIE", "PERCY", "RONNIE", "TAMMY", "TEDDY", "TIMMY", "WALLY",
+    # "WILLY"]
+    #
+    # other names, cindy, nancy, zoey, morrie, joey, willy, randy, tracey, casey, terry, kerry, kylie, darcy, neddy, mory, benny, manny, jilly, nelly, carrie, hailey, sammy
+    # names i threw out myself, fanny, SANDY, dorry
+
+    # lily,
+
+
+
+
+    #    a small pool to test the latter any trial with characters of the same name? test
+    #    names = {'F': ["Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Chloe", "Dolly", "Dory", "Franny", "Jenny", "Judy",
+    #                   "Kelly"],
+    #             'M': ["Andy", "Billy", "Cody", "Corey", "Danny", "Donny", "Eddie",
+    #                   "Freddy", "GARY", "Harvey"]}
+    #    ted thinks ambiguous or bad sandy, andy, dory, larry, rudy, tammy, willy, dolly, lindy, pammy, lonnie, morrie, randy, casey, terry, mary, merry
+
+
+
+```

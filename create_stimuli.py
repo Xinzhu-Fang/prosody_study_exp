@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp_name, exp_num_of_items, exp_yes_to_no_ratio,
+def create_stimuli(bCreate_stimuli, iExp, exp_name, exp_lan, locations, num_locations, exp_num_of_items, exp_yes_to_no_ratio,
                    exp_num_trials,
                    exp_num_trial_yes, exp_num_trial_no, exp_num_of_control_for_each_item,
                    exp_num_of_correction_for_each_location_for_each_item, item_num_trial_total, item_num_trial_yes,
@@ -394,7 +394,7 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
             # bad name in a later trial is already removed in the previus trials
             if iRow.agent_in_question in cur_name_pool:
                 cur_name_pool.remove(iRow.agent_in_question)
-            if iRow.a_in_question in cur_name_pool:
+            if iRow.agent_in_question in cur_name_pool:
                 cur_name_pool.remove(iRow.patient_in_question)
             if iRow.location_condition == 'Agent':
                 tFiller.iloc[iTrial, :].agent_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]
@@ -459,7 +459,11 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
 
     trial_order = range(tAll_trials.shape[0])
     tAll_trials.index = trial_order
-    tAll_trials = tAll_trials.sort_index()
+#    https://stackoverflow.com/questions/20484195/typeerror-range-object-does-not-support-item-assignment
+#    http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script/    
+    if (sys.version_info >= (3, 0)):
+        trial_order = list(trial_order)
+#    tAll_trials = tAll_trials.sort_index()
 
     for iTrial, iRow in tAll_trials.iterrows():
         # print(tAll_trials.loc[iTrial, 'location_condition'])
@@ -479,13 +483,8 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
     tAll_trials.to_csv(os.path.join(exp_name, 'tAll_trials_ordered.csv'), encoding='utf-8', index=False)
 
 
-    np.random.seed(my_seed[4])
-#    https://stackoverflow.com/questions/20484195/typeerror-range-object-does-not-support-item-assignment
-#    http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script/
-    if (sys.version_info < (3, 0)):
-        np.random.shuffle(trial_order)
-    else:
-        np.random.shuffle(list(trial_order))
+
+    np.random.shuffle(trial_order)
     tAll_trials.index = trial_order
     tAll_trials = tAll_trials.sort_index()
 

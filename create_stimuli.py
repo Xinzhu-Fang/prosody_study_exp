@@ -1,11 +1,13 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-def create_stimuli(bCreate_stimuli, iExp, exp_name, exp_lan, locations, num_locations, exp_num_of_items, exp_yes_to_no_ratio,
-                   exp_num_trials,
-                   exp_num_trial_yes, exp_num_trial_no, exp_num_of_control_for_each_item,
-                   exp_num_of_correction_for_each_location_for_each_item, item_num_trial_total, item_num_trial_yes,
-                   item_num_trial_no, item_num_trial_for_each_item, filler_num_trial_total, filler_num_trial_yes,
-                   filler_num_trial_no, my_seed):
+def create_stimuli(bCreate_stimuli, iExp,
+                                      exp_name, exp_lan,  exp_num_trials, locations, num_locations, exp_num_of_items,
+                                      exp_yes_to_no_ratio, exp_num_trial_yes,
+                                      exp_num_trial_no, exp_num_of_control_for_each_item,
+                                      exp_num_of_correction_for_each_location_for_each_item,
+                                      item_num_trial_total, item_num_trial_yes, item_num_trial_no,
+                                      item_num_trial_for_each_item, filler_num_trial_total,
+                                      filler_num_trial_yes, filler_num_trial_no, my_seed):
     import numpy as np
     import pandas as pd
     from PIL import Image

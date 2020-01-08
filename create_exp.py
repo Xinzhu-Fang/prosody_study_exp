@@ -15,7 +15,7 @@ import create_stimuli
 
 exps_names = ['exp0', 'exp1', 'exp2', 'exp3', 'exp4', 'exp5']
 num_exp = len(exps_names)
-bCreate_stimuli = 1
+bCreate_stimuli = 0
 
 #locations = ['Agent', 'Verb', 'Patient']
 #num_locations = len(locations)
@@ -56,15 +56,21 @@ for iExp in range(num_exp):
     filler_num_trial_no = exp_num_trial_no - item_num_trial_no
     filler_num_trial_total = filler_num_trial_yes + filler_num_trial_no
 
-
-    tCur_exp = pd.DataFrame([[exp_name, exp_lan, num_locations, exp_num_of_items,
-                              exp_yes_to_no_ratio, exp_num_trials, exp_num_trial_yes,
+# when you change this, remember to change in psiturk accordingly. 
+    tCur_exp = pd.DataFrame([[exp_name, exp_lan, exp_num_trials, locations, num_locations, exp_num_of_items,
+                              exp_yes_to_no_ratio, exp_num_trial_yes,
                               exp_num_trial_no, exp_num_of_control_for_each_item,
                               exp_num_of_correction_for_each_location_for_each_item,
                               item_num_trial_total, item_num_trial_yes, item_num_trial_no,
                               item_num_trial_for_each_item, filler_num_trial_total,
-                              filler_num_trial_yes, filler_num_trial_no, my_seed]],
-    columns = ["exp_name", "exp_lan", "num_location", "exp_num_of_items", "exp_yes_to_no_ratio", "exp_num_trials", "exp_num_trial_yes", "exp_num_trial_no", "exp_num_of_control_for_each_item", "exp_num_of_correction_for_each_location_for_each_item", "item_num_trial_total", "item_num_trial_yes", "item_num_trial_no", "item_num_trial_for_each_item", "filler_num_trial_total", "filler_num_trial_yes", "filler_num_trial_no", "my_seed"])
+                              filler_num_trial_yes, filler_num_trial_no, my_seed]], 
+    columns = ["exp_name", "exp_lan", "exp_num_trials", "locations", "num_location", "exp_num_of_items",
+               "exp_yes_to_no_ratio", "exp_num_trial_yes",
+               "exp_num_trial_no", "exp_num_of_control_for_each_item",
+               "exp_num_of_correction_for_each_location_for_each_item",
+               "item_num_trial_total", "item_num_trial_yes", "item_num_trial_no",
+               "item_num_trial_for_each_item", "filler_num_trial_total",
+               "filler_num_trial_yes", "filler_num_trial_no", "my_seed"])
 
 
     if iExp == 0:
@@ -73,7 +79,14 @@ for iExp in range(num_exp):
         tAll_exps = tAll_exps.append(tCur_exp)
 
 
-    if iExp == 4:
-        create_stimuli.create_stimuli(bCreate_stimuli, iExp, exp_name, exp_lan, locations, num_locations, exp_num_of_items, exp_yes_to_no_ratio, exp_num_trials, exp_num_trial_yes, exp_num_trial_no, exp_num_of_control_for_each_item, exp_num_of_correction_for_each_location_for_each_item, item_num_trial_total, item_num_trial_yes, item_num_trial_no, item_num_trial_for_each_item, filler_num_trial_total, filler_num_trial_yes, filler_num_trial_no, my_seed)
+    if iExp == 6:
+        create_stimuli.create_stimuli(bCreate_stimuli, iExp,
+                                      exp_name, exp_lan,  exp_num_trials, locations, num_locations, exp_num_of_items,
+                                      exp_yes_to_no_ratio, exp_num_trial_yes,
+                                      exp_num_trial_no, exp_num_of_control_for_each_item,
+                                      exp_num_of_correction_for_each_location_for_each_item,
+                                      item_num_trial_total, item_num_trial_yes, item_num_trial_no,
+                                      item_num_trial_for_each_item, filler_num_trial_total,
+                                      filler_num_trial_yes, filler_num_trial_no, my_seed)
 
 tAll_exps.to_csv('tAll_exps.csv', encoding='utf-8', index=False)

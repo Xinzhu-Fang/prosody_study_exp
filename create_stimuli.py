@@ -73,13 +73,14 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
 #"小蒋", "小谭", "小范", "小陆", "小徐", "小石", "小冯", 
 #"小邱", "小傅", "小丁"]}
                                  
-    vanilla_names_ch = {'F':["王芳", "李娜", "张敏", "李静", "李梅", "张丽", "王静",
-                             "张静", "李敏", "王敏", "王丽", "李娟", "张艳", "李燕",
-                             "王娟", "李霞", "刘敏", "李丽", "刘芳", "张悦", "李妍"],
-                        'M':["张伟", "王伟", "李伟", "刘伟", "李强", "张磊", "王磊",
-                             "李军", "刘洋", "王勇", "张勇", "王艳", "李杰", "王强",
-                             "王军", "张杰", "张涛", "王涛", "李明", "王超", "李勇",
-                             "刘杰", "张军", "张强", "王平", "王刚", "王杰"]}                               
+    vanilla_names_ch = {'F':["王芳", "李娜", "张敏", "李静", "李梅", "张丽", 
+"王静", "张静", "李敏", "王敏", "王丽", "李娟", "张艳", 
+"李燕", "王娟", "李霞", "刘敏", "李丽", "刘芳", "张悦", 
+"李妍"],
+                        'M':["张伟", "王伟", "李伟", "刘伟", "李强", "张磊", 
+"王磊", "李军", "刘洋", "王勇", "张勇", "王艳", "李杰", 
+"王强", "王军", "张杰", "张涛", "王涛", "李明", "王超", 
+"李勇", "刘杰", "张军", "张强", "王平", "王刚", "王杰"]}                               
                                  
     if exp_lan == 'en':
         vanilla_names = copy.deepcopy(vanilla_names_en)
@@ -263,13 +264,13 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
     for iV in filler_wrong_verb:
         cur_cat = agent_sex_mapped_to_verb[iV] + '_' + patient_sex_mapped_to_verb[iV] + '_verbs'
         iC = verb_cat[cur_cat]
-        print("new round")
-        print(iV)
-        print(cur_cat)
-        print(iC)
+#        print("new round")
+#        print(iV)
+#        print(cur_cat)
+#        print(iC)
         iNum_verbs = len(iC)
         correct_verb = iC[(iC.index(iV) + np.random.randint(1, iNum_verbs)) % iNum_verbs]
-        print(correct_verb)
+#        print(correct_verb)
         filler_correct_verb.append(correct_verb)
     
     
@@ -309,8 +310,22 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
 
     ## start of filler patient
     np.random.seed(my_seed[3])
-    filler_wrong_patient = [names[i][np.random.randint(len(names[i]))] for i in filler_wrong_patient_sex]
-
+    
+#    filler_wrong_patient = [names[i][np.random.randint(len(names[i]))] for i in filler_wrong_patient_sex]
+    filler_wrong_patient = []
+    for i in range(len(filler_wrong_agent)):
+        cur_sex = filler_wrong_patient_sex[i]
+        cur_name_pool = names[cur_sex]
+        if filler_wrong_agent[i] in cur_name_pool:
+            cur_wrong_agent_index = cur_name_pool.index(filler_wrong_agent[i])
+        else:
+            cur_wrong_agent_index = 0
+#        cur_wrong_name_index = cur_name_pool.index(filler_wrong_patient[i])
+        cur_correct_name_index = (cur_wrong_agent_index + np.random.randint(1, len(cur_name_pool))) % len(cur_name_pool)
+        cur_correct_name = cur_name_pool[cur_correct_name_index]
+        filler_wrong_patient.append(cur_correct_name)
+        
+        
     filler_correct_patient = []
     for i in range(len(filler_wrong_patient)):
         cur_sex = filler_wrong_patient_sex[i]
@@ -371,7 +386,7 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
         if iRow.agent_in_picture == iRow.patient_in_picture:
             print("bad row to be fixed")
             print(iTrial)
-#                print(iRow)
+            print(iRow)
 #                if iRow.location_condition == 'Agent':
             cur_sex = filler_wrong_agent_sex[iTrial]
             cur_name_pool = names[cur_sex]
@@ -379,7 +394,7 @@ def create_stimuli(bCreate_stimuli, exp_lan, iExp, locations, num_locations, exp
             # bad name in a later trial is already removed in the previus trials
             if iRow.agent_in_question in cur_name_pool:
                 cur_name_pool.remove(iRow.agent_in_question)
-            if iRow.agent_in_question in cur_name_pool:
+            if iRow.a_in_question in cur_name_pool:
                 cur_name_pool.remove(iRow.patient_in_question)
             if iRow.location_condition == 'Agent':
                 tFiller.iloc[iTrial, :].agent_in_picture = cur_name_pool[np.random.randint(1, len(cur_name_pool))]

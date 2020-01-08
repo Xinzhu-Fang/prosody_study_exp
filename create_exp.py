@@ -1,7 +1,7 @@
 # dput(sort(unique()))
 # Three navtive speaekers were asked to classifiy sex for these namees into Female (F), Male (M), and Ambiguous (A). For each name, if at least two people both chose F of M and the third one chose A, the name is put in the majority sex category, otherwise the name is discarded.
 
-# In order to have the filler questions being the same indepdent of the correction condition, the "wrong" list, or the question list, is the same acroos exps; the "correct" list was initilized to be different from the "wrong" on each trial and then adjusted to the same as "wrong" on control trials, in which the "wrong" is actaully correct.
+# In order to have the filler questions be the same indepdent of the correction condition, the "wrong" list, or the question list, is the same acroos exps; the "correct" list was initilized to be different from the "wrong" on each trial and then adjusted to the same as "wrong" on control trials, in which the "wrong" is actaully correct.
 # This way of creating wrong instead of correct first -- how items were created -- can bd problematic because I don't have full sex combinations for each action and the sexes for question verbs may not match those of picture verbs. The solution is to choose verbs from the same sex category. 
 
 

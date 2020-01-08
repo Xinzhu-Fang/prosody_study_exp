@@ -7,9 +7,12 @@ There are three English versions of this as of Nov, 2019: `exp0`, `exp1`, and `e
   + https://github.com/Xinzhu-Fang/prosody_study_exp/blob/master/exp1/tAll_trials.csv
   + https://github.com/Xinzhu-Fang/prosody_study_exp/blob/master/exp2/tAll_trials.csv
 
-## Task creation
-+ use `word_manipulate.Rmd`to sort names and change their cases.
+## Task creation pipeline
++ use `word_manipulate.Rmd`to sort names, change cases, etc.
 + check the words you will use exist in the alignment model's dictionary with `check_words_in_model_dict.py`
++ use `create_exp.py` and `create_stimuli.py` to create all exps. 
++ `copy_stimuli_to_psiturk.sh`
++ 
 + I do automatic speech recognition and automatic phonetic segmentation for questions too, and use the results as "benchmark" for answers. 
 + must use python 3 for chinese versions
 

@@ -30,9 +30,7 @@ for iExp in range(num_exp):
     exp_num_of_items = np.repeat(4, num_exp)[iExp]
     exp_yes_to_no_ratio = [2, 2, 0.5, 0.125, 0.125, 0.125, 0.125, 0.125][iExp]
     exp_num_trials = np.repeat(72, num_exp)[iExp] #72 allows 1:2, 1:1, and 2:1 4 items and 2 trials each
-    exp_num_of_correction_for_each_location_for_each_item = np.repeat(2, num_exp)[iExp]
-    exp_num_of_control_for_each_item = exp_num_of_correction_for_each_location_for_each_item
-    # exp_num_of_control_for_each_item = np.repeat(2, 3)[iExp]
+#
 
     locations = [['Agent', 'Verb', 'Patient'],
                  ['Agent', 'Verb', 'Patient'],
@@ -44,7 +42,10 @@ for iExp in range(num_exp):
                  ['Patient']][iExp]
     num_locations = len(locations)
 
-
+    exp_num_of_correction_for_each_location_for_each_item = np.repeat(2, num_exp)[iExp]
+    exp_num_of_correction_for_each_location_for_each_item = int(2 * 3 /num_locations)
+    exp_num_of_control_for_each_item = exp_num_of_correction_for_each_location_for_each_item
+    # exp_num_of_control_for_each_item = np.repeat(2, 3)[iExp]
 
     item_num_trial_yes = exp_num_of_items * exp_num_of_control_for_each_item
     item_num_trial_no = exp_num_of_items * exp_num_of_correction_for_each_location_for_each_item * num_locations

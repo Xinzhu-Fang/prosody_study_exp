@@ -36,7 +36,6 @@ for iExp in range(num_exp):
                  ['Agent', 'Verb', 'Patient'],
                  ['Agent', 'Verb', 'Patient'],
                  ['Agent', 'Verb', 'Patient'],
-                 ['Agent', 'Verb', 'Patient'],
                  ['Agent'],
                  ['Verb'],
                  ['Patient']][iExp]

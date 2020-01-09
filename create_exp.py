@@ -13,7 +13,7 @@ import create_stimuli
 
 
 
-exps_names = ['exp0', 'exp1', 'exp2', 'exp3', 'exp4', 'exp5']
+exps_names = ['exp0', 'exp1', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6']
 num_exp = len(exps_names)
 bCreate_stimuli = 0
 
@@ -26,9 +26,9 @@ my_seed = [1, 1, 1, 5, 4] # the first four seeds are each for item, wrong filler
 #for iExp in [3]:
 for iExp in range(num_exp):
     exp_name = exps_names[iExp]
-    exp_lan = ['en', 'en', 'en', 'en', 'ch', 'en'][iExp]
+    exp_lan = ['ch', 'en', 'en', 'en', 'en', 'en', 'en'][iExp]
     exp_num_of_items = np.repeat(4, num_exp)[iExp]
-    exp_yes_to_no_ratio = [1, 2, 0.5, 0.125, 2, 0.125][iExp]
+    exp_yes_to_no_ratio = [2, 2, 0.5, 0.125, 0.125, 0.125, 0.125, 0.125][iExp]
     exp_num_trials = np.repeat(72, num_exp)[iExp] #72 allows 1:2, 1:1, and 2:1 4 items and 2 trials each
     exp_num_of_correction_for_each_location_for_each_item = np.repeat(2, num_exp)[iExp]
     exp_num_of_control_for_each_item = exp_num_of_correction_for_each_location_for_each_item
@@ -39,7 +39,9 @@ for iExp in range(num_exp):
                  ['Agent', 'Verb', 'Patient'],
                  ['Agent', 'Verb', 'Patient'],
                  ['Agent', 'Verb', 'Patient'],
-                 ['Agent']][iExp]
+                 ['Agent'],
+                 ['Verb'],
+                 ['Patient']][iExp]
     num_locations = len(locations)
 
 
@@ -79,8 +81,8 @@ for iExp in range(num_exp):
         tAll_exps = tAll_exps.append(tCur_exp)
 
 
-    if iExp == 1:
-        create_stimuli.create_stimuli(bCreate_stimuli, iExp,
+#    if iExp == 1:
+    create_stimuli.create_stimuli(bCreate_stimuli, iExp,
                                       exp_name, exp_lan,  exp_num_trials, locations, num_locations, exp_num_of_items,
                                       exp_yes_to_no_ratio, exp_num_trial_yes,
                                       exp_num_trial_no, exp_num_of_control_for_each_item,

@@ -19,7 +19,9 @@ for iExp in exps_names:
         tAll_exp_trials = iAll_trials
         first_exp = 0
     else:
-        tAll_exp_trials.append(iAll_trials)
+        tAll_exp_trials = tAll_exp_trials.append(iAll_trials)
+    print(iExp)
+    print(len(tAll_exp_trials.question_file.unique()))
 
 
 questions = tAll_exp_trials.question_file.unique()

@@ -19,9 +19,10 @@ def create_stimuli(bCreate_stimuli, iExp,
     import copy
     import sys
 
+    print()
+    print()
     print(exp_name)
-    print()
-    print()
+
     np.random.seed(my_seed[0])
     vanilla_dir = 'vanilla_images1'
     output_dir = os.path.join(exp_name, 'images')

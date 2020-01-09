@@ -42,9 +42,9 @@ for iExp in range(num_exp):
                  ['Patient']][iExp]
     num_locations = len(locations)
 
-    exp_num_of_correction_for_each_location_for_each_item = np.repeat(2, num_exp)[iExp]
-    exp_num_of_correction_for_each_location_for_each_item = int(2 * 3 /num_locations)
-    exp_num_of_control_for_each_item = exp_num_of_correction_for_each_location_for_each_item
+#    exp_num_of_correction_for_each_location_for_each_item = np.repeat(2, num_exp)[iExp]
+    exp_num_of_control_for_each_item = 2
+    exp_num_of_correction_for_each_location_for_each_item = int(exp_num_of_control_for_each_item * 3 /num_locations)
     # exp_num_of_control_for_each_item = np.repeat(2, 3)[iExp]
 
     item_num_trial_yes = exp_num_of_items * exp_num_of_control_for_each_item
@@ -82,7 +82,7 @@ for iExp in range(num_exp):
         tAll_exps = tAll_exps.append(tCur_exp)
 
 
-#    if iExp == 1:
+#    if iExp == 5:
     create_stimuli.create_stimuli(bCreate_stimuli, iExp,
                                       exp_name, exp_lan,  exp_num_trials, locations, num_locations, exp_num_of_items,
                                       exp_yes_to_no_ratio, exp_num_trial_yes,

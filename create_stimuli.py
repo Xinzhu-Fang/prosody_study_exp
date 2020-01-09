@@ -19,6 +19,7 @@ def create_stimuli(bCreate_stimuli, iExp,
     import copy
     import sys
 
+    print(exp_name)
     np.random.seed(my_seed[0])
     vanilla_dir = 'vanilla_images1'
     output_dir = os.path.join(exp_name, 'images')
@@ -485,7 +486,7 @@ def create_stimuli(bCreate_stimuli, iExp,
     tAll_trials.to_csv(os.path.join(exp_name, 'tAll_trials_ordered.csv'), encoding='utf-8', index=False)
 
 
-
+    np.random.seed(my_seed[4])
     np.random.shuffle(trial_order)
     tAll_trials.index = trial_order
     tAll_trials = tAll_trials.sort_index()

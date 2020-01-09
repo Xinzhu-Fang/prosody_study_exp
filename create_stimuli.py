@@ -94,12 +94,19 @@ def create_stimuli(bCreate_stimuli, iExp,
 #        verbs = copy.deepcopy(verb_en)
         verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"])
         verbs = ["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]
+        verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
+            'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
+            'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
+            'M_M_verbs' : ["Lift", "Poke", "Pull"]}
 
     elif exp_lan == 'ch':
         vanilla_names = copy.deepcopy(vanilla_names_ch)
         verbs = np.array(["Kiss", "Kick", "Poke", "Push", "Pull"])
         verbs = ["Kiss", "Kick", "Poke", "Push", "Pull"]
-
+        verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Pull", "Push", "Poke"],
+            'F_M_verbs' : ["Kick", "Kiss", "Poke", "Push"],
+            'F_F_verbs' : ["Poke", "Pull", "Push"],
+            'M_M_verbs' : ["Poke", "Pull"]}
 
         
      
@@ -107,10 +114,7 @@ def create_stimuli(bCreate_stimuli, iExp,
     names = copy.deepcopy(vanilla_names)
      
 
-    verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
-    'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
-    'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
-    'M_M_verbs' : ["Lift", "Poke", "Pull"]}
+
     
     
 #    verbs = np.tile(np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]), (4, 1))[iExp]

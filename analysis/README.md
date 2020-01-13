@@ -1,4 +1,4 @@
-# process data
+# processing
 + on tedlab, copy data from  `../ali26m/Experiment` to whereever they belong
 + run `process_pipeline.sh` at stage 1 tutorial to copy data from tedlab to the local corresponding folder.
   + e.g., `cp *exp4* ~/prosody_study_data/exp4/subject_responses_all/`
@@ -16,4 +16,5 @@
   + heavy computing
 + run `process_pipeline.sh` at stage 2 for forced alignment and acoustic measurement. 
   + heavy computing
+# analysis  
 + open Rproj `analysis`, knit `acoustic_analysis.Rmd`

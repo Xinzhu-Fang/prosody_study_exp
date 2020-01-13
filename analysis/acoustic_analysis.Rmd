@@ -17,7 +17,7 @@ knitr::opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy = TRUE)
 ```
 
 ```{r}
-cur_exp = "exp3"
+cur_exp = "exp4"
 features = c("duration", "meanIntensity", "meanpit")
 # info = c('participant','verb','condition', 'word', 'word_num')
 info = c('participant','item_id','location_condition', 'word', 'word_num')
@@ -236,17 +236,17 @@ run_regression = function(location,observation){
 
 
 
-for (iF in features){
-  run_regression("Agent",iF)
-  
-  
-  run_regression("Patient", iF)
-  
-  run_regression("Verb", iF)
-  
-  
-  
-}
+# for (iF in features){
+#   run_regression("Agent",iF)
+#   
+#   
+#   run_regression("Patient", iF)
+#   
+#   run_regression("Verb", iF)
+#   
+#   
+#   
+# }
 # r = lmer(get(observation) ~ condition + (1 | participant) + (1 | verb), data=df)
 
 ```

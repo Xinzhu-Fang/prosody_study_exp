@@ -16,3 +16,4 @@
   + heavy computing
 + run `process_pipeline.sh` at stage 2 for forced alignment and acoustic measurement. 
   + heavy computing
++ open Rproj `analysis`, knit `acoustic_analysis.Rmd`

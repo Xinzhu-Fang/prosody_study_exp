@@ -6,7 +6,6 @@
 #    3: find out if there is a speaker who has only a few trials, exclude them, there are two reasons behind this:
 # one is that most of this person data was empty, the other was that they were rejected a lot, probably not a native speaker
    
-
 bTest = 0
 #bTest = 1 # manual
 bStage = 1

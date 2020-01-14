@@ -6,8 +6,8 @@
 + run `check_answer_audio_and_create_tTranscript.py`, which has two stages. 
 + run `process_survey_from_questiondata.Rmd` from the `[psiturk dir]/non-psiturk` R project. 
   + first, in psiturk do `download_datafiles` and `worker list --submitted --hit [hit id] >> worker.txt`
-  + you will then get `surveydata.csv` and `worker.csv`
-+ run `reject_hit.py`
+  + you will then get `surveydata.csv` and `worker.csv` which are used in the next step. 
++ run `[psiturk dir]/non-psiturk/reject_hit.py`
   + you will get `hit_summary.csv` and `surveydata_corresponding_to_recording.csv`. 
   + go through the first csv to get a sense of how many couldn't get their data saved -- if this issue becomes too serious we need to enhance the pisutrk paradigm
   + go through the second csv to see their feedback -- should give people who spotted errors bonus. 

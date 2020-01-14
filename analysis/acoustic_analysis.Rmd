@@ -22,6 +22,7 @@ features = c("duration", "meanIntensity", "meanpit")
 # info = c('participant','verb','condition', 'word', 'word_num')
 info = c('participant','item_id','location_condition', 'word', 'word_num')
 bRemove_outliers = 0
+# I have experimented with removing outliers, it doesn't have much effect on duration, some people with extreme pitch or intensity get removed. 
 
 
 
@@ -105,13 +106,23 @@ normalize_data = function(df, remove_outliers){
 
 process_data_with_yes = function(df){
   
-  
-  df_Agent = df[(df$location_condition=='Agent' | df$location_condition=='Control') & df$word_num=='2',]
+  if(cur_exp == "exp4"){
+    df_Agent = df[(df$location_condition=='Agent' | df$location_condition=='Control') & df$word_num=='2',]
   # df_Agent inheri row hum from df
   
-  df_Verb = df[(df$location_condition=='Verb'| df$location_condition=='Control') & df$word_num=='4',]
+    df_Verb = df[(df$location_condition=='Agent'| df$location_condition=='Control') & df$word_num=='4',]
+    
+    df_Patient = df[(df$location_condition=='Agent'| df$location_condition=='Control') & df$word_num=='5',]    
+  } else{
+    df_Agent = df[(df$location_condition=='Agent' | df$location_condition=='Control') & df$word_num=='2',]
+  # df_Agent inheri row hum from df
   
-  df_Patient = df[(df$location_condition=='Patient'| df$location_condition=='Control') & df$word_num=='5',]
+    df_Verb = df[(df$location_condition=='Verb'| df$location_condition=='Control') & df$word_num=='4',]
+    
+    df_Patient = df[(df$location_condition=='Patient'| df$location_condition=='Control') & df$word_num=='5',]
+    
+  }
+  
   
   # print(sum(is.na(df_Agent)))
   

@@ -15,7 +15,7 @@ import create_stimuli
 
 exps_names = ['exp0', 'exp1', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6', 'exp7', 'exp8']
 num_exp = len(exps_names)
-bCreate_stimuli = 0
+bCreate_stimuli = 1
 
 #locations = ['Agent', 'Verb', 'Patient']
 #num_locations = len(locations)
@@ -28,7 +28,7 @@ for iExp in range(num_exp):
     exp_name = exps_names[iExp]
     exp_lan = ['ch', 'en', 'en', 'en', 'en', 'en', 'en', 'ch', 'ch'][iExp]
     exp_num_of_items = np.repeat(4, num_exp)[iExp]
-    exp_yes_to_no_ratio = [2, 2, 0.5, 0.125, 0.125, 0.125, 0.125, 0.125, 0.5, 0.125][iExp]
+    exp_yes_to_no_ratio = [2, 2, 0.5, 0.125, 0.125, 0.125, 2, 0.5, 0.5, 0.125][iExp]
     exp_num_trials = np.repeat(72, num_exp)[iExp] #72 allows 1:2, 1:1, and 2:1 4 items and 2 trials each
 #
 
@@ -37,7 +37,7 @@ for iExp in range(num_exp):
                  ['Agent', 'Verb', 'Patient'],
                  ['Agent', 'Verb', 'Patient'],
                  ['Agent'],
-                 ['Verb'],
+                 ['Agent', 'Verb', 'Patient'],
                  ['Patient'],
                  ['Agent', 'Verb', 'Patient'],
                  ['Agent', 'Verb', 'Patient'],
@@ -84,7 +84,7 @@ for iExp in range(num_exp):
         tAll_exps = tAll_exps.append(tCur_exp)
 
 
-    if iExp>6:
+    if iExp == 5:
         create_stimuli.create_stimuli(bCreate_stimuli, iExp,
                                       exp_name, exp_lan,  exp_num_trials, locations, num_locations, exp_num_of_items,
                                       exp_yes_to_no_ratio, exp_num_trial_yes,

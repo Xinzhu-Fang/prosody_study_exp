@@ -16,4 +16,4 @@
   + go through the first csv to get a sense of how many couldn't get their data saved -- if this issue becomes too 
 serious we need to enhance the pisutrk paradigm
   + go through the second csv to see their feedback -- should give people who spotted errors bonus. 
-  + in psiturk, do `worker approve --hit [hit id]`
++ do `psiturk worker approve --hit [hit id]`

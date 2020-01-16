@@ -4,7 +4,7 @@
 + run `process_pipeline.sh` at stage 1 tutorial to copy data from tedlab to the local corresponding folder.
   + specify `exp_id`
 + run `process_pipeline.sh` at stage 1 non-tutorial to filter data.
-+ (you can process hit now)
++ (you can process hit now but you shouldn't approve the hit until you have assessed the data quality in the next step)
 + run `check_answer_audio_and_create_tTranscript.py` at multiple stages
   + heavy computing
   + human labor

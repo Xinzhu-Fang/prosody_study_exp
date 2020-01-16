@@ -11,9 +11,9 @@
 # Before stage 2 you need to run the check_answer.py file for further preparation
 
 bTutorial_mode=1
-# bTutorial_mode=0 #manual
+bTutorial_mode=0 #manual
 bStage=1
-# bStage=2 # manual
+bStage=2 # manual
 current_exp=exp5
 
 function make_dir(){

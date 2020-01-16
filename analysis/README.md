@@ -1,11 +1,12 @@
 # processing
 + on tedlab, copy data from  `../ali26m/Experiment` to whereever they belong
-+ run `process_pipeline.sh` at stage 1 tutorial to copy data from tedlab to the local corresponding folder.
   + e.g., `cp *exp4* ~/prosody_study_data/exp4/subject_responses_all/`
++ run `process_pipeline.sh` at stage 1 tutorial to copy data from tedlab to the local corresponding folder.
 + run `process_pipeline.sh` at stage 1 non-tutorial to filter data.
 + run `check_answer_audio_and_create_tTranscript.py`, which has two stages. 
 + run `process_survey_from_questiondata.Rmd` from the `[psiturk dir]/non-psiturk` R project. 
   + first, in psiturk do `download_datafiles` and `worker list --submitted --hit [hit id] >> worker.txt`
+    + remove the worker file first 
   + you will then get `surveydata.csv` and `worker.csv` which are used in the next step. 
 + run `[psiturk dir]/non-psiturk/reject_hit.py`
   + you will get `hit_summary.csv` and `surveydata_corresponding_to_recording.csv`. 

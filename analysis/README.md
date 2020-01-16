@@ -3,6 +3,7 @@
   + e.g., `cp *exp4* ~/prosody_study_data/exp4/subject_responses_all/`
 + run `process_pipeline.sh` at stage 1 tutorial to copy data from tedlab to the local corresponding folder.
 + run `process_pipeline.sh` at stage 1 non-tutorial to filter data.
++ (you can process hit now)
 + run `check_answer_audio_and_create_tTranscript.py` at multiple stages
   + heavy computing
   + human labor

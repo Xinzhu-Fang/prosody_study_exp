@@ -4,8 +4,9 @@
 # in number, select the row index by holding cmd, copy to atom. Once done, repleace \r?\n\s*\n with \n
 # and then https://discuss.atom.io/t/add-a-at-the-end-of-each-line/59492/4. Save the file as [exp_id]_reject_index.py, and save notes to there too. 
 #    3: find out if there is a speaker who has only a few trials, exclude them, there are two reasons behind this:
-# one is that most of this person data was empty, the other was that they were rejected a lot, probably not a native speaker
-   
+# one is that they were rejected a lot, probably not a native speaker
+# the other is that there were not many files which could be caused by that 1) this person sent empty data, 2)most of this person's data
+# was not succefully transmitted, 3) this person returned the hit. 
 bTest = 0
 #bTest = 1 # manual
 bStage = 1

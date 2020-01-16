@@ -26,21 +26,19 @@ my_seed = [1, 1, 1, 5, 4] # the first four seeds are each for item, wrong filler
 #for iExp in [3]:
 for iExp in range(num_exp):
     exp_name = exps_names[iExp]
-    exp_lan = ['ch', 'en', 'en', 'en', 'en', 'en', 'en', 'ch', 'ch'][iExp]
+    exp_lan = ['ch', 'en', 'en',
+               'en', 'en', 'en',
+               'en', 'ch', 'ch'][iExp]
     exp_num_of_items = np.repeat(4, num_exp)[iExp]
-    exp_yes_to_no_ratio = [2, 2, 0.5, 0.125, 0.125, 0.125, 2, 0.5, 0.5, 0.125][iExp]
+    exp_yes_to_no_ratio = [2, 2, 0.5,
+                           0.125, 0.125, 2,
+                           0.5, 0.5, 0.5][iExp]
     exp_num_trials = np.repeat(72, num_exp)[iExp] #72 allows 1:2, 1:1, and 2:1 4 items and 2 trials each
 #
 
-    locations = [['Agent', 'Verb', 'Patient'],
-                 ['Agent', 'Verb', 'Patient'],
-                 ['Agent', 'Verb', 'Patient'],
-                 ['Agent', 'Verb', 'Patient'],
-                 ['Agent'],
-                 ['Agent', 'Verb', 'Patient'],
-                 ['Patient'],
-                 ['Agent', 'Verb', 'Patient'],
-                 ['Agent', 'Verb', 'Patient'],
+    locations = [['Agent', 'Verb', 'Patient'], ['Agent', 'Verb', 'Patient'], ['Agent', 'Verb', 'Patient'],
+                 ['Agent', 'Verb', 'Patient'], ['Agent'], ['Agent', 'Verb', 'Patient'],
+                 ['Patient'], ['Agent', 'Verb', 'Patient'], ['Agent', 'Verb', 'Patient'],
                  ][iExp]
     num_locations = len(locations)
 

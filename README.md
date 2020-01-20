@@ -12,7 +12,7 @@
 + create hit, should copy `hit_id` to `non-psiturk/process_hit.sh` to save time for analysis. 
 
 ## analysis
-see `https://github.com/Xinzhu-Fang/prosody_study_exp/blob/master/analysis/README.md`
+see `analysis/README.md`
 
 
 ## Caution

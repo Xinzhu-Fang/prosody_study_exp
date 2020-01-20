@@ -20,7 +20,8 @@ see `analysis/README.md`
 + task creation requires python 3 becuase of painting chinese character. analysis requires python 2 because of p2fa. 
 
 ## enhancement
-search for the enhan tag in my prosody study issue
-upsample 8hz occasional recording to 16 hz, most are 48hz
++ search for the enhan tag in my prosody study issue
++ upsample 8hz occasional recording to 16 hz, most are 48hz
++ demo at the end
 
 

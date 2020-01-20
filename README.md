@@ -25,5 +25,6 @@ presentationnum decides the order of presentation, the index in the recording na
 
 ## enhancement
 search for the enhan tag in my prosody study issue
+upsample 8hz occasional recording to 16 hz, most are 48hz
 
 

@@ -20,5 +20,5 @@
 serious we need to enhance the pisutrk paradigm.  
   + go through the second csv to see their feedback -- should give people who spotted errors bonus. 
   + [enhan]
-+ in psiturk, do `mode`, do `psiturk worker approve --hit [hit id]`
++ in psiturk, do `mode`, do `worker approve --hit [hit id]`
   + have to be in live mode 

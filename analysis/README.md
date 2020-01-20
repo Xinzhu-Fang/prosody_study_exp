@@ -15,9 +15,10 @@
 # approve hit
 + do `bash non-psiturk/process_hit.sh` in `../psiturk-prosody_study_exp0`
   + specify `exp_id` and `hit_id`
-  + you will get `non-psiturk/hit_summary.csv` and `non-psiturk/surveydata_corresponding_to_recording.csv`. 
+  + you will get `non-psiturk/hit_summary.csv`, `non-psiturk/surveydata_corresponding_to_recording.csv`, and `non-psiturk/surveydata.csv`. 
   + go through the first csv to get a sense of how many couldn't get their data properly saved -- if this issue becomes too 
-serious we need to enhance the pisutrk paradigm
+serious we need to enhance the pisutrk paradigm.  
   + go through the second csv to see their feedback -- should give people who spotted errors bonus. 
+  + [enhan]
 + in psiturk, do `mode`, do `psiturk worker approve --hit [hit id]`
   + have to be in live mode 

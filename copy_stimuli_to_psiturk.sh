@@ -1,4 +1,4 @@
-current_exp=exp5
+current_exp=exp6
 
 mkdir $current_exp/audio
 

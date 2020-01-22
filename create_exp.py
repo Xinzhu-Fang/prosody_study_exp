@@ -28,7 +28,7 @@ for iExp in range(num_exp):
     exp_name = exps_names[iExp]
     exp_lan = ['ch', 'en', 'en', # 0 1 2
                'en', 'en', 'en', # 3 4 5
-               'en', 'en', 'ch'][iExp] # 6 7 8 
+               'en', 'en', 'en'][iExp] # 6 7 8 
     exp_num_of_items = np.repeat(4, num_exp)[iExp]
     exp_yes_to_no_ratio = [2, 2, 0.5, # 0 1 2
                            0.125, 0.125, 2, # 3 4 5
@@ -38,7 +38,7 @@ for iExp in range(num_exp):
 
     locations = [['Agent', 'Verb', 'Patient'], ['Agent', 'Verb', 'Patient'], ['Agent', 'Verb', 'Patient'], # 0 1 2
                  ['Agent', 'Verb', 'Patient'], ['Agent'], ['Agent', 'Verb', 'Patient'], # 3 4 5
-                 ['Agent'], ['Agent', 'Verb', 'Patient'], ['Agent', 'Verb', 'Patient'], # 6 7 8
+                 ['Agent'], ['Agent', 'Verb', 'Patient'], ['Agent'], # 6 7 8
                  ][iExp]
     num_locations = len(locations)
 
@@ -82,7 +82,7 @@ for iExp in range(num_exp):
         tAll_exps = tAll_exps.append(tCur_exp)
 
 
-    if iExp == 7:
+    if iExp == 8:
         create_stimuli.create_stimuli(bCreate_stimuli, iExp,
                                       exp_name, exp_lan,  exp_num_trials, locations, num_locations, exp_num_of_items,
                                       exp_yes_to_no_ratio, exp_num_trial_yes,

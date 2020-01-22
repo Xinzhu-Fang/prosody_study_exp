@@ -4,7 +4,7 @@ output:
   pdf_document: default
   html_document: default
 ---
- "
+"
 ```{r message=FALSE, warning=FALSE, tidy=TRUE, echo = FALSE}
 library(dplyr)
 library(lme4)
@@ -41,15 +41,15 @@ process_data_with_yes = function(df){
   
   if(cur_exp %in% c("exp4", "exp6")){
     df_Agent = df[(df$location_condition=='Agent' | df$location_condition=='Control') & df$word_num=='2',]
-  # df_Agent inheri row hum from df
-  
+    # df_Agent inheri row hum from df
+    
     df_Verb = df[(df$location_condition=='Agent'| df$location_condition=='Control') & df$word_num=='4',]
     
     df_Patient = df[(df$location_condition=='Agent'| df$location_condition=='Control') & df$word_num=='5',]    
   } else{
     df_Agent = df[(df$location_condition=='Agent' | df$location_condition=='Control') & df$word_num=='2',]
-  # df_Agent inheri row hum from df
-  
+    # df_Agent inheri row hum from df
+    
     df_Verb = df[(df$location_condition=='Verb'| df$location_condition=='Control') & df$word_num=='4',]
     
     df_Patient = df[(df$location_condition=='Patient'| df$location_condition=='Control') & df$word_num=='5',]
@@ -59,7 +59,7 @@ process_data_with_yes = function(df){
   
   # print(sum(is.na(df_Agent)))
   
-
+  
   print(sum(is.na(df[df$word != 'sp',])))
   # df1[(df1$meanpit == '--undefined--') && (df1$word != 'sp'),]
   # it seems that the only undefined is meanpitch for sp
@@ -94,11 +94,11 @@ process_data_without_yes = function(df){
   
   # print(sum(is.na(df_Agent)))
   
-
-  print(sum(is.na(df[df$word != 'sp',])))
- 
   
-
+  print(sum(is.na(df[df$word != 'sp',])))
+  
+  
+  
   df_Verb = normalize_data(df_Verb, bRemove_outliers)
   df_Agent = normalize_data(df_Agent, bRemove_outliers)
   df_Patient = normalize_data(df_Patient, bRemove_outliers)
@@ -127,10 +127,10 @@ run_regression = function(location,observation){
 
 
 ```{r}
-cur_exp = "exp6"
+cur_exp = "exp7"
 features = c("duration", "meanIntensity", "meanpit")
 # info = c('participant','verb','condition', 'word', 'word_num')
-info = c('participant','item_id','location_condition', 'word', 'word_num')
+info = c('participant','item_id','location_condition', 'word', 'word_num', 'present_num')
 bRemove_outliers = 0
 # I have experimented with removing outliers, it doesn't have much effect on duration, some people with extreme pitch or intensity get removed. 
 
@@ -166,42 +166,49 @@ df2 <- df2 %>%
 c(df_Verb, df_Agent, df_Patient) %<-% process_data_with_yes(df2)
 # c(df_Verb, df_Agent, df_Patient) %<-% process_data_without_yes(df2)
 
+```
+
+
+```{r}
+
+
+df_Agent$condition = mapvalues(df_Agent$location_condition,c('Agent'),c('contrast'))
+df_Verb$condition = mapvalues(df_Verb$location_condition,c('Verb'),c('contrast'))
+df_Patient$condition = mapvalues(df_Patient$location_condition,c('Patient'),c('contrast'))
+
+df_Agent$Location = 'Agent'
+df_Verb$Location = 'Verb'
+df_Patient$Location = "Patient"
+
+
+combined_dataset = rbind(df_Agent,df_Verb,df_Patient)
+
+# http://www.cookbook-r.com/Graphs/Plotting_means_and_error_bars_(ggplot2)/
+
+
+
 
 for (iF in features){
   print(iF)
   
-  df_Agent$condition = mapvalues(df_Agent$location_condition,c('Agent'),c('contrast'))
-  df_Verb$condition = mapvalues(df_Verb$location_condition,c('Verb'),c('contrast'))
-  df_Patient$condition = mapvalues(df_Patient$location_condition,c('Patient'),c('contrast'))
-  
-  df_Agent$Location = 'Agent'
-  df_Verb$Location = 'Verb'
-  df_Patient$Location = "Patient"
-  
-  
-  combined_dataset = rbind(df_Agent,df_Verb,df_Patient)
-  
-  # http://www.cookbook-r.com/Graphs/Plotting_means_and_error_bars_(ggplot2)/
-  
   summarized_dataset = summarySE(combined_dataset,measurevar=iF ,groupvars=c('Location','condition'))
   
-
   print(
     ggplot(summarized_dataset, aes(x=Location, y=get(iF), fill=condition)) + 
-          geom_bar(position=position_dodge(), stat="identity") +
-          geom_errorbar(aes(ymin=get(iF)-ci, ymax=get(iF)+ci),
-                        width=.2,
-                        position=position_dodge(.9))+
-          xlab("Location") +
-          ylab(paste0("normalized ", iF)) +
-          scale_fill_hue(name="location_condition", 
-                         breaks=c("Control", "contrast"),
-                         labels=c("NonContrastive", "Contrastive")) +
-          ggtitle(paste0('Effect of contrast on ', iF, ' (noncontrastive from yes)'))
-    )
-
-
-
+      geom_bar(position=position_dodge(), stat="identity") +
+      geom_errorbar(aes(ymin=get(iF)-ci, ymax=get(iF)+ci),
+                    width=.2,
+                    position=position_dodge(.9))+
+      xlab("Location") +
+      ylab(paste0("normalized ", iF)) +
+      scale_fill_hue(name="location_condition", 
+                     breaks=c("Control", "contrast"),
+                     labels=c("NonContrastive", "Contrastive")) +
+      ggtitle(paste0('Effect of contrast on ', iF, ' (noncontrastive from yes)'))
+  )
+  
+  
+  
 }
 
 
@@ -226,24 +233,32 @@ for (iF in features){
   
   summarized_dataset = summarySE(combined_dataset,measurevar=iF ,groupvars=c('Location','condition'))
   
-
+  
   print(
     ggplot(summarized_dataset, aes(x=Location, y=get(iF), fill=condition)) + 
-          geom_bar(position=position_dodge(), stat="identity") +
-          geom_errorbar(aes(ymin=get(iF)-ci, ymax=get(iF)+ci),
-                        width=.2,
-                        position=position_dodge(.9))+
-          xlab("Location") +
-          ylab(paste0("normalized ", iF)) +
-          scale_fill_hue(name="location_condition", 
-                         breaks=c("Control", "contrast"),
-                         labels=c("NonContrastive", "Contrastive")) +
-          ggtitle(paste0('Effect of contrast on ', iF, ' (noncontrastive from other no conditions)'))
-    )
-
-
-
+      geom_bar(position=position_dodge(), stat="identity") +
+      geom_errorbar(aes(ymin=get(iF)-ci, ymax=get(iF)+ci),
+                    width=.2,
+                    position=position_dodge(.9))+
+      xlab("Location") +
+      ylab(paste0("normalized ", iF)) +
+      scale_fill_hue(name="location_condition", 
+                     breaks=c("Control", "contrast"),
+                     labels=c("NonContrastive", "Contrastive")) +
+      ggtitle(paste0('Effect of contrast on ', iF, ' (noncontrastive from other no conditions)'))
+  )
+  
+  
+  
 }
+```
+
+
+```{r}
+
+# ggplot(df_Agent, aes(x=present_num, y=duration, color=condition)) + 
+#   geom_point()
+
 ```
 
 ## This the analysis for `r cur_exp`. The parameters of all exps can be seen at https://github.com/Xinzhu-Fang/prosody_study_exp/blob/master/tAll_exps.csv.

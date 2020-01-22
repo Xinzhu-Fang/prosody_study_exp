@@ -8,4 +8,4 @@ Created lattice with 11 nodes / 10 arcs from label file
  WARNING [-8232]  ExpandWordNet: Pronunciation 1 of sp is 'tee' word in HVite
  WARNING [-8232]  ExpandWordNet: Pronunciation 1 of sp is 'tee' word in HVite
  WARNING [-8232]  ExpandWordNet: Pronunciation 1 of sp is 'tee' word in HVite
-sp YES sp KELLY sp IS sp PULLING sp JUDY sp  ==  [435 frames] 16.8447 [Ac=7327.4 LM=0.0] (Act=36.7)
+sp YES sp KELLY sp IS sp PULLING sp JUDY sp  ==  [346 frames] 29.2349 [Ac=10115.3 LM=0.0] (Act=36.1)

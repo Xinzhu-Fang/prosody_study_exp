@@ -14,7 +14,7 @@ bTutorial_mode=1
 bTutorial_mode=0 #manual
 bStage=1
 bStage=2 # manual
-current_exp=exp6
+current_exp=exp7
 
 function make_dir(){
   if [ -d $@ ];
@@ -48,8 +48,12 @@ stimuli_dir=/Users/xzfang/Github/prosody_study_exp/
 # data_dir=/Users/xzfang/Github/prosody_study_exp/forced_alignment_sensitivity_test
 # stimuli_dir=/Users/xzfang/Github/prosody_study_exp/forced_alignment_sensitivity_test
 
-tedlab_acct=xzfang
+# tedlab_acct=xzfang
+scripts_acct=xzfang
 ##
+
+
+
 
 current_data_dir=$data_dir$current_exp
 current_stimuli_dir=$stimuli_dir$current_exp
@@ -64,7 +68,8 @@ then
     make_dir $data_dir$current_exp
 
     # scp -r $current_data_dir/subject_responses_all xzfang@tedlab.mit.edu:~/prosody_study_data/$current_exp/subject_responses_all
-    scp -r $tedlab_acct@tedlab.mit.edu:/home/xzfang/prosody_study_data/$current_exp/subject_responses_all $current_data_dir/
+    # scp -r $tedlab_acct@tedlab.mit.edu:/home/xzfang/prosody_study_data/$current_exp/subject_responses_all $current_data_dir/
+    scp -r $scripts_acct@athena.dialup.mit.edu:/afs/athena.mit.edu/user/x/z/xzfang/web_scripts/data/*$current_exp*.wav $current_data_dir/
     # [Alternative] if already have the recordings locally, you can make_dir $current_data_dir/subject_responses_all, and move recordings to that folder. Remember to comment out the make_dir line above that you would have done yourself.
     ##
   fi

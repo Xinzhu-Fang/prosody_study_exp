@@ -11,10 +11,10 @@
 # Before stage 2 you need to run the check_answer.py file for further preparation
 
 bTutorial_mode=1
-bTutorial_mode=0 #manual
+# bTutorial_mode=0 #manual
 bStage=1
-bStage=2 # manual
-current_exp=exp7
+# bStage=2 # manual
+current_exp=exp8
 
 function make_dir(){
   if [ -d $@ ];
@@ -65,11 +65,13 @@ then
   echo You should always start with a few data, when tutorial mode if off, I assume you already got all the data
   if [ $bTutorial_mode == 1 ];
   then
-    make_dir $data_dir$current_exp
+    make_dir current_data_dir
+    make_dir current_data_dir/subject_responses_all
 
     # scp -r $current_data_dir/subject_responses_all xzfang@tedlab.mit.edu:~/prosody_study_data/$current_exp/subject_responses_all
     # scp -r $tedlab_acct@tedlab.mit.edu:/home/xzfang/prosody_study_data/$current_exp/subject_responses_all $current_data_dir/
-    scp -r $scripts_acct@athena.dialup.mit.edu:/afs/athena.mit.edu/user/x/z/xzfang/web_scripts/data/*$current_exp*.wav $current_data_dir/
+    # scp -r $scripts_acct@athena.dialup.mit.edu:/afs/athena.mit.edu/user/x/z/xzfang/web_scripts/data/*$current_exp*.wav $current_data_dir/subject_responses_all
+    scp -r $scripts_acct@bcs-prod-www-4.mit.edu:/var/www/html/tedlab/uploads/*$current_exp*.wav $current_data_dir/subject_responses_all
     # [Alternative] if already have the recordings locally, you can make_dir $current_data_dir/subject_responses_all, and move recordings to that folder. Remember to comment out the make_dir line above that you would have done yourself.
     ##
   fi

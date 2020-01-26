@@ -10,8 +10,8 @@
 bTest = 0
 #bTest = 1 # manual
 bStage = 1
-bStage = 2 #manual
-bStage = 3 #manual
+#bStage = 2 #manual
+#bStage = 3 #manual
 reject_row_index = [
 118,
 633,
@@ -98,7 +98,7 @@ import pandas as pd
 import os
 import speech_recognition as sr
 
-cur_exp = 'exp7'
+cur_exp = 'exp8'
 
 
 if bStage == 1:

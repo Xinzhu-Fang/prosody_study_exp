@@ -128,8 +128,6 @@ run_regression = function(location,observation){
 
 
 
-
-
 ```{r}
 # 
 # location_condition is an attribute of the trials with levels Agent, patient, verb, and control.

@@ -11,7 +11,6 @@ bTest = 0
 #bTest = 1 # manual
 bStage = 1
 bStage = 2 #manual
-bStage = 3 #manual
 reject_row_index = [
 215,
 223,
@@ -21,7 +20,6 @@ reject_row_index = [
 288,
 521,
 520,
-584,
 317,
 622,
 301,

@@ -92,12 +92,20 @@ def create_stimuli(bCreate_stimuli, iExp,
         vanilla_names = copy.deepcopy(vanilla_names_en)
 #        verb_cat = copy.deepcopy(verb_cat_en)
 #        verbs = copy.deepcopy(verb_en)
-        verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"])
-        verbs = ["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]
-        verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
-            'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
-            'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
-            'M_M_verbs' : ["Lift", "Poke", "Pull"]}
+        if exp_name == 'exp9':
+#            vanilla_names = 
+            verbs = ["Kiss", "Kick", "Poke", "Lift", "Push"]
+            verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
+                'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
+                'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
+                'M_M_verbs' : ["Lift", "Poke", "Pull"]}
+        else:
+            verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"])
+            verbs = ["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]
+            verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
+                'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
+                'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
+                'M_M_verbs' : ["Lift", "Poke", "Pull"]}
 
     elif exp_lan == 'ch':
         vanilla_names = copy.deepcopy(vanilla_names_ch)
@@ -125,19 +133,34 @@ def create_stimuli(bCreate_stimuli, iExp,
                'Poke':'戳了',
                'Push':'推了',
                'Pull':'拉了'}
-    agent_sex_mapped_to_verb = {'Kiss':'F',
-                                'Kick':'F',
-                                'Poke':'F',
-                                'Lift':'M',
-                                'Push':'M',
-                                'Pull':'F'}
     
-    patient_sex_mapped_to_verb = {'Kiss':'M',
-                                  'Kick':'M',
-                                  'Poke':'F',
-                                  'Lift':'M',
-                                  'Push':'F',
-                                  'Pull':'F'}
+    if exp_name == 'exp9':
+        agent_sex_mapped_to_verb = {'Kiss':'F',
+                                    'Kick':'F',
+                                    'Poke':'F',
+                                    'Lift':'F',
+                                    'Push':'F'}
+        
+        patient_sex_mapped_to_verb = {'Kiss':'M',
+                                      'Kick':'M',
+                                      'Poke':'M',
+                                      'Lift':'M',
+                                      'Push':'M'}
+    else:
+    
+        agent_sex_mapped_to_verb = {'Kiss':'F',
+                                    'Kick':'F',
+                                    'Poke':'F',
+                                    'Lift':'M',
+                                    'Push':'M',
+                                    'Pull':'F'}
+        
+        patient_sex_mapped_to_verb = {'Kiss':'M',
+                                      'Kick':'M',
+                                      'Poke':'F',
+                                      'Lift':'M',
+                                      'Push':'F',
+                                      'Pull':'F'}
     
 #    agent_sex_mapped_to_verb = ['F', 'F', 'F', 'M', 'M', 'F']
 #    patient_sex_mapped_to_verb = ['M', 'M', 'F', 'M', 'F', 'F']

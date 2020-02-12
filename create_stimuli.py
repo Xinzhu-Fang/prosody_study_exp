@@ -93,7 +93,21 @@ def create_stimuli(bCreate_stimuli, iExp,
 #        verb_cat = copy.deepcopy(verb_cat_en)
 #        verbs = copy.deepcopy(verb_en)
         if exp_name == 'exp9':
-#            vanilla_names = 
+            vanilla_names = {'F': [ "Nancy", "Vicky", "Tori", "Penny", "Jilly", "Laurie",
+"Franny", "Brandy", "Betty", "Kylie", "Carrie", "Tracy", "Chloe",
+"Annie", "Mindy", "Molly", "Sally", "Lacey", "Carlie", "Mandy",
+"Hailey", "Lilly", "Jenny", "Judy", "Kerry", "Kelly", "Bonnie",
+"Kimmy","Cindy","Cindy","Cindy","Cindy","Cindy",],
+                     'M': ["Freddy", "Ronnie", "Davey", "Jimmy", "Kenny", "Percy", "Sammy",
+        "Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
+        "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
+                           ]}
+                     
+#            vanilla_names = {'F': [ "Cindy","Cindy","Cindy","Cindy","Cindy"],
+#                     'M': ["Freddy", "Ronnie", "Davey", "Jimmy", "Kenny", "Percy", "Sammy",
+#        "Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
+#        "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
+#                           ]}
             verbs = ["Kiss", "Kick", "Poke", "Lift", "Push"]
             verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
                 'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
@@ -165,9 +179,12 @@ def create_stimuli(bCreate_stimuli, iExp,
 #    agent_sex_mapped_to_verb = ['F', 'F', 'F', 'M', 'M', 'F']
 #    patient_sex_mapped_to_verb = ['M', 'M', 'F', 'M', 'F', 'F']
     num_verbs = len(verbs)
+    if exp_name == 'exp9':
+        item_correct_verb = ["Kick", "Kiss", "Push", "Poke"]
 
-    item_correct_verb = np.array(["Kick", "Kiss", "Push", "Pull"])
-    item_correct_verb = ["Kick", "Kiss", "Push", "Pull"]
+    else:
+        item_correct_verb = np.array(["Kick", "Kiss", "Push", "Pull"])
+        item_correct_verb = ["Kick", "Kiss", "Push", "Pull"]
 
     # item
     item_correct_agent_sex = [agent_sex_mapped_to_verb[i] for i in item_correct_verb]
@@ -195,7 +212,10 @@ def create_stimuli(bCreate_stimuli, iExp,
     # item_wrong_agent_same_sex =  [names[i].pop() for i in item_correct_agent_sex]
     # item_wrong_agent = [names[i].pop() for i in item_correct_agent_sex]
     # ^ too wasteful, these can be repeated
-    item_wrong_agent = [names[i][np.random.randint(len(names[i]))] for i in vItem_correct_agent_sex]
+    if exp_name == 'exp9':
+        item_wrong_agent = ['Tracy' for i in vItem_correct_agent_sex]
+    else:
+        item_wrong_agent = [names[i][np.random.randint(len(names[i]))] for i in vItem_correct_agent_sex]
     # item_wrong_patient_oppo_sex =  [names[ sex_levels[num_sexes - 1 - sex_levels.index(i)]].pop() for i in item_correct_patient_sex]
     # item_wrong_patient_same_sex =  [names[i].pop() for i in item_correct_patient_sex]
     # item_wrong_patient = [names[i].pop() for i in item_correct_patient_sex]
@@ -317,16 +337,23 @@ def create_stimuli(bCreate_stimuli, iExp,
 
     ## start of filler agent
     np.random.seed(my_seed[2])
+#    if exp_name == 'exp9':
+#        filler_wrong_agent = np.repeat("Cindy", len(filler_wrong_agent))
+#    else:
     filler_wrong_agent = [names[i][np.random.randint(len(names[i]))] for i in filler_wrong_agent_sex]
 
-    filler_correct_agent = []
-    for i in range(len(filler_wrong_agent)):
-        cur_sex = filler_wrong_agent_sex[i]
-        cur_name_pool = names[cur_sex]
-        cur_wrong_name_index = cur_name_pool.index(filler_wrong_agent[i])
-        cur_correct_name_index = (cur_wrong_name_index + np.random.randint(1, len(cur_name_pool))) % len(cur_name_pool)
-        cur_correct_name = cur_name_pool[cur_correct_name_index]
-        filler_correct_agent.append(cur_correct_name)
+
+    if exp_name == 'exp9':
+        filler_correct_agent = np.repeat("Cindy", len(filler_wrong_agent))
+    else:
+        filler_correct_agent = []
+        for i in range(len(filler_wrong_agent)):
+            cur_sex = filler_wrong_agent_sex[i]
+            cur_name_pool = names[cur_sex]
+            cur_wrong_name_index = cur_name_pool.index(filler_wrong_agent[i])
+            cur_correct_name_index = (cur_wrong_name_index + np.random.randint(1, len(cur_name_pool))) % len(cur_name_pool)
+            cur_correct_name = cur_name_pool[cur_correct_name_index]
+            filler_correct_agent.append(cur_correct_name)
 
     # filler_agent_in_question = filler_wrong_agent[:]
 
@@ -336,6 +363,9 @@ def create_stimuli(bCreate_stimuli, iExp,
         zip(filler_id, vFiller_location_condition, filler_wrong_agent, filler_wrong_agent),
         columns=['filler_id', 'vFiller_location_condition', 'filler_agent_in_question', 'filler_agent_in_picture'])
     for iFiller in filler_id:
+        if exp_name == 'exp9':                
+            tFiller_agent.loc[tFiller_agent.vFiller_location_condition == 'Agent', 'filler_agent_in_question'] = 'Tracy'
+  
         tFiller_agent.loc[np.logical_and(tFiller_agent.vFiller_location_condition == 'Agent',
                                          tFiller_agent.filler_id == iFiller), 'filler_agent_in_picture'] = \
             filler_correct_agent[filler_id.index(iFiller)]

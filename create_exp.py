@@ -31,6 +31,8 @@ for iExp in range(num_exp):
                'en', 'en', 'en', # 6 7 8 
                'en'][iExp] # 9 10 11
     exp_num_of_items = np.append(np.repeat(4, 9), 1)[iExp]
+    exp_num_of_items = np.repeat(4, num_exp)[iExp]
+
     exp_yes_to_no_ratio = [2, 2, 0.5, # 0 1 2
                            0.125, 0.125, 2, # 3 4 5
                            0.125, 2, 0.5, # 6 7 8
@@ -47,8 +49,11 @@ for iExp in range(num_exp):
 
 #    exp_num_of_correction_for_each_location_for_each_item = np.repeat(2, num_exp)[iExp]
     # * exp_num_of_items / 4 was made to accomodate exp9
-    exp_num_of_control_for_each_item = 2 * 4 / exp_num_of_items
-    exp_num_of_correction_for_each_location_for_each_item = int(exp_num_of_control_for_each_item * 3 /num_locations) * 4 / exp_num_of_items
+#    exp_num_of_control_for_each_item = 2 * 4 / exp_num_of_items
+#    exp_num_of_correction_for_each_location_for_each_item = int(exp_num_of_control_for_each_item * 3 /num_locations) * 4 / exp_num_of_items
+    exp_num_of_control_for_each_item = 2 
+    exp_num_of_correction_for_each_location_for_each_item = int(exp_num_of_control_for_each_item * 3 /num_locations) 
+   
     # exp_num_of_control_for_each_item = np.repeat(2, 3)[iExp]
 
     item_num_trial_yes = exp_num_of_items * exp_num_of_control_for_each_item

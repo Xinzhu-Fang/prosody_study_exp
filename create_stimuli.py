@@ -75,7 +75,7 @@ def create_stimuli(bCreate_stimuli, iExp,
 #    vanilla_names_ch = {'F':["小李", "小宋", "小郑", "小秦", "小任", "小孔", 
 #"小江", "小潘", "小赵", "小熊", "小廖", "小贾", "小谢", 
 #"小朱", "小卢", "小汪"],
-#                                 'M':["小方", "小叶", "小曹", 
+#                                 'M':["小方", "小叶", "小曹", t
 #"小蒋", "小谭", "小范", "小陆", "小徐", "小石", "小冯", 
 #"小邱", "小傅", "小丁"]}
                                  
@@ -93,15 +93,25 @@ def create_stimuli(bCreate_stimuli, iExp,
 #        verb_cat = copy.deepcopy(verb_cat_en)
 #        verbs = copy.deepcopy(verb_en)
         if exp_name == 'exp9':
-            vanilla_names = {'F': [ "Nancy", "Vicky", "Tori", "Penny", "Jilly", "Laurie",
-"Franny", "Brandy", "Betty", "Kylie", "Carrie", "Tracy", "Chloe",
-"Annie", "Mindy", "Molly", "Sally", "Lacey", "Carlie", "Mandy",
-"Hailey", "Lilly", "Jenny", "Judy", "Kerry", "Kelly", "Bonnie",
-"Kimmy","Cindy","Cindy","Cindy","Cindy","Cindy",],
-                     'M': ["Freddy", "Ronnie", "Davey", "Jimmy", "Kenny", "Percy", "Sammy",
-        "Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
-        "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
-                           ]}
+            name_wrong = "Jenny"
+            name_correct = "Molly"
+            vanilla_names['F'].remove(name_wrong)
+            vanilla_names['F'].remove(name_correct)
+            vanilla_names['F'].append(name_correct)
+            vanilla_names['F'].append(name_correct)
+            vanilla_names['F'].append(name_correct)
+            vanilla_names['F'].append(name_correct)
+#            vanilla_names['F'].append(name_correct)
+#
+#            vanilla_names = {'F': [ "Nancy", "Vicky", "Tori", "Penny", "Jilly", "Laurie",
+#"Franny", "Brandy", "Betty", "Kylie", "Carrie", "Tracy", "Chloe",
+#"Annie", "Mindy", "Cindy", "Sally", "Lacey", "Carlie", "Mandy",
+#"Hailey", "Lilly", "Jenny", "Judy", "Kerry", "Kelly", "Bonnie",
+#"Kimmy","Jenny","Jenny","Jenny","Jenny","Jenny"],
+#                     'M': ["Freddy", "Ronnie", "Davey", "Jimmy", "Kenny", "Percy", "Sammy",
+#        "Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
+#        "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
+#                           ]}
                      
 #            vanilla_names = {'F': [ "Cindy","Cindy","Cindy","Cindy","Cindy"],
 #                     'M': ["Freddy", "Ronnie", "Davey", "Jimmy", "Kenny", "Percy", "Sammy",
@@ -213,7 +223,7 @@ def create_stimuli(bCreate_stimuli, iExp,
     # item_wrong_agent = [names[i].pop() for i in item_correct_agent_sex]
     # ^ too wasteful, these can be repeated
     if exp_name == 'exp9':
-        item_wrong_agent = ['Tracy' for i in vItem_correct_agent_sex]
+        item_wrong_agent = [name_wrong for i in vItem_correct_agent_sex]
     else:
         item_wrong_agent = [names[i][np.random.randint(len(names[i]))] for i in vItem_correct_agent_sex]
     # item_wrong_patient_oppo_sex =  [names[ sex_levels[num_sexes - 1 - sex_levels.index(i)]].pop() for i in item_correct_patient_sex]
@@ -344,7 +354,7 @@ def create_stimuli(bCreate_stimuli, iExp,
 
 
     if exp_name == 'exp9':
-        filler_correct_agent = np.repeat("Cindy", len(filler_wrong_agent))
+        filler_correct_agent = np.repeat(name_correct, len(filler_wrong_agent))
     else:
         filler_correct_agent = []
         for i in range(len(filler_wrong_agent)):
@@ -364,7 +374,7 @@ def create_stimuli(bCreate_stimuli, iExp,
         columns=['filler_id', 'vFiller_location_condition', 'filler_agent_in_question', 'filler_agent_in_picture'])
     for iFiller in filler_id:
         if exp_name == 'exp9':                
-            tFiller_agent.loc[tFiller_agent.vFiller_location_condition == 'Agent', 'filler_agent_in_question'] = 'Tracy'
+            tFiller_agent.loc[tFiller_agent.vFiller_location_condition == 'Agent', 'filler_agent_in_question'] = name_wrong
   
         tFiller_agent.loc[np.logical_and(tFiller_agent.vFiller_location_condition == 'Agent',
                                          tFiller_agent.filler_id == iFiller), 'filler_agent_in_picture'] = \

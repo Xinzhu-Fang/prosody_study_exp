@@ -73,21 +73,22 @@ for iExp in range(num_exp):
     filler_num_trial_no = exp_num_trial_no - item_num_trial_no
     filler_num_trial_total = filler_num_trial_yes + filler_num_trial_no
 
-# when you change this, remember to change in psiturk accordingly. 
-    tCur_exp = pd.DataFrame([[exp_name, exp_lan, exp_questioner, exp_num_trials, locations, num_locations, exp_num_of_items,
+# when you change this, remember to change in psiturk accordingly!!!! 
+# no need to change pisturk if you keep appending new parameters    
+    tCur_exp = pd.DataFrame([[exp_name, exp_lan, exp_num_trials, locations, num_locations, exp_num_of_items,
                               exp_yes_to_no_ratio, exp_num_trial_yes,
                               exp_num_trial_no, exp_num_of_control_for_each_item,
                               exp_num_of_correction_for_each_location_for_each_item,
                               item_num_trial_total, item_num_trial_yes, item_num_trial_no,
                               item_num_trial_for_each_item, filler_num_trial_total,
-                              filler_num_trial_yes, filler_num_trial_no, my_seed]], 
-    columns = ["exp_name", "exp_lan", "exp_questioner", "exp_num_trials", "locations", "num_location", "exp_num_of_items",
+                              filler_num_trial_yes, filler_num_trial_no, my_seed, exp_questioner]], 
+    columns = ["exp_name", "exp_lan", "exp_num_trials", "locations", "num_location", "exp_num_of_items",
                "exp_yes_to_no_ratio", "exp_num_trial_yes",
                "exp_num_trial_no", "exp_num_of_control_for_each_item",
                "exp_num_of_correction_for_each_location_for_each_item",
                "item_num_trial_total", "item_num_trial_yes", "item_num_trial_no",
                "item_num_trial_for_each_item", "filler_num_trial_total",
-               "filler_num_trial_yes", "filler_num_trial_no", "my_seed"])
+               "filler_num_trial_yes", "filler_num_trial_no", "my_seed", "exp_questioner"])
 
 
     if iExp == 0:
@@ -96,7 +97,7 @@ for iExp in range(num_exp):
         tAll_exps = tAll_exps.append(tCur_exp)
 
 
-    if iExp == 10:
+    if iExp == 11:
         create_stimuli.create_stimuli(bCreate_stimuli, iExp,
                                       exp_name, exp_lan, exp_num_trials, locations, num_locations, exp_num_of_items,
                                       exp_yes_to_no_ratio, exp_num_trial_yes,

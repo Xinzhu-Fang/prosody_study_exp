@@ -1,8 +1,9 @@
-current_exp=exp8
+current_exp=exp10
+current_audio=audio_for_exp10_02_17_20
 
 mkdir $current_exp/audio
 
-cp audio_for_exp1_to_6_01_10_20/responses_to_analyze/* $current_exp/audio/
+cp $current_audio/responses_to_analyze/* $current_exp/audio/
 
 psiturk_stimuli_dir=psiturk-prosody_study_exp0/static/stimuli
 rm -r ../$psiturk_stimuli_dir/*

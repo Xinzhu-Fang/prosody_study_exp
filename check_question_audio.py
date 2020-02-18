@@ -1,3 +1,4 @@
+#py2
 import pandas as pd
 import os
 import speech_recognition as sr
@@ -5,6 +6,7 @@ import speech_recognition as sr
 
 audio_dir = 'audio_for_exp0_to_exp2_11_04_19'
 audio_dir = 'audio_for_exp1_to_6_01_10_20'
+#audio_dir = 'audio_for_exp10_02_17_20'
 tAll_questions = pd.read_csv(os.path.join(audio_dir, 'tAll_questions.csv'))
 question_files = []
 auto_transcripts = []

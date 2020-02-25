@@ -32,6 +32,7 @@ mkdir $@
 # [manual] specify paths here and make sure they all exist
 my_praat_location=/Applications/Praat.app/Contents/MacOS/Praat
 data_dir=/Users/xzfang/Desktop/prosody_study_data/
+my_dropbox_location=/Users/xzfang/Dropbox\ \(MIT\)/Apps/mturk_recording/api-test
 
 
 # stimuli_dir=/Users/xzfang/Github/stressTurk_tutorial/

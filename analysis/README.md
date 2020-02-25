@@ -1,6 +1,4 @@
 # process data
-+ on tedlab, copy data from  `../ali26m/Experiment` to whereever they belong
-  + e.g., `cp *exp4* ~/prosody_study_data/exp4/subject_responses_all/`
 + run `process_pipeline.sh` at stage 1 tutorial to copy data from tedlab to the local corresponding folder.
   + specify `exp_id`
 + run `process_pipeline.sh` at stage 1 non-tutorial to filter data.

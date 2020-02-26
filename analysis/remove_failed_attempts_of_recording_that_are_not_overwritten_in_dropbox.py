@@ -19,18 +19,21 @@ for iVersion_keep in reversed(range(1, 5)):
     files = [os.path.join(dir, i) for i in os.listdir(dir)]
     for iF in files:
         if re.match('.*\(' + str(iVersion_keep) + '\).*', iF):
-            print(iF)
+            print('iF')
+            print(iF) 
             remove_file = re.sub(' \(' + str(iVersion_keep) + '\)', '', iF)
+            print('remove 1')
             print(remove_file)
             os.remove(remove_file)        
             for iVersion_remove in reversed(range(1, iVersion_keep)):
-                print(iVersion_keep)
-                print(iVerison_remove)
-                remove_file = re.sub('\(' + str(iVersion_keep) + '\)', '\(' + str(iVersion_remove) + '\)', iF)
+#                print(iVersion_keep)
+#                print(iVerison_remove)
+                remove_file = re.sub('\(' + str(iVersion_keep) + '\)', '(' + str(iVersion_remove) + ')', iF)
+                print('remove 2')
                 print(remove_file)
                 os.remove(remove_file)
             new_file_name = re.sub(' \(' + str(iVersion_keep) + '\)', '', iF)
-            print(new_file_name)
+#            print(new_file_name)
             os.rename(iF, new_file_name)  
             
         

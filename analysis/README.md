@@ -8,7 +8,7 @@
   + human labor
 + run `process_pipeline.sh` at stage 2 for forced alignment and acoustic measurement. 
   + heavy computing
-# analyse data
+# analyze data
 + open Rproj `analysis`, knit `acoustic_analysis.Rmd`
 # approve hit
 + do `bash non-psiturk/process_hit.sh` in `../psiturk-prosody_study_exp0`

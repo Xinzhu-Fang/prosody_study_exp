@@ -547,7 +547,7 @@ def create_stimuli(bCreate_stimuli, iExp,
                 tAll_trials.loc[iTrial, 'answer_script'] = 'no ' + tAll_trials.loc[iTrial, 'answer_script']
         elif exp_lan == 'ch':
             if tAll_trials.loc[iTrial, 'location_condition'] == 'Control':
-                tAll_trials.loc[iTrial, 'answer_script'] = '是' + tAll_trials.loc[iTrial, 'answer_script']
+                tAll_trials.loc[iTrial, 'answer_script'] = '对' + tAll_trials.loc[iTrial, 'answer_script']
             else:
                 tAll_trials.loc[iTrial, 'answer_script'] = '不' + tAll_trials.loc[iTrial, 'answer_script']
 

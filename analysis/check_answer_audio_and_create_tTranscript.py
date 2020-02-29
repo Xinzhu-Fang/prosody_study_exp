@@ -255,7 +255,7 @@ if bStage == 1:
     tTranscript.to_csv('tTranscript_all_' + cur_exp + '.csv',  encoding='utf-8')
 
     
-elif bStage == 2: 
+eliœf bStage == 2: 
 
     tTranscript = pd.read_csv('tTranscript_all_' + cur_exp + '.csv', index_col=0)    
 

@@ -15,7 +15,7 @@ import re
 import sys
 dir = sys.argv[1]
 #def remove_failed_attempts_of_recording_that_are_not_overwritten_in_dropbox(dir):
-for iVersion_keep in reversed(range(1, 5)):
+for iVersion_keep in reversed(range(1, 10)):
     files = [os.path.join(dir, i) for i in os.listdir(dir)]
     for iF in files:
         if re.match('.*\(' + str(iVersion_keep) + '\).*', iF):

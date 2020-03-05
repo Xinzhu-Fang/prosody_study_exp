@@ -13,8 +13,8 @@
 bTutorial_mode=1
 bTutorial_mode=0 #manual
 bStage=1
-bStage=2 # manual
-current_exp=exp10
+# bStage=2 # manual
+current_exp=exp9
 
 function make_dir(){
   if [ -d $@ ];

@@ -10,8 +10,8 @@
 bTest = 0
 #bTest = 1 # manual
 bStage = 1
-bStage = 2 #manual
-bStage = 3 #manual
+#bStage = 2 #manual
+#bStage = 3 #manual
 reject_row_index = [
 382,
 556,
@@ -180,7 +180,7 @@ import pandas as pd
 import os
 import speech_recognition as sr
 
-cur_exp = 'exp10'
+cur_exp = 'exp9'
 
 
 if bStage == 1:
@@ -255,7 +255,7 @@ if bStage == 1:
     tTranscript.to_csv('tTranscript_all_' + cur_exp + '.csv',  encoding='utf-8')
 
     
-eliœf bStage == 2: 
+elif bStage == 2: 
 
     tTranscript = pd.read_csv('tTranscript_all_' + cur_exp + '.csv', index_col=0)    
 

@@ -21,3 +21,5 @@ serious we need to enhance the pisutrk paradigm.
 + in psiturk, do `mode`, do `worker approve --hit [hit id]`
   + have to be in live mode 
   + `worker reject [assg id]`
+
+

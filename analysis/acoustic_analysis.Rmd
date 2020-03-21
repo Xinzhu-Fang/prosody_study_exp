@@ -170,8 +170,8 @@ df2 <- df2 %>%
   dplyr::mutate(word_num=1:dplyr::n()) %>%
   dplyr::select(c(info, features))
 
-c(df_Verb, df_Agent, df_Patient) %<-% process_data_with_yes(df2)
-# c(df_Verb, df_Agent, df_Patient) %<-% process_data_without_yes(df2)
+# c(df_Verb, df_Agent, df_Patient) %<-% process_data_with_yes(df2)
+c(df_Verb, df_Agent, df_Patient) %<-% process_data_without_yes(df2)
 
 if(cur_exp %in% c("exp4", "exp6", "exp8")){
   df_Agent$condition = mapvalues(df_Agent$location_condition,c('Agent'),c('contrastive no'))

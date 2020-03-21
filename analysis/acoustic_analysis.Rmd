@@ -134,7 +134,7 @@ run_regression = function(location,observation){
 # locaiton is an attribute of the word with levels Agent, patient, verb
 # condition is an attribute of the trial with levels contrast and control. 
 
-cur_exp = "exp9"
+cur_exp = "exp11"
 features = c("duration", "meanIntensity", "meanpit")
 # info = c('participant','verb','condition', 'word', 'word_num')
 info = c('participant','item_id','location_condition', 'word', 'word_num', 'present_num')

@@ -13,8 +13,8 @@
 bTutorial_mode=1
 bTutorial_mode=0 #manual
 bStage=1
-bStage=2 # manual
-current_exp=exp9
+# bStage=2 # manual
+current_exp=exp11
 
 function make_dir(){
   if [ -d $@ ];
@@ -79,7 +79,7 @@ then
     # echo "$my_dropbox_location"/*$current_exp*.wav
     # cp "$my_dropbox_location"/*$current_exp*.wav $current_data_dir/subject_responses_all
     find "$my_dropbox_location" -name \*$current_exp*.wav -exec cp {} $current_data_dir/subject_responses_all \;
-    python remove_failed_attempts_of_recording_that_are_not_overwritten_in_dropbox.py $current_data_dir/subject_responses_all
+    # python remove_failed_attempts_of_recording_that_are_not_overwritten_in_dropbox.py $current_data_dir/subject_responses_all
 
   fi
 

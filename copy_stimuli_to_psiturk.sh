@@ -1,5 +1,5 @@
-current_exp=exp11
-current_audio=audio_for_exp9_02_16_20
+current_exp=exp12
+current_audio=audio_for_exp12_03_23_20
 
 mkdir $current_exp/audio
 

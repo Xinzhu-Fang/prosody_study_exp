@@ -2,7 +2,7 @@
 + See `tAll_Exps.csv` for experiments parameters
 + See `[exp name]/tAll_trials.csv` for trials parameters for each exp. Each exp dir has its own `image/` and `audio/`.
 
-## Task creation pipeline
+## Task creation pipeline (python3 by default)
 + use `word_manipulate.Rmd`to sort names, change cases, etc.
 + check the words you will use exist in the alignment model's dictionary with `check_words_in_model_dict.py`
 + `create_exp.py` calls `create_stimuli.py` to create all exps conditions and images 
@@ -17,7 +17,7 @@
 + in psiturk, specify `exp_ind`, in `task.js`, switch `bTestMode` as needed to test locally
 + create hit, should copy `hit_id` to `non-psiturk/process_hit.sh` to save time for analysis. 
 
-## analysis
+## analysis (python2 by default)
 see `analysis/README.md`
 
 

@@ -11,11 +11,14 @@ import os
 
 #exps_names = ['exp1', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6']
 #exps_names = ['exp9']
-exps_names = ['exp10']
+#exps_names = ['exp10']
+exps_names = ['exp0']
 #dir_name = 'audio_for_exp1_to_6_01_10_20'
 #dir_name ='audio_for_exp9_02_16_20'
-dir_name ='audio_for_exp10_02_17_20'
-os.mkdir(dir_name)
+#dir_name ='audio_for_exp10_02_17_20'
+dir_name = 'audio_for_exp0_04_12_20'
+
+#os.mkdir(dir_name)
 
 num_exp = len(exps_names)
 

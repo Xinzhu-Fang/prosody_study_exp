@@ -4,10 +4,11 @@ import os
 import speech_recognition as sr
 
 
-audio_dir = 'audio_for_exp0_to_exp2_11_04_19'
-audio_dir = 'audio_for_exp1_to_6_01_10_20'
-audio_dir = 'audio_for_exp10_02_17_20'
-audio_dir = 'audio_for_exp9_02_16_20'
+#audio_dir = 'audio_for_exp0_to_exp2_11_04_19'
+#audio_dir = 'audio_for_exp1_to_6_01_10_20'
+#audio_dir = 'audio_for_exp10_02_17_20'
+#audio_dir = 'audio_for_exp9_02_16_20'
+audio_dir = 'audio_for_exp0_04_12_20'
 tAll_questions = pd.read_csv(os.path.join(audio_dir, 'tAll_questions.csv'))
 question_files = []
 auto_transcripts = []
@@ -27,7 +28,8 @@ for iTrial, iRow in tAll_questions.iterrows():
            # for testing purposes, we're just using the default API key
            # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
            # instead of `r.recognize_google(audio)`
-           script = r.recognize_google(audio)
+#           script = r.recognize_google(audio)
+           script = r.recognize_sphinx(audio, 'zh-CN')
            if not script == iRow.question_script:
 #                print(iRow.question_file + ' is fine')
 #            else:

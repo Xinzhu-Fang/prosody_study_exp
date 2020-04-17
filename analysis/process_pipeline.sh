@@ -111,7 +111,7 @@ else
   echo Forced alignment
   make_dir $current_data_dir/responses_to_analyze_textgrid
   # python align1.py $current_data_dir/responses_to_analyze_downsampledtTranscript_$current_exp.csv $current_data_dir/responses_to_analyze_textgrid
-  python align1.py tTranscript_$current_exp.csv
+  python p2fa_english/align1.py tTranscript_$current_exp.csv
 
   echo Computing dependent variables
   # http://www.fon.hum.uva.nl/praat/manual/Scripting_6_9__Calling_from_the_command_line.html

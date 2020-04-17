@@ -104,7 +104,7 @@ for iExp in range(num_exp):
         tAll_exps = tAll_exps.append(tCur_exp)
 
 
-    if iExp == 14:
+    if iExp == 13:
         create_stimuli.create_stimuli(bCreate_stimuli, iExp,
                                       exp_name, exp_lan, exp_num_trials, locations, num_locations, exp_num_of_items,
                                       exp_yes_to_no_ratio, exp_num_trial_yes,

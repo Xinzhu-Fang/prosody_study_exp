@@ -518,9 +518,14 @@ def create_stimuli(bCreate_stimuli, iExp,
         tAll_trials['picture_file'] = [a + verbs_ch[v] + p + '.png' for a, v, p in
                                        zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
                                            tAll_trials.patient_in_picture)]
-        tAll_trials['question_file'] = [a + verbs_ch[v] + p + '吗.wav' for a, v, p in
+        if exp_questioner == 'text':
+             tAll_trials['question_file'] = [a + verbs_ch[v] + p + '吗' for a, v, p in
                                         zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                            tAll_trials.patient_in_question)]
+                                            tAll_trials.patient_in_question)]       
+        else:
+            tAll_trials['question_file'] = [a + verbs_ch[v] + p + '吗.wav' for a, v, p in
+                                            zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                                tAll_trials.patient_in_question)]
     
         tAll_trials['answer_script'] = [a + verbs_ch[v] + p for a, v, p in
                                         zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,

@@ -1,3 +1,4 @@
+Text writing preferences: "UTF-8"
 # Calculate various acoustic variables
 # Michael Wagner. chael@mcgill.ca. July 2009
 

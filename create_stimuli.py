@@ -560,6 +560,8 @@ def create_stimuli(bCreate_stimuli, iExp,
                 tAll_trials.loc[iTrial, 'answer_script'] = '对' + tAll_trials.loc[iTrial, 'answer_script']
             else:
                 tAll_trials.loc[iTrial, 'answer_script'] = '不' + tAll_trials.loc[iTrial, 'answer_script']
+            space = ' '
+            tAll_trials.loc[iTrial, 'answer_script'] = space.join(tAll_trials.loc[iTrial, 'answer_script'])
 
     tAll_trials.insert(loc=0, column='trial_id', value=exp_trial_id)
     #    tAll_trials['trial_id'] = exp_trial_id

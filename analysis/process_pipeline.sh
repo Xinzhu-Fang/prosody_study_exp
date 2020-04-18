@@ -11,10 +11,10 @@
 # Before stage 2 you need to run the check_answer.py file for further preparation
 
 bTutorial_mode=1
-bTutorial_mode=0 #manual
+# bTutorial_mode=0 #manual
 bStage=1
 bStage=2 # manual
-current_exp=exp12
+current_exp=exp13
 
 function make_dir(){
   if [ -d $@ ];
@@ -89,13 +89,14 @@ then
   then
     echo for tutorial, move the first 10 files in _all dir to _partial dir, and work from the _partial dir
     make_dir $current_data_dir/subject_responses_partial
-    for file in $(ls $current_data_dir/subject_responses_all | head -10)
+    for file in $(ls $current_data_dir/subject_responses_all | head -100)
     do
       cp  $current_data_dir/subject_responses_all/$file $current_data_dir/subject_responses_partial/
     done
   # [open] I said skip ., don't why they still try to remove the dir. You will see this innocuous but humiliating warning:
   # cp: /Users/xzfang/Desktop/prosody_study_data/nonrhyming_84total_60No_24Yes_20181210/subject_responses_all is a directory (not copied).
-    find $current_data_dir/subject_responses_partial ! \( -name \*Filler*.wav -o -name debug*.wav -o -name . \) -size +44 -exec cp {} $current_data_dir/responses_to_analyze \;
+    # find $current_data_dir/subject_responses_partial ! \( -name \*Filler*.wav -o -name debug*.wav -o -name . \) -size +44 -exec cp {} $current_data_dir/responses_to_analyze \;
+    find $current_data_dir/subject_responses_partial ! \( -name \*Filler*.wav -o -name . \) -size +44 -exec cp {} $current_data_dir/responses_to_analyze \;
   else
     find $current_data_dir/subject_responses_all ! \( -name \*Filler*.wav -o -name debug*.wav -o -name . \) -size +44 -exec cp {} $current_data_dir/responses_to_analyze \;
   fi
@@ -111,7 +112,7 @@ else
   echo Forced alignment
   make_dir $current_data_dir/responses_to_analyze_textgrid
   # python align1.py $current_data_dir/responses_to_analyze_downsampledtTranscript_$current_exp.csv $current_data_dir/responses_to_analyze_textgrid
-  python p2fa_english/align1.py tTranscript_$current_exp.csv
+  python p2fa_mandarin/align1.py tTranscript_$current_exp.csv
 
   echo Computing dependent variables
   # http://www.fon.hum.uva.nl/praat/manual/Scripting_6_9__Calling_from_the_command_line.html

@@ -322,7 +322,6 @@ def MishasCoolWrapper(wavfile, trsfile, outfile):
     # output the alignment as a Praat TextGrid
     writeTextGrid(outfile, readAlignedMLF(output_mlf, SR, float(wave_start)))
 
-num_file_processed = 0
 
 #wav_dir = sys.argv[1]
 #tTranscript = sys.argv[2]
@@ -340,7 +339,7 @@ num_file_processed = 0
 #        MishasCoolWrapper(cur_wav_full, cur_transcript, cur_textgrid_full)
 #        num_file_processed += 1
 #        print("processed " + str(num_file_processed) + " files")
-
+num_file_processed = 0
 
 tTranscript = pd.read_csv(sys.argv[1])
 for iFile, iRow in tTranscript.iterrows():

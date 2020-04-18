@@ -49,6 +49,18 @@ process_data_with_yes = function(df){
     df_Verb = df[(df$location_condition=='Agent'| df$location_condition=='Control') & df$word_num=='4',]
     
     df_Patient = df[(df$location_condition=='Agent'| df$location_condition=='Control') & df$word_num=='5',]    
+  } else if(cur_exp %in% c("exp13")){
+    # chinese 
+    # no abe is kissing lily 
+    # 1  2  3   4       5   
+    # 不 张 悦 亲 了 王 平 
+    # 1  2  3   4  5 6   7  
+    df_Agent = df[(df$location_condition=='Agent' | df$location_condition=='Control') & df$word_num=='2',]
+    # df_Agent inheri row hum from df
+    
+    df_Verb = df[(df$location_condition=='Verb'| df$location_condition=='Control') & df$word_num=='4',]
+    
+    df_Patient = df[(df$location_condition=='Patient'| df$location_condition=='Control') & df$word_num=='6',]
   } else{
     df_Agent = df[(df$location_condition=='Agent' | df$location_condition=='Control') & df$word_num=='2',]
     # df_Agent inheri row hum from df
@@ -134,7 +146,7 @@ run_regression = function(location,observation){
 # locaiton is an attribute of the word with levels Agent, patient, verb
 # condition is an attribute of the trial with levels contrast and control. 
 
-cur_exp = "exp12"
+cur_exp = "exp13"
 features = c("duration", "meanIntensity", "meanpit")
 # info = c('participant','verb','condition', 'word', 'word_num')
 info = c('participant','item_id','location_condition', 'word', 'word_num', 'present_num')
@@ -144,7 +156,9 @@ bRemove_outliers = 0
 tAll_trials = read.csv(file.path('..', cur_exp, 'tAll_trials.csv'))
 
 
-df0 = read.csv(paste0('measure_', cur_exp, '.csv'), header = T)
+# df0 = read.csv(paste0('measure_', cur_exp, '.csv'), header = T)
+df0 = read.csv(paste0('measure_', cur_exp, '.csv'))
+
 df0$location_condition = NA
 df0$item_id = NA
 
@@ -170,8 +184,9 @@ df2 <- df2 %>%
   dplyr::mutate(word_num=1:dplyr::n()) %>%
   dplyr::select(c(info, features))
 
-# c(df_Verb, df_Agent, df_Patient) %<-% process_data_with_yes(df2)
-c(df_Verb, df_Agent, df_Patient) %<-% process_data_without_yes(df2)
+c(df_Verb, df_Agent, df_Patient) %<-% process_data_with_yes(df2)
+# c(df_Verb, df_Agent, df_Patient) %<-% process_data_without_yes(df2)
+# the agent diff is smaller without yes than yes, maybe because when correcting, agent is stressed even though agent is the the focus
 
 if(cur_exp %in% c("exp4", "exp6", "exp8")){
   df_Agent$condition = mapvalues(df_Agent$location_condition,c('Agent'),c('contrastive no'))

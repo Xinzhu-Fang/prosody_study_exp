@@ -19,5 +19,7 @@
 # python /Users/xzfang/Github/prosody_study_exp/analysis/downsampleWav.py /Users/xzfang/Github/prosody_study_exp/audio_mandarin/A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_05.wav /Users/xzfang/Github/prosody_study_exp/audio_mandarin/16000_A2BNOEYZ3VRW2R_prosody_study_exp1_11_10_2019_trial_05.wav
 I go to /Users/xzfang/Github/temp/Forced_Aligner_Mandarin
 and run these in terminal
-python /Users/xzfang/Github/prosody_study_exp/analysis/new_downsample.py /Users/xzfang/Github/prosody_study_exp/audio_mandarin/小红快速亲了小明.wav /Users/xzfang/Github/prosody_study_exp/audio_mandarin/小红快速亲了小明16000.wav
-python /Users/xzfang/Github/temp/Forced_Aligner_Mandarin/.Zap.0.align.py /Users/xzfang/Github/prosody_study_exp/audio_mandarin/小红快速亲了小明16000.wav /Users/xzfang/Github/prosody_study_exp/audio_mandarin/小红快速亲了小明.txt /Users/xzfang/Github/prosody_study_exp/audio_mandarin/小红快速亲了小明.Textgrid
+# python /Users/xzfang/Github/prosody_study_exp/analysis/new_downsample.py /Users/xzfang/Github/prosody_study_exp/audio_mandarin/小红快速亲了小明.wav /Users/xzfang/Github/prosody_study_exp/audio_mandarin/小红快速亲了小明16000.wav
+# python /Users/xzfang/Github/temp/Forced_Aligner_Mandarin/.Zap.0.align.py /Users/xzfang/Github/prosody_study_exp/audio_mandarin/小红快速亲了小明16000.wav /Users/xzfang/Github/prosody_study_exp/audio_mandarin/小红快速亲了小明.txt /Users/xzfang/Github/prosody_study_exp/audio_mandarin/小红快速亲了小明.Textgrid
+python /Users/xzfang/Github/prosody_study_exp/analysis/new_downsample.py /Users/xzfang/Github/prosody_study_exp/audio_mandarin/李娜亲了王刚.wav /Users/xzfang/Github/prosody_study_exp/audio_mandarin/李娜亲了王刚16000.wav
+python /Users/xzfang/Github/temp/Forced_Aligner_Mandarin/.Zap.0.align.py /Users/xzfang/Github/prosody_study_exp/audio_mandarin/李娜亲了王刚16000.wav /Users/xzfang/Github/prosody_study_exp/audio_mandarin/李娜亲了王刚.txt /Users/xzfang/Github/prosody_study_exp/audio_mandarin/李娜亲了王刚.Textgrid

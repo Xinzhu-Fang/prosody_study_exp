@@ -8,7 +8,7 @@
 + `create_exp.py` calls `create_stimuli.py` to create all exps conditions and images 
   + human questioners
     + `find_questions_needed.py`
-    + `check_question_audio.py`
+    + `check_question_audio_py2.py`
   + computer questioners
     + `create_audio_for_questions.py` uses gTTS 
     + `create_audio_for_questions_py2.py` uses eSpeak

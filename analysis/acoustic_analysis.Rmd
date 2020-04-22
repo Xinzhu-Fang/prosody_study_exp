@@ -49,7 +49,7 @@ process_data_with_yes = function(df){
     df_Verb = df[(df$location_condition=='Agent'| df$location_condition=='Control') & df$word_num=='4',]
     
     df_Patient = df[(df$location_condition=='Agent'| df$location_condition=='Control') & df$word_num=='5',]    
-  } else if(cur_exp %in% c("exp13")){
+  } else if(cur_exp %in% c("exp13", "exp0")){
     # chinese 
     # no abe is kissing lily 
     # 1  2  3   4       5   
@@ -146,7 +146,7 @@ run_regression = function(location,observation){
 # locaiton is an attribute of the word with levels Agent, patient, verb
 # condition is an attribute of the trial with levels contrast and control. 
 
-cur_exp = "exp13"
+cur_exp = "exp0"
 features = c("duration", "meanIntensity", "meanpit")
 # info = c('participant','verb','condition', 'word', 'word_num')
 info = c('participant','item_id','location_condition', 'word', 'word_num', 'present_num')

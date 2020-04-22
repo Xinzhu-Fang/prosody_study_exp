@@ -29,7 +29,7 @@ import pandas as pd
 import os
 import speech_recognition as sr
 
-cur_exp = 'exp13'
+cur_exp = 'exp0'
 
 
 if bStage == 1:
@@ -68,7 +68,8 @@ if bStage == 1:
                 # for testing purposes, we're just using the default API key
                 # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
                 # instead of `r.recognize_google(audio)`
-                script = r.recognize_google(audio)
+#                script = r.recognize_google(audio)
+                script = 'blah'
                 auto_transcript = auto_transcript + [script]
     
                 if script != tAll_trials.loc[tAll_trials.trial_id == cur_trial, 'answer_script'].any():

@@ -1,12 +1,15 @@
 # This file contains two stages and a tuorial mode
-# Piloting:
+# Piloting:  make head argument small like 10
 #   stage 1 tutorial: tranfer data from server to local, prepare a few data to process
 #   stage 2: process
 #   stage 1 non-tutorial: prepare all data to process
 #   stage 2: process
-# Running:
+# Running on mturk with worker id:
 #   stage 1 tutorial: tranfer data from server to local
 #   stage 1 non-tutorial: prepare all data to process
+#   stage 2: process
+# Running with debug worker id: make head argument big like 100
+#   stage 1 tutorial: tranfer data from server to local
 #   stage 2: process
 # Before stage 2 you need to run the check_answer.py file for further preparation
 
@@ -14,7 +17,7 @@ bTutorial_mode=1
 # bTutorial_mode=0 #manual
 bStage=1
 bStage=2 # manual
-current_exp=exp13
+current_exp=exp0
 
 function make_dir(){
   if [ -d $@ ];

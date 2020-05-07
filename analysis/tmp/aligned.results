@@ -11,4 +11,4 @@ Created lattice with 15 nodes / 14 arcs from label file
  WARNING [-8232]  ExpandWordNet: Pronunciation 1 of sp is 'tee' word in HVite
  WARNING [-8232]  ExpandWordNet: Pronunciation 1 of sp is 'tee' word in HVite
  WARNING [-8232]  ExpandWordNet: Pronunciation 1 of sp is 'tee' word in HVite
-sp 对 sp 刘 sp 芳 sp 拉 sp 了 sp 刘 sp 敏 sp  ==  [179 frames] 15.4741 [Ac=2769.9 LM=0.0] (Act=41.1)
+sp 对 sp 刘 sp 芳 sp 拉 sp 了 sp 刘 sp 敏 sp  ==  [356 frames] 20.6122 [Ac=7337.9 LM=0.0] (Act=46.0)

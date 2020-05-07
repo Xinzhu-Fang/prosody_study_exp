@@ -1,3 +1,6 @@
+# the 16khz was taken in and outputed as it is 
+
+
 import os
 import audioop
 import wave

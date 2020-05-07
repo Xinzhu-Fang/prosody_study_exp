@@ -92,7 +92,7 @@ then
   then
     echo for tutorial, move the first 10 files in _all dir to _partial dir, and work from the _partial dir
     make_dir $current_data_dir/subject_responses_partial
-    for file in $(ls $current_data_dir/subject_responses_all | head -100)
+    for file in $(ls $current_data_dir/subject_responses_all | head -10000)
     do
       cp  $current_data_dir/subject_responses_all/$file $current_data_dir/subject_responses_partial/
     done

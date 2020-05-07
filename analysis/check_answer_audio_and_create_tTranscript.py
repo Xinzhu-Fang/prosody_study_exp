@@ -21,6 +21,12 @@ reject_row_index = [
 
 ] #manual copy to reject index file, these will be replaced
 reject_worker_id = [
+'debugx6WiC',      
+'debugEDvBB',      
+'debugamA2l',     
+'debugZM9ce',      
+'debugXYbKK',
+
 
         ] #manual
 bStrigent = 0

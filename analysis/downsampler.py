@@ -1,4 +1,4 @@
-# the 16khz was taken in and outputed as it is 
+# sample, don't average, the 16khz was taken in and outputed as 4kz.
 
 
 import os
@@ -6,8 +6,11 @@ import audioop
 import wave
 import sys
 import pandas as pd
-def downsampleWav(src, dst, inrate=44100, outrate=16000, inchannels=2, outchannels=1):
+def downsampleWav(src, dst, outrate=16000, inchannels=2, outchannels=1):
+# def downsampleWav(src, dst, inrate=44100, outrate=16000, inchannels=2, outchannels=1):
 # def downsampleWav(src, dst, inrate=44100, outrate=11025, inchannels=2, outchannels=1):
+
+
     if not os.path.exists(src):
         print('Source not found!')
         return False
@@ -21,6 +24,7 @@ def downsampleWav(src, dst, inrate=44100, outrate=16000, inchannels=2, outchanne
 
     n_frames = s_read.getnframes()
     data = s_read.readframes(n_frames)
+    inrate = s_read.getframerate()
 
     try:
         converted = audioop.ratecv(data, 2, inchannels, inrate, outrate, None)

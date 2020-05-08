@@ -26,6 +26,7 @@ reject_worker_id = [
 'debugamA2l',     
 'debugZM9ce',      
 'debugXYbKK',
+'debugmUopq',
 
 
         ] #manual

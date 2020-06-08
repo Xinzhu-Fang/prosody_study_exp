@@ -1,3 +1,7 @@
+# not used
+# keep every 4th sample, don't average, if you feed 16khz, output would be 4kz.
+# https://stackoverflow.com/a/30660779
+
 import os
 import audioop
 import wave

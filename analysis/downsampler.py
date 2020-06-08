@@ -1,5 +1,5 @@
-# sample, don't average, the 16khz was taken in and outputed as 4kz.
-
+# used
+# the downsampleWav function is modified from the file of the same name as the function, what i changed is that no matter what hz the input is, the output will be 16khz
 
 import os
 import audioop

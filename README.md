@@ -15,14 +15,15 @@
 + `copy_stimuli_to_psiturk.sh`
   + specify `exp_id`
 + in psiturk, specify `exp_ind`, in `task.js`, switch `bTestMode` as needed to test locally
+  + language versions have to be manully specified for default, ad, and consent.
 + create hit, should copy `hit_id` to `non-psiturk/process_hit.sh` to save time for analysis. 
 
 ## analysis (python2 by default)
 see `analysis/README.md`
 
 ## psiturk 
-on mturk, the first page shown is ad, 
-if go to heroku directly, the first page shown is default, then ad
+* on mturk, the first page shown is ad ASSIGNMENT_ID_NOT_AVAILABLE part, when they accept the hit, it goes to ad else part, then consent.
+* if go to heroku directly, the first page shown is default, then ad else part.
 
 ## Caution
 + presentationnum decides the order of presentation, the index in the recording name is not the presentationnum but the trial_id. The trials were shuffled. 

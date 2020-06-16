@@ -20,6 +20,9 @@
 ## analysis (python2 by default)
 see `analysis/README.md`
 
+## psiturk 
+on mturk, the first page shown is ad, 
+if go to heroku directly, the first page shown is default, then ad
 
 ## Caution
 + presentationnum decides the order of presentation, the index in the recording name is not the presentationnum but the trial_id. The trials were shuffled. 

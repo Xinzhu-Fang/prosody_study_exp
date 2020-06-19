@@ -49,7 +49,7 @@ def create_stimuli(bCreate_stimuli, iExp,
 "Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
 "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
                    ]}
-             
+
 #             F: "Annie", "Betty", "Bonnie", "Brandy", "Carlie", "Carrie", "Chloe",
 #"Cindy", "Franny", "Hailey", "Jenny", "Jilly", "Judy", "Kelly",
 #"Kerry", "Kimmy", "Kylie", "Lacey", "Laurie", "Lilly", "Mandy",
@@ -58,48 +58,51 @@ def create_stimuli(bCreate_stimuli, iExp,
 #             M: "Benny", "Danny", "Davey", "Freddy", "Gary", "Harvey", "Henry",
 #"Jerry", "Jimmy", "Joey", "Johnny", "Kenny", "Ollie", "Percy",
 #"Ronnie", "Sammy", "Teddy", "Timmy", "Tommy", "Wally"
-#    vanilla_names_ch = {'F':["小李", "小宋", "小郑", "小秦", "小任", "小孔", 
-#"小江", "小潘", "小赵", "小熊", "小廖", "小贾", "小谢", 
-#"小朱", "小卢", "小汪", "小萧", "小崔", "小胡", "小王", 
-#"小薛", "小沈", "小姚", "小邹", "小彭", "小陈", "小程", 
-#"小杨", "小曾", "小康", "小吕", "小余", "小魏", "小黄", 
-#"小刘", "小郭", "小夏", "小蔡", "小唐", "小吴", "小田", 
+#    vanilla_names_ch = {'F':["小李", "小宋", "小郑", "小秦", "小任", "小孔",
+#"小江", "小潘", "小赵", "小熊", "小廖", "小贾", "小谢",
+#"小朱", "小卢", "小汪", "小萧", "小崔", "小胡", "小王",
+#"小薛", "小沈", "小姚", "小邹", "小彭", "小陈", "小程",
+#"小杨", "小曾", "小康", "小吕", "小余", "小魏", "小黄",
+#"小刘", "小郭", "小夏", "小蔡", "小唐", "小吴", "小田",
 #"小梁", "小白", "小张", "小姜"],
-#                                 'M':["小方", "小叶", "小曹", 
-#"小蒋", "小谭", "小范", "小陆", "小徐", "小石", "小冯", 
-#"小邱", "小傅", "小丁", "小高", "小罗", "小钟", "小邓", 
-#"小杜", "小许", "小戴", "小马", "小郝", "小苏", "小毛", 
-#"小史", "小阎", "小孙", "小何", "小袁", "小金", "小韩", 
+#                                 'M':["小方", "小叶", "小曹",
+#"小蒋", "小谭", "小范", "小陆", "小徐", "小石", "小冯",
+#"小邱", "小傅", "小丁", "小高", "小罗", "小钟", "小邓",
+#"小杜", "小许", "小戴", "小马", "小郝", "小苏", "小毛",
+#"小史", "小阎", "小孙", "小何", "小袁", "小金", "小韩",
 #"小董", "小林", "小周", "小于"]}
-                                 
-#    vanilla_names_ch = {'F':["小李", "小宋", "小郑", "小秦", "小任", "小孔", 
-#"小江", "小潘", "小赵", "小熊", "小廖", "小贾", "小谢", 
+
+#    vanilla_names_ch = {'F':["小李", "小宋", "小郑", "小秦", "小任", "小孔",
+#"小江", "小潘", "小赵", "小熊", "小廖", "小贾", "小谢",
 #"小朱", "小卢", "小汪"],
 #                                 'M':["小方", "小叶", "小曹", t
-#"小蒋", "小谭", "小范", "小陆", "小徐", "小石", "小冯", 
+#"小蒋", "小谭", "小范", "小陆", "小徐", "小石", "小冯",
 #"小邱", "小傅", "小丁"]}
-               
-# epp 13 pilot, fail on 李妍, exchange it for 李娜, tested with audio_mandarin                   
-#    vanilla_names_ch = {'F':["王芳", "李娜", "张敏", "李静", "李梅", "张丽", 
-#"王静", "张静", "李敏", "王敏", "王丽", "李娟", "张艳", 
-#"李燕", "王娟", "李霞", "刘敏", "李丽", "刘芳", "张悦", 
+
+# epp 13 pilot, fail on 李妍, exchange it for 李娜, tested with audio_mandarin
+#    vanilla_names_ch = {'F':["王芳", "李娜", "张敏", "李静", "李梅", "张丽",
+#"王静", "张静", "李敏", "王敏", "王丽", "李娟", "张艳",
+#"李燕", "王娟", "李霞", "刘敏", "李丽", "刘芳", "张悦",
 #"李妍"],
-#                        'M':["张伟", "王伟", "李伟", "刘伟", "李强", "张磊", 
-#"王磊", "李军", "刘洋", "王勇", "张勇", "王艳", "李杰", 
-#"王强", "王军", "张杰", "张涛", "王涛", "李明", "王超", 
-#"李勇", "刘杰", "张军", "张强", "王平", "王刚", "王杰"]}                               
-    vanilla_names_ch = {'F':["王芳", "李妍", "张敏", "李静", "李梅", "张丽", 
-"王静", "张静", "李敏", "王敏", "王丽", "李娟", "张艳", 
-"李燕", "王娟", "李霞", "刘敏", "李丽", "刘芳", "张悦", 
+#                        'M':["张伟", "王伟", "李伟", "刘伟", "李强", "张磊",
+#"王磊", "李军", "刘洋", "王勇", "张勇", "王艳", "李杰",
+#"王强", "王军", "张杰", "张涛", "王涛", "李明", "王超",
+#"李勇", "刘杰", "张军", "张强", "王平", "王刚", "王杰"]}
+    vanilla_names_ch = {'F':["王芳", "李妍", "张敏", "李静", "李梅", "张丽",
+"王静", "张静", "李敏", "王敏", "王丽", "李娟", "张艳",
+"李燕", "王娟", "李霞", "刘敏", "李丽", "刘芳", "张悦",
 "李娜"],
-         
-                        'M':["张伟", "王伟", "李伟", "刘伟", "李强", "张磊", 
-"王磊", "李军", "刘洋", "王勇", "张勇", "王艳", "李杰", 
-"王强", "王军", "张杰", "张涛", "王涛", "李明", "王超", 
-"李勇", "刘杰", "张军", "张强", "王平", "王刚", "王杰"]}     
-                    
-                    
-                    
+
+                        'M':["张伟", "王伟", "李伟", "刘伟", "李强", "张磊",
+"王磊", "李军", "刘洋", "王勇", "张勇", "王艳", "李杰",
+"王强", "王军", "张杰", "张涛", "王涛", "李明", "王超",
+"李勇", "刘杰", "张军", "张强", "王平", "王刚", "王杰"]}
+
+
+    # vanilla_names_sp = {'F': ["Laura", "Coco", "Juncal", "Alba", "Ana", "Belén", "Emma", "Ester", "Eva", "Inés", "Ingrid", "Judit", "Juana", "Julia", "Maite", "Nadia", "Nuria", "Olga", "Paula", "Pilar", "Raquel", "Sandra", "Salma", "Silvia", "Tania"], 'M': ["Adrián", "Andrés", "Borja", "Carlos", "Diego", "Edgar", "Eric", "Fabio", "Gabriel", "George", "Hugo", "Iván", "Joaquín", "José", "Julián", "Lucas", "Mario", "Miguel", "Omar", "Pablo", "Pedro", "Raúl", "Sergio", "Simón", "Víctor"]}
+
+    vanilla_names_sp = {'F': ["Laura", "Coco", "Juncal", "Alba", "Ana", "Belen", "Emma", "Ester", "Eva", "Ines", "Ingrid", "Judit", "Juana", "Julia", "Maite", "Nadia", "Nuria", "Olga", "Paula", "Pilar", "Raquel", "Sandra", "Salma", "Silvia", "Tania"], 'M': ["Adrián", "Andres", "Borja", "Carlos", "Diego", "Edgar", "Eric", "Fabio", "Gabriel", "George", "Hugo", "Ivan", "Joaquin", "Jose", "Julian", "Lucas", "Mario", "Miguel", "Omar", "Pablo", "Pedro", "Raul", "Sergio", "Simon", "Víctor"]}
+
     if exp_lan == 'en':
         vanilla_names = copy.deepcopy(vanilla_names_en)
 #        verb_cat = copy.deepcopy(verb_cat_en)
@@ -124,7 +127,7 @@ def create_stimuli(bCreate_stimuli, iExp,
 #        "Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
 #        "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
 #                           ]}
-                     
+
 #            vanilla_names = {'F': [ "Cindy","Cindy","Cindy","Cindy","Cindy"],
 #                     'M': ["Freddy", "Ronnie", "Davey", "Jimmy", "Kenny", "Percy", "Sammy",
 #        "Harvey", "Gary", "Ollie", "Danny", "Henry", "Teddy", "Wally",
@@ -151,53 +154,69 @@ def create_stimuli(bCreate_stimuli, iExp,
             'F_M_verbs' : ["Kick", "Kiss", "Poke", "Push"],
             'F_F_verbs' : ["Poke", "Pull", "Push"],
             'M_M_verbs' : ["Poke", "Pull"]}
+    elif exp_lan == 'sp':
+        vanilla_names = copy.deepcopy(vanilla_names_sp)
+        verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"])
+        verbs = ["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]
+        verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
+            'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
+            'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
+            'M_M_verbs' : ["Lift", "Poke", "Pull"]}
 
-        
-     
-# names used in items will be removed to avoid repition in items        
+
+# names used in items will be removed to avoid repition in items
     names = copy.deepcopy(vanilla_names)
-     
 
 
-    
-    
+
+
+
 #    verbs = np.tile(np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]), (4, 1))[iExp]
-    
-    
+
+
+
+
     verbs_ch = {'Kick':'踢了',
                'Kiss':'亲了',
                'Poke':'戳了',
                'Push':'推了',
                'Pull':'拉了'}
-    
+
+    verbs_sp = {'Kick':'pateo a',
+              'Kiss':'beso a',
+              'Poke':'toco a',
+              'Push':'empujo a',
+              'Pull':'tiro de',
+              'Lift':'levanto a'}
+
     if exp_name == 'exp9':
         agent_sex_mapped_to_verb = {'Kiss':'F',
                                     'Kick':'F',
                                     'Poke':'F',
                                     'Lift':'F',
                                     'Push':'F'}
-        
+
         patient_sex_mapped_to_verb = {'Kiss':'M',
                                       'Kick':'M',
                                       'Poke':'M',
                                       'Lift':'M',
                                       'Push':'M'}
     else:
-    
+
         agent_sex_mapped_to_verb = {'Kiss':'F',
                                     'Kick':'F',
                                     'Poke':'F',
                                     'Lift':'M',
                                     'Push':'M',
                                     'Pull':'F'}
-        
+
         patient_sex_mapped_to_verb = {'Kiss':'M',
                                       'Kick':'M',
                                       'Poke':'F',
                                       'Lift':'M',
                                       'Push':'F',
                                       'Pull':'F'}
-    
+
 #    agent_sex_mapped_to_verb = ['F', 'F', 'F', 'M', 'M', 'F']
 #    patient_sex_mapped_to_verb = ['M', 'M', 'F', 'M', 'F', 'F']
     num_verbs = len(verbs)
@@ -347,8 +366,8 @@ def create_stimuli(bCreate_stimuli, iExp,
         correct_verb = iC[(iC.index(iV) + np.random.randint(1, iNum_verbs)) % iNum_verbs]
 #        print(correct_verb)
         filler_correct_verb.append(correct_verb)
-    
-    
+
+
 #    filler_correct_verb = [verbs[(verbs.index(i) + np.random.randint(1, num_verbs)) % num_verbs] for i in
 #                           filler_wrong_verb]
     # to check should be all false
@@ -385,9 +404,9 @@ def create_stimuli(bCreate_stimuli, iExp,
         zip(filler_id, vFiller_location_condition, filler_wrong_agent, filler_wrong_agent),
         columns=['filler_id', 'vFiller_location_condition', 'filler_agent_in_question', 'filler_agent_in_picture'])
     for iFiller in filler_id:
-        if exp_name == 'exp9':                
+        if exp_name == 'exp9':
             tFiller_agent.loc[tFiller_agent.vFiller_location_condition == 'Agent', 'filler_agent_in_question'] = name_wrong
-  
+
         tFiller_agent.loc[np.logical_and(tFiller_agent.vFiller_location_condition == 'Agent',
                                          tFiller_agent.filler_id == iFiller), 'filler_agent_in_picture'] = \
             filler_correct_agent[filler_id.index(iFiller)]
@@ -395,7 +414,7 @@ def create_stimuli(bCreate_stimuli, iExp,
 
     ## start of filler patient
     np.random.seed(my_seed[3])
-    
+
 #    filler_wrong_patient = [names[i][np.random.randint(len(names[i]))] for i in filler_wrong_patient_sex]
     filler_wrong_patient = []
     for i in range(len(filler_wrong_agent)):
@@ -409,8 +428,8 @@ def create_stimuli(bCreate_stimuli, iExp,
         cur_correct_name_index = (cur_wrong_agent_index + np.random.randint(1, len(cur_name_pool))) % len(cur_name_pool)
         cur_correct_name = cur_name_pool[cur_correct_name_index]
         filler_wrong_patient.append(cur_correct_name)
-        
-        
+
+
     filler_correct_patient = []
     for i in range(len(filler_wrong_patient)):
         cur_sex = filler_wrong_patient_sex[i]
@@ -505,15 +524,15 @@ def create_stimuli(bCreate_stimuli, iExp,
              tAll_trials['question_file'] = ["Is" + a + v + "ing" + p + '.wav' for a, v, p in
                                         zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
                                             tAll_trials.patient_in_question)]
-        else: 
+        else:
             tAll_trials['question_file'] = ["Is " + a + ' ' + v.lower() + "ing" + ' '+ p + '?' for a, v, p in
                                         zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
                                             tAll_trials.patient_in_question)]
-    
+
         tAll_trials['answer_script'] = [a + " is " + v.lower() + "ing " + p for a, v, p in
                                         zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
                                             tAll_trials.patient_in_picture)]
-     
+
     #
     #    tAll_trials['question_script'] = ['Is ' + a + ' ' + v.lower() + 'ing ' + p + '?' for a, v, p in
                                      # zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
@@ -522,10 +541,10 @@ def create_stimuli(bCreate_stimuli, iExp,
         tAll_trials['question_script'] = ['is ' + a + ' ' + v.lower() + 'ing ' + p for a, v, p in
                                         zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
                                             tAll_trials.patient_in_question)]
-    
+
         tAll_trials = tAll_trials.replace({'Pokeing': 'Poking'}, regex=True)
-        tAll_trials = tAll_trials.replace({'pokeing': 'poking'}, regex=True)                                       
-                                        
+        tAll_trials = tAll_trials.replace({'pokeing': 'poking'}, regex=True)
+
     elif exp_lan == 'ch':
         tAll_trials['picture_file'] = [a + verbs_ch[v] + p + '.png' for a, v, p in
                                        zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
@@ -533,19 +552,41 @@ def create_stimuli(bCreate_stimuli, iExp,
         if exp_questioner == 'text':
              tAll_trials['question_file'] = [a + verbs_ch[v] + p + '吗' for a, v, p in
                                         zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                            tAll_trials.patient_in_question)]       
+                                            tAll_trials.patient_in_question)]
         else:
             tAll_trials['question_file'] = [a + verbs_ch[v] + p + '吗.wav' for a, v, p in
                                             zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
                                                 tAll_trials.patient_in_question)]
-    
+
         tAll_trials['answer_script'] = [a + verbs_ch[v] + p for a, v, p in
                                         zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
-                                            tAll_trials.patient_in_picture)]        
+                                            tAll_trials.patient_in_picture)]
 
         tAll_trials['question_script'] = [a + verbs_ch[v] + p + '吗' for a, v, p in
                                         zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
-                                            tAll_trials.patient_in_question)]                                        
+                                            tAll_trials.patient_in_question)]
+
+    elif exp_lan == 'sp':
+        tAll_trials['picture_file'] = [a + verbs_sp[v] + p + '.png' for a, v, p in
+                                       zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+                                           tAll_trials.patient_in_picture)]
+        tAll_trials['picture_file'] = [a.replace(" ", "") for a in tAll_trials['picture_file']]
+        if exp_questioner == 'text':
+             tAll_trials['question_file'] = [a + verbs_sp[v] + p for a, v, p in
+                                        zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                            tAll_trials.patient_in_question)]
+        else:
+            tAll_trials['question_file'] = [a + verbs_sp[v] + p + '.wav' for a, v, p in
+                                            zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                                tAll_trials.patient_in_question)]
+            tAll_trials['question_file'] = [a.replace(" ", "") for a in tAll_trials['question_file']]
+        tAll_trials['answer_script'] = [a + ' ' + verbs_sp[v] + ' ' + p for a, v, p in
+                                        zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
+                                            tAll_trials.patient_in_picture)]
+
+        tAll_trials['question_script'] = [a + ' ' + verbs_sp[v] + ' ' + p for a, v, p in
+                                        zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
+                                            tAll_trials.patient_in_question)]
 
 
 
@@ -555,7 +596,7 @@ def create_stimuli(bCreate_stimuli, iExp,
     trial_order = range(tAll_trials.shape[0])
     tAll_trials.index = trial_order
 #    https://stackoverflow.com/questions/20484195/typeerror-range-object-does-not-support-item-assignment
-#    http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script/    
+#    http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script/
     if (sys.version_info >= (3, 0)):
         trial_order = list(trial_order)
 #    tAll_trials = tAll_trials.sort_index()
@@ -574,6 +615,11 @@ def create_stimuli(bCreate_stimuli, iExp,
                 tAll_trials.loc[iTrial, 'answer_script'] = '不' + tAll_trials.loc[iTrial, 'answer_script']
             space = ' '
             tAll_trials.loc[iTrial, 'answer_script'] = space.join(tAll_trials.loc[iTrial, 'answer_script'])
+        elif exp_lan == 'sp':
+            if tAll_trials.loc[iTrial, 'location_condition'] == 'Control':
+                tAll_trials.loc[iTrial, 'answer_script'] = 'si ' + tAll_trials.loc[iTrial, 'answer_script']
+            else:
+                tAll_trials.loc[iTrial, 'answer_script'] = 'no ' + tAll_trials.loc[iTrial, 'answer_script']
 
     tAll_trials.insert(loc=0, column='trial_id', value=exp_trial_id)
     #    tAll_trials['trial_id'] = exp_trial_id
@@ -612,13 +658,14 @@ def create_stimuli(bCreate_stimuli, iExp,
             for iS, iNames in vanilla_names.items():
                 if iRow.patient_in_picture in iNames:
                     patient_sex = iS
-                    break          
+                    break
 #            print(agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png')
-            if exp_lan == 'en':        
-                cur_vanilla = glob.glob(os.path.join(vanilla_dir, agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png'))[0]
-            elif exp_lan == 'ch':
-                cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + verbs_ch[iRow.verb_in_picture] + '*.png'))[0]
-
+# using below for spanshi, have no idea how the chinese ones came out right
+            # if exp_lan == 'en':
+            #     cur_vanilla = glob.glob(os.path.join(vanilla_dir, agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png'))[0]
+            # elif exp_lan == 'ch':
+            #     cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + verbs_ch[iRow.verb_in_picture] + '*.png'))[0]
+            cur_vanilla = glob.glob(os.path.join(vanilla_dir, agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png'))[0]
             print(iTrial)
             # print(cur_vanilla)
             cur_img = Image.open(cur_vanilla)

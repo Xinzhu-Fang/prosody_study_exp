@@ -2,7 +2,7 @@
 # Three navtive speaekers were asked to classifiy sex for these namees into Female (F), Male (M), and Ambiguous (A). For each name, if at least two people both chose F of M and the third one chose A, the name is put in the majority sex category, otherwise the name is discarded.
 
 # In order to have the filler questions be the same indepdent of the correction condition, the "wrong" list, or the question list, is the same acroos exps; the "correct" list was initilized to be different from the "wrong" on each trial and then adjusted to the same as "wrong" on control trials, in which the "wrong" is actaully correct.
-# This way of creating wrong instead of correct first -- how items were created -- can bd problematic because I don't have full sex combinations for each action and the sexes for question verbs may not match those of picture verbs. The solution is to choose verbs from the same sex category. 
+# This way of creating wrong instead of correct first -- how items were created -- can bd problematic because I don't have full sex combinations for each action and the sexes for question verbs may not match those of picture verbs. The solution is to choose verbs from the same sex category.
 
 
 #!/usr/bin/env python2
@@ -13,9 +13,10 @@ import create_stimuli
 
 
 
-exps_names = ['exp0', 'exp1', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6', 'exp7', 'exp8', 'exp9', 'exp10', 
+exps_names = ['exp0', 'exp1', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6', 'exp7', 'exp8', 'exp9', 'exp10',
               'exp11', 'exp12', 'exp13', 'exp14']
 num_exp = len(exps_names)
+bCreate_stimuli = 0 # manual
 bCreate_stimuli = 1
 
 #locations = ['Agent', 'Verb', 'Patient']
@@ -29,15 +30,15 @@ for iExp in range(num_exp):
     exp_name = exps_names[iExp]
     exp_lan = ['ch', 'en', 'en', # 0 1 2
                'en', 'en', 'en', # 3 4 5
-               'en', 'en', 'en', # 6 7 8 
+               'en', 'en', 'en', # 6 7 8
                'en', 'en', 'en',
-               'en', 'ch', 'ch'][iExp] # 9 10 11
+               'en', 'ch', 'sp'][iExp] # 9 10 11
     exp_questioner = ['cindy','ted','ted', # 0 1 2
                       'ted','ted','ted', # 3 4 5
-                      'ted','ted','ted', # 6 7 8 
+                      'ted','ted','ted', # 6 7 8
                       'ted','computer', 'text', # 9 10 11
                       'computer', 'text', 'computer', # 12 13 14
-                      
+
                       ][iExp]
 #    exp_num_of_items = np.append(np.repeat(4, 9), 1)[iExp]
     exp_num_of_items = np.repeat(4, num_exp)[iExp]
@@ -63,9 +64,9 @@ for iExp in range(num_exp):
     # * exp_num_of_items / 4 was made to accomodate exp9
 #    exp_num_of_control_for_each_item = 2 * 4 / exp_num_of_items
 #    exp_num_of_correction_for_each_location_for_each_item = int(exp_num_of_control_for_each_item * 3 /num_locations) * 4 / exp_num_of_items
-    exp_num_of_control_for_each_item = 2 
-    exp_num_of_correction_for_each_location_for_each_item = int(exp_num_of_control_for_each_item * 3 /num_locations) 
-   
+    exp_num_of_control_for_each_item = 2
+    exp_num_of_correction_for_each_location_for_each_item = int(exp_num_of_control_for_each_item * 3 /num_locations)
+
     # exp_num_of_control_for_each_item = np.repeat(2, 3)[iExp]
 
     item_num_trial_yes = exp_num_of_items * exp_num_of_control_for_each_item
@@ -80,21 +81,21 @@ for iExp in range(num_exp):
     filler_num_trial_no = exp_num_trial_no - item_num_trial_no
     filler_num_trial_total = filler_num_trial_yes + filler_num_trial_no
 
-# when you change this, remember to change in psiturk accordingly!!!! 
-# no need to change pisturk if you keep appending new parameters    
+# when you change this, remember to change in psiturk accordingly!!!!
+# no need to change pisturk if you keep appending new parameters
     tCur_exp = pd.DataFrame([[exp_name, exp_lan, exp_num_trials, locations, num_locations, exp_num_of_items,
                               exp_yes_to_no_ratio, exp_num_trial_yes,
                               exp_num_trial_no, exp_num_of_control_for_each_item,
                               exp_num_of_correction_for_each_location_for_each_item,
                               item_num_trial_total, item_num_trial_yes, item_num_trial_no,
                               item_num_trial_for_each_item, filler_num_trial_total,
-                              filler_num_trial_yes, filler_num_trial_no, my_seed, exp_questioner]], 
+                              filler_num_trial_yes, filler_num_trial_no, my_seed, exp_questioner]],
     columns = ["exp_name", "exp_lan", "exp_num_trials", "locations", "num_location", "exp_num_of_items", # 0 1 2 3 4 5
                "exp_yes_to_no_ratio", "exp_num_trial_yes", # 6 7
-               "exp_num_trial_no", "exp_num_of_control_for_each_item", # 8 9 
-               "exp_num_of_correction_for_each_location_for_each_item", # 10 
+               "exp_num_trial_no", "exp_num_of_control_for_each_item", # 8 9
+               "exp_num_of_correction_for_each_location_for_each_item", # 10
                "item_num_trial_total", "item_num_trial_yes", "item_num_trial_no", #11 12 13
-               "item_num_trial_for_each_item", "filler_num_trial_total", # 14 15 
+               "item_num_trial_for_each_item", "filler_num_trial_total", # 14 15
                "filler_num_trial_yes", "filler_num_trial_no", "my_seed", "exp_questioner"]) # 16 17 18 19
 
 
@@ -104,7 +105,7 @@ for iExp in range(num_exp):
         tAll_exps = tAll_exps.append(tCur_exp)
 
 
-    if iExp == 0:
+    if iExp == 14:
         create_stimuli.create_stimuli(bCreate_stimuli, iExp,
                                       exp_name, exp_lan, exp_num_trials, locations, num_locations, exp_num_of_items,
                                       exp_yes_to_no_ratio, exp_num_trial_yes,

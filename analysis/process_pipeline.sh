@@ -43,7 +43,7 @@ my_dropbox_location=/Users/xzfang/Dropbox\ \(MIT\)/Apps/mturk_recording/api-test
 # stimuli_dir=/Users/xzfang/Github/stressTurk_tutorial/
 # current_exp=nonrhyming_84total_60No_24Yes_20181210
 
-stimuli_dir=/Users/xzfang/Github/prosody_study_exp/
+# stimuli_dir=/Users/xzfang/Github/prosody_study_exp/
 
 # current_exp=Ted
 # current_exp=Cindy
@@ -55,14 +55,14 @@ stimuli_dir=/Users/xzfang/Github/prosody_study_exp/
 # stimuli_dir=/Users/xzfang/Github/prosody_study_exp/forced_alignment_sensitivity_test
 
 # tedlab_acct=xzfang
-scripts_acct=xzfang
+# scripts_acct=xzfang
 ##
 
 
 
 
 current_data_dir=$data_dir$current_exp
-current_stimuli_dir=$stimuli_dir$current_exp
+# current_stimuli_dir=$stimuli_dir$current_exp
 
 if [ $bStage == 1 ];
 then

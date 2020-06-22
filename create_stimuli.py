@@ -584,7 +584,7 @@ def create_stimuli(bCreate_stimuli, iExp,
                                         zip(tAll_trials.agent_in_picture, tAll_trials.verb_in_picture,
                                             tAll_trials.patient_in_picture)]
 
-        tAll_trials['question_script'] = [a + ' ' + verbs_sp[v] + ' ' + p for a, v, p in
+        tAll_trials['question_script'] = ['¿' + a + ' ' + verbs_sp[v] + ' ' + p + '?' for a, v, p in
                                         zip(tAll_trials.agent_in_question, tAll_trials.verb_in_question,
                                             tAll_trials.patient_in_question)]
 
@@ -660,7 +660,7 @@ def create_stimuli(bCreate_stimuli, iExp,
                     patient_sex = iS
                     break
 #            print(agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png')
-# using below for spanshi, have no idea how the chinese ones came out right
+# using below for spanshi, have no idea how the chinese ones came out right todo
             # if exp_lan == 'en':
             #     cur_vanilla = glob.glob(os.path.join(vanilla_dir, agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png'))[0]
             # elif exp_lan == 'ch':

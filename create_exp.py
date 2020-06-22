@@ -16,8 +16,8 @@ import create_stimuli
 exps_names = ['exp0', 'exp1', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6', 'exp7', 'exp8', 'exp9', 'exp10',
               'exp11', 'exp12', 'exp13', 'exp14']
 num_exp = len(exps_names)
-bCreate_stimuli = 0 # manual
-bCreate_stimuli = 1
+bCreate_stimuli = 0
+# bCreate_stimuli = 1 # manual
 
 #locations = ['Agent', 'Verb', 'Patient']
 #num_locations = len(locations)
@@ -31,13 +31,14 @@ for iExp in range(num_exp):
     exp_lan = ['ch', 'en', 'en', # 0 1 2
                'en', 'en', 'en', # 3 4 5
                'en', 'en', 'en', # 6 7 8
-               'en', 'en', 'en',
-               'en', 'ch', 'sp'][iExp] # 9 10 11
+               'en', 'en', 'en', # 9 10 11
+               'en', 'ch', 'sp' # 12 13 14
+               ][iExp]
     exp_questioner = ['cindy','ted','ted', # 0 1 2
                       'ted','ted','ted', # 3 4 5
                       'ted','ted','ted', # 6 7 8
-                      'ted','computer', 'text', # 9 10 11
-                      'computer', 'text', 'computer', # 12 13 14
+                      'ted','computer-dry', 'text', # 9 10 11
+                      'computer-dry', 'text', 'computer-human', # 12 13 14
 
                       ][iExp]
 #    exp_num_of_items = np.append(np.repeat(4, 9), 1)[iExp]

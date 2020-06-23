@@ -17,7 +17,7 @@ exps_names = ['exp0', 'exp1', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6', 'exp7', 'e
               'exp11', 'exp12', 'exp13', 'exp14']
 num_exp = len(exps_names)
 bCreate_stimuli = 0
-# bCreate_stimuli = 1 # manual
+bCreate_stimuli = 1 # manual
 
 #locations = ['Agent', 'Verb', 'Patient']
 #num_locations = len(locations)

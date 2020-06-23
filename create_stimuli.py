@@ -134,34 +134,34 @@ def create_stimuli(bCreate_stimuli, iExp,
 #        "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
 #                           ]}
             verbs = ["Kiss", "Kick", "Poke", "Lift", "Push"]
-            verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
-                'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
-                'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
-                'M_M_verbs' : ["Lift", "Poke", "Pull"]}
+            # verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
+            #     'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
+            #     'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
+            #     'M_M_verbs' : ["Lift", "Poke", "Pull"]}
         else:
-            verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"])
-            verbs = ["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]
-            verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
-                'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
-                'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
-                'M_M_verbs' : ["Lift", "Poke", "Pull"]}
+            # verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"])
+            verbs = ["Kiss", "Kick", "Push", "Pull","Poke", "Lift"]
+            # verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
+            #     'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
+            #     'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
+            #     'M_M_verbs' : ["Lift", "Poke", "Pull"]}
 
     elif exp_lan == 'ch':
         vanilla_names = copy.deepcopy(vanilla_names_ch)
-        verbs = np.array(["Kiss", "Kick", "Poke", "Push", "Pull"])
-        verbs = ["Kiss", "Kick", "Poke", "Push", "Pull"]
-        verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Pull", "Push", "Poke"],
-            'F_M_verbs' : ["Kick", "Kiss", "Poke", "Push"],
-            'F_F_verbs' : ["Poke", "Pull", "Push"],
-            'M_M_verbs' : ["Poke", "Pull"]}
+        # verbs = np.array(["Kiss", "Kick", "Poke", "Push", "Pull"])
+        verbs = ["Kiss", "Kick", "Push", "Pull", "Poke"]
+        # verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Pull", "Push", "Poke"],
+        #     'F_M_verbs' : ["Kick", "Kiss", "Poke", "Push"],
+        #     'F_F_verbs' : ["Poke", "Pull", "Push"],
+        #     'M_M_verbs' : ["Poke", "Pull"]}
     elif exp_lan == 'sp':
         vanilla_names = copy.deepcopy(vanilla_names_sp)
-        verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"])
-        verbs = ["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"]
-        verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
-            'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
-            'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
-            'M_M_verbs' : ["Lift", "Poke", "Pull"]}
+        # verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Pull"])
+        verbs = ["Kiss", "Kick", "Poke", "Lift", "Pull"]
+    verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
+        'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
+        'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
+        'M_M_verbs' : ["Lift", "Poke", "Pull"]}
 
 
 # names used in items will be removed to avoid repition in items
@@ -182,12 +182,12 @@ def create_stimuli(bCreate_stimuli, iExp,
                'Push':'推了',
                'Pull':'拉了'}
 
-    verbs_sp = {'Kick':'pateo a',
+    verbs_sp = {'Kick':'pateo a', #pego a
               'Kiss':'beso a',
               'Poke':'toco a',
-              'Push':'empujo a',
-              'Pull':'tiro de',
-              'Lift':'levanto a'}
+              # 'Push':'empujo a',
+              'Pull':'halo a', # tiro de
+              'Lift':'alzo a'}
 
     if exp_name == 'exp9':
         agent_sex_mapped_to_verb = {'Kiss':'F',
@@ -224,8 +224,9 @@ def create_stimuli(bCreate_stimuli, iExp,
         item_correct_verb = ["Kick", "Kiss", "Push", "Poke"]
 
     else:
-        item_correct_verb = np.array(["Kick", "Kiss", "Push", "Pull"])
-        item_correct_verb = ["Kick", "Kiss", "Push", "Pull"]
+        # item_correct_verb = np.array(["Kick", "Kiss", "Push", "Pull"])
+        # item_correct_verb = ["Kick", "Kiss", "Push", "Pull"]
+        item_correct_verb = verbs[0:exp_num_of_items]
 
     # item
     item_correct_agent_sex = [agent_sex_mapped_to_verb[i] for i in item_correct_verb]

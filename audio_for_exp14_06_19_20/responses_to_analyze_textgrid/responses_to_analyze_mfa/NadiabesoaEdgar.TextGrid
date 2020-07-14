@@ -2,7 +2,7 @@ File type = "ooTextFile"
 Object class = "TextGrid"
 
 xmin = 0.0
-xmax = 1.8
+xmax = 1.872
 tiers? <exists>
 size = 2
 item []:
@@ -10,7 +10,7 @@ item []:
 		class = "IntervalTier"
 		name = "words"
 		xmin = 0.0
-		xmax = 1.8
+		xmax = 1.872
 		intervals: size = 6
 			intervals [1]:
 				xmin = 0.0
@@ -18,29 +18,29 @@ item []:
 				text = ""
 			intervals [2]:
 				xmin = 0.030
-				xmax = 0.550
+				xmax = 0.560
 				text = "nadia"
 			intervals [3]:
-				xmin = 0.550
-				xmax = 0.920
+				xmin = 0.560
+				xmax = 1.010
 				text = "beso"
 			intervals [4]:
-				xmin = 0.920
-				xmax = 1.060
+				xmin = 1.010
+				xmax = 1.130
 				text = "a"
 			intervals [5]:
-				xmin = 1.060
-				xmax = 1.660
+				xmin = 1.130
+				xmax = 1.740
 				text = "edgar"
 			intervals [6]:
-				xmin = 1.660
-				xmax = 1.8
+				xmin = 1.740
+				xmax = 1.872
 				text = ""
 	item [2]:
 		class = "IntervalTier"
 		name = "phones"
 		xmin = 0.0
-		xmax = 1.8
+		xmax = 1.872
 		intervals: size = 18
 			intervals [1]:
 				xmin = 0.000
@@ -52,65 +52,65 @@ item []:
 				text = "n"
 			intervals [3]:
 				xmin = 0.150
-				xmax = 0.210
+				xmax = 0.220
 				text = "a"
 			intervals [4]:
-				xmin = 0.210
-				xmax = 0.350
+				xmin = 0.220
+				xmax = 0.320
 				text = "D"
 			intervals [5]:
-				xmin = 0.350
-				xmax = 0.480
+				xmin = 0.320
+				xmax = 0.440
 				text = "j"
 			intervals [6]:
-				xmin = 0.480
-				xmax = 0.550
+				xmin = 0.440
+				xmax = 0.560
 				text = "a"
 			intervals [7]:
-				xmin = 0.550
-				xmax = 0.630
+				xmin = 0.560
+				xmax = 0.650
 				text = "b"
 			intervals [8]:
-				xmin = 0.630
-				xmax = 0.710
+				xmin = 0.650
+				xmax = 0.800
 				text = "e"
 			intervals [9]:
-				xmin = 0.710
-				xmax = 0.810
+				xmin = 0.800
+				xmax = 0.930
 				text = "s"
 			intervals [10]:
-				xmin = 0.810
-				xmax = 0.920
+				xmin = 0.930
+				xmax = 1.010
 				text = "o"
 			intervals [11]:
-				xmin = 0.920
-				xmax = 1.060
+				xmin = 1.010
+				xmax = 1.130
 				text = "a"
 			intervals [12]:
-				xmin = 1.060
-				xmax = 1.120
+				xmin = 1.130
+				xmax = 1.160
 				text = "e"
 			intervals [13]:
-				xmin = 1.120
-				xmax = 1.240
+				xmin = 1.160
+				xmax = 1.190
 				text = "D"
 			intervals [14]:
-				xmin = 1.240
-				xmax = 1.300
+				xmin = 1.190
+				xmax = 1.400
 				text = "G"
 			intervals [15]:
-				xmin = 1.300
-				xmax = 1.490
+				xmin = 1.400
+				xmax = 1.580
 				text = "a"
 			intervals [16]:
-				xmin = 1.490
-				xmax = 1.660
+				xmin = 1.580
+				xmax = 1.740
 				text = "rf"
 			intervals [17]:
-				xmin = 1.660
-				xmax = 1.780
+				xmin = 1.740
+				xmax = 1.850
 				text = "sp"
 			intervals [18]:
-				xmin = 1.780
-				xmax = 1.8
+				xmin = 1.850
+				xmax = 1.872
 				text = ""

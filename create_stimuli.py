@@ -1,5 +1,8 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
+
+# i used all pictures i have, e.g., if there is kicking woman and woman kicking man, i provide both, for english, that's why i had verb_cat. when working on chinese, i got lazy so there is agent sex mapped to verb, didn't change verb_cat acorrdingly now that relationship is more restict, was not a problem because all the filler was yes. now correcting, lift mm to mf, to spanish only. overall more names for woman needed.
+
 def create_stimuli(bCreate_stimuli, iExp,
                                       exp_name, exp_lan,  exp_num_trials, locations, num_locations, exp_num_of_items,
                                       exp_yes_to_no_ratio, exp_num_trial_yes,
@@ -101,7 +104,7 @@ def create_stimuli(bCreate_stimuli, iExp,
 
     # vanilla_names_sp = {'F': ["Laura", "Coco", "Juncal", "Alba", "Ana", "Belén", "Emma", "Ester", "Eva", "Inés", "Ingrid", "Judit", "Juana", "Julia", "Maite", "Nadia", "Nuria", "Olga", "Paula", "Pilar", "Raquel", "Sandra", "Salma", "Silvia", "Tania"], 'M': ["Adrián", "Andrés", "Borja", "Carlos", "Diego", "Edgar", "Eric", "Fabio", "Gabriel", "George", "Hugo", "Iván", "Joaquín", "José", "Julián", "Lucas", "Mario", "Miguel", "Omar", "Pablo", "Pedro", "Raúl", "Sergio", "Simón", "Víctor"]}
 
-    vanilla_names_sp = {'F': ["Laura", "Coco", "Juncal", "Alba", "Ana", "Belen", "Emma", "Ester", "Eva", "Ines", "Ingrid", "Judit", "Juana", "Julia", "Maite", "Nadia", "Nuria", "Olga", "Paula", "Pilar", "Raquel", "Sandra", "Salma", "Silvia", "Tania"], 'M': ["Adrián", "Andres", "Borja", "Carlos", "Diego", "Edgar", "Eric", "Fabio", "Gabriel", "George", "Hugo", "Ivan", "Joaquin", "Jose", "Julian", "Lucas", "Mario", "Miguel", "Omar", "Pablo", "Pedro", "Raul", "Sergio", "Simon", "Víctor"]}
+    vanilla_names_sp = {'F': ["Laura", "Coco", "Juncal", "Alba", "Ana", "Belen", "Emma", "Ester", "Eva", "Ines", "Ingrid", "Judit", "Juana", "Julia", "Maite", "Nadia", "Nuria", "Olga", "Paula", "Pilar", "Raquel", "Sandra", "Salma", "Silvia", "Tania"], 'M': ["Adrian", "Andres", "Borja", "Carlos", "Diego", "Edgar", "Eric", "Fabio", "Gabriel", "George", "Hugo", "Ivan", "Joaquin", "Jose", "Julian", "Lucas", "Mario", "Miguel", "Omar", "Pablo", "Pedro", "Raul", "Sergio", "Simon", "Víctor"]}
 
     if exp_lan == 'en':
         vanilla_names = copy.deepcopy(vanilla_names_en)
@@ -134,35 +137,33 @@ def create_stimuli(bCreate_stimuli, iExp,
 #        "Johnny", "Jerry", "Timmy", "Benny", "Tommy", "Joey"
 #                           ]}
             verbs = ["Kiss", "Kick", "Poke", "Lift", "Push"]
-            # verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
-            #     'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
-            #     'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
-            #     'M_M_verbs' : ["Lift", "Poke", "Pull"]}
+            verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
+                'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
+                'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
+                'M_M_verbs' : ["Lift", "Poke", "Pull"]}
         else:
             # verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Push", "Pull"])
             verbs = ["Kiss", "Kick", "Push", "Pull","Poke", "Lift"]
-            # verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
-            #     'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
-            #     'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
-            #     'M_M_verbs' : ["Lift", "Poke", "Pull"]}
+            verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
+                'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
+                'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
+                'M_M_verbs' : ["Lift", "Poke", "Pull"]}
 
     elif exp_lan == 'ch':
         vanilla_names = copy.deepcopy(vanilla_names_ch)
         # verbs = np.array(["Kiss", "Kick", "Poke", "Push", "Pull"])
         verbs = ["Kiss", "Kick", "Push", "Pull", "Poke"]
-        # verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Pull", "Push", "Poke"],
-        #     'F_M_verbs' : ["Kick", "Kiss", "Poke", "Push"],
-        #     'F_F_verbs' : ["Poke", "Pull", "Push"],
-        #     'M_M_verbs' : ["Poke", "Pull"]}
+        verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Pull", "Push", "Poke"],
+            'F_M_verbs' : ["Kick", "Kiss", "Poke", "Push"],
+            'F_F_verbs' : ["Poke", "Pull", "Push"],
+            'M_M_verbs' : ["Poke", "Pull"]}
     elif exp_lan == 'sp':
         vanilla_names = copy.deepcopy(vanilla_names_sp)
         # verbs = np.array(["Kiss", "Kick", "Poke", "Lift", "Pull"])
         verbs = ["Kiss", "Kick", "Poke", "Lift", "Pull"]
-    verb_cat = {'M_F_verbs': ["Kick", "Kiss", "Lift", "Pull", "Push", "Poke"],
-        'F_M_verbs' : ["Kick", "Kiss", "Lift", "Poke", "Push"],
-        'F_F_verbs' : ["Lift", "Poke", "Pull", "Push"],
-        'M_M_verbs' : ["Lift", "Poke", "Pull"]}
-
+        verb_cat = {'M_F_verbs': ["Lift", "Push"],
+            'F_M_verbs' : ["Kick", "Kiss"],
+            'F_F_verbs' : ["Poke", "Pull"]}
 
 # names used in items will be removed to avoid repition in items
     names = copy.deepcopy(vanilla_names)
@@ -185,7 +186,7 @@ def create_stimuli(bCreate_stimuli, iExp,
     verbs_sp = {'Kick':'pateo a', #pego a
               'Kiss':'beso a',
               'Poke':'toco a',
-              # 'Push':'empujo a',
+              'Push':'empujo a', # not used as item
               'Pull':'halo a', # tiro de
               'Lift':'alzo a'}
 
@@ -213,7 +214,8 @@ def create_stimuli(bCreate_stimuli, iExp,
         patient_sex_mapped_to_verb = {'Kiss':'M',
                                       'Kick':'M',
                                       'Poke':'F',
-                                      'Lift':'M',
+                                      # 'Lift':'M',
+                                      'Lift':'F',
                                       'Push':'F',
                                       'Pull':'F'}
 
@@ -662,11 +664,12 @@ def create_stimuli(bCreate_stimuli, iExp,
                     break
 #            print(agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png')
 # using below for spanshi, have no idea how the chinese ones came out right todo
-            # if exp_lan == 'en':
-            #     cur_vanilla = glob.glob(os.path.join(vanilla_dir, agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png'))[0]
-            # elif exp_lan == 'ch':
-            #     cur_vanilla = glob.glob(os.path.join(vanilla_dir, '*' + verbs_ch[iRow.verb_in_picture] + '*.png'))[0]
-            cur_vanilla = glob.glob(os.path.join(vanilla_dir, agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png'))[0]
+            if exp_lan == 'en':
+                cur_vanilla = glob.glob(os.path.join(vanilla_dir, 'en',  agent_sex + '_' + iRow.verb_in_picture + '_' + patient_sex + '.png'))[0]
+            elif exp_lan == 'ch':
+                cur_vanilla = glob.glob(os.path.join(vanilla_dir, 'ch', '*' + verbs_ch[iRow.verb_in_picture] + '*.png'))[0]
+            elif exp_lan == 'sp':
+                cur_vanilla = glob.glob(os.path.join(vanilla_dir, 'sp', '*' + verbs_sp[iRow.verb_in_picture] + '*.png'))[0]
             print(iTrial)
             # print(cur_vanilla)
             cur_img = Image.open(cur_vanilla)

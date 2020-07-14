@@ -1,5 +1,5 @@
 current_data_dir=/Users/xzfang/Github/prosody_study_exp/audio_for_exp14_06_19_20
-
+current_exp=audio_for_exp14_06_19_20
 mfa_dir=/Users/xzfang/Desktop/montreal-forced-aligner
 my_praat_location=/Applications/Praat.app/Contents/MacOS/Praat
 
@@ -31,4 +31,4 @@ echo Computing dependent variables
 # http://www.fon.hum.uva.nl/praat/manual/Scripting_6_9__Calling_from_the_command_line.html
 $my_praat_location --run 0_extractAcoustics_woi.praat measure_$current_exp $current_data_dir/responses_to_analyze_downsampled/ $current_data_dir/responses_to_analyze_textgrid/ 1 2 2 ","
 
-echo see output file measure_$current_exp in the same dir as this file
+echo see output file measure_$current_exp in the same dir as  this file

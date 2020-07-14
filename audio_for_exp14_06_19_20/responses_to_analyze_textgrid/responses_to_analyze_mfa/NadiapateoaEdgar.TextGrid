@@ -22,14 +22,14 @@ item []:
 				text = "nadia"
 			intervals [3]:
 				xmin = 0.540
-				xmax = 1.070
+				xmax = 1.040
 				text = "pateo"
 			intervals [4]:
-				xmin = 1.070
-				xmax = 1.290
+				xmin = 1.040
+				xmax = 1.250
 				text = "a"
 			intervals [5]:
-				xmin = 1.290
+				xmin = 1.250
 				xmax = 1.870
 				text = "edgar"
 			intervals [6]:
@@ -60,10 +60,10 @@ item []:
 				text = "D"
 			intervals [5]:
 				xmin = 0.350
-				xmax = 0.470
+				xmax = 0.480
 				text = "j"
 			intervals [6]:
-				xmin = 0.470
+				xmin = 0.480
 				xmax = 0.540
 				text = "a"
 			intervals [7]:
@@ -80,22 +80,22 @@ item []:
 				text = "t"
 			intervals [10]:
 				xmin = 0.760
-				xmax = 0.960
+				xmax = 0.970
 				text = "e"
 			intervals [11]:
-				xmin = 0.960
-				xmax = 1.070
+				xmin = 0.970
+				xmax = 1.040
 				text = "o"
 			intervals [12]:
-				xmin = 1.070
-				xmax = 1.290
+				xmin = 1.040
+				xmax = 1.250
 				text = "a"
 			intervals [13]:
-				xmin = 1.290
-				xmax = 1.330
+				xmin = 1.250
+				xmax = 1.340
 				text = "e"
 			intervals [14]:
-				xmin = 1.330
+				xmin = 1.340
 				xmax = 1.460
 				text = "D"
 			intervals [15]:

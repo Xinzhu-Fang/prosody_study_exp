@@ -1,1 +1,0 @@
-participant,studyName,studyNameNah,expId,month,date,year,trialNah,trialId,word,wordlabel,phonelength,duration,silence,durasil,begin,meanpit,maxpitch,maxPitTime,minpitch,minPitTime,firstpitch,secondpitch,thirdpitch,fourthpitch,meanIntensity,maxIntensity

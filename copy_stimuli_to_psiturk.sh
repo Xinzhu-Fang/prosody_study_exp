@@ -1,7 +1,15 @@
 current_exp=exp14
 current_audio=audio_for_exp14_06_19_20
 
-mkdir $current_exp/audio
+function make_dir(){
+  if [ -d $@ ];
+  then rm -Rf $@;
+fi
+mkdir $@
+}
+
+
+make_dir $current_exp/audio
 
 cp $current_audio/responses_to_analyze/* $current_exp/audio/
 

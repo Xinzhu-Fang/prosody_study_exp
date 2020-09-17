@@ -7,9 +7,11 @@ import audioop
 import wave
 import sys
 import pandas as pd
+
+
 def downsampleWav(src, dst, inrate=48000, outrate=16000, inchannels=2, outchannels=1):
-# def downsampleWav(src, dst, inrate=44100, outrate=16000, inchannels=2, outchannels=1):
-# def downsampleWav(src, dst, inrate=44100, outrate=11025, inchannels=2, outchannels=1):
+    # def downsampleWav(src, dst, inrate=44100, outrate=16000, inchannels=2, outchannels=1):
+    # def downsampleWav(src, dst, inrate=44100, outrate=11025, inchannels=2, outchannels=1):
     if not os.path.exists(src):
         print('Source not found!')
         return False
@@ -28,6 +30,8 @@ def downsampleWav(src, dst, inrate=48000, outrate=16000, inchannels=2, outchanne
         converted = audioop.ratecv(data, 2, inchannels, inrate, outrate, None)
         if outchannels == 1:
             converted = audioop.tomono(converted[0], 2, 1, 0)
+        else:
+            converted = converted[0]
     except:
         print('Failed to downsample wav')
         return False
@@ -47,5 +51,6 @@ def downsampleWav(src, dst, inrate=48000, outrate=16000, inchannels=2, outchanne
         return False
 
     return True
+
 
 downsampleWav(sys.argv[1], sys.argv[2])

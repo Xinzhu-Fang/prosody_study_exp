@@ -17,10 +17,11 @@ import wave
 import re
 import pandas as pd
 
+
 def prep_wav(orig_wav, out_wav, sr_override, wave_start, wave_end):
     global sr_models
 
-    if os.path.exists(out_wav) and False :
+    if os.path.exists(out_wav) and False:
         f = wave.open(out_wav, 'r')
         SR = f.getframerate()
         f.close()
@@ -32,19 +33,21 @@ def prep_wav(orig_wav, out_wav, sr_override, wave_start, wave_end):
     f.close()
 
     soxopts = ""
-    if float(wave_start) != 0.0 or wave_end != None :
+    if float(wave_start) != 0.0 or wave_end != None:
         soxopts += " trim " + wave_start
-        if wave_end != None :
-            soxopts += " " + str(float(wave_end)-float(wave_start))
+        if wave_end != None:
+            soxopts += " " + str(float(wave_end) - float(wave_start))
 
     if (sr_models != None and SR not in sr_models) or (sr_override != None and SR != sr_override) or soxopts != "":
         new_sr = 11025
-        if sr_override != None :
+        if sr_override != None:
             new_sr = sr_override
 
-        print "Resampling wav file from " + str(SR) + " to " + str(new_sr) + soxopts + "..."
+        print "Resampling wav file from " + \
+            str(SR) + " to " + str(new_sr) + soxopts + "..."
         SR = new_sr
-        os.system("sox " + orig_wav + " -r " + str(SR) + " " + out_wav + " polyphase" + soxopts)
+        os.system("sox " + orig_wav + " -r " + str(SR) +
+                  " " + out_wav + " polyphase" + soxopts)
     else:
         #print "Using wav file, already at sampling rate " + str(SR) + "."
         os.system("cp -f " + orig_wav + " " + out_wav)
@@ -57,9 +60,9 @@ def prep_mlf(trsfile, mlffile, word_dictionary, surround, between):
     # we put in the MLF file are in the dictionary. Words
     # that are not are skipped with a warning.
     f = open(word_dictionary, 'r')
-    dict = { } # build hash table
+    dict = {}  # build hash table
     for line in f.readlines():
-        if line != "\n" and line != "" :
+        if line != "\n" and line != "":
             dict[line.split()[0]] = True
     f.close()
 
@@ -111,7 +114,8 @@ def prep_mlf(trsfile, mlffile, word_dictionary, surround, between):
 
     writeInputMLF(mlffile, words)
 
-def writeInputMLF(mlffile, words) :
+
+def writeInputMLF(mlffile, words):
     fw = open(mlffile, 'w')
     fw.write('#!MLF!#\n')
     fw.write('"*/tmp.lab"\n')
@@ -131,13 +135,14 @@ def readAlignedMLF(mlffile, SR, wave_start):
     lines = [l.rstrip() for l in f.readlines()]
     f.close()
 
-    if len(lines) < 3 :
+    if len(lines) < 3:
         raise ValueError("Alignment did not complete succesfully.")
 
     j = 2
     ret = []
     while (lines[j] <> '.'):
-        if (len(lines[j].split()) == 5): # Is this the start of a word; do we have a word label?
+        # Is this the start of a word; do we have a word label?
+        if (len(lines[j].split()) == 5):
             # Make a new word list in ret and put the word label at the beginning
             wrd = lines[j].split()[4]
             ret.append([wrd])
@@ -145,36 +150,40 @@ def readAlignedMLF(mlffile, SR, wave_start):
         # Append this phone to the latest word (sub-)list
         ph = lines[j].split()[2]
         if (SR == 11025):
-            st = (float(lines[j].split()[0])/10000000.0 + 0.0125)*(11000.0/11025.0)
-            en = (float(lines[j].split()[1])/10000000.0 + 0.0125)*(11000.0/11025.0)
+            st = (float(lines[j].split()[0]) /
+                  10000000.0 + 0.0125) * (11000.0 / 11025.0)
+            en = (float(lines[j].split()[1]) /
+                  10000000.0 + 0.0125) * (11000.0 / 11025.0)
         else:
-            st = float(lines[j].split()[0])/10000000.0 + 0.0125
-            en = float(lines[j].split()[1])/10000000.0 + 0.0125
+            st = float(lines[j].split()[0]) / 10000000.0 + 0.0125
+            en = float(lines[j].split()[1]) / 10000000.0 + 0.0125
         if st < en:
-            ret[-1].append([ph, st+wave_start, en+wave_start])
+            ret[-1].append([ph, st + wave_start, en + wave_start])
 
         j += 1
 
     return ret
 
-def writeTextGrid(outfile, word_alignments) :
+
+def writeTextGrid(outfile, word_alignments):
     # make the list of just phone alignments
     phons = []
-    for wrd in word_alignments :
-        phons.extend(wrd[1:]) # skip the word label
+    for wrd in word_alignments:
+        phons.extend(wrd[1:])  # skip the word label
 
     # make the list of just word alignments
     # we're getting elements of the form:
     #   ["word label", ["phone1", start, end], ["phone2", start, end], ...]
     wrds = []
-    for wrd in word_alignments :
+    for wrd in word_alignments:
         # If no phones make up this word, then it was an optional word
         # like a pause that wasn't actually realized.
-        if len(wrd) == 1 :
+        if len(wrd) == 1:
             continue
-        wrds.append([wrd[0], wrd[1][1], wrd[-1][2]]) # word label, first phone start time, last phone end time
+        # word label, first phone start time, last phone end time
+        wrds.append([wrd[0], wrd[1][1], wrd[-1][2]])
 
-    #write the phone interval tier
+    # write the phone interval tier
     fw = open(outfile, 'w')
     fw.write('File type = "ooTextFile short"\n')
     fw.write('"TextGrid"\n')
@@ -193,7 +202,7 @@ def writeTextGrid(outfile, word_alignments) :
         fw.write(str(phons[k][2]) + '\n')
         fw.write('"' + phons[k][0] + '"' + '\n')
 
-    #write the word interval tier
+    # write the word interval tier
     fw.write('"IntervalTier"\n')
     fw.write('"word"\n')
     fw.write(str(phons[0][1]) + '\n')
@@ -201,7 +210,7 @@ def writeTextGrid(outfile, word_alignments) :
     fw.write(str(len(wrds)) + '\n')
     for k in range(len(wrds) - 1):
         fw.write(str(wrds[k][1]) + '\n')
-        fw.write(str(wrds[k+1][1]) + '\n')
+        fw.write(str(wrds[k + 1][1]) + '\n')
         fw.write('"' + wrds[k][0] + '"' + '\n')
 
     fw.write(str(wrds[-1][1]) + '\n')
@@ -210,11 +219,13 @@ def writeTextGrid(outfile, word_alignments) :
 
     fw.close()
 
-def prep_working_directory() :
+
+def prep_working_directory():
     os.system("rm -r -f ./tmp")
     os.system("mkdir ./tmp")
 
-def prep_scp(wavfile) :
+
+def prep_scp(wavfile):
     fw = open('./tmp/codetr.scp', 'w')
     fw.write(wavfile + ' ./tmp/tmp.plp\n')
     fw.close()
@@ -222,22 +233,26 @@ def prep_scp(wavfile) :
     fw.write('./tmp/tmp.plp\n')
     fw.close()
 
-def create_plp(hcopy_config) :
+
+def create_plp(hcopy_config):
     os.system('HCopy -T 1 -C ' + hcopy_config + ' -S ./tmp/codetr.scp')
 
-def viterbi(input_mlf, word_dictionary, output_mlf, phoneset, hmmdir) :
-    os.system('HVite -T 1 -a -m -I ' + input_mlf + ' -H ' + hmmdir + '/macros -H ' + hmmdir + '/hmmdefs  -S ./tmp/test.scp -i ' + output_mlf + ' -p 0.0 -s 5.0 ' + word_dictionary + ' ' + phoneset + ' > ./tmp/aligned.results')
 
-def getopt2(name, opts, default = None) :
-    value = [v for n,v in opts if n==name]
-    if len(value) == 0 :
+def viterbi(input_mlf, word_dictionary, output_mlf, phoneset, hmmdir):
+    os.system('HVite -T 1 -a -m -I ' + input_mlf + ' -H ' + hmmdir + '/macros -H ' + hmmdir + '/hmmdefs  -S ./tmp/test.scp -i ' +
+              output_mlf + ' -p 0.0 -s 5.0 ' + word_dictionary + ' ' + phoneset + ' > ./tmp/aligned.results')
+
+
+def getopt2(name, opts, default=None):
+    value = [v for n, v in opts if n == name]
+    if len(value) == 0:
         return default
     return value[0]
 
 
 def MishasCoolWrapper(wavfile, trsfile, outfile):
     global sr_models
-    #^ missing in align.py [bug]
+    # ^ missing in align.py [bug]
     try:
         #opts, args = getopt.getopt(sys.argv[1:], "r:s:e:", ["model="])
 
@@ -251,36 +266,35 @@ def MishasCoolWrapper(wavfile, trsfile, outfile):
         # # trsfile= ' '.join(args[1:-1])
         # outfile = args[-1]
         # print(trsfile)
-        sr_override = None #getopt2("-r", opts, None)
-        wave_start = "0.0" #getopt2("-s", opts, "0.0")
-        wave_end = None #getopt2("-e", opts, None)
-        surround_token = "sp" #getopt2("-p", opts, 'sp')
-        between_token = "sp" #getopt2("-b", opts, 'sp')
+        sr_override = None  # getopt2("-r", opts, None)
+        wave_start = "0.0"  # getopt2("-s", opts, "0.0")
+        wave_end = None  # getopt2("-e", opts, None)
+        surround_token = "sp"  # getopt2("-p", opts, 'sp')
+        between_token = "sp"  # getopt2("-b", opts, 'sp')
 
         if surround_token.strip() == "":
             surround_token = None
         if between_token.strip() == "":
             between_token = None
 
-        mypath = None #getopt2("--model", opts, None)
-    except :
+        mypath = None  # getopt2("--model", opts, None)
+    except:
         print __doc__
         (type, value, traceback) = sys.exc_info()
         print value
         sys.exit(0)
 
-
     # If no model directory was said explicitly, get directory containing this script.
     hmmsubdir = ""
     sr_models = None
-    if mypath == None :
+    if mypath == None:
         mypath = os.path.dirname(os.path.abspath(sys.argv[0])) + "/model"
         hmmsubdir = "FROM-SR"
         # sample rates for which there are acoustic models set up, otherwise
         # the signal must be resampled to one of these rates.
         sr_models = [8000, 11025, 16000]
 
-    if sr_override != None and sr_models != None and not sr_override in sr_models :
+    if sr_override != None and sr_models != None and not sr_override in sr_models:
         raise ValueError, "invalid sample rate: not an acoustic model available"
 
     word_dictionary = "./tmp/dict"
@@ -296,17 +310,18 @@ def MishasCoolWrapper(wavfile, trsfile, outfile):
     else:
         os.system("cat " + mypath + "/dict > " + word_dictionary)
 
-    #prepare wavefile: do a resampling if necessary
+    # prepare wavefile: do a resampling if necessary
     tmpwav = "./tmp/sound.wav"
     SR = prep_wav(wavfile, tmpwav, sr_override, wave_start, wave_end)
 
-    if hmmsubdir == "FROM-SR" :
+    if hmmsubdir == "FROM-SR":
         hmmsubdir = "/" + str(SR)
 
-    #prepare mlfile
-    prep_mlf(trsfile, input_mlf, word_dictionary, surround_token, between_token)
+    # prepare mlfile
+    prep_mlf(trsfile, input_mlf, word_dictionary,
+             surround_token, between_token)
 
-    #prepare scp files
+    # prepare scp files
     prep_scp(tmpwav)
 
     # generate the plp file using a given configuration file for HCopy
@@ -315,7 +330,7 @@ def MishasCoolWrapper(wavfile, trsfile, outfile):
     # run Verterbi decoding
     #print "Running HVite..."
     mpfile = mypath + '/monophones'
-    if not os.path.exists(mpfile) :
+    if not os.path.exists(mpfile):
         mpfile = mypath + '/hmmnames'
     viterbi(input_mlf, word_dictionary, output_mlf, mpfile, mypath + hmmsubdir)
 
@@ -326,7 +341,7 @@ def MishasCoolWrapper(wavfile, trsfile, outfile):
 #wav_dir = sys.argv[1]
 #tTranscript = sys.argv[2]
 #textgrid_dir = sys.argv[3]
-#with open(tTranscript, 'r') as f:
+# with open(tTranscript, 'r') as f:
 #    for l in f.readlines():
 #        cur_wav, cur_transcript, cur_textgrid = l.strip('\n').split(',')
 #        cur_wav_full = os.path.join(wav_dir, cur_wav)

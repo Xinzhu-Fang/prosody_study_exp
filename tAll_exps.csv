@@ -1,16 +1,16 @@
 exp_name,exp_lan,exp_num_trials,locations,num_location,exp_num_of_items,exp_yes_to_no_ratio,exp_num_trial_yes,exp_num_trial_no,exp_num_of_control_for_each_item,exp_num_of_correction_for_each_location_for_each_item,item_num_trial_total,item_num_trial_yes,item_num_trial_no,item_num_trial_for_each_item,filler_num_trial_total,filler_num_trial_yes,filler_num_trial_no,my_seed,exp_questioner
-exp0,ch,72,"['Agent', 'Verb', 'Patient']",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",cindy
-exp1,en,72,"['Agent', 'Verb', 'Patient']",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",ted
-exp2,en,72,"['Agent', 'Verb', 'Patient']",3,4,0.5,24,48,2,2,32,8,24,8,40,16,24,"[1, 1, 1, 5, 4]",ted
-exp3,en,72,"['Agent', 'Verb', 'Patient']",3,4,0.125,8,64,2,2,32,8,24,8,40,0,40,"[1, 1, 1, 5, 4]",ted
-exp4,en,72,['Agent'],1,4,0.125,8,64,2,6,32,8,24,8,40,0,40,"[1, 1, 1, 5, 4]",ted
-exp5,en,72,"['Agent', 'Verb', 'Patient']",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",ted
-exp6,en,72,['Agent'],1,4,0.125,8,64,2,6,32,8,24,8,40,0,40,"[1, 1, 1, 5, 4]",ted
-exp7,en,72,"['Agent', 'Verb', 'Patient']",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",ted
-exp8,en,72,['Agent'],1,4,0.5,24,48,2,6,32,8,24,8,40,16,24,"[1, 1, 1, 5, 4]",ted
-exp9,en,72,['Agent'],1,4,0.125,8,64,2,6,32,8,24,8,40,0,40,"[1, 1, 1, 5, 4]",ted
-exp10,en,72,"['Agent', 'Verb', 'Patient']",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",computer-dry
-exp11,en,72,"['Agent', 'Verb', 'Patient']",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",text
-exp12,en,72,"['Agent', 'Verb', 'Patient']",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",computer-dry
-exp13,ch,72,"['Agent', 'Verb', 'Patient']",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",text
-exp14,sp,72,"['Agent', 'Verb', 'Patient']",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",computer-human
+exp0,ch,72,"[Agent, Verb, Patient]",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",cindy
+exp1,en,72,"[Agent, Verb, Patient]",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",ted
+exp2,en,72,"[Agent, Verb, Patient]",3,4,0.5,24,48,2,2,32,8,24,8,40,16,24,"[1, 1, 1, 5, 4]",ted
+exp3,en,72,"[Agent, Verb, Patient]",3,4,0.125,8,64,2,2,32,8,24,8,40,0,40,"[1, 1, 1, 5, 4]",ted
+exp4,en,72,[Agent],1,4,0.125,8,64,2,6,32,8,24,8,40,0,40,"[1, 1, 1, 5, 4]",ted
+exp5,en,72,"[Agent, Verb, Patient]",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",ted
+exp6,en,72,[Agent],1,4,0.125,8,64,2,6,32,8,24,8,40,0,40,"[1, 1, 1, 5, 4]",ted
+exp7,en,72,"[Agent, Verb, Patient]",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",ted
+exp8,en,72,[Agent],1,4,0.5,24,48,2,6,32,8,24,8,40,16,24,"[1, 1, 1, 5, 4]",ted
+exp9,en,72,[Agent],1,4,0.125,8,64,2,6,32,8,24,8,40,0,40,"[1, 1, 1, 5, 4]",ted
+exp10,en,72,"[Agent, Verb, Patient]",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",computer-dry
+exp11,en,72,"[Agent, Verb, Patient]",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",text
+exp12,en,72,"[Agent, Verb, Patient]",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",computer-dry
+exp13,ch,72,"[Agent, Verb, Patient]",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",text
+exp14,sp,72,"[Agent, Verb, Patient]",3,4,2.0,48,24,2,2,32,8,24,8,40,40,0,"[1, 1, 1, 5, 4]",computer-human

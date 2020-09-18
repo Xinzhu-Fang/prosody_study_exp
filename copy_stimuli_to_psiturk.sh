@@ -1,5 +1,6 @@
 current_exp=exp14
 current_audio=audio_for_exp14_06_19_20
+current_audio=audio_for_exp14_09_17_20_saima
 
 function make_dir(){
   if [ -d $@ ];

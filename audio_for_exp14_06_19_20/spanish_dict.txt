@@ -1,5 +1,5 @@
 lucas	l u k a s
-pateo	p a t e o
+pateó	p a t e o
 ingrid	i ng g rf i
 hugo	u G o
 raul	r aU l
@@ -7,7 +7,7 @@ simon	s i m o ng
 nadia	n a D j a
 salma	s a l m a
 miguel	m i g e l
-toco	t o k o
+tocó	t o k o
 emma	e m m a
 maite	m aI t e
 sergio	s e rf x j o
@@ -27,18 +27,18 @@ juana	x w a n a
 joaquin	x o a k i ng
 víctor	b i+ k t o rf
 george	L o rf L
-halo	a l o
+haló	a l o
 edgar	e D G a rf
 ester	e s t e rf
 borja	b o rf x a
 ivan	i b a n
 pilar	p i l a rf
 nuria	n u rf j a
-beso	b e s o
+besó	b e s o
 olga	o l G a
 laura	l aU rf a
 pablo	p a b l o
-alzo	a l s o
+alzó	a l s o
 judit	L u D i t
 eric	e rf i k
 alba	a l b a
@@ -47,4 +47,4 @@ pedro	p e D rf o
 raquel	r a k e l
 fabio	f a b j o
 eva	e b a
-belen	b e l e ng
+Belén	b e l e ng
